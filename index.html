@@ -3,239 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4-11 | Coming Soon</title>
+    <title>4-11 Studio | SYSTEM_ERROR</title>
     <!-- Tailwind CSS for utility styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
+    <!-- Google Fonts: Inter & JetBrains Mono for game aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
     <style>
-        /* CUSTOM CSS VARIABLES */
         :root {
             --bg-color: #000000;
             --text-main: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.4);
-            --text-very-muted: rgba(255, 255, 255, 0.15);
-            --accent-white: #ffffff;
-            --transition-speed: 0.6s;
+            --accent: #ffffff;
+            --glitch-speed: 0.2s;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
-            overflow-x: hidden;
+            overflow: hidden;
+            cursor: none; /* Hide default cursor */
         }
 
-        /* TYPOGRAPHY EFFECTS */
-        .border-text-white {
-            -webkit-text-stroke: 1.5px var(--text-very-muted);
-            color: transparent;
-            transition: all var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1);
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Custom Cursor */
+        #cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.08s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            mix-blend-mode: difference;
+        }
+        #cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
         }
 
-        .border-text-white:hover {
-            -webkit-text-stroke: 1.5px var(--text-main);
-        }
-        
-        @media (max-width: 768px) {
-            .border-text-white { -webkit-text-stroke: 1px var(--text-very-muted); }
-        }
-
-        /* ANIMATIONS */
-        .animate-pulse-slow {
-            animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.05; }
-            50% { opacity: 0.2; }
+        /* Scanline / CRT Effect */
+        .scanlines {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                transparent 50%,
+                rgba(255, 255, 255, 0.015) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
         }
 
         .noise-bg {
             background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.15;
         }
 
-        /* ENTRANCE ANIMATION */
+        /* Glitch Animation */
+        .glitch {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch::before, .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: black;
+        }
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            20% { clip: rect(62px, 9999px, 42px, 0); }
+            100% { clip: rect(89px, 9999px, 98px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(10px, 9999px, 85px, 0); }
+            20% { clip: rect(45px, 9999px, 12px, 0); }
+            100% { clip: rect(23px, 9999px, 56px, 0); }
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #fff;
+            width: 0%;
+            transition: width 0.3s ease-out;
+        }
+
+        .game-border {
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        /* Mini Game Styles */
+        #game-canvas-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            display: none;
+        }
+        .target {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 1px solid #fff;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-family: 'JetBrains Mono';
+            color: #fff;
+            animation: target-float 2s infinite alternate ease-in-out;
+        }
+        @keyframes target-float {
+            from { transform: scale(0.9); border-color: rgba(255,255,255,0.2); }
+            to { transform: scale(1.1); border-color: rgba(255,255,255,0.8); }
+        }
+
         .fade-in {
             opacity: 0;
-            animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation: fadeIn 1s ease-out forwards;
         }
-
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(40px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* FORM CUSTOMIZATION */
-        input::placeholder {
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            font-size: 0.6rem;
-            color: var(--text-very-muted);
-            font-weight: 900;
-        }
+        /* Terminal Prompt Blink */
+        .blink { animation: blink 1s step-end infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        #subscribe-form input {
-            transition: border-color var(--transition-speed) ease;
-        }
-
-        #subscribe-form input:focus {
-            border-color: var(--text-main);
-        }
-
-        /* CUSTOM SELECTION COLOR */
-        ::selection {
-            background-color: var(--text-main);
-            color: var(--bg-color);
-        }
+        a, button, input, .target { cursor: none; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col relative selection:bg-white selection:text-black">
     
-    <!-- Background Texture & Ambient Lights -->
-    <div class="fixed inset-0 noise-bg opacity-10 pointer-events-none z-0"></div>
-    <div class="fixed top-[-25%] left-[-15%] w-[80vw] h-[80vw] bg-white/5 blur-[180px] rounded-full pointer-events-none z-0"></div>
-    <div class="fixed bottom-[-15%] right-[-15%] w-[60vw] h-[60vw] bg-white/5 blur-[150px] rounded-full pointer-events-none z-0"></div>
+    <!-- Animated Cursor -->
+    <div id="cursor-follower">
+        <div id="cursor-dot"></div>
+    </div>
 
-    <!-- Navigation Header -->
-    <header class="p-8 md:p-12 relative z-10 flex justify-between items-center fade-in" style="animation-delay: 0.2s;">
-        <div class="h-10 md:h-12 flex items-center group cursor-pointer">
-            <!-- Simplified Path: Renaming your file to logo.png in the assets folder is highly recommended -->
-            <img 
-                src="assets/logo.png" 
-                alt="4-11 Logo" 
-                class="h-full w-auto object-contain transition-transform duration-700 group-hover:scale-110"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-            >
-            <div class="text-3xl font-black tracking-tighter italic uppercase transition-transform hover:scale-105">4-11</div>
+    <!-- Retro Effects -->
+    <div class="scanlines"></div>
+    <div class="fixed inset-0 noise-bg pointer-events-none z-0"></div>
+
+    <!-- Header -->
+    <header class="p-8 md:p-12 relative z-50 flex justify-between items-center fade-in" style="animation-delay: 0.2s;">
+        <div class="flex items-center gap-4">
+            <div class="h-8 md:h-10">
+                <img 
+                    src="assets/logo.png" 
+                    alt="4-11 Studio Logo" 
+                    class="h-full w-auto object-contain brightness-0 invert"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                >
+                <div class="hidden text-xl font-black tracking-tighter italic uppercase transition-transform hover:scale-105 mono">4-11 Studio</div>
+            </div>
         </div>
-        <nav class="flex gap-10 text-[10px] font-black tracking-[0.5em] uppercase text-white/30">
-            <a href="https://www.instagram.com/four_eleven.in/" target="_blank" class="hover:text-white transition-all hover:tracking-[0.7em]">Instagram</a>
-            <a href="#" class="hover:text-white transition-all hover:tracking-[0.7em]">LinkedIn</a>
+        <nav class="flex gap-10 text-[10px] font-black tracking-[0.5em] uppercase text-white/30 mono">
+            <a href="https://www.instagram.com/four_eleven.in/" target="_blank" class="hover:text-white transition-all">Instagram</a>
+            <a href="#" class="hover:text-white transition-all">Manual_Override</a>
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <main class="flex-grow flex flex-col justify-center px-6 relative z-10 max-w-7xl mx-auto w-full py-20">
+    <!-- Main Game UI -->
+    <main class="flex-grow flex flex-col justify-center px-6 relative z-10 max-w-7xl mx-auto w-full py-12">
+        
         <div class="fade-in" style="animation-delay: 0.4s;">
-            <div class="flex items-center gap-6 mb-16">
-                <span class="w-20 h-[1px] bg-white/20"></span>
-                <span class="text-[10px] font-black uppercase tracking-[0.8em] text-white/30">
-                    EST. 2025 • BRANDING
+            <div class="flex items-center gap-4 mb-8">
+                <div id="status-box" class="p-1 border border-white/20 rounded">
+                    <div id="status-dot" class="w-2 h-2 bg-white animate-pulse"></div>
+                </div>
+                <span id="phase-text" class="text-[10px] font-black uppercase tracking-[0.6em] text-white/30 mono">
+                    PHASE_01: INITIALIZING
                 </span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mb-12">
                 <div class="lg:col-span-8">
-                    <h1 class="text-[14vw] md:text-[10vw] font-black leading-[0.75] tracking-[-0.07em] uppercase">
-                        STAYING <br />
-                        <span class="text-transparent border-text-white">HIDDEN</span> <br />
-                        FOR NOW.
+                    <h1 id="main-heading" class="text-[12vw] md:text-[8vw] font-black leading-[0.8] tracking-[-0.05em] uppercase glitch mb-8" data-text="LOADING">
+                        LOADING<span class="text-white/20 blink">_</span>
                     </h1>
-                </div>
-                <div class="lg:col-span-4 flex justify-center lg:justify-end">
-                    <div class="w-full max-w-[320px] md:max-w-[420px] aspect-square relative fade-in" style="animation-delay: 0.8s;">
-                        <!-- Updated Hero Image with fallback logic -->
-                        <div class="w-full h-full flex items-center justify-center border border-white/5 rounded-2xl bg-white/[0.02]">
-                            <img 
-                                src="assets/logo.png" 
-                                alt="4-11 Visual Identity" 
-                                class="w-full h-full object-contain opacity-90 transition-all duration-1000"
-                                onerror="this.classList.add('hidden'); this.parentElement.innerHTML='<div class=\'text-5xl font-black opacity-10 uppercase italic\'>4-11</div>';"
-                            >
+                    <div id="progress-section" class="max-w-md">
+                        <div class="flex justify-between text-[10px] mono mb-2 text-white/40 uppercase">
+                            <span id="buffer-label">Buffer Status</span>
+                            <span id="progress-text">0%</span>
                         </div>
-                        <div class="absolute inset-0 bg-white/5 blur-[100px] -z-10 rounded-full animate-pulse-slow"></div>
+                        <div class="progress-container mb-4">
+                            <div id="progress-bar" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Game Area -->
+                    <div id="game-canvas-container" class="mt-8 rounded-lg group">
+                        <div class="absolute top-4 left-4 text-[9px] mono text-white/40 uppercase">
+                            Deficit Detected: Destroy the Glitches to repair sequence [<span id="score">0</span>/5]
+                        </div>
+                        <div id="game-arena" class="w-full h-full relative"></div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 lg:text-right">
+                    <div id="console-box" class="game-border p-6 inline-block text-left bg-white/5 backdrop-blur-sm min-w-[300px]">
+                        <div class="text-[10px] mono text-white/30 uppercase mb-4">Console_Output</div>
+                        <p id="console-text" class="text-[10px] mono leading-relaxed text-white/60">
+                            > ACCESSING_ENCRYPTED_FILES...<br>
+                            > STRIPPING_THE_NOISE...<br>
+                            > TARGET: 4-11_STUDIO_IDENTITY<br>
+                            > STATUS: STAND_BY
+                        </p>
+                        <button id="override-btn" class="hidden mt-6 w-full border border-white/20 py-3 text-[10px] mono uppercase hover:bg-white hover:text-black transition-all">
+                            [ START_MANUAL_OVERRIDE ]
+                        </button>
                     </div>
                 </div>
             </div>
 
-            <div class="flex flex-col lg:flex-row justify-between items-end gap-24">
-                <div class="max-w-2xl fade-in" style="animation-delay: 1s;">
-                    <p class="text-3xl md:text-5xl text-white/40 font-black tracking-tighter leading-none mb-8">
-                        STRIPPING AWAY <br /> THE NOISE.
-                    </p>
-                    <p class="text-lg text-white/20 font-medium leading-relaxed max-w-md">
-                        We are currently refining the 4-11 visual system. Our new digital experience and portfolio will drop when the information is ready.
+            <div id="interaction-section" class="flex flex-col lg:flex-row justify-between items-end gap-16 transition-opacity duration-500">
+                <div class="max-w-xl">
+                    <p class="text-2xl md:text-4xl font-black tracking-tighter leading-none mb-6">
+                        LEVELING UP THE <br /> VISUAL SYSTEM.
                     </p>
                 </div>
 
-                <!-- Subscription Form -->
-                <div class="max-w-md w-full fade-in" style="animation-delay: 1.2s;">
-                    <form id="subscribe-form" class="relative flex flex-col group">
-                        <label for="email-input" class="text-[9px] font-black tracking-[0.4em] uppercase text-white/20 mb-4 ml-1">The Inner Circle</label>
-                        <div class="relative flex items-center">
+                <!-- Terminal Form -->
+                <div class="max-w-md w-full">
+                    <form id="subscribe-form" class="relative opacity-50 pointer-events-none">
+                        <div class="text-[9px] mono tracking-[0.4em] uppercase text-white/20 mb-3 ml-1">Connect to Server</div>
+                        <div class="relative flex flex-col">
                             <input 
                                 type="email" 
                                 id="email-input"
-                                required
-                                placeholder="Enter your email" 
-                                class="w-full bg-transparent border-b border-white/10 py-6 px-1 outline-none transition-colors font-bold text-2xl md:text-3xl placeholder:text-white/5"
+                                disabled
+                                placeholder="LOCKED: COMPLETE_OVERRIDE" 
+                                class="w-full bg-white/5 border border-white/10 p-6 outline-none focus:border-white transition-all font-bold text-xl md:text-2xl mono placeholder:text-white/5"
                             >
                             <button 
                                 type="submit"
-                                class="absolute right-0 text-white/20 hover:text-white transition-all flex items-center gap-4 group"
-                                aria-label="Notify Me"
+                                disabled
+                                class="w-full mt-4 bg-white/10 text-white/20 py-4 font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-2 group"
                             >
-                                <span class="text-[9px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Request Access</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right group-hover:translate-x-2 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                Send Data <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                             </button>
                         </div>
                     </form>
-                    <div id="success-msg" class="hidden flex items-center gap-6 text-white font-black uppercase tracking-[0.2em] text-xs py-10">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                        <span>Access Granted. Stand by.</span>
+                    <div id="success-msg" class="hidden text-center py-10 bg-white/10 border border-white/20 backdrop-blur-md">
+                        <div class="text-xl font-black uppercase tracking-widest mb-2">Authenticated</div>
+                        <p class="text-[10px] mono text-white/40 uppercase">Access Granted. Welcome to 4-11 Studio.</p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="p-8 md:p-12 relative z-10 flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 mt-auto fade-in" style="animation-delay: 1.4s;">
-        <div class="flex items-center gap-5">
-            <div class="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.5)]"></div>
-            <p class="text-[9px] font-black text-white/20 uppercase tracking-[0.6em]">
-                LIVE STATUS • ACTIVE
-            </p>
-        </div>
-        <div class="flex gap-16">
-            <div class="group flex items-center gap-4 text-white/20 text-[10px] font-black uppercase tracking-widest hover:text-white transition-all cursor-pointer" onclick="window.location.href='mailto:hello@4eleven.in'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                <span>Email Us</span>
+    <!-- Footer Stats -->
+    <footer class="p-8 md:p-12 relative z-10 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 mt-auto mono">
+        <div class="flex items-center gap-6">
+            <div class="flex flex-col">
+                <span class="text-[8px] text-white/20 uppercase tracking-widest">Region</span>
+                <span class="text-[10px] text-white/60 uppercase">GLOBAL_NODE</span>
             </div>
+            <div class="w-[1px] h-6 bg-white/10"></div>
+            <div class="flex flex-col">
+                <span class="text-[8px] text-white/20 uppercase tracking-widest">Protocol</span>
+                <span class="text-[10px] text-white/60">4-11_V.2</span>
+            </div>
+        </div>
+        <div class="text-[9px] font-black text-white/20 uppercase tracking-[0.5em]">
+            © 2025 4-11 Studio • ALL RIGHTS RESERVED
         </div>
     </footer>
 
-    <!-- Interactive Logic -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('subscribe-form');
-            const success = document.getElementById('success-msg');
-            
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Smooth state transition
-                form.style.opacity = '0';
-                form.style.transform = 'translateY(-10px)';
-                form.style.transition = 'all 0.5s ease';
-                form.style.pointerEvents = 'none';
-                
-                setTimeout(() => {
-                    form.classList.add('hidden');
-                    success.classList.remove('hidden');
-                    success.style.opacity = '0';
-                    success.style.transform = 'translateY(10px)';
-                    
-                    // Trigger reflow for animation
-                    requestAnimationFrame(() => {
-                        success.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
-                        success.style.opacity = '1';
-                        success.style.transform = 'translateY(0)';
-                    });
-                }, 500);
+        // Cursor Follower Logic
+        const cursor = document.getElementById('cursor-follower');
+        const dot = document.getElementById('cursor-dot');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+        });
+
+        // Hover Effect for Cursor
+        function updateInteractions() {
+            const interactables = document.querySelectorAll('a, button, input, .target');
+            interactables.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.style.width = '60px';
+                    cursor.style.height = '60px';
+                    cursor.style.background = 'rgba(255,255,255,0.1)';
+                    cursor.style.borderColor = 'rgba(255,255,255,0.8)';
+                    dot.style.background = '#00fff9';
+                });
+                el.addEventListener('mouseleave', () => {
+                    cursor.style.width = '40px';
+                    cursor.style.height = '40px';
+                    cursor.style.background = 'transparent';
+                    cursor.style.borderColor = 'rgba(255,255,255,0.5)';
+                    dot.style.background = 'white';
+                });
             });
+        }
+        updateInteractions();
+
+        // Progress Bar & Game Trigger Logic
+        const bar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+        const mainHeading = document.getElementById('main-heading');
+        const consoleText = document.getElementById('console-text');
+        const overrideBtn = document.getElementById('override-btn');
+        const gameContainer = document.getElementById('game-canvas-container');
+        const gameArena = document.getElementById('game-arena');
+        const scoreText = document.getElementById('score');
+        
+        let progress = 0;
+        let gameScore = 0;
+        const targetScore = 5;
+
+        const loadingInterval = setInterval(() => {
+            progress += Math.floor(Math.random() * 3) + 1;
+            
+            if (progress >= 99) {
+                progress = 99;
+                clearInterval(loadingInterval);
+                triggerSystemError();
+            }
+            
+            bar.style.width = `${progress}%`;
+            progressText.innerText = `${progress}%`;
+        }, 120);
+
+        function triggerSystemError() {
+            mainHeading.setAttribute('data-text', 'ERROR_99');
+            mainHeading.innerHTML = 'ERROR_99<span class="text-red-500 blink">!</span>';
+            document.getElementById('status-dot').classList.replace('bg-white', 'bg-red-500');
+            document.getElementById('phase-text').innerText = 'CRITICAL: SEQUENCE_HALTED';
+            document.getElementById('phase-text').classList.add('text-red-500');
+            
+            consoleText.innerHTML += `<br><span class="text-red-500">> ERR: BUFFER_OVERFLOW_AT_99%</span>`;
+            consoleText.innerHTML += `<br><span class="text-red-500">> ERR: REPAIR_REQUIRED</span>`;
+            
+            overrideBtn.classList.remove('hidden');
+            overrideBtn.classList.add('fade-in');
+            updateInteractions();
+        }
+
+        // Mini Game Logic
+        overrideBtn.addEventListener('click', () => {
+            overrideBtn.classList.add('hidden');
+            gameContainer.style.display = 'block';
+            gameContainer.classList.add('fade-in');
+            spawnTarget();
+        });
+
+        function spawnTarget() {
+            if (gameScore >= targetScore) return endMiniGame();
+            
+            const target = document.createElement('div');
+            target.className = 'target';
+            target.innerHTML = '0x' + Math.floor(Math.random()*16).toString(16).toUpperCase();
+            
+            const x = Math.random() * (gameArena.offsetWidth - 50);
+            const y = Math.random() * (gameArena.offsetHeight - 50);
+            
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
+            
+            target.onclick = () => {
+                gameScore++;
+                scoreText.innerText = gameScore;
+                target.remove();
+                if (gameScore < targetScore) {
+                    spawnTarget();
+                } else {
+                    endMiniGame();
+                }
+            };
+            
+            gameArena.appendChild(target);
+            updateInteractions();
+        }
+
+        function endMiniGame() {
+            gameContainer.style.opacity = '0.3';
+            gameContainer.style.pointerEvents = 'none';
+            
+            progress = 100;
+            bar.style.width = '100%';
+            progressText.innerText = '100%';
+            
+            mainHeading.setAttribute('data-text', 'READY');
+            mainHeading.innerHTML = 'READY<span class="text-white blink">_</span>';
+            
+            document.getElementById('status-dot').classList.replace('bg-red-500', 'bg-green-500');
+            document.getElementById('phase-text').innerText = 'REPAIRED: ACCESS_RESTORED';
+            document.getElementById('phase-text').classList.replace('text-red-500', 'text-green-500');
+            
+            consoleText.innerHTML += `<br><span class="text-green-500">> OK: SECTOR_REPAIRED</span>`;
+            consoleText.innerHTML += `<br><span class="text-green-500">> OK: DECRYPT_SUCCESS</span>`;
+
+            // Unlock Form
+            const form = document.getElementById('subscribe-form');
+            form.classList.remove('opacity-50', 'pointer-events-none');
+            const input = document.getElementById('email-input');
+            input.disabled = false;
+            input.placeholder = 'USER@IDENTITY.IN';
+            const btn = form.querySelector('button');
+            btn.disabled = false;
+            btn.classList.replace('bg-white/10', 'bg-white');
+            btn.classList.replace('text-white/20', 'text-black');
+            
+            updateInteractions();
+        }
+
+        // Form Submission
+        const form = document.getElementById('subscribe-form');
+        const success = document.getElementById('success-msg');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.classList.add('fade-in');
+            }, 300);
         });
     </script>
 </body>
