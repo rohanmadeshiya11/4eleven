@@ -28,26 +28,25 @@
 
         .mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* Custom Cursor */
+        /* Smooth Single Cursor */
         #cursor-follower {
             position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 1px solid rgba(255,255,255,0.5);
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background: white;
             border-radius: 50%;
             pointer-events: none;
             z-index: 9999;
-            transition: transform 0.08s ease-out, width 0.3s, height 0.3s, border-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            /* Transitions for size and color change only. Movement is handled by JS. */
+            transition: width 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+                        height 0.2s cubic-bezier(0.23, 1, 0.32, 1), 
+                        background-color 0.3s ease,
+                        border 0.3s ease;
             mix-blend-mode: difference;
-        }
-        #cursor-dot {
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
+            will-change: transform;
+            transform: translate3d(-100px, -100px, 0);
         }
 
         /* Scanline / CRT Effect */
@@ -171,10 +170,8 @@
 </head>
 <body class="min-h-screen flex flex-col relative selection:bg-white selection:text-black">
     
-    <!-- Animated Cursor -->
-    <div id="cursor-follower">
-        <div id="cursor-dot"></div>
-    </div>
+    <!-- Smooth Single Cursor -->
+    <div id="cursor-follower"></div>
 
     <!-- Retro Effects -->
     <div class="scanlines"></div>
@@ -308,34 +305,68 @@
     </footer>
 
     <script>
-        // Cursor Follower Logic
+        // Cursor Smooth Lerp Logic
         const cursor = document.getElementById('cursor-follower');
-        const dot = document.getElementById('cursor-dot');
-        
+        let mouseX = -100, mouseY = -100; // Target position
+        let currentX = -100, currentY = -100; // Current position
+        let cursorSize = 20; // Default size
+        let firstMove = true;
+
         document.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // On the very first movement, snap the cursor to the mouse to avoid a "fly-in" lag effect
+            if (firstMove) {
+                currentX = mouseX;
+                currentY = mouseY;
+                firstMove = false;
+            }
         });
+
+        function animateCursor() {
+            // Increased Lerp factor for much snappier movement (closer to 1 = less lag)
+            const lerp = 0.35; 
+            currentX += (mouseX - currentX) * lerp;
+            currentY += (mouseY - currentY) * lerp;
+
+            // Apply transform using translate3d for hardware acceleration
+            // Half-size offset logic to keep it centered on mouse tip
+            cursor.style.transform = `translate3d(${currentX - cursorSize / 2}px, ${currentY - cursorSize / 2}px, 0)`;
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
 
         // Hover Effect for Cursor
         function updateInteractions() {
             const interactables = document.querySelectorAll('a, button, input, .target');
             interactables.forEach(el => {
-                el.addEventListener('mouseenter', () => {
-                    cursor.style.width = '60px';
-                    cursor.style.height = '60px';
-                    cursor.style.background = 'rgba(255,255,255,0.1)';
-                    cursor.style.borderColor = 'rgba(255,255,255,0.8)';
-                    dot.style.background = '#00fff9';
-                });
-                el.addEventListener('mouseleave', () => {
-                    cursor.style.width = '40px';
-                    cursor.style.height = '40px';
-                    cursor.style.background = 'transparent';
-                    cursor.style.borderColor = 'rgba(255,255,255,0.5)';
-                    dot.style.background = 'white';
-                });
+                // Ensure we don't double-bind
+                el.removeEventListener('mouseenter', handleMouseEnter);
+                el.removeEventListener('mouseleave', handleMouseLeave);
+                
+                el.addEventListener('mouseenter', handleMouseEnter);
+                el.addEventListener('mouseleave', handleMouseLeave);
             });
         }
+
+        function handleMouseEnter() {
+            cursorSize = 60;
+            cursor.style.width = '60px';
+            cursor.style.height = '60px';
+            cursor.style.backgroundColor = 'rgba(255,255,255,0.1)';
+            cursor.style.border = '1px solid #00fff9';
+        }
+
+        function handleMouseLeave() {
+            cursorSize = 20;
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.backgroundColor = 'white';
+            cursor.style.border = 'none';
+        }
+
         updateInteractions();
 
         // Progress Bar & Game Trigger Logic
