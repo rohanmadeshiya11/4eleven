@@ -1,24 +1,474 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>4-11 Studio</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-11 Studio | Branding & Media Production</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=JetBrains+Mono:wght@400;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #000000;
+            --bg-dark-grey: #0a0a0a;
+            --text-white: #ffffff;
+            --text-grey: #a3a3a3;
+            --border-grey: rgba(255, 255, 255, 0.08);
+            --accent: #ffb300; 
+            --accent-soft: rgba(255, 179, 0, 0.15);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-white);
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Custom Interactive Cursor */
+        #cursor-follower {
+            position: fixed; top: 0; left: 0; width: 8px; height: 8px;
+            background: white; border-radius: 50%; pointer-events: none;
+            z-index: 9999; mix-blend-mode: difference;
+            will-change: transform; transform: translate3d(-100px, -100px, 0);
+        }
+
+        #cursor-ring {
+            position: fixed; top: 0; left: 0; width: 40px; height: 40px;
+            border: 1px solid rgba(255,179,0,0.3); border-radius: 50%;
+            pointer-events: none; z-index: 9998;
+            will-change: transform; transform: translate3d(-100px, -100px, 0);
+            transition: width 0.3s ease, height 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        /* Ambient Texture */
+        .noise-bg {
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            opacity: 0.12; position: fixed; inset: 0; pointer-events: none; z-index: 1;
+        }
+
+        /* Typography */
+        .hero-text {
+            font-size: clamp(3rem, 10vw, 9rem);
+            line-height: 0.85; letter-spacing: -0.05em; font-weight: 900;
+        }
+
+        .outline-text {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.2); color: transparent;
+            transition: all 0.5s ease;
+        }
+        .outline-text:hover { 
+            -webkit-text-stroke: 1px var(--accent);
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255, 179, 0, 0.2);
+        }
+
+        .page-content { min-height: 100vh; }
+        .fade-up { opacity: 1; transform: translateY(0); }
+        .magnetic { display: inline-block; transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1); }
+
+        /* Transition Overlay */
+        #page-transition {
+            position: fixed; inset: 0; background: var(--accent); z-index: 100;
+            transform: translateY(100%); pointer-events: none;
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-color: var(--accent);
+        }
+
+        /* Huge Footer Text */
+        .footer-massive-text {
+            font-size: clamp(5rem, 20vw, 25rem);
+            line-height: 0.75;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #111;
+            transition: color 0.5s ease;
+        }
+        .footer-massive-text:hover {
+            color: var(--accent);
+            opacity: 0.15;
+        }
+
+        a, button, input, .work-card, .service-card { cursor: none; }
+
+        ::selection { background: var(--accent); color: black; }
+        .accent-text { color: var(--accent); }
+        .accent-bg { background-color: var(--accent); }
+    </style>
 </head>
-<body>
-<nav>
-<div>4-11 Studio</div>
-<div>
-<a href="index.html">Home</a>
-<a href="pages/work.html">Work</a>
-<a href="pages/services.html">Services</a>
-<a href="pages/contact.html">Contact</a>
-</div>
-</nav>
+<body class="selection:bg-[#ffb300] selection:text-black">
+    
+    <div id="cursor-follower"></div>
+    <div id="cursor-ring"></div>
+    <div id="page-transition"></div>
+    <div class="noise-bg"></div>
 
-<section class="hero">
-<h1>Building Brands That Convert</h1>
-</section>
+    <!-- Top Status Bar -->
+    <div class="absolute top-0 left-0 w-full z-[60] px-8 py-4 flex justify-between items-center text-[8px] mono text-neutral-500 uppercase tracking-[0.2em] border-b border-white/5 bg-black/40 backdrop-blur-md">
+        <div class="flex gap-6 items-center">
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full accent-bg animate-pulse shadow-[0_0_10px_#ffb300]"></span>
+                <span class="text-neutral-400">Node_Online</span>
+            </div>
+            <div class="hidden sm:block opacity-40">Location: Mumbai_2026.ID</div>
+            <div id="live-clock" class="accent-text font-bold">00:00:00</div>
+        </div>
+        <div class="flex gap-6 items-center">
+            <div id="scroll-percentage" class="accent-text font-bold">Scroll: 0%</div>
+            <div id="page-indicator" class="hidden sm:block font-bold text-neutral-300">Location: Home</div>
+        </div>
+    </div>
 
-<script src="js/main.js"></script>
+    <!-- Persistent Navigation -->
+    <nav class="fixed top-0 w-full z-50 p-8 md:p-12 flex justify-between items-center mix-blend-difference">
+        <div class="h-8 md:h-10 magnetic flex items-center gap-4 cursor-pointer" data-magnetic-strength="0.3" onclick="navigateTo('home')">
+            <img 
+                src="513689670_17969272799912864_8394707357259788053_n-Photoroom.png" 
+                alt="4-11 Logo" 
+                class="h-full w-auto object-contain brightness-0 invert"
+                onerror="this.src='assets/513689670_17969272799912864_8394707357259788053_n-Photoroom.png'; this.onerror=function(){this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden');};"
+            >
+            <div id="logo-fallback" class="hidden text-2xl font-black tracking-tighter italic uppercase text-white">4-11 Studio</div>
+        </div>
+        <div class="hidden md:flex gap-12 text-[10px] font-bold uppercase tracking-[0.4em] mono text-white/60">
+            <a href="javascript:void(0)" onclick="navigateTo('work')" class="nav-link transition-colors magnetic" data-page="work">Work</a>
+            <a href="javascript:void(0)" onclick="navigateTo('services')" class="nav-link transition-colors magnetic" data-page="services">Services</a>
+            <a href="javascript:void(0)" onclick="navigateTo('about')" class="nav-link transition-colors magnetic" data-page="about">About</a>
+            <a href="javascript:void(0)" onclick="navigateTo('contact')" class="nav-link transition-colors underline decoration-white/20 underline-offset-8 magnetic" data-page="contact">Let's Talk</a>
+        </div>
+    </nav>
+
+    <main id="content-area">
+        <!-- Home Page -->
+        <div id="page-home" class="page-content">
+            <section class="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-24 relative bg-black overflow-hidden">
+                <div class="max-w-7xl mx-auto w-full">
+                    <div class="mb-12 flex items-center gap-4 fade-up">
+                        <div class="w-12 h-[1px] accent-bg"></div>
+                        <span class="text-[10px] font-black uppercase tracking-[0.6em] accent-text">Strategy • Branding • Performance</span>
+                    </div>
+                    <h1 class="hero-text mb-12 fade-up uppercase">Building<br><span class="outline-text">Brands</span><br>That Convert.</h1>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end fade-up">
+                        <div class="md:col-span-6">
+                            <p class="text-xl md:text-2xl text-neutral-400 leading-tight mb-10 font-medium">We help brands scale through strategic design and high-performance storytelling for <span class="text-white">2026</span>.</p>
+                            <button onclick="navigateTo('work')" class="magnetic group flex items-center gap-4 accent-bg text-black px-10 py-5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-white transition-all duration-500 shadow-[0_0_30px_rgba(255,179,0,0.3)]">View Our Work <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Section -->
+            <section class="py-32 px-6 md:px-12 bg-[#050505]">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-24 flex justify-between items-end fade-up">
+                        <h2 class="text-5xl font-black uppercase tracking-tighter">Featured <span class="accent-text">Work</span></h2>
+                        <a href="javascript:void(0)" onclick="navigateTo('work')" class="text-[10px] mono uppercase tracking-widest text-neutral-500 hover:text-white underline decoration-accent/30">All Projects</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="work-card group fade-up">
+                            <div class="aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-white/5">
+                                <img src="https://cdn.myportfolio.com/fc6159c9-63f3-406f-8ed9-0be02a8bc507/750162d6-0dd5-4b8c-a4b9-d5766d17b1cc_car_202x158.png" alt="Traya Health">
+                            </div>
+                            <div class="flex justify-between items-center mt-6">
+                                <h3 class="text-xl font-bold uppercase">Traya Health</h3>
+                                <div class="w-2 h-2 rounded-full accent-bg"></div>
+                            </div>
+                        </div>
+                        <div class="work-card group fade-up mt-12 md:mt-24">
+                            <div class="aspect-video bg-neutral-900 rounded-lg overflow-hidden border border-white/5">
+                                <img src="https://cdn.myportfolio.com/fc6159c9-63f3-406f-8ed9-0be02a8bc507/b6663898-0a6b-47e5-a0d1-bec73523883f_car_202x158.jpg" alt="Kibo">
+                            </div>
+                            <div class="flex justify-between items-center mt-6">
+                                <h3 class="text-xl font-bold uppercase">Kibo Hair Transplant</h3>
+                                <div class="w-2 h-2 rounded-full accent-bg opacity-40"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Work Page -->
+        <div id="page-work" class="page-content hidden">
+            <section class="pt-48 pb-32 px-6 md:px-12 bg-black min-h-screen">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-32 fade-up">
+                        <h2 class="text-[10vw] font-black tracking-tighter leading-none uppercase">Portfolio<span class="accent-text">.</span></h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                        <div class="work-card group fade-up">
+                            <div class="aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden border border-white/5">
+                                <img src="https://cdn.myportfolio.com/fc6159c9-63f3-406f-8ed9-0be02a8bc507/750162d6-0dd5-4b8c-a4b9-d5766d17b1cc_car_202x158.png" alt="Traya">
+                            </div>
+                            <h4 class="text-2xl font-black mt-8 uppercase accent-text tracking-tighter">Traya Health</h4>
+                        </div>
+                        <div class="work-card group fade-up">
+                            <div class="aspect-[4/3] bg-neutral-900 rounded-lg overflow-hidden border border-white/5">
+                                <img src="https://cdn.myportfolio.com/fc6159c9-63f3-406f-8ed9-0be02a8bc507/b6663898-0a6b-47e5-a0d1-bec73523883f_car_202x158.jpg" alt="Kibo">
+                            </div>
+                            <h4 class="text-2xl font-black mt-8 uppercase">Kibo Hair Transplant</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Services Page -->
+        <div id="page-services" class="page-content hidden">
+            <section class="pt-48 pb-32 px-6 md:px-12 bg-black min-h-screen">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-32 fade-up">
+                        <h2 class="text-[10vw] font-black tracking-tighter leading-none uppercase">Expertise<span class="accent-text">.</span></h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="service-card p-10 bg-neutral-900/40 border border-white/5 fade-up hover:border-accent/40 transition-colors">
+                            <div class="text-3xl font-black mb-8 mono accent-text">01</div>
+                            <h4 class="text-2xl font-black mb-8 text-neutral-100">Branding</h4>
+                            <p class="text-neutral-500 text-xs mb-6 leading-relaxed">Distinctive brand identities that are memorable and scalable.</p>
+                            <ul class="space-y-4 text-neutral-400 mono text-[10px] uppercase tracking-wider pl-0">
+                                <li>Logo Design</li>
+                                <li>Brand Systems</li>
+                                <li>Brand Guidelines</li>
+                            </ul>
+                        </div>
+                        <div class="service-card p-10 bg-neutral-900/40 border border-white/5 fade-up hover:border-accent/40 transition-colors">
+                            <div class="text-3xl font-black mb-8 mono accent-text">02</div>
+                            <h4 class="text-2xl font-black mb-8 text-neutral-100">Social Media</h4>
+                            <p class="text-neutral-500 text-xs mb-6 leading-relaxed">Content designed to capture attention and increase engagement.</p>
+                            <ul class="space-y-4 text-neutral-400 mono text-[10px] uppercase tracking-wider pl-0">
+                                <li>Instagram Creatives</li>
+                                <li>Carousel Posts</li>
+                                <li>Ad Creatives</li>
+                            </ul>
+                        </div>
+                        <div class="service-card p-10 bg-neutral-900/40 border border-white/5 fade-up hover:border-accent/40 transition-colors">
+                            <div class="text-3xl font-black mb-8 mono accent-text">03</div>
+                            <h4 class="text-2xl font-black mb-8 text-neutral-100">Media Production</h4>
+                            <p class="text-neutral-500 text-xs mb-6 leading-relaxed">Visual storytelling that bridges the gap between brand and audience.</p>
+                            <ul class="space-y-4 text-neutral-400 mono text-[10px] uppercase tracking-wider pl-0">
+                                <li>Ad Films</li>
+                                <li>Photography</li>
+                                <li>Brand Shoots</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- About Page -->
+        <div id="page-about" class="page-content hidden">
+            <section class="pt-48 pb-32 px-6 md:px-12 bg-black min-h-screen">
+                <div class="max-w-7xl mx-auto">
+                    <div class="mb-32 fade-up">
+                        <h2 class="text-[10vw] font-black tracking-tighter leading-none uppercase">About<span class="accent-text">.</span></h2>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <div class="lg:col-span-8 fade-up">
+                            <p class="text-3xl md:text-5xl text-neutral-300 font-medium leading-tight mb-12">We define visual trajectories for the brands of 2026.</p>
+                            <p class="text-neutral-500 text-lg leading-relaxed">Born out of a need for precision, we strip away the noise to find the core message of your business.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="page-contact" class="page-content hidden">
+            <section class="pt-48 pb-32 px-6 md:px-12 bg-black min-h-screen flex items-center">
+                <div class="max-w-7xl mx-auto w-full">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                        <div class="fade-up">
+                            <h2 class="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none">Let's<br><span class="accent-text">Talk.</span></h2>
+                            <p class="text-neutral-500 mt-12 text-xl max-w-sm">Ready to build something powerful? Drop us a line.</p>
+                            <div class="mt-12">
+                                <a href="mailto:hello@4eleven.in" class="text-3xl md:text-5xl font-bold underline decoration-neutral-800 hover:decoration-accent transition-all underline-offset-8 accent-text">hello@4eleven.in</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- COOL FOOTER -->
+    <footer class="pt-32 bg-black border-t border-white/5 overflow-hidden">
+        <div class="px-8 md:px-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 md:gap-8 pb-24">
+                <!-- Sitemap -->
+                <div class="col-span-2 md:col-span-1">
+                    <span class="mono text-[8px] uppercase tracking-widest text-neutral-600 block mb-8">Navigation</span>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+                        <li><a href="javascript:void(0)" onclick="navigateTo('home')" class="hover:text-amber-500 transition-colors">Home</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigateTo('work')" class="hover:text-amber-500 transition-colors">Work</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigateTo('services')" class="hover:text-amber-500 transition-colors">Expertise</a></li>
+                        <li><a href="javascript:void(0)" onclick="navigateTo('about')" class="hover:text-amber-500 transition-colors">Studio</a></li>
+                    </ul>
+                </div>
+                <!-- Socials -->
+                <div>
+                    <span class="mono text-[8px] uppercase tracking-widest text-neutral-600 block mb-8">Social Connect</span>
+                    <ul class="space-y-4 text-xs font-bold uppercase tracking-widest">
+                        <li><a href="https://www.instagram.com/four_eleven.in/" target="_blank" class="magnetic hover:text-amber-500 transition-colors" data-magnetic-strength="0.2">Instagram</a></li>
+                        <li><a href="#" class="magnetic hover:text-amber-500 transition-colors" data-magnetic-strength="0.2">LinkedIn</a></li>
+                        <li><a href="#" class="magnetic hover:text-amber-500 transition-colors" data-magnetic-strength="0.2">Behance</a></li>
+                    </ul>
+                </div>
+                <!-- Timezones/Nodes -->
+                <div class="hidden lg:block">
+                    <span class="mono text-[8px] uppercase tracking-widest text-neutral-600 block mb-8">Global Nodes</span>
+                    <ul class="space-y-4 text-[10px] mono text-neutral-400">
+                        <li class="flex justify-between w-32 uppercase"><span>Mumbai</span> <span class="text-white">Active</span></li>
+                        <li class="flex justify-between w-32 uppercase"><span>London</span> <span class="opacity-30">Remote</span></li>
+                        <li class="flex justify-between w-32 uppercase"><span>New York</span> <span class="opacity-30">Remote</span></li>
+                    </ul>
+                </div>
+                <!-- Contact Call -->
+                <div class="col-span-2">
+                    <span class="mono text-[8px] uppercase tracking-widest text-neutral-600 block mb-8">Direct Channel</span>
+                    <a href="mailto:hello@4eleven.in" class="text-3xl md:text-4xl font-black italic underline decoration-neutral-800 hover:decoration-amber-500 transition-all underline-offset-8">hello@4eleven.in</a>
+                    <p class="mt-8 text-neutral-500 text-[10px] uppercase leading-relaxed max-w-[200px]">Accelerating visual legacies for global founders.</p>
+                </div>
+            </div>
+
+            <!-- Massive Footer Brand -->
+            <div class="relative py-12 md:py-0 select-none pointer-events-none">
+                <h2 class="footer-massive-text italic uppercase text-center opacity-10">4-11</h2>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="px-8 py-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 bg-[#050505]">
+            <div class="flex items-center gap-4">
+                <div class="w-1.5 h-1.5 rounded-full accent-bg"></div>
+                <p class="text-[9px] font-bold text-neutral-600 uppercase tracking-[0.4em] mono">© 2026 4–11 Studio • Mumbai Node • v2.0.4</p>
+            </div>
+            <div class="flex gap-8 text-[9px] font-bold text-neutral-600 uppercase tracking-widest">
+                <a href="#" class="hover:text-white transition-colors">Privacy Protocol</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="magnetic group flex items-center gap-2 hover:text-white" data-magnetic-strength="0.3">
+                    [ Back to Top ]
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- Router Logic ---
+            window.navigateTo = (pageId) => {
+                const overlay = document.getElementById('page-transition');
+                const targetPage = document.getElementById(`page-${pageId}`);
+                if (!targetPage) return;
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if(link.getAttribute('data-page') === pageId) link.classList.add('active');
+                });
+                document.getElementById('page-indicator').innerText = `Location: ${pageId.charAt(0).toUpperCase() + pageId.slice(1)}`;
+                gsap.to(overlay, {
+                    y: '0%', duration: 0.5, ease: "power2.inOut",
+                    onComplete: () => {
+                        document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
+                        targetPage.classList.remove('hidden');
+                        window.scrollTo(0, 0);
+                        ScrollTrigger.refresh(true);
+                        initScrollAnimations();
+                        gsap.to(overlay, { y: '-100%', duration: 0.5, ease: "power2.inOut", onComplete: () => {
+                            gsap.set(overlay, { y: '100%' });
+                            ScrollTrigger.refresh();
+                        }});
+                    }
+                });
+            };
+
+            function initScrollAnimations() {
+                ScrollTrigger.getAll().forEach(t => t.kill());
+                gsap.utils.toArray('.fade-up').forEach(el => {
+                    gsap.fromTo(el, { opacity: 0, y: 40 }, { 
+                        opacity: 1, y: 0, duration: 0.8, ease: "power2.out", 
+                        scrollTrigger: { trigger: el, start: 'top 95%', toggleActions: "play none none none" } 
+                    });
+                });
+            }
+            initScrollAnimations();
+
+            // --- Custom Cursor ---
+            const cursor = document.getElementById('cursor-follower');
+            const ring = document.getElementById('cursor-ring');
+            let mouseX = -100, mouseY = -100, cX = -100, cY = -100, rX = -100, rY = -100;
+            let firstMove = true;
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX; mouseY = e.clientY;
+                if (firstMove) { cX = mouseX; cY = mouseY; rX = mouseX; rY = mouseY; firstMove = false; }
+            });
+
+            function animateCursor() {
+                cX += (mouseX - cX) * 0.3; cY += (mouseY - cY) * 0.3;
+                rX += (mouseX - rX) * 0.15; rY += (mouseY - rY) * 0.15;
+                cursor.style.transform = `translate3d(${cX - 4}px, ${cY - 4}px, 0)`;
+                ring.style.transform = `translate3d(${rX - 20}px, ${rY - 20}px, 0)`;
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Magnetic & Color Hover
+            function setupInteractions() {
+                document.querySelectorAll('a, button, .work-card, .service-card, .footer-massive-text').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        ring.style.width = '70px'; ring.style.height = '70px';
+                        ring.style.borderColor = '#ffb300';
+                        ring.style.backgroundColor = 'rgba(255, 179, 0, 0.05)';
+                        cursor.style.backgroundColor = '#ffb300';
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        ring.style.width = '40px'; ring.style.height = '40px';
+                        ring.style.borderColor = 'rgba(255,255,255,0.3)';
+                        ring.style.backgroundColor = 'transparent';
+                        cursor.style.backgroundColor = 'white';
+                    });
+                    
+                    if(el.classList.contains('magnetic')) {
+                        el.addEventListener('mousemove', function(e) {
+                            const rect = this.getBoundingClientRect();
+                            const strength = parseFloat(this.getAttribute('data-magnetic-strength')) || 0.2;
+                            const x = e.clientX - rect.left - rect.width / 2;
+                            const y = e.clientY - rect.top - rect.height / 2;
+                            this.style.transform = `translate3d(${x * strength}px, ${y * strength}px, 0)`;
+                        });
+                        el.addEventListener('mouseleave', function() {
+                            this.style.transform = `translate3d(0, 0, 0)`;
+                        });
+                    }
+                });
+            }
+            setupInteractions();
+
+            // Clock & Scroll Status
+            setInterval(() => {
+                document.getElementById('live-clock').innerText = new Date().toTimeString().split(' ')[0];
+                const scrolled = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+                document.getElementById('scroll-percentage').innerText = `Scroll: ${isNaN(scrolled) ? 0 : scrolled}%`;
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
