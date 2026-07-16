@@ -1,0 +1,25 @@
+{
+  "summary": "Verified 4-11 Studio 'Coming Soon' backend + frontend. All 4 backend endpoints and all critical frontend flows (hero, countdown, theme toggle, nav-scroll, brief form validation + submission + counter increment) pass.",
+  "tested_scope": ["backend", "frontend", "integration"],
+  "passed": [
+    "GET /api/ returns 200",
+    "GET /api/briefs/count returns {count:384} at baseline and increments to 385 after POST",
+    "POST /api/briefs with valid payload returns id + created_at (ISO)",
+    "POST /api/briefs with invalid email returns 422",
+    "POST /api/briefs with missing fields returns 422",
+    "GET /api/briefs returns list of stored briefs",
+    "Landing page renders hero MUMBAI/CAMPAIGN/ENGINE kinetic titles",
+    "Countdown shows non-zero Days/Hrs/Mins/Secs (109/23/59/43)",
+    "Theme toggle (data-testid=theme-toggle) switches html class dark<->light",
+    "nav-submit-brief click scrolls to brief form section",
+    "Empty submit shows sonner error toast: 'Please fill in every field.' and does NOT submit",
+    "Valid submit shows success toast 'Brief received. Rohan & Rubal will be in touch.', clears form fields, and brands-counter increments (384 -> 386 across runs)",
+    "No console errors captured during full flow"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Used domcontentloaded + selector wait instead of networkidle (lenis smooth-scroll keeps network from idling). Backend URL: https://coming-soon-studio-1.preview.emergentagent.com. No auth required."
+}
