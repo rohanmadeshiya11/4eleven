@@ -1,0 +1,191 @@
+{
+  "theme_and_art_direction": {
+    "concept": "Industrial Editorial / Brutalist Glamour",
+    "description": "An award-worthy, highly kinetic, 'Awwwards Site-of-the-Day' level design. Fuses the raw, heavy impact of Brutalist typography with the refined, cinematic elegance of editorial fashion photography. It relies heavily on extreme typography scales, razor-sharp contrasts, and liquid-smooth scroll motion. The aesthetic is unapologetically bold, designed to make users feel the weight and prestige of the 4-11 Studio brand before they even read the copy.",
+    "emotion": "Elite, mysterious, highly kinetic, commanding.",
+    "theme_preference": "System default with a manual Dark/Light toggle. Design is primarily anchored in Deep Void Black for maximum drama, but must elegantly invert for light mode."
+  },
+  "colors": {
+    "strategy": "Swiss & High-Contrast (Archetype 4) mixed with Luxury. No AI-slop gradients. 95% monochromatic with a single, aggressive accent color used sparingly for tension.",
+    "variables": {
+      "dark": {
+        "background": "#0a0a0a",
+        "foreground": "#fcfcfc",
+        "muted": "#27272a",
+        "muted_foreground": "#a1a1aa",
+        "border": "#27272a",
+        "accent": "#FF3B00",
+        "accent_foreground": "#ffffff"
+      },
+      "light": {
+        "background": "#fcfcfc",
+        "foreground": "#0a0a0a",
+        "muted": "#f4f4f5",
+        "muted_foreground": "#71717a",
+        "border": "#e4e4e7",
+        "accent": "#FF3B00",
+        "accent_foreground": "#ffffff"
+      }
+    },
+    "rules": [
+      "NEVER use generic purple-on-white or full-screen gradients.",
+      "Background must be solid #0a0a0a (Dark) or #fcfcfc (Light), with a subtle CSS noise/grain overlay spanning the entire viewport to kill 'digital flatness'.",
+      "Accent color (#FF3B00) is reserved ONLY for interaction highlights (hover states, active input borders, tiny geometric decorative shapes like an asterisk or a dot)."
+    ]
+  },
+  "typography": {
+    "strategy": "The Anti-Default Rule: High-tension pairings. Massive Sans-Serif + Elegant Italic Serif + Monospace Tech details.",
+    "fonts": {
+      "headings": {
+        "family": "'Clash Display', sans-serif",
+        "weights": ["600", "700"],
+        "usage": "Massive headlines, numbers, capability titles. Tracking must be extremely tight (tracking-tighter)."
+      },
+      "editorial_accent": {
+        "family": "'Playfair Display', serif",
+        "weights": ["400", "500"],
+        "usage": "Used strictly in italics for manifesto keywords and high-end emotional contrast alongside Clash Display."
+      },
+      "utility": {
+        "family": "'JetBrains Mono', monospace",
+        "weights": ["400", "500"],
+        "usage": "Countdown timer numbers, registered brands counter, tiny labels (e.g., [ 01 ], [ SCROLL ]). Always uppercase, tracking-widest."
+      },
+      "body": {
+        "family": "'Manrope', sans-serif",
+        "weights": ["400", "500"],
+        "usage": "Paragraphs, form inputs, button text. Readable and clean."
+      }
+    },
+    "scale_hierarchy": {
+      "h1_hero": "text-[12vw] sm:text-[10vw] leading-[0.85] tracking-tighter uppercase",
+      "h2_section": "text-5xl sm:text-7xl lg:text-8xl leading-none tracking-tight uppercase",
+      "h3_card": "text-2xl sm:text-4xl leading-tight",
+      "body": "text-base sm:text-lg leading-relaxed",
+      "overline_mono": "text-xs sm:text-sm tracking-[0.2em] uppercase font-mono"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_philosophy": "Extreme breathing room. Minimum padding between major sections should be py-24 or py-32.",
+    "grid_system": "Mode A: The 'Tetris' Grid. Strict adherence to asymmetrical spans.",
+    "rules": [
+      "Do not center-align everything. Default to stark left-alignment to establish a strong reading edge.",
+      "Use heavy borders (1px solid border-border) to divide sections or create structural 'blueprint' vibes.",
+      "Images must be in clipped frames (e.g., aspect-[3/4] or aspect-[16/9] with overflow-hidden). No rounded corners on main containers; keep edges brutal and sharp (rounded-none)."
+    ]
+  },
+  "motion_and_interaction": {
+    "dependencies": [
+      "framer-motion (for scroll reveals and micro-interactions)",
+      "@studio-freight/react-lenis (MANDATORY for smooth momentum scrolling)",
+      "react-fast-marquee (for the editorial ribbon)"
+    ],
+    "hero_reveal": {
+      "description": "On-load masked line-by-line reveal.",
+      "implementation": "Wrap each line of the H1 in an overflow-hidden container. Animate the text inside from `y: '100%'` to `y: 0` with a duration of 1.2s, ease: [0.76, 0, 0.24, 1], and a stagger of 0.15s between lines."
+    },
+    "parallax_scrolling": {
+      "description": "Images should have a subtle parallax inside their clipped frames.",
+      "implementation": "Scale image to 120% and translate Y based on scroll position using Framer Motion's useScroll and useTransform."
+    },
+    "hover_states": {
+      "images": "group-hover:scale-105 transition-transform duration-700 ease-out inside an overflow-hidden wrapper.",
+      "buttons": "Relative overflow-hidden. On hover, a background block (accent color) slides up from the bottom, and text color inverts. Use standard transform transitions, not 'all'."
+    }
+  },
+  "components_blueprint": {
+    "1_header": {
+      "layout": "Fixed top, z-50, mix-blend-difference (if applicable) or glassmorphism (backdrop-blur-xl bg-background/70).",
+      "elements": "Left: '4-11 STUDIO' logo (font-headings). Right: Dark/Light Theme Toggle + 'Submit Brief' anchor link.",
+      "test_ids": ["nav-logo", "theme-toggle", "nav-submit-brief"]
+    },
+    "2_kinetic_hero": {
+      "layout": "h-screen flex flex-col justify-end pb-12 px-6 sm:px-12 relative overflow-hidden.",
+      "elements": [
+        "Background: Massive 3D/Abstract sculpture image playing the role of a subtle parallax backdrop, heavily darkened/tinted.",
+        "Middle: Live Countdown Timer (Days/Hrs/Mins/Secs) in Monospace.",
+        "Foreground (Bottom): Massive kinetic text 'MUMBAI', 'CAMPAIGN', 'ENGINE' stacked. Masked reveal on load.",
+        "Accents: 'LIVE' badge in Accent Color."
+      ]
+    },
+    "3_manifesto_chapters": {
+      "layout": "py-32 px-6 sm:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 border-t border-border.",
+      "elements": [
+        "Left col (span 4): Sticky '[ 01 ] THE PIPELINE' mono label.",
+        "Right col (span 8): Large manifesto copy using Clash Display intermixed with Playfair Display italics for key words (e.g., 'Scaling *creator presence*. Producing *unforgettable* live events.')."
+      ]
+    },
+    "4_capabilities": {
+      "layout": "py-24 px-6 sm:px-12.",
+      "elements": [
+        "Accordion or Hover-reveal list. Items: Social Media Marketing, YouTube Strategy, Influencer Activation, Event Production.",
+        "Interaction: Hovering over a list item reveals/changes an associated image in a fixed or absolute positioned clipped frame nearby (spotlight effect)."
+      ],
+      "test_ids": ["capability-list-item"]
+    },
+    "5_editorial_marquee": {
+      "layout": "py-12 border-y border-border overflow-hidden bg-foreground text-background.",
+      "elements": "react-fast-marquee running text: 'CREATIVE PIPELINE • MUMBAI • 4-11 STUDIO • NEXT MAJOR REVEAL • '. Font: Clash Display, uppercase, huge."
+    },
+    "6_founders": {
+      "layout": "py-24 px-6 sm:px-12 grid grid-cols-1 md:grid-cols-2 gap-12.",
+      "elements": [
+        "Image of founders (cinematic portrait) in a 3/4 aspect ratio clipped frame.",
+        "Text block detailing Rohan (Director) & Rubal (Creative)."
+      ]
+    },
+    "7_lead_capture": {
+      "layout": "py-32 px-6 sm:px-12 max-w-4xl mx-auto border-t border-border",
+      "elements": [
+        "Counter: '384 Brands Registered' (Monospace utility font, counting up animation on scroll).",
+        "Form: Minimalist 'Submit Brief' inputs. border-b only, no side borders (HTML input styling overridden with Tailwind). Submit button is a massive full-width block.",
+        "Fields: Name, Brand, Email, Message."
+      ],
+      "test_ids": ["form-name", "form-email", "form-brand", "form-message", "form-submit"]
+    },
+    "8_footer": {
+      "layout": "py-12 px-6 sm:px-12 flex justify-between items-end bg-background text-foreground.",
+      "elements": "Massive '4-11' logo on the left, social links on the right."
+    }
+  },
+  "image_assets": {
+    "hero_background_parallax": {
+      "url": "https://images.unsplash.com/photo-1739056238917-d89cd05c48d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGluZHVzdHJpYWwlMjAzZCUyMHNjdWxwdHVyZXxlbnwwfHx8fDE3ODQyMjE3MzR8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Abstract industrial 3d metal sculpture",
+      "usage": "Use as a large, subtle background element in the hero, darkened heavily so the text pops."
+    },
+    "capability_event": {
+      "url": "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxsaXZlJTIwY29uY2VydCUyMGV2ZW50JTIwY3Jvd2QlMjBzcG90bGlnaHR8ZW58MHx8fHwxNzg0MjIxNzM0fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Live event crowd spotlight",
+      "usage": "Image to show when hovering over 'Event Production' capability."
+    },
+    "capability_creator": {
+      "url": "https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwZWRpdG9yaWFsJTIwc3R1ZGlvJTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNzg0MjIxNzM0fDA&ixlib=rb-4.1.0&q=85",
+      "alt": "Fashion editorial studio photography",
+      "usage": "Image for 'Influencer Activation / Creator' capability."
+    },
+    "founders_portrait": {
+      "url": "https://images.unsplash.com/photo-1616658068768-8aaf37031369?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHx0d28lMjBtZW4lMjBjaW5lbWF0aWMlMjBwb3J0cmFpdCUyMG1vb2R5fGVufDB8fHx8MTc4NDIyMTczNHww&ixlib=rb-4.1.0&q=85",
+      "alt": "Cinematic portrait of two men in studio",
+      "usage": "Founders section photo, treated deliberately (spotlight, clipped frame)."
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install and setup @studio-freight/react-lenis for smooth scrolling wrapping the App.",
+    "Install framer-motion and react-fast-marquee.",
+    "Ensure global CSS uses Google Fonts for Clash Display (or similar wide alternative if not on Google Fonts, like Cabinet Grotesk or Anton), Playfair Display, JetBrains Mono, and Manrope.",
+    "Implement the dark/light mode context or use Tailwind's dark class toggle.",
+    "DO NOT use standard Shadcn card containers for this marketing page. Use raw HTML+Tailwind for asymmetrical layouts.",
+    "Images MUST have absolute overlays if text is placed on them (bg-black/40 or gradient), but prefer placing text outside images in this brutalist design.",
+    "Ensure all interactive elements have data-testid attributes.",
+    "For the form, use Shadcn UI Input but strip the borders on left, top, right (border-0 border-b border-border rounded-none bg-transparent) to fit the minimal editorial vibe."
+  ],
+  "universal_guidelines_for_main_agent": [
+    "Do not use generic 'on distribution' outputs. Avoid the 'AI slop' aesthetic.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Create depth through layered design elements with z-index hierarchy, not just shadows.",
+    "Never apply universal transitions (transition: all). Target specific properties (transition-colors, transition-transform).",
+    "Never center align the app container (.App { text-align: center; }). Keep layouts deliberately asymmetric.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap."
+  ]
+}
