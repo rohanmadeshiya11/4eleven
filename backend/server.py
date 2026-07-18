@@ -49,6 +49,22 @@ class BriefCountResponse(BaseModel):
     count: int
 
 
+class Subscriber(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    email: EmailStr
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+class SubscribeCreate(BaseModel):
+    email: EmailStr
+
+
+class SubscribeCountResponse(BaseModel):
+    count: int
+
+
 # ------------------ Routes ------------------
 @api_router.get("/")
 async def root():
@@ -77,6 +93,28 @@ async def list_briefs():
 async def brief_count():
     n = await db.briefs.count_documents({})
     return BriefCountResponse(count=BRANDS_BASE_OFFSET + n)
+
+
+SUBS_BASE_OFFSET = 384
+
+
+@api_router.post("/subscribe", response_model=Subscriber)
+async def subscribe(payload: SubscribeCreate):
+    email = payload.email.lower()
+    existing = await db.subscribers.find_one({"email": email})
+    if existing:
+        raise HTTPException(status_code=409, detail="You're already on the list.")
+    sub = Subscriber(email=email)
+    doc = sub.model_dump()
+    doc['created_at'] = doc['created_at'].isoformat()
+    await db.subscribers.insert_one(doc)
+    return sub
+
+
+@api_router.get("/subscribe/count", response_model=SubscribeCountResponse)
+async def subscribe_count():
+    n = await db.subscribers.count_documents({})
+    return SubscribeCountResponse(count=SUBS_BASE_OFFSET + n)
 
 
 app.include_router(api_router)
