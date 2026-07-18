@@ -66,7 +66,7 @@ const LeadCapture = () => {
     setLoading(true);
     try {
       await axios.post(`${API}/briefs`, form);
-      toast.success("Brief received. Rohan & Rubal will be in touch.");
+      toast.success("You're on the list. We'll be in touch soon.");
       setForm({ name: "", brand: "", email: "", message: "" });
       fetchCount();
     } catch (err) {
@@ -89,12 +89,12 @@ const LeadCapture = () => {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground">
-              [ Submit Brief ]
+              [ Stay Tuned ]
             </p>
             <h2 className="mt-4 font-display font-semibold text-5xl sm:text-7xl uppercase tracking-tight leading-[0.9]">
-              Request the
+              Something exciting
               <br />
-              production desk
+              is on its way
             </h2>
           </div>
           <div className="font-mono text-right">
@@ -102,7 +102,7 @@ const LeadCapture = () => {
               <Counter target={count} />
             </div>
             <div className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground mt-1">
-              Brands Registered
+              On The List
             </div>
           </div>
         </div>
@@ -142,14 +142,14 @@ const LeadCapture = () => {
             custom={3}
           >
             <label className="block font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground mb-3">
-              The Brief
+              Your Message
             </label>
             <textarea
               name="message"
               value={form.message}
               onChange={handleChange}
               rows={3}
-              placeholder="Tell us what you're building and when it goes live."
+              placeholder="Tell us what you're working on, or just say hello."
               data-testid="form-message"
               className="w-full bg-transparent border-0 border-b border-border rounded-none py-3 font-body text-lg outline-none focus:border-accent transition-colors duration-300 resize-none placeholder:text-muted-foreground/50"
             />

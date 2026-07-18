@@ -4,41 +4,39 @@ import { fadeUp } from "@/lib/motion";
 const chapters = [
   {
     no: "01",
-    title: "The Pipeline",
+    title: "Photography",
     body: (
       <>
-        We are not an agency. We are a{" "}
+        Every frame is composed with intent. We capture{" "}
         <span className="font-serif-italic italic text-accent">
-          campaign engine
+          light, texture and emotion
         </span>{" "}
-        — engineering social narratives, scaling custom YouTube models and
-        turning cultural attention into measurable momentum.
+        — turning fleeting moments into images that hold their weight over time.
       </>
     ),
   },
   {
     no: "02",
-    title: "The Reach",
+    title: "Films",
     body: (
       <>
-        Tier-1 influencer partnerships coordinated with precision. We connect
-        brands to the creators who actually{" "}
-        <span className="font-serif-italic italic text-accent">move the room</span>
-        , not just the metrics.
+        Motion that moves people. From concept to final cut, we craft cinematic{" "}
+        <span className="font-serif-italic italic text-accent">stories</span>{" "}
+        that don&rsquo;t just play — they linger.
       </>
     ),
   },
   {
     no: "03",
-    title: "The Room",
+    title: "Design & Story",
     body: (
       <>
-        Premium real-world event experiences, produced end to end from Mumbai&rsquo;s
-        creative heart. Where the digital narrative becomes an{" "}
+        Design, direction and storytelling woven into one language. Where craft
+        becomes an{" "}
         <span className="font-serif-italic italic text-accent">
           unforgettable
         </span>{" "}
-        live moment.
+        visual experience.
       </>
     ),
   },

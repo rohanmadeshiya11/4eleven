@@ -43,7 +43,7 @@ const Header = () => {
             className="hidden sm:inline-flex font-mono text-xs uppercase tracking-[0.2em] border border-foreground px-5 py-2.5 relative overflow-hidden group"
           >
             <span className="relative z-10 group-hover:text-accent-foreground transition-colors duration-500">
-              Submit Brief
+              Notify Me
             </span>
             <span className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
           </button>

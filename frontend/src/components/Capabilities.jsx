@@ -4,26 +4,26 @@ import { motion, AnimatePresence } from "framer-motion";
 const capabilities = [
   {
     no: "01",
-    title: "Social Media Marketing",
-    desc: "State-of-the-art social narratives engineered for velocity.",
+    title: "Photography",
+    desc: "Editorial, portrait and brand photography with a distinct eye.",
     img: "https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwZWRpdG9yaWFsJTIwc3R1ZGlvJTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNzg0MjIxNzM0fDA&ixlib=rb-4.1.0&q=85",
   },
   {
     no: "02",
-    title: "YouTube Strategy & Management",
-    desc: "Custom creator models scaled from zero to category leader.",
+    title: "Films",
+    desc: "Cinematic films, commercials and motion from concept to cut.",
     img: "https://images.unsplash.com/photo-1739056238917-d89cd05c48d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGluZHVzdHJpYWwlMjAzZCUyMHNjdWxwdHVyZXxlbnwwfHx8fDE3ODQyMjE3MzR8MA&ixlib=rb-4.1.0&q=85",
   },
   {
     no: "03",
-    title: "Influencer Activation",
-    desc: "Tier-1 partnerships coordinated with surgical precision.",
+    title: "Design",
+    desc: "Brand identity, art direction and design systems that endure.",
     img: "https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwzfHxmYXNoaW9uJTIwZWRpdG9yaWFsJTIwc3R1ZGlvJTIwcGhvdG9ncmFwaHl8ZW58MHx8fHwxNzg0MjIxNzM0fDA&ixlib=rb-4.1.0&q=85",
   },
   {
     no: "04",
-    title: "Event Production",
-    desc: "Premium live experiences, produced end to end.",
+    title: "Storytelling",
+    desc: "Narratives and experiences that make visuals unforgettable.",
     img: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxsaXZlJTIwY29uY2VydCUyMGV2ZW50JTIwY3Jvd2QlMjBzcG90bGlnaHR8ZW58MHx8fHwxNzg0MjIxNzM0fDA&ixlib=rb-4.1.0&q=85",
   },
 ];

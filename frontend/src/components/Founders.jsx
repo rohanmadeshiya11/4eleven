@@ -73,8 +73,8 @@ const Founders = () => {
                 Rohan <span className="text-muted-foreground text-sm">— Director</span>
               </p>
               <p className="mt-2 font-body text-muted-foreground max-w-md">
-                &ldquo;Let&rsquo;s lock in the staging layout for the Mumbai
-                creators launch event.&rdquo;
+                &ldquo;We&rsquo;re building a space where every frame tells a
+                story worth remembering.&rdquo;
               </p>
             </motion.div>
 
@@ -90,8 +90,8 @@ const Founders = () => {
                 Rubal <span className="text-muted-foreground text-sm">— Creative</span>
               </p>
               <p className="mt-2 font-body text-muted-foreground max-w-md">
-                &ldquo;YouTube growth deck &amp; influencer brief are locked in.
-                Ready to ship.&rdquo;
+                &ldquo;Photography, films and design — one language, one
+                unforgettable experience.&rdquo;
               </p>
             </motion.div>
           </div>

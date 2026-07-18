@@ -1,10 +1,10 @@
 import Marquee from "react-fast-marquee";
 
 const items = [
-  "CREATIVE PIPELINE",
-  "MUMBAI",
-  "4-11 STUDIO",
-  "NEXT MAJOR REVEAL",
+  "STORIES",
+  "FRAMES",
+  "EXPERIENCES",
+  "COMING SOON",
 ];
 
 const EditorialMarquee = () => {

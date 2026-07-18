@@ -37,7 +37,7 @@ const SiteFooter = () => {
 
       <div className="mt-14 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">
         <span>© {new Date().getFullYear()} 4-11 Studio — Mumbai</span>
-        <span>Creative Pipeline • Coming Soon</span>
+        <span>Creative Studio • Coming Soon</span>
       </div>
     </footer>
   );

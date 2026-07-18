@@ -6,7 +6,7 @@ import Countdown from "@/components/Countdown";
 const HERO_BG =
   "https://images.unsplash.com/photo-1739056238917-d89cd05c48d5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGluZHVzdHJpYWwlMjAzZCUyMHNjdWxwdHVyZXxlbnwwfHx8fDE3ODQyMjE3MzR8MA&ixlib=rb-4.1.0&q=85";
 
-const lines = ["MUMBAI", "CAMPAIGN", "ENGINE"];
+const lines = ["STORIES", "FRAMES", "EXPERIENCES"];
 
 const Hero = () => {
   const ref = useRef(null);
@@ -48,7 +48,7 @@ const Hero = () => {
           className="flex items-center gap-2"
         >
           <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-          <span className="text-foreground">Mumbai Campaign Engine — Live</span>
+          <span className="text-foreground">4-11 Studio — Coming Soon</span>
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -68,7 +68,7 @@ const Hero = () => {
           transition={{ delay: 0.5, duration: 1 }}
           className="font-mono text-xs sm:text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6"
         >
-          [ Next Major Pipeline Reveal ]
+          [ Launching Soon — Stay Tuned ]
         </motion.p>
 
         <div className="mb-8 sm:mb-10">
@@ -85,9 +85,9 @@ const Hero = () => {
                 animate="visible"
                 className="block"
               >
-                {line === "ENGINE" ? (
+                {line === "EXPERIENCES" ? (
                   <span>
-                    ENGINE<span className="text-accent">.</span>
+                    EXPERIENCES<span className="text-accent">.</span>
                   </span>
                 ) : (
                   line
@@ -104,15 +104,15 @@ const Hero = () => {
           className="mt-8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 border-t border-border pt-6"
         >
           <p className="max-w-md font-body text-base sm:text-lg text-muted-foreground">
-            A Mumbai-born creative pipeline scaling{" "}
+            A creative space where photography, films, design and{" "}
             <span className="font-serif-italic italic text-foreground">
-              creator presence
+              storytelling
             </span>{" "}
-            and producing{" "}
+            come together to create{" "}
             <span className="font-serif-italic italic text-foreground">
               unforgettable
             </span>{" "}
-            live events.
+            visuals.
           </p>
           <a
             href="#brief"
@@ -120,7 +120,7 @@ const Hero = () => {
             className="font-mono text-xs uppercase tracking-[0.25em] flex items-center gap-2 self-start sm:self-end group"
           >
             <span className="group-hover:text-accent transition-colors duration-300">
-              Scroll to brief
+              Get notified
             </span>
             <span className="inline-block group-hover:translate-y-1 transition-transform duration-300">
               ↓
