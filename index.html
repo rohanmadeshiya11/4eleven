@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>4-11 Studio | Coming Soon</title>
+<meta name="description" content="4-11 Studio — Stories. Frames. Experiences." />
+
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root{--bg:#0a0a0a;--fg:#fff;--muted:rgba(255,255,255,.55);--border:rgba(255,255,255,.18);--accent:#FF3B00}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--fg);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;position:relative}
+  ::selection{background:var(--accent);color:#fff}
+  .mono{font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+  .display{font-family:'Clash Display',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.03em}
+  .italic{font-family:'Playfair Display',serif;font-style:italic}
+  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+  #loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;transition:transform .9s cubic-bezier(.76,0,.24,1)}
+  #loader.done{transform:translateY(-100%)}
+  #loader img{width:160px;margin-bottom:40px;opacity:0;transform:scale(.9);animation:pop .8s cubic-bezier(.76,0,.24,1) forwards}
+  @media(min-width:640px){#loader img{width:208px}}
+  @keyframes pop{to{opacity:1;transform:scale(1)}}
+  .bar-wrap{width:100%;max-width:320px}
+  .bar{height:1px;width:100%;background:rgba(255,255,255,.15);overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .15s linear}
+  .bar-meta{display:flex;justify-content:space-between;margin-top:12px;font-size:.65rem;letter-spacing:.3em;color:var(--muted)}
+  .bar-meta b{color:#fff;font-weight:500}
+  .glow{position:absolute;top:-160px;right:-160px;width:640px;height:640px;border-radius:9999px;opacity:.12;filter:blur(64px);background:radial-gradient(circle,var(--accent) 0%,transparent 70%);pointer-events:none;z-index:0}
+  .shell{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
+  header,footer{padding-left:24px;padding-right:24px}
+  @media(min-width:640px){header,footer{padding-left:48px;padding-right:48px}}
+  header{display:flex;align-items:center;justify-content:space-between;padding-top:32px}
+  header img{height:48px;width:auto}
+  @media(min-width:640px){header img{height:64px}}
+  header .est{font-size:.7rem;letter-spacing:.3em;color:var(--muted)}
+  main{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1152px;padding:56px 24px}
+  @media(min-width:640px){main{padding:56px 48px}}
+  .badge{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+  .dot{width:8px;height:8px;border-radius:9999px;background:var(--accent);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+  .badge span{font-size:.75rem;letter-spacing:.35em;color:var(--muted)}
+  h1{line-height:.85;font-size:13vw}
+  @media(min-width:640px){h1{font-size:9vw}}
+  @media(min-width:1024px){h1{font-size:7.5vw}}
+  h1 .line{display:block;overflow:hidden}
+  h1 .line>span{display:block;transform:translateY(110%);animation:rise 1s cubic-bezier(.76,0,.24,1) forwards}
+  h1 .accent{color:var(--accent)}
+  @keyframes rise{to{transform:translateY(0)}}
+  .lead{margin-top:32px;max-width:640px;font-size:1.05rem;line-height:1.6;color:var(--muted);opacity:0;animation:fade .8s ease forwards .6s}
+  .lead .italic{color:#fff}
+  @keyframes fade{to{opacity:1;transform:none}}
+  .count{margin-top:48px;display:flex;align-items:flex-end;gap:20px;font-family:'JetBrains Mono',monospace;opacity:0;animation:fade .8s ease forwards .7s}
+  @media(min-width:640px){.count{gap:32px}}
+  .count .u{display:flex;flex-direction:column}
+  .count .n{font-size:2rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
+  @media(min-width:640px){.count .n{font-size:3rem}}
+  .count .l{margin-top:8px;font-size:.6rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+  .count .sep{font-size:1.5rem;color:var(--accent);padding-bottom:12px}
+  @media(min-width:640px){.count .sep{font-size:2.25rem}}
+  form{margin-top:48px;width:100%;max-width:448px;opacity:0;animation:fade .8s ease forwards .8s}
+  form label{display:block;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
+  .field{display:flex;align-items:center;border-bottom:1px solid var(--border);transition:border-color .3s}
+  .field:focus-within{border-color:var(--accent)}
+  .field input{flex:1;background:transparent;border:0;outline:0;padding:12px 0;font-family:'Manrope',sans-serif;font-size:1.125rem;color:#fff}
+  .field input::placeholder{color:rgba(255,255,255,.3)}
+  .field button{background:none;border:0;cursor:pointer;color:#fff;padding:8px;transition:color .3s}
+  .field button:hover{color:var(--accent)}
+  .msg{margin-top:12px;font-size:.8rem;color:var(--accent);min-height:1rem}
+  footer{display:flex;flex-direction:column;gap:12px;padding-bottom:32px;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.25em;color:var(--muted);text-transform:uppercase}
+  @media(min-width:640px){footer{flex-direction:row;align-items:center;justify-content:space-between}}
+  footer .right{display:flex;align-items:center;gap:24px}
+  footer a{color:var(--muted);text-decoration:none;transition:color .3s}
+  footer a:hover{color:var(--accent)}
+  footer .tuned{color:rgba(255,255,255,.7)}
+</style>
+</head>
+<body>
+  <div id="loader">
+    <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio" />
+    <div class="bar-wrap"><div class="bar"><i id="bar-fill"></i></div>
+      <div class="bar-meta"><span>Loading</span><b id="pct">000</b></div></div>
+  </div>
+  <div class="glow"></div>
+  <div class="shell">
+    <header>
+      <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio" />
+      <span class="est mono">Est. 2026 / Mumbai</span>
+    </header>
+    <main>
+      <div class="badge"><span class="dot"></span><span class="mono">Coming Soon</span></div>
+      <h1 class="display">
+        <span class="line"><span style="animation-delay:.15s">Stories.</span></span>
+        <span class="line"><span style="animation-delay:.3s">Frames.</span></span>
+        <span class="line"><span style="animation-delay:.45s">Experiences<span class="accent">.</span></span></span>
+      </h1>
+      <p class="lead">We're building a creative space where <span class="italic">photography, films, design and storytelling</span> come together to create unforgettable visuals.</p>
+      <div class="count" id="count">
+        <div class="u"><span class="n" id="d">00</span><span class="l">Days</span></div><span class="sep">:</span>
+        <div class="u"><span class="n" id="h">00</span><span class="l">Hrs</span></div><span class="sep">:</span>
+        <div class="u"><span class="n" id="m">00</span><span class="l">Mins</span></div><span class="sep">:</span>
+        <div class="u"><span class="n" id="s">00</span><span class="l">Secs</span></div>
+      </div>
+      <form id="subscribe">
+        <label>Something exciting is on its way — get notified</label>
+        <div class="field">
+          <input type="email" id="email" placeholder="your@email.com" />
+          <button type="submit" aria-label="Subscribe"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+        </div>
+        <div class="msg" id="msg"></div>
+      </form>
+    </main>
+    <footer>
+      <span>© <span id="year"></span> 4-11 Studio — Mumbai</span>
+      <div class="right">
+        <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:studio@4eleven.in">Email</a>
+        <span class="tuned">Launching Soon. Stay Tuned.</span>
+      </div>
+    </footer>
+  </div>
+<script>
+  var API_BASE = "https://4eleven.in"; // set to "" if hosting on the same domain as your API
+  (function(){var D=2200,s=performance.now(),f=document.getElementById('bar-fill'),p=document.getElementById('pct'),l=document.getElementById('loader');
+    function t(){var v=Math.min(100,Math.round((performance.now()-s)/D*100));f.style.width=v+'%';p.textContent=String(v).padStart(3,'0');if(v<100)requestAnimationFrame(t)}
+    requestAnimationFrame(t);setTimeout(function(){f.style.width='100%';p.textContent='100';l.classList.add('done')},D+250);setTimeout(function(){l.style.display='none'},D+1200)})();
+  (function(){var k='411-launch',st=localStorage.getItem(k),tg;if(st){tg=new Date(st)}else{tg=new Date(Date.now()+110*864e5);localStorage.setItem(k,tg.toISOString())}
+    function pad(n){return String(n).padStart(2,'0')}function u(){var d=Math.max(0,tg-Date.now());document.getElementById('d').textContent=pad(Math.floor(d/864e5));document.getElementById('h').textContent=pad(Math.floor(d/36e5%24));document.getElementById('m').textContent=pad(Math.floor(d/6e4%60));document.getElementById('s').textContent=pad(Math.floor(d/1e3%60))}u();setInterval(u,1e3)})();
+  document.getElementById('subscribe').addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('email').value.trim(),m=document.getElementById('msg');if(!em){m.style.color='var(--accent)';m.textContent='Please enter your email.';return}m.style.color='var(--muted)';m.textContent='Sending...';
+    fetch(API_BASE+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em})}).then(function(r){return r.json().then(function(b){return{ok:r.ok,body:b}})}).then(function(res){if(res.ok){m.style.color='#4ade80';m.textContent="You're on the list. We'll be in touch soon.";document.getElementById('email').value=''}else{m.style.color='var(--accent)';m.textContent=(res.body&&res.body.detail)||'Something went wrong. Try again.'}}).catch(function(){m.style.color='var(--accent)';m.textContent='Network error. Try again.'})});
+  document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
