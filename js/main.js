@@ -202,6 +202,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (whatWeDoBtn) {
     whatWeDoBtn.addEventListener('click', (e) => {
+      const href = whatWeDoBtn.getAttribute('href');
+      if (href && href.includes('.html')) {
+        return; // Allow standard page navigation
+      }
       const targetSec = document.getElementById('what-we-ship') || document.getElementById('capabilities');
       if (targetSec) {
         e.preventDefault();
@@ -215,6 +219,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (viewWorksBtn) {
     viewWorksBtn.addEventListener('click', (e) => {
+      const href = viewWorksBtn.getAttribute('href');
+      if (href && href.includes('.html')) {
+        return; // Allow standard page navigation
+      }
       const targetSec = document.getElementById('selected-work');
       if (targetSec) {
         e.preventDefault();
@@ -228,6 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (scrollBadgeBtn) {
     scrollBadgeBtn.addEventListener('click', (e) => {
+      const href = scrollBadgeBtn.getAttribute('href');
+      if (href && href.includes('.html')) {
+        return; // Allow standard page navigation
+      }
       const targetSec = document.getElementById('what-we-ship');
       if (targetSec) {
         e.preventDefault();
