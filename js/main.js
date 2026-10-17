@@ -262,16 +262,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   // 4. DYNAMIC CHANGING WORD (5 INDIAN STYLES: HINDI <-> ENGLISH)
   // ========================================================
-  const dynamicWordEl = document.getElementById('dynamic-ignore');
-
-  if (dynamicWordEl) {
-    const wordStyles = [
-      { text: "Ignore", styleClass: "style-bollywood" },
-      { text: "नज़रअंदाज़", styleClass: "style-truck-art" },
-      { text: "अनदेखा", styleClass: "style-royal-saffron" },
-      { text: "इग्नोर", styleClass: "style-matchbox-pop" },
-      { text: "IGNORE", styleClass: "style-street-neon" }
-    ];
+  function setupWordRotator(elementId, wordStyles) {
+    const el = document.getElementById(elementId);
+    if (!el || !wordStyles || !wordStyles.length) return;
 
     let currentIdx = 0;
     let isMorphing = false;
@@ -280,36 +273,31 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isMorphing) return;
       isMorphing = true;
 
-      // Phase 1: Slide up and fade out current word
-      dynamicWordEl.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, filter 0.35s ease';
-      dynamicWordEl.style.transform = 'translateY(-24px) scale(0.92)';
-      dynamicWordEl.style.opacity = '0';
-      dynamicWordEl.style.filter = 'blur(4px)';
+      el.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, filter 0.35s ease';
+      el.style.transform = 'translateY(-24px) scale(0.92)';
+      el.style.opacity = '0';
+      el.style.filter = 'blur(4px)';
 
       setTimeout(() => {
-        // Phase 2: Advance and swap style class & text content while invisible
-        wordStyles.forEach(w => dynamicWordEl.classList.remove(w.styleClass));
+        wordStyles.forEach(w => el.classList.remove(w.styleClass));
         currentIdx = (currentIdx + 1) % wordStyles.length;
         const next = wordStyles[currentIdx];
 
-        dynamicWordEl.textContent = next.text;
-        dynamicWordEl.classList.add(next.styleClass);
+        el.textContent = next.text;
+        el.classList.add(next.styleClass);
 
-        // Instantly position below before animating in
-        dynamicWordEl.style.transition = 'none';
-        dynamicWordEl.style.transform = 'translateY(24px) scale(0.92)';
-        dynamicWordEl.style.opacity = '0';
-        dynamicWordEl.style.filter = 'blur(4px)';
+        el.style.transition = 'none';
+        el.style.transform = 'translateY(24px) scale(0.92)';
+        el.style.opacity = '0';
+        el.style.filter = 'blur(4px)';
 
-        // Force browser layout repaint
-        void dynamicWordEl.offsetWidth;
+        void el.offsetWidth;
 
-        // Phase 3: Animate into neutral position smoothly
         requestAnimationFrame(() => {
-          dynamicWordEl.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease';
-          dynamicWordEl.style.transform = 'translateY(0) scale(1)';
-          dynamicWordEl.style.opacity = '1';
-          dynamicWordEl.style.filter = 'blur(0)';
+          el.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease';
+          el.style.transform = 'translateY(0) scale(1)';
+          el.style.opacity = '1';
+          el.style.filter = 'blur(0)';
 
           setTimeout(() => {
             isMorphing = false;
@@ -318,18 +306,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 350);
     }
 
-    // Auto-cycle in loop every 2.2 seconds
     let morphInterval = setInterval(morphToNext, 2200);
 
-    // Also allow user to click on the word directly to cycle instantly
-    dynamicWordEl.style.cursor = 'pointer';
-    dynamicWordEl.addEventListener('click', (e) => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', (e) => {
       e.stopPropagation();
       clearInterval(morphInterval);
       morphToNext();
       morphInterval = setInterval(morphToNext, 2200);
     });
   }
+
+  // Home Page Rotator
+  setupWordRotator('dynamic-ignore', [
+    { text: "Ignore", styleClass: "style-bollywood" },
+    { text: "नज़रअंदाज़", styleClass: "style-truck-art" },
+    { text: "अनदेखा", styleClass: "style-royal-saffron" },
+    { text: "इग्नोर", styleClass: "style-matchbox-pop" },
+    { text: "IGNORE", styleClass: "style-street-neon" }
+  ]);
+
+  // About Page Rotator
+  setupWordRotator('dynamic-about', [
+    { text: "उद्देश्यपूर्ण", styleClass: "style-royal-saffron" },
+    { text: "Intentional", styleClass: "style-bollywood" },
+    { text: "विशिष्ट", styleClass: "style-truck-art" },
+    { text: "Unapologetic", styleClass: "style-street-neon" },
+    { text: "प्रभावशाली", styleClass: "style-matchbox-pop" }
+  ]);
+
+  // Work Page Rotator
+  setupWordRotator('dynamic-work', [
+    { text: "कृतियाँ", styleClass: "style-truck-art" },
+    { text: "Impossible", styleClass: "style-street-neon" },
+    { text: "रचनाएं", styleClass: "style-royal-saffron" },
+    { text: "Cinema", styleClass: "style-bollywood" },
+    { text: "कलाकृति", styleClass: "style-matchbox-pop" }
+  ]);
+
+  // Contact Page Rotator
+  setupWordRotator('dynamic-contact', [
+    { text: "संपर्क", styleClass: "style-bollywood" },
+    { text: "Connect", styleClass: "style-street-neon" },
+    { text: "शुरुआत", styleClass: "style-royal-saffron" },
+    { text: "Collaborate", styleClass: "style-truck-art" },
+    { text: "साझेदारी", styleClass: "style-matchbox-pop" }
+  ]);
 
   // ========================================================
   // 5. 4—11 ROCKET SHIP VOYAGER (AUTONOMOUS FLIGHT + SIDE FLAMES)
@@ -409,6 +431,161 @@ document.addEventListener('DOMContentLoaded', () => {
         isBoosting = false;
         rocket.classList.remove('rocket-turbo');
       }, 1500);
+    });
+  }
+
+  // ========================================================
+  // 6. LIVE IST CLOCK (MUMBAI COORDINATES)
+  // ========================================================
+  const liveClockEl = document.getElementById('live-ist-time');
+  if (liveClockEl) {
+    function updateIST() {
+      try {
+        const now = new Date();
+        const istTimeStr = now.toLocaleTimeString('en-US', {
+          timeZone: 'Asia/Kolkata',
+          hour12: true,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+        liveClockEl.textContent = `${istTimeStr} IST`;
+      } catch (err) {
+        // Fallback
+        const now = new Date();
+        liveClockEl.textContent = now.toLocaleTimeString();
+      }
+    }
+    updateIST();
+    setInterval(updateIST, 1000);
+  }
+
+  // ========================================================
+  // 7. WORK PAGE: CATEGORY FILTERING & PROJECT MODALS
+  // ========================================================
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  if (filterBtns.length && projectCards.length) {
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const selectedCat = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (selectedCat === 'All' || cardCat === selectedCat) {
+            card.style.display = 'flex';
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+
+  // Project Detail Modals
+  const projectModal = document.getElementById('project-detail-modal');
+  if (projectModal) {
+    projectCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title');
+        const client = card.getAttribute('data-client');
+        const year = card.getAttribute('data-year');
+        const cat = card.getAttribute('data-category');
+        const desc = card.getAttribute('data-desc');
+        const tags = card.getAttribute('data-tags');
+
+        const mTitle = document.getElementById('modal-proj-title');
+        const mClient = document.getElementById('modal-proj-client');
+        const mYear = document.getElementById('modal-proj-year');
+        const mCat = document.getElementById('modal-proj-cat');
+        const mDesc = document.getElementById('modal-proj-desc');
+        const mTags = document.getElementById('modal-proj-tags');
+
+        if (mTitle) mTitle.textContent = title;
+        if (mClient) mClient.textContent = client;
+        if (mYear) mYear.textContent = year;
+        if (mCat) mCat.textContent = cat;
+        if (mDesc) mDesc.textContent = desc;
+
+        if (mTags && tags) {
+          mTags.innerHTML = '';
+          tags.split(',').forEach(tag => {
+            const span = document.createElement('span');
+            span.className = 'pillar-tag';
+            span.textContent = tag.trim();
+            mTags.appendChild(span);
+          });
+        }
+
+        projectModal.classList.add('open');
+      });
+    });
+  }
+
+  // ========================================================
+  // 8. CONTACT PAGE: SERVICE CHIP TOGGLES & INTAKE SUBMIT
+  // ========================================================
+  const chipToggles = document.querySelectorAll('.chip-toggle');
+  chipToggles.forEach(chip => {
+    chip.addEventListener('click', () => {
+      // If single-choice in group (e.g. timeline) vs multi-choice (services)
+      const group = chip.getAttribute('data-group');
+      if (group === 'timeline') {
+        document.querySelectorAll(`.chip-toggle[data-group="timeline"]`).forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      } else {
+        chip.classList.toggle('active');
+      }
+    });
+  });
+
+  const contactForm = document.getElementById('contact-form');
+  const formSuccessCard = document.getElementById('form-success-card');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('contact-name')?.value || 'Ambitious Creator';
+      const email = document.getElementById('contact-email')?.value || '';
+      const brand = document.getElementById('contact-brand')?.value || 'Brand';
+      const phone = document.getElementById('contact-phone')?.value || 'Not specified';
+      const message = document.getElementById('contact-message')?.value || '';
+
+      const activeServices = Array.from(document.querySelectorAll('.chip-toggle.active[data-group="service"]'))
+        .map(c => c.textContent.trim())
+        .join(', ') || 'General Creative Retainer';
+
+      const activeTimeline = document.querySelector('.chip-toggle.active[data-group="timeline"]')?.textContent.trim() || 'Flexible';
+
+      const subject = encodeURIComponent(`Project Brief: ${brand} × 4—11 Studio [${name}]`);
+      const body = encodeURIComponent(
+        `Hi 4—11 Studio Team,\n\n` +
+        `Name: ${name}\n` +
+        `Brand / Company: ${brand}\n` +
+        `Email: ${email}\n` +
+        `Phone / WhatsApp: ${phone}\n\n` +
+        `Services Requested:\n${activeServices}\n\n` +
+        `Desired Timeline:\n${activeTimeline}\n\n` +
+        `Project Overview & Vision:\n${message}\n\n` +
+        `---\nSent via 4eleven.in Project Intake`
+      );
+
+      // Open email client
+      window.open(`mailto:hello@4-11.studio?subject=${subject}&body=${body}`, '_blank');
+
+      // Display visual confirmation
+      if (formSuccessCard) {
+        contactForm.style.display = 'none';
+        formSuccessCard.style.display = 'block';
+        formSuccessCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
     });
   }
 

@@ -13,7 +13,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.6">
+  <link rel="stylesheet" href="css/style.css?v=3.7">
 </head>
 <body>
   <!-- Grain Overlay -->
@@ -381,21 +381,21 @@
 
       <!-- Action Buttons -->
       <div class="hero-cta-row">
-        <button class="btn-orange-pill" id="what-we-do-btn">
+        <a href="about.html" class="btn-orange-pill" id="what-we-do-btn">
           <span>WHAT WE DO</span>
           <span class="btn-arrow-circle">→</span>
-        </button>
+        </a>
 
-        <button class="btn-ghost-pill" id="view-works-btn">
+        <a href="work.html" class="btn-ghost-pill" id="view-works-btn">
           <span>VIEW WORKS</span>
           <span class="btn-ghost-arrow">→</span>
-        </button>
+        </a>
       </div>
     </div>
 
     <!-- Bottom Right: Circular Rotating Badge (Make It Matter) -->
     <div class="bottom-right-badge">
-      <div class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
+      <a href="about.html" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
         <svg class="badge-svg" viewBox="0 0 120 120">
           <path id="textCircle" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
           <text fill="rgba(255, 255, 255, 0.75)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
@@ -404,8 +404,8 @@
             </textPath>
           </text>
         </svg>
-        <div class="badge-center-btn">↓</div>
-      </div>
+        <div class="badge-center-btn">→</div>
+      </a>
     </div>
 
   </div>
@@ -423,16 +423,20 @@
     </div>
 
     <div class="drawer-nav-list">
-      <a href="#" class="drawer-nav-item" data-target="services">
+      <a href="index.html" class="drawer-nav-item active">
         <span class="drawer-nav-num">01</span>
-        <span>What We Do</span>
+        <span>Home</span>
       </a>
-      <a href="#" class="drawer-nav-item" data-target="work">
+      <a href="about.html" class="drawer-nav-item">
         <span class="drawer-nav-num">02</span>
+        <span>About & Ethos</span>
+      </a>
+      <a href="work.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">03</span>
         <span>Selected Works</span>
       </a>
-      <a href="mailto:hello@4-11.studio" class="drawer-nav-item">
-        <span class="drawer-nav-num">03</span>
+      <a href="contact.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">04</span>
         <span>Start a Project</span>
       </a>
     </div>
@@ -605,6 +609,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=3.6"></script>
+  <script src="js/main.js?v=3.7"></script>
 </body>
 </html>
