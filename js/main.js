@@ -27,19 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 35);
 
   // ========================================================
-  // 2. RETRO HINDI POP-ART ELEMENTS PARALLAX & PHYSICS
+  // 2. RETRO HINDI POP-ART ELEMENTS PARALLAX & SCATTER PHYSICS
   // ========================================================
   const retroElements = document.querySelectorAll('.retro-element');
+  const retroCanvas = document.getElementById('retro-bg-canvas');
   
   let mouseX = 0;
   let mouseY = 0;
   let currentX = 0;
   let currentY = 0;
-  const ease = 0.06; // Smooth inertia
+  const ease = 0.06; // Smooth mouse inertia
+
+  // Track each element's dynamic scatter target and position
+  const elementStates = Array.from(retroElements).map(() => ({
+    x: 0,
+    y: 0,
+    targetX: 0,
+    targetY: 0,
+    speed: 0.08
+  }));
 
   // Listen to mouse movement
   window.addEventListener('mousemove', (e) => {
-    // Distance from window center
     mouseX = e.clientX - window.innerWidth / 2;
     mouseY = e.clientY - window.innerHeight / 2;
   });
@@ -56,32 +65,110 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Physics animation loop using requestAnimationFrame
   function renderParallax() {
-    // Lerp towards target
     currentX += (mouseX - currentX) * ease;
     currentY += (mouseY - currentY) * ease;
 
-    retroElements.forEach((el) => {
-      const parallaxFactor = parseFloat(el.getAttribute('data-parallax') || '0.05');
-      const px = currentX * parallaxFactor;
-      const py = currentY * parallaxFactor;
+    retroElements.forEach((el, i) => {
+      const state = elementStates[i];
+      // Smoothly lerp towards scatter position
+      state.x += (state.targetX - state.x) * state.speed;
+      state.y += (state.targetY - state.y) * state.speed;
 
-      el.style.setProperty('--mx', `${px.toFixed(2)}px`);
-      el.style.setProperty('--my', `${py.toFixed(2)}px`);
+      const parallaxFactor = parseFloat(el.getAttribute('data-parallax') || '0.05');
+      const totalPx = (currentX * parallaxFactor) + state.x;
+      const totalPy = (currentY * parallaxFactor) + state.y;
+
+      el.style.setProperty('--mx', `${totalPx.toFixed(2)}px`);
+      el.style.setProperty('--my', `${totalPy.toFixed(2)}px`);
     });
 
     requestAnimationFrame(renderParallax);
   }
   renderParallax();
 
-  // Playful click interaction on retro badges
-  retroElements.forEach((el) => {
-    el.addEventListener('click', () => {
-      el.style.transform = 'scale(1.15) rotate(0deg)';
+  // Function to scatter all elements to brand-new places across the screen
+  function scatterAllElements(clickedElement) {
+    const screenW = window.innerWidth;
+    const screenH = window.innerHeight;
+    const padding = Math.min(60, screenW * 0.06);
+
+    // Protected center zone so text stays legible
+    const isMobile = screenW <= 768;
+    const safeCenterW = isMobile ? screenW * 0.75 : Math.min(680, screenW * 0.6);
+    const safeCenterH = isMobile ? screenH * 0.65 : Math.min(380, screenH * 0.5);
+    const centerMinX = (screenW - safeCenterW) / 2;
+    const centerMaxX = (screenW + safeCenterW) / 2;
+    const centerMinY = (screenH - safeCenterH) / 2;
+    const centerMaxY = (screenH + safeCenterH) / 2;
+
+    retroElements.forEach((el, i) => {
+      const state = elementStates[i];
+      const rect = el.getBoundingClientRect();
+      const elW = rect.width || 140;
+      const elH = rect.height || 60;
+
+      // Base un-shifted position of element
+      const originX = rect.left - state.x;
+      const originY = rect.top - state.y;
+
+      // Pick a random destination on the screen
+      let destX, destY;
+      let attempts = 0;
+      do {
+        destX = padding + Math.random() * (screenW - elW - padding * 2);
+        destY = padding + Math.random() * (screenH - elH - padding * 2);
+        attempts++;
+      } while (
+        !isMobile &&
+        destX + elW > centerMinX &&
+        destX < centerMaxX &&
+        destY + elH > centerMinY &&
+        destY < centerMaxY &&
+        attempts < 25
+      );
+
+      // If attempts exhausted or inside center, push to perimeter quadrant
+      if (destX + elW > centerMinX && destX < centerMaxX && destY + elH > centerMinY && destY < centerMaxY) {
+        if (Math.random() > 0.5) {
+          destX = Math.random() > 0.5 ? padding : screenW - elW - padding;
+        } else {
+          destY = Math.random() > 0.5 ? padding : screenH - elH - padding;
+        }
+      }
+
+      // Assign target offset
+      state.targetX = destX - originX;
+      state.targetY = destY - originY;
+      
+      // Springy staggered speed
+      state.speed = (el === clickedElement) 
+        ? 0.14 
+        : 0.06 + Math.random() * 0.05;
+    });
+
+    // If a specific element was clicked, trigger visual shockwave burst
+    if (clickedElement) {
+      clickedElement.classList.add('element-clicked-burst');
       setTimeout(() => {
-        el.style.transform = '';
-      }, 300);
+        clickedElement.classList.remove('element-clicked-burst');
+      }, 500);
+    }
+  }
+
+  // Bind click on all retro badges
+  retroElements.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      e.stopPropagation();
+      scatterAllElements(el);
     });
   });
+
+  // Also bind click on retro canvas for background tapping
+  if (retroCanvas) {
+    retroCanvas.addEventListener('click', () => {
+      scatterAllElements(null);
+    });
+  }
 
   // ========================================================
   // 3. MENU DRAWER & MODAL INTERACTIONS

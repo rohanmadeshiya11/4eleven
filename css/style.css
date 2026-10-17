@@ -168,7 +168,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 .retro-element {
   position: absolute;
   pointer-events: auto;
-  cursor: grab;
+  cursor: pointer;
   user-select: none;
   --mx: 0px;
   --my: 0px;
@@ -176,8 +176,17 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   will-change: transform;
 }
 .retro-element:hover {
-  filter: brightness(1.15);
-  z-index: 30;
+  filter: brightness(1.18);
+  z-index: 35;
+}
+.retro-element:active {
+  cursor: grabbing;
+}
+
+/* Clicked Element Blast / Impulse */
+.retro-element.element-clicked-burst {
+  filter: brightness(1.35) drop-shadow(0 0 30px var(--orange)) !important;
+  z-index: 60 !important;
 }
 
 /* 1. ब्रांडिंग (BRANDING) — Retro Matchbox Card */
@@ -909,8 +918,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     z-index: 1;
   }
   .retro-element {
-    pointer-events: none; /* Never interfere with mobile touches */
-    opacity: 0.45;
+    pointer-events: auto;
+    opacity: 0.75;
   }
 
   /* Safe 4-Corner Placement on mobile */
