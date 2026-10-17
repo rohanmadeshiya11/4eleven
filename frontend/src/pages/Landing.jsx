@@ -1,9 +1,10 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustedScale from "@/components/TrustedScale";
-import CapabilitiesHighlights from "@/components/CapabilitiesHighlights";
-import WhatWeAchieve from "@/components/WhatWeAchieve";
+import Philosophy from "@/components/Philosophy";
+import WorkGallery from "@/components/WorkGallery";
+import ServiceMatrix from "@/components/ServiceMatrix";
 import EditorialShowcase from "@/components/EditorialShowcase";
+import ProjectPlanner from "@/components/ProjectPlanner";
 import ProjectCta from "@/components/ProjectCta";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -13,10 +14,11 @@ export const Landing = () => {
       <Header />
       <main id="main-content">
         <Hero />
-        <TrustedScale />
-        <CapabilitiesHighlights />
-        <WhatWeAchieve />
+        <Philosophy />
+        <WorkGallery />
+        <ServiceMatrix />
         <EditorialShowcase />
+        <ProjectPlanner />
         <ProjectCta />
       </main>
       <SiteFooter />

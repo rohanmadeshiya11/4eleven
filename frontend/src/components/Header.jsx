@@ -38,7 +38,7 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080809]/80 backdrop-blur-md border-b border-white/10 py-3"
+          ? "bg-[#080809]/85 backdrop-blur-md border-b border-white/10 py-3"
           : "bg-transparent py-5"
       }`}
     >
@@ -47,7 +47,7 @@ export const Header = () => {
         <div className="flex items-center gap-4">
           <a
             href="#top"
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-2.5 group cursor-pointer"
             aria-label="4-11 Studio Home"
           >
             <div className="w-10 h-6 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full flex items-center px-1 transition-colors">
@@ -62,37 +62,40 @@ export const Header = () => {
           </a>
 
           {/* Desktop Nav links */}
-          <nav className="hidden md:flex items-center gap-7 ml-6 text-[13px] text-white/70 font-medium">
+          <nav className="hidden md:flex items-center gap-7 ml-8 text-[13px] text-white/70 font-medium">
             <a href="#work" className="hover:text-white transition-colors">
               Work
+            </a>
+            <a href="#philosophy" className="hover:text-white transition-colors">
+              Ethos
             </a>
             <a href="#services" className="hover:text-white transition-colors">
               Services
             </a>
-            <a href="#capabilities" className="hover:text-white transition-colors">
-              Capabilities
-            </a>
             <a href="#process" className="hover:text-white transition-colors">
               Process
+            </a>
+            <a href="#planner" className="hover:text-white transition-colors">
+              Planner
             </a>
           </nav>
         </div>
 
         {/* Center: Live Time / Location indicator */}
-        <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono tracking-wider text-white/60 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+        <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono tracking-wider text-white/60 bg-white/5 border border-white/10 px-3.5 py-1.5 rounded-full">
           <span className="w-1.5 h-1.5 rounded-full bg-[#ff493b] animate-ping" />
           <span>MUMBAI, IN</span>
           <span className="text-white/30">•</span>
-          <span className="text-white font-medium">{timeStr || "21:28"} IST</span>
+          <span className="text-white font-medium">{timeStr || "23:25"} IST</span>
         </div>
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
           <a
-            href="mailto:studio@4eleven.in"
+            href="#planner"
             className="inline-flex items-center gap-2 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white font-semibold text-xs tracking-wide px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-[#ff493b]/30"
           >
-            <span>Let's talk</span>
+            <span>Start a Project</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
@@ -134,18 +137,18 @@ export const Header = () => {
                 Work
               </a>
               <a
+                href="#philosophy"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Ethos
+              </a>
+              <a
                 href="#services"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
                 Services
-              </a>
-              <a
-                href="#capabilities"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
-              >
-                Capabilities
               </a>
               <a
                 href="#process"
@@ -155,7 +158,14 @@ export const Header = () => {
                 Process
               </a>
               <a
-                href="mailto:studio@4eleven.in"
+                href="#planner"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Project Planner
+              </a>
+              <a
+                href="#planner"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 text-center py-2.5 rounded-full bg-[#ff493b] text-white font-semibold text-xs tracking-wider"
               >
