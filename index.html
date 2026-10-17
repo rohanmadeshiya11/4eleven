@@ -1,136 +1,344 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>4-11 Studio | Coming Soon</title>
-<meta name="description" content="4-11 Studio — Stories. Frames. Experiences." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080809">
+  <meta name="description" content="4-11 Studio is an independent creative partner for brands, films and digital experiences.">
+  <title>4—11 Studio® — Make It Matter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{font-family:Manrope,Arial,sans-serif;color:#f5f3ef;background:#080809;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;--coral:#ff493b;--black:#080809;--muted:#99999e}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}body{margin:0;background:var(--black)}a{color:inherit;text-decoration:none}button{font:inherit}
+    
+    /* Preloader Styles */
+    #loader{position:fixed;inset:0;z-index:1000;background:var(--black);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;transition:transform .9s cubic-bezier(.76,0,.24,1)}
+    #loader.done{transform:translateY(-100%)}
+    #loader img{width:220px;margin-bottom:40px;opacity:0;transform:scale(.92);animation:pop .8s cubic-bezier(.76,0,.24,1) forwards;filter:drop-shadow(0 8px 24px rgba(0,0,0,.6))}
+    @media(min-width:640px){#loader img{width:280px}}
+    @keyframes pop{to{opacity:1;transform:scale(1)}}
+    .bar-wrap{width:100%;max-width:300px}
+    .bar{height:1px;width:100%;background:rgba(255,255,255,.15);overflow:hidden}
+    .bar>i{display:block;height:100%;width:0;background:var(--coral);transition:width .15s linear}
+    .bar-meta{display:flex;justify-content:space-between;margin-top:12px;font:10px 'DM Mono',monospace;letter-spacing:.28em;text-transform:uppercase;color:var(--muted)}
+    .bar-meta b{color:#fff;font-weight:500}
 
-<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet" />
+    /* Main Layout & Stacked Browser Frame */
+    .canvas{min-height:100vh;background:var(--black);padding:70px clamp(16px,5.2vw,76px) 0;position:relative;overflow:hidden}
+    .backdrop-shape{position:absolute;background:#141417;border:1px solid #ffffff12;border-bottom:0;border-radius:14px 14px 0 0;left:12%;right:12%;height:30px;top:32px}.shape-two{left:8%;right:8%;top:51px;background:#1c1c21;border:1px solid #ffffff18;border-bottom:0;height:30px}
+    .browser{position:relative;z-index:1;max-width:1450px;margin:0 auto;background:var(--black);border:1px solid #ffffff1a;border-bottom:0;border-radius:15px 15px 0 0;overflow:hidden;box-shadow:0 25px 90px rgba(0,0,0,.85)}
+    .topbar{height:82px;position:absolute;z-index:8;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 28px}
+    .brand{display:inline-flex;align-items:center;gap:4px}.brand-logo{height:38px;width:68px;object-fit:cover;object-position:center;filter:drop-shadow(0 4px 14px rgba(0,0,0,.65));transition:transform .25s ease}.brand:hover .brand-logo{transform:scale(1.05)}
+    .hero-brand-logo{height:clamp(54px,8.5vw,108px);width:clamp(104px,16.2vw,206px);object-fit:cover;object-position:center;display:block;filter:drop-shadow(0 10px 28px rgba(0,0,0,.65))}
+    .micro-logo{height:22px;width:42px;object-fit:cover;object-position:center;vertical-align:middle;opacity:.95}
+    .footer-logo{height:40px;width:76px;object-fit:cover;object-position:center;display:block;filter:brightness(0)}
+    .footer-copy{display:inline-flex;align-items:center;gap:5px}
+    .footer-inline-logo{height:15px;width:30px;object-fit:cover;object-position:center;filter:brightness(0)}
+    .nav{display:flex;gap:27px;align-items:center;font-size:11px}.nav a{transition:color .2s}.nav a:hover{color:var(--coral)}.nav-cta{border:1px solid #ffffff65;padding:9px 12px}.hamburger{display:none;background:none;border:0;cursor:pointer}
+    .hero{position:relative;height:590px;min-height:540px;overflow:hidden;background:#35333a}.hero-image{position:absolute;width:100%;height:100%;object-fit:cover;object-position:center 36%;filter:brightness(.78) saturate(.82)}
+    .hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,7,10,.66),rgba(7,7,10,.15) 52%,rgba(7,7,10,.08)),linear-gradient(0deg,rgba(7,7,10,.6),transparent 38%)}
+    .hero-copy{position:absolute;top:115px;left:24px;z-index:2}.eyebrow{font:10px 'DM Mono',monospace;letter-spacing:.04em;color:#c7c5c3}.coral-text{color:var(--coral);font-weight:500}
+    .hero-copy h1{font-size:clamp(27px,3vw,43px);line-height:1.16;letter-spacing:-.065em;color:#c6c8d0;font-weight:700;margin:13px 0 18px}.hero-copy h1 strong{color:#fff}
+    .hero-buttons{display:flex;gap:5px}.tiny-button{background:var(--coral);color:#fff;font-size:9px;padding:7px 10px;border-radius:2px;transition:opacity .2s}.tiny-button:hover{opacity:.9}
+    .service-index{position:absolute;right:4%;top:142px;z-index:2;list-style:none;margin:0;padding:0;font-size:10px;line-height:2.2;text-shadow:0 1px 4px #0008}.service-index span{color:#bbb6b3;margin-right:5px}
+    .hero-dot{position:absolute;left:60%;top:34%;width:7px;height:7px;border-radius:50%;background:var(--coral);box-shadow:0 0 16px #ff493b88}
+    .hero-bottom{position:absolute;left:22px;right:20px;bottom:25px;display:flex;align-items:end;justify-content:space-between;z-index:3;gap:15px}.hero-bottom h2{margin:0;display:inline-flex;align-items:flex-start;gap:4px}.hero-bottom h2 span{font:500 10px 'DM Mono',monospace;letter-spacing:.08em;color:#fff;line-height:1;transform:translateY(6px)}
+    .work-teaser{display:flex;align-items:stretch;gap:5px;height:62px;max-width:42%;overflow:hidden;position:relative}.teaser-thumb{width:80px;min-width:50px;overflow:hidden;border-radius:6px;position:relative}.teaser-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}.work-teaser:hover img{transform:scale(1.1)}.teaser-label{position:absolute;align-self:center;right:22px;font-size:8px;line-height:1.4;text-shadow:0 1px 5px #000;background:rgba(8,8,9,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.22);border-radius:50%;width:44px;height:44px;display:grid;place-items:center;text-align:center}
+    
+    /* Client Strip & About Section */
+    .client-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;padding:25px 13px;background:#080809;border-bottom:1px solid #ffffff0d}.client-logo{height:58px;background:#151518;border-radius:7px;display:grid;place-items:center;color:#aaa9ae;font-size:9px;font-weight:700;letter-spacing:-.02em}
+    .about{padding:35px 16px 65px;background:#080809}.micro-row{display:flex;align-items:center;justify-content:space-between;color:#77777d;font:8px 'DM Mono',monospace;margin:0 5px 30px}.micro-row span:first-child{color:var(--coral)}
+    .about-art{position:relative;min-height:450px;display:flex;align-items:center;justify-content:center;isolation:isolate}.about-rock{position:absolute;z-index:-1;width:75%;height:88%;bottom:0;left:13%;background:linear-gradient(130deg,#17181b,#09090a 62%,#222328);clip-path:polygon(5% 42%,22% 18%,39% 29%,50% 5%,70% 24%,92% 12%,100% 64%,80% 100%,17% 98%,0 74%);filter:drop-shadow(0 0 20px #000)}
+    .about-photo{position:absolute;overflow:hidden;border-radius:12px;z-index:1}.about-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.75)}.photo-left{left:1%;top:14%;width:16%;height:155px}.photo-right{right:2%;top:3%;width:17%;height:170px}.photo-bottom{left:40%;bottom:0;width:27%;height:105px}
+    .about-copy{position:relative;z-index:2;width:74%;text-align:center;padding:75px 0 65px}.about-bubble{width:38px;height:38px;display:grid;place-items:center;margin:0 auto 25px;background:var(--coral);border-radius:50%;font-size:7px}.about-copy h2{font-size:clamp(23px,3.5vw,43px);line-height:1.1;letter-spacing:-.06em;margin:0;font-weight:800}.about-copy h2 span{color:#69696e}
+    
+    /* Work & Services Sections */
+    .work-section,.services-section{padding:70px 24px 80px;background:#080809}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:35px}.section-head h2{font-size:clamp(40px,7vw,75px);line-height:.95;letter-spacing:-.08em;margin:12px 0 0}.section-head h2 em,.contact h2 em{font-family:Georgia,serif;font-weight:400;color:var(--coral)}.section-head p{color:#a3a2a5;font-size:11px;line-height:1.8;margin:0 0 4px}
+    .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px 14px}.work-card{min-width:0}.work-image{height:clamp(180px,34vw,380px);position:relative;overflow:hidden;border-radius:8px;background:#202024}.work-image img{width:100%;height:100%;object-fit:cover;filter:brightness(.78) saturate(.75);transition:transform .6s,filter .4s}.work-card:hover img{transform:scale(1.04);filter:brightness(.95) saturate(1)}.work-arrow{position:absolute;right:12px;top:12px;background:var(--coral);width:34px;height:34px;border-radius:50%;display:grid;place-items:center}.work-number{position:absolute;bottom:12px;left:12px;font:10px 'DM Mono',monospace}
+    .work-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px}.work-meta h3{font-size:18px;letter-spacing:-.04em;margin:0}.work-meta span{font:8px 'DM Mono',monospace;color:#8e8d92;text-align:right}
+    .services-section{background:#111113}.services-section .section-head{margin-bottom:45px}.services-list{border-top:1px solid #ffffff24}.service-line{display:grid;grid-template-columns:70px 1fr 35px;align-items:center;gap:10px;padding:22px 0;border-bottom:1px solid #ffffff24}.service-line>span:first-child{font:10px 'DM Mono',monospace;color:#a09fa4}.service-line h3{font-size:clamp(20px,3vw,32px);letter-spacing:-.06em;margin:0}.service-symbol{color:var(--coral);font-size:20px;text-align:right}
+    
+    /* Launch Countdown & Contact Section */
+    .launch-bar{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end;padding:32px 0;margin-top:28px;border-top:1px solid #08080933;border-bottom:1px solid #08080933}
+    .count{display:flex;align-items:flex-end;gap:16px;font-family:'DM Mono',monospace}
+    .count .u{display:flex;flex-direction:column}
+    .count .n{font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1;font-variant-numeric:tabular-nums;color:#080809}
+    .count .l{margin-top:6px;font-size:9px;letter-spacing:.22em;color:#4a1c17;text-transform:uppercase}
+    .count .sep{font-size:24px;color:#080809;padding-bottom:12px}
+    .sub-form label{display:block;font:9px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:#4a1c17;margin-bottom:8px}
+    .sub-field{display:flex;align-items:center;border-bottom:1.5px solid #08080988;transition:border-color .25s}
+    .sub-field:focus-within{border-color:#080809}
+    .sub-field input{flex:1;background:transparent;border:0;outline:0;padding:10px 0;font:600 15px Manrope,sans-serif;color:#080809}
+    .sub-field input::placeholder{color:#08080966}
+    .sub-field button{background:#080809;color:#fff;border:0;padding:8px 14px;border-radius:4px;cursor:pointer;font:11px 'DM Mono',monospace;transition:transform .2s}
+    .sub-field button:hover{transform:translateX(2px)}
+    .sub-msg{margin-top:8px;font:10px 'DM Mono',monospace;min-height:14px}
 
-<style>
-  :root{--bg:#0a0a0a;--fg:#fff;--muted:rgba(255,255,255,.55);--border:rgba(255,255,255,.18);--accent:#FF3B00}
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--fg);font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden;position:relative}
-  ::selection{background:var(--accent);color:#fff}
-  .mono{font-family:'JetBrains Mono',monospace;text-transform:uppercase}
-  .display{font-family:'Clash Display',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:-.03em}
-  .italic{font-family:'Playfair Display',serif;font-style:italic}
-  body::before{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  #loader{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 24px;transition:transform .9s cubic-bezier(.76,0,.24,1)}
-  #loader.done{transform:translateY(-100%)}
-  #loader img{width:160px;margin-bottom:40px;opacity:0;transform:scale(.9);animation:pop .8s cubic-bezier(.76,0,.24,1) forwards}
-  @media(min-width:640px){#loader img{width:208px}}
-  @keyframes pop{to{opacity:1;transform:scale(1)}}
-  .bar-wrap{width:100%;max-width:320px}
-  .bar{height:1px;width:100%;background:rgba(255,255,255,.15);overflow:hidden}
-  .bar>i{display:block;height:100%;width:0;background:var(--accent);transition:width .15s linear}
-  .bar-meta{display:flex;justify-content:space-between;margin-top:12px;font-size:.65rem;letter-spacing:.3em;color:var(--muted)}
-  .bar-meta b{color:#fff;font-weight:500}
-  .glow{position:absolute;top:-160px;right:-160px;width:640px;height:640px;border-radius:9999px;opacity:.12;filter:blur(64px);background:radial-gradient(circle,var(--accent) 0%,transparent 70%);pointer-events:none;z-index:0}
-  .shell{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column}
-  header,footer{padding-left:24px;padding-right:24px}
-  @media(min-width:640px){header,footer{padding-left:48px;padding-right:48px}}
-  header{display:flex;align-items:center;justify-content:space-between;padding-top:32px}
-  header img{height:48px;width:auto}
-  @media(min-width:640px){header img{height:64px}}
-  header .est{font-size:.7rem;letter-spacing:.3em;color:var(--muted)}
-  main{flex:1;display:flex;flex-direction:column;justify-content:center;max-width:1152px;padding:56px 24px}
-  @media(min-width:640px){main{padding:56px 48px}}
-  .badge{display:flex;align-items:center;gap:12px;margin-bottom:32px}
-  .dot{width:8px;height:8px;border-radius:9999px;background:var(--accent);animation:pulse 1.6s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  .badge span{font-size:.75rem;letter-spacing:.35em;color:var(--muted)}
-  h1{line-height:.85;font-size:13vw}
-  @media(min-width:640px){h1{font-size:9vw}}
-  @media(min-width:1024px){h1{font-size:7.5vw}}
-  h1 .line{display:block;overflow:hidden}
-  h1 .line>span{display:block;transform:translateY(110%);animation:rise 1s cubic-bezier(.76,0,.24,1) forwards}
-  h1 .accent{color:var(--accent)}
-  @keyframes rise{to{transform:translateY(0)}}
-  .lead{margin-top:32px;max-width:640px;font-size:1.05rem;line-height:1.6;color:var(--muted);opacity:0;animation:fade .8s ease forwards .6s}
-  .lead .italic{color:#fff}
-  @keyframes fade{to{opacity:1;transform:none}}
-  .count{margin-top:48px;display:flex;align-items:flex-end;gap:20px;font-family:'JetBrains Mono',monospace;opacity:0;animation:fade .8s ease forwards .7s}
-  @media(min-width:640px){.count{gap:32px}}
-  .count .u{display:flex;flex-direction:column}
-  .count .n{font-size:2rem;font-weight:500;line-height:1;font-variant-numeric:tabular-nums}
-  @media(min-width:640px){.count .n{font-size:3rem}}
-  .count .l{margin-top:8px;font-size:.6rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
-  .count .sep{font-size:1.5rem;color:var(--accent);padding-bottom:12px}
-  @media(min-width:640px){.count .sep{font-size:2.25rem}}
-  form{margin-top:48px;width:100%;max-width:448px;opacity:0;animation:fade .8s ease forwards .8s}
-  form label{display:block;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase;margin-bottom:12px}
-  .field{display:flex;align-items:center;border-bottom:1px solid var(--border);transition:border-color .3s}
-  .field:focus-within{border-color:var(--accent)}
-  .field input{flex:1;background:transparent;border:0;outline:0;padding:12px 0;font-family:'Manrope',sans-serif;font-size:1.125rem;color:#fff}
-  .field input::placeholder{color:rgba(255,255,255,.3)}
-  .field button{background:none;border:0;cursor:pointer;color:#fff;padding:8px;transition:color .3s}
-  .field button:hover{color:var(--accent)}
-  .msg{margin-top:12px;font-size:.8rem;color:var(--accent);min-height:1rem}
-  footer{display:flex;flex-direction:column;gap:12px;padding-bottom:32px;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.25em;color:var(--muted);text-transform:uppercase}
-  @media(min-width:640px){footer{flex-direction:row;align-items:center;justify-content:space-between}}
-  footer .right{display:flex;align-items:center;gap:24px}
-  footer a{color:var(--muted);text-decoration:none;transition:color .3s}
-  footer a:hover{color:var(--accent)}
-  footer .tuned{color:rgba(255,255,255,.7)}
-</style>
+    .contact{padding:75px 24px 22px;background:var(--coral);color:#080809}.contact .eyebrow{color:#50201d}.contact h2{font-size:clamp(62px,11vw,120px);line-height:.82;letter-spacing:-.1em;margin:28px 0}.contact h2 em{color:transparent;-webkit-text-stroke:1.4px #080809}.contact-button{display:flex;justify-content:space-between;align-items:center;border:1px solid #08080966;padding:16px 18px;font-size:13px;font-weight:700;margin-top:28px;transition:background .25s}.contact-button:hover{background:#080809;color:#fff}
+    .contact footer{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid #08080944;margin-top:55px;padding-top:18px;font:8px 'DM Mono',monospace}.footer-brand{font:800 21px Manrope,sans-serif;letter-spacing:-.09em}.footer-brand small{font:7px 'DM Mono',monospace;letter-spacing:.08em;display:block}
+    .footer-links{display:flex;gap:16px;align-items:center}.footer-links a:hover{text-decoration:underline}
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:translateY(0)}
+    
+    /* Responsive Queries */
+    @media(min-width:1100px){.hero{height:min(67vw,760px)}.hero-copy{top:23%;left:25px}.service-index{top:27%;right:4%}.hero-bottom{bottom:30px}.about{padding-left:25px;padding-right:25px}.about-art{min-height:540px}.work-section,.services-section{padding-left:32px;padding-right:32px}.contact{padding-left:32px;padding-right:32px}}
+    @media(max-width:650px){.canvas{padding:28px 10px 0}.backdrop-shape{top:12px;height:20px;left:12%;right:12%}.shape-two{top:23px;left:7%;right:7%;height:20px}.browser{border-radius:10px 10px 0 0}.topbar{height:64px;padding:0 15px}.brand-logo{height:30px;width:54px}.hero-brand-logo{height:clamp(42px,11vw,64px);width:clamp(80px,21vw,122px)}.micro-logo{height:18px;width:34px}.footer-logo{height:30px;width:58px}.hamburger{display:flex;flex-direction:column;gap:5px;padding:8px}.hamburger span{width:22px;height:2px;background:#fff}.nav{display:none;position:absolute;top:64px;left:0;right:0;background:#080809;padding:14px 18px 20px;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:13px 0;border-bottom:1px solid #ffffff20}.nav .nav-cta{border:0}.hero{height:520px;min-height:0}.hero-image{object-position:56% center}.hero-copy{top:105px;left:15px}.hero-copy h1{font-size:clamp(24px,6.5vw,34px)}.service-index{top:235px;right:15px;font-size:8px;line-height:2.1}.hero-bottom{left:14px;right:14px;bottom:22px;display:block}.hero-bottom h2 span{font-size:8px;transform:translateY(3px)}.work-teaser{margin-top:22px;height:50px;max-width:100%;width:100%}.teaser-thumb{flex:1}.teaser-label{right:25px}.client-strip{grid-template-columns:repeat(3,1fr);padding:13px 8px;gap:4px}.client-logo{height:44px;font-size:8px}.about{padding:25px 10px 45px}.micro-row{font-size:7px;margin-bottom:18px}.about-art{min-height:400px}.about-copy{width:88%;padding:80px 0}.about-copy h2{font-size:clamp(22px,6.3vw,32px)}.photo-left{width:23%;height:100px;top:8%}.photo-right{width:24%;height:112px;top:4%}.photo-bottom{width:42%;height:85px;left:30%}.about-rock{width:90%;left:5%;height:72%;bottom:4%}.work-section,.services-section{padding:50px 14px 55px}.section-head{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:25px}.section-head h2{font-size:clamp(40px,11vw,60px)}.work-grid{gap:25px 10px}.work-image{height:48vw}.work-meta{align-items:flex-start;flex-direction:column;gap:5px}.work-meta h3{font-size:16px}.work-meta span{font-size:7px;text-align:left}.service-line{grid-template-columns:36px 1fr 25px;padding:18px 0}.service-line h3{font-size:20px}.launch-bar{grid-template-columns:1fr;gap:22px}.contact{padding:55px 15px 18px}.contact h2{font-size:clamp(64px,17vw,95px)}.contact footer{flex-wrap:wrap;margin-top:45px;font-size:7px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}}
+  </style>
 </head>
 <body>
   <div id="loader">
-    <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio" />
-    <div class="bar-wrap"><div class="bar"><i id="bar-fill"></i></div>
-      <div class="bar-meta"><span>Loading</span><b id="pct">000</b></div></div>
+    <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio" onerror="this.style.display='none'" />
+    <div class="bar-wrap">
+      <div class="bar"><i id="bar-fill"></i></div>
+      <div class="bar-meta"><span>Loading</span><b id="pct">000</b></div>
+    </div>
   </div>
-  <div class="glow"></div>
-  <div class="shell">
-    <header>
-      <img src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio" />
-      <span class="est mono">Est. 2026 / Mumbai</span>
-    </header>
-    <main>
-      <div class="badge"><span class="dot"></span><span class="mono">Coming Soon</span></div>
-      <h1 class="display">
-        <span class="line"><span style="animation-delay:.15s">Stories.</span></span>
-        <span class="line"><span style="animation-delay:.3s">Frames.</span></span>
-        <span class="line"><span style="animation-delay:.45s">Experiences<span class="accent">.</span></span></span>
-      </h1>
-      <p class="lead">We're building a creative space where <span class="italic">photography, films, design and storytelling</span> come together to create unforgettable visuals.</p>
-      <div class="count" id="count">
-        <div class="u"><span class="n" id="d">00</span><span class="l">Days</span></div><span class="sep">:</span>
-        <div class="u"><span class="n" id="h">00</span><span class="l">Hrs</span></div><span class="sep">:</span>
-        <div class="u"><span class="n" id="m">00</span><span class="l">Mins</span></div><span class="sep">:</span>
-        <div class="u"><span class="n" id="s">00</span><span class="l">Secs</span></div>
-      </div>
-      <form id="subscribe">
-        <label>Something exciting is on its way — get notified</label>
-        <div class="field">
-          <input type="email" id="email" placeholder="your@email.com" />
-          <button type="submit" aria-label="Subscribe"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+
+  <main class="canvas" id="top">
+    <div class="backdrop-shape"></div><div class="backdrop-shape shape-two"></div>
+    <div class="browser">
+      <header class="topbar">
+        <a href="#top" class="brand" aria-label="4-11 Studio Home">
+          <img class="brand-logo" src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio">
+        </a>
+        <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+        <nav class="nav">
+          <a href="#work">Work</a>
+          <a href="#about">Studio</a>
+          <a href="#services">Services</a>
+          <a href="#contact" class="nav-cta">Let’s talk ↗</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <img class="hero-image" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=2200&q=90" alt="Editorial portrait" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="hero-copy reveal">
+          <span class="eyebrow coral-text">We are,</span>
+          <h1>Defining the<br>future of brands with<br><strong>visual identity.</strong></h1>
+          <div class="hero-buttons">
+            <a href="#work" class="tiny-button">↘</a>
+            <a href="#contact" class="tiny-button">Contact us</a>
+          </div>
         </div>
-        <div class="msg" id="msg"></div>
-      </form>
-    </main>
-    <footer>
-      <span>© <span id="year"></span> 4-11 Studio — Mumbai</span>
-      <div class="right">
-        <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:studio@4eleven.in">Email</a>
-        <span class="tuned">Launching Soon. Stay Tuned.</span>
-      </div>
-    </footer>
-  </div>
-<script>
-  var API_BASE = "https://4eleven.in"; // set to "" if hosting on the same domain as your API
-  (function(){var D=2200,s=performance.now(),f=document.getElementById('bar-fill'),p=document.getElementById('pct'),l=document.getElementById('loader');
-    function t(){var v=Math.min(100,Math.round((performance.now()-s)/D*100));f.style.width=v+'%';p.textContent=String(v).padStart(3,'0');if(v<100)requestAnimationFrame(t)}
-    requestAnimationFrame(t);setTimeout(function(){f.style.width='100%';p.textContent='100';l.classList.add('done')},D+250);setTimeout(function(){l.style.display='none'},D+1200)})();
-  (function(){var k='411-launch',st=localStorage.getItem(k),tg;if(st){tg=new Date(st)}else{tg=new Date(Date.now()+110*864e5);localStorage.setItem(k,tg.toISOString())}
-    function pad(n){return String(n).padStart(2,'0')}function u(){var d=Math.max(0,tg-Date.now());document.getElementById('d').textContent=pad(Math.floor(d/864e5));document.getElementById('h').textContent=pad(Math.floor(d/36e5%24));document.getElementById('m').textContent=pad(Math.floor(d/6e4%60));document.getElementById('s').textContent=pad(Math.floor(d/1e3%60))}u();setInterval(u,1e3)})();
-  document.getElementById('subscribe').addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('email').value.trim(),m=document.getElementById('msg');if(!em){m.style.color='var(--accent)';m.textContent='Please enter your email.';return}m.style.color='var(--muted)';m.textContent='Sending...';
-    fetch(API_BASE+'/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:em})}).then(function(r){return r.json().then(function(b){return{ok:r.ok,body:b}})}).then(function(res){if(res.ok){m.style.color='#4ade80';m.textContent="You're on the list. We'll be in touch soon.";document.getElementById('email').value=''}else{m.style.color='var(--accent)';m.textContent=(res.body&&res.body.detail)||'Something went wrong. Try again.'}}).catch(function(){m.style.color='var(--accent)';m.textContent='Network error. Try again.'})});
-  document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+        <ul class="service-index reveal">
+          <li><span>(01)</span> Brand Identity</li>
+          <li><span>(02)</span> Digital Marketing</li>
+          <li><span>(03)</span> UI/UX Design</li>
+          <li><span>(04)</span> Web Design</li>
+          <li><span>(05)</span> Experience Design</li>
+        </ul>
+        <div class="hero-dot"></div>
+        <div class="hero-bottom">
+          <h2>
+            <img class="hero-brand-logo" src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio">
+            <span>STUDIO®</span>
+          </h2>
+          <a href="#work" class="work-teaser" aria-label="View selected work">
+            <span class="teaser-thumb"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=300&q=80" alt="Stories"></span>
+            <span class="teaser-thumb"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=300&q=80" alt="Frames"></span>
+            <span class="teaser-thumb"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&q=80" alt="Experiences"></span>
+            <span class="teaser-label">View<br>works ↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="client-strip" aria-label="Collaborators">
+        <div class="client-logo">◉ quantum™</div>
+        <div class="client-logo">✳ Logoisum</div>
+        <div class="client-logo">◈ Logoisum</div>
+        <div class="client-logo">◉ logoisum</div>
+        <div class="client-logo">◉ Logoisum</div>
+        <div class="client-logo">✳ North Star</div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="micro-row">
+          <span>✳ ABOUT US</span>
+          <img class="micro-logo" src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio">
+          <span>EST. 2026 / MUMBAI</span>
+        </div>
+        <div class="about-art">
+          <div class="about-rock"></div>
+          <div class="about-photo photo-left"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=85" alt="Creative portrait" loading="lazy"></div>
+          <div class="about-photo photo-right"><img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=600&q=85" alt="Digital art experience" loading="lazy"></div>
+          <div class="about-copy reveal">
+            <a class="about-bubble" href="#services">About ↓</a>
+            <h2>We elevate brands with bold design and strategic precision, <span>turning complex ideas into impactful digital experiences.</span></h2>
+          </div>
+          <div class="about-photo photo-bottom"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=700&q=85" alt="Creative portrait" loading="lazy"></div>
+        </div>
+      </section>
+
+      <section class="work-section" id="work">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">SELECTED WORK / 2024—26</span>
+            <h2>Made to <em>move.</em></h2>
+          </div>
+          <p>Stories. Frames. Experiences.<br>Creative with a pulse.</p>
+        </div>
+        <div class="work-grid">
+          <a class="work-card reveal" href="#contact">
+            <div class="work-image"><img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=85" alt="Campaign visual" loading="lazy"><span class="work-arrow">↗</span><span class="work-number">01</span></div>
+            <div class="work-meta"><h3>Afterglow</h3><span>CAMPAIGN FILM</span></div>
+          </a>
+          <a class="work-card reveal" href="#contact">
+            <div class="work-image"><img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=900&q=85" alt="Live experience" loading="lazy"><span class="work-arrow">↗</span><span class="work-number">02</span></div>
+            <div class="work-meta"><h3>Human Nature</h3><span>BRAND IDENTITY</span></div>
+          </a>
+          <a class="work-card reveal" href="#contact">
+            <div class="work-image"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85" alt="Fashion editorial" loading="lazy"><span class="work-arrow">↗</span><span class="work-number">03</span></div>
+            <div class="work-meta"><h3>Soft Focus</h3><span>DIGITAL EXPERIENCE</span></div>
+          </a>
+          <a class="work-card reveal" href="#contact">
+            <div class="work-image"><img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=900&q=85" alt="Immersive digital installation" loading="lazy"><span class="work-arrow">↗</span><span class="work-number">04</span></div>
+            <div class="work-meta"><h3>Future State</h3><span>ART DIRECTION</span></div>
+          </a>
+        </div>
+      </section>
+
+      <section class="services-section" id="services">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">WHAT WE DO</span>
+            <h2>Good ideas.<br><em>Better execution.</em></h2>
+          </div>
+          <p>From first spark to final frame,<br>we build work that earns attention.</p>
+        </div>
+        <div class="services-list">
+          <div class="service-line reveal"><span>(01)</span><h3>Brand Identity</h3><span class="service-symbol">✳</span></div>
+          <div class="service-line reveal"><span>(02)</span><h3>Digital Marketing</h3><span class="service-symbol">↗</span></div>
+          <div class="service-line reveal"><span>(03)</span><h3>UI/UX Design</h3><span class="service-symbol">◉</span></div>
+          <div class="service-line reveal"><span>(04)</span><h3>Web Design</h3><span class="service-symbol">⌘</span></div>
+          <div class="service-line reveal"><span>(05)</span><h3>Film & Content Production</h3><span class="service-symbol">✳</span></div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <span class="eyebrow">HAVE A GOOD ONE? / LAUNCHING SOON</span>
+        <h2>Let’s make<br><em>it matter.</em></h2>
+
+        <div class="launch-bar reveal">
+          <div class="count" id="count">
+            <div class="u"><span class="n" id="d">00</span><span class="l">Days</span></div><span class="sep">:</span>
+            <div class="u"><span class="n" id="h">00</span><span class="l">Hrs</span></div><span class="sep">:</span>
+            <div class="u"><span class="n" id="m">00</span><span class="l">Mins</span></div><span class="sep">:</span>
+            <div class="u"><span class="n" id="s">00</span><span class="l">Secs</span></div>
+          </div>
+
+          <form class="sub-form" id="subscribe">
+            <label for="email">Something exciting is on its way — get notified</label>
+            <div class="sub-field">
+              <input type="email" id="email" placeholder="your@email.com" />
+              <button type="submit" aria-label="Subscribe">Notify Me ↗</button>
+            </div>
+            <div class="sub-msg" id="msg"></div>
+          </form>
+        </div>
+
+        <a class="contact-button" href="mailto:studio@4eleven.in">Start a project (studio@4eleven.in) <span>↗</span></a>
+        
+        <footer>
+          <a href="#top" class="footer-brand" aria-label="4-11 Studio">
+            <img class="footer-logo" src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio">
+          </a>
+          <div class="footer-links">
+            <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener">INSTAGRAM ↗</a>
+            <a href="mailto:studio@4eleven.in">EMAIL ↗</a>
+            <span>MUMBAI, IN</span>
+          </div>
+          <span class="footer-copy">© <span id="year">2026</span> <img class="footer-inline-logo" src="https://customer-assets-eiarnc6j.emergentagent.net/job_coming-soon-studio-1/artifacts/l95a2072_513689670_17969272799912864_8394707357259788053_n-Photoroom.png" alt="4-11 Studio"> STUDIO</span>
+        </footer>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    var API_BASE = "https://4eleven.in"; // set to "" if hosting on the same domain as your API
+
+    // Preloader Animation
+    (function(){
+      var D=1800,s=performance.now(),f=document.getElementById('bar-fill'),p=document.getElementById('pct'),l=document.getElementById('loader');
+      function t(){
+        var v=Math.min(100,Math.round((performance.now()-s)/D*100));
+        f.style.width=v+'%';
+        p.textContent=String(v).padStart(3,'0');
+        if(v<100)requestAnimationFrame(t);
+      }
+      requestAnimationFrame(t);
+      setTimeout(function(){f.style.width='100%';p.textContent='100';l.classList.add('done')},D+200);
+      setTimeout(function(){l.style.display='none'},D+1100);
+    })();
+
+    // 110-Day Countdown Timer
+    (function(){
+      var k='411-launch',st=localStorage.getItem(k),tg;
+      if(st){tg=new Date(st)}else{tg=new Date(Date.now()+110*864e5);localStorage.setItem(k,tg.toISOString())}
+      function pad(n){return String(n).padStart(2,'0')}
+      function u(){
+        var d=Math.max(0,tg-Date.now());
+        document.getElementById('d').textContent=pad(Math.floor(d/864e5));
+        document.getElementById('h').textContent=pad(Math.floor(d/36e5%24));
+        document.getElementById('m').textContent=pad(Math.floor(d/6e4%60));
+        document.getElementById('s').textContent=pad(Math.floor(d/1e3%60));
+      }
+      u();
+      setInterval(u,1e3);
+    })();
+
+    // Subscribe Form Submission
+    document.getElementById('subscribe').addEventListener('submit',function(e){
+      e.preventDefault();
+      var em=document.getElementById('email').value.trim(),m=document.getElementById('msg');
+      if(!em){m.style.color='#080809';m.textContent='Please enter your email.';return}
+      m.style.color='#4a1c17';
+      m.textContent='Sending...';
+      fetch(API_BASE+'/api/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:em})
+      }).then(function(r){return r.json().then(function(b){return{ok:r.ok,body:b}})})
+      .then(function(res){
+        if(res.ok){
+          m.style.color='#080809';
+          m.textContent="✓ You're on the list. We'll be in touch soon.";
+          document.getElementById('email').value='';
+        }else{
+          m.style.color='#080809';
+          m.textContent=(res.body&&res.body.detail)||'Something went wrong. Try again.';
+        }
+      }).catch(function(){
+        m.style.color='#080809';
+        m.textContent='Network error. Try again.';
+      });
+    });
+
+    // Mobile Menu & Reveal Animations
+    const menuButton = document.querySelector('.hamburger');
+    const nav = document.querySelector('.nav');
+    menuButton.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      }), { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
