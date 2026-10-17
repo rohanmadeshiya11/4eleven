@@ -331,4 +331,85 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========================================================
+  // 5. 4—11 ROCKET SHIP VOYAGER (AUTONOMOUS FLIGHT + SIDE FLAMES)
+  // ========================================================
+  const rocket = document.getElementById('rocket-411');
+
+  if (rocket) {
+    let screenW = window.innerWidth;
+    let screenH = window.innerHeight;
+
+    let posX = Math.random() * (screenW * 0.4) + screenW * 0.1;
+    let posY = Math.random() * (screenH * 0.4) + screenH * 0.2;
+    let targetX = screenW * 0.7;
+    let targetY = screenH * 0.6;
+    let currentAngle = 0;
+    let speed = 2.4;
+    let isBoosting = false;
+
+    window.addEventListener('resize', () => {
+      screenW = window.innerWidth;
+      screenH = window.innerHeight;
+    });
+
+    function pickRandomWaypoint() {
+      const margin = 80;
+      targetX = margin + Math.random() * (screenW - margin * 2);
+      targetY = margin + Math.random() * (screenH - margin * 2);
+    }
+
+    pickRandomWaypoint();
+
+    function updateRocket() {
+      const dx = targetX - posX;
+      const dy = targetY - posY;
+      const dist = Math.hypot(dx, dy);
+
+      // Desired angle pointing towards destination
+      const desiredAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      // Smooth shortest-path angle interpolation
+      let diffAngle = (desiredAngle - currentAngle + 180) % 360 - 180;
+      currentAngle += diffAngle * 0.045;
+
+      // Move forward in direction of currentAngle
+      const rad = currentAngle * (Math.PI / 180);
+      const currentSpeed = isBoosting ? speed * 2.8 : speed;
+      posX += Math.cos(rad) * currentSpeed;
+      posY += Math.sin(rad) * currentSpeed;
+
+      // If near waypoint, pick new random target
+      if (dist < 90) {
+        pickRandomWaypoint();
+      }
+
+      // Keep within screen boundaries
+      if (posX < 30) { posX = 30; pickRandomWaypoint(); }
+      if (posX > screenW - 30) { posX = screenW - 30; pickRandomWaypoint(); }
+      if (posY < 30) { posY = 30; pickRandomWaypoint(); }
+      if (posY > screenH - 30) { posY = screenH - 30; pickRandomWaypoint(); }
+
+      // Apply coordinates and rotation
+      rocket.style.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) rotate(${currentAngle.toFixed(1)}deg)`;
+
+      requestAnimationFrame(updateRocket);
+    }
+
+    requestAnimationFrame(updateRocket);
+
+    // Click rocket for Turbo Boost!
+    rocket.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isBoosting = true;
+      rocket.classList.add('rocket-turbo');
+      pickRandomWaypoint();
+
+      setTimeout(() => {
+        isBoosting = false;
+        rocket.classList.remove('rocket-turbo');
+      }, 1500);
+    });
+  }
+
 });

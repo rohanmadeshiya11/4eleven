@@ -426,6 +426,224 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 /* ========================================================
+   10. 4—11 ROCKET SHIP VOYAGER (FLYING EVERYWHERE RANDOMLY)
+======================================================== */
+.rocket-voyager {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 25;
+  pointer-events: auto;
+  cursor: pointer;
+  user-select: none;
+  width: 124px;
+  height: 60px;
+  will-change: transform;
+  transform-origin: center center;
+  transition: filter 0.3s ease;
+}
+.rocket-voyager:hover {
+  filter: brightness(1.25) drop-shadow(0 0 25px var(--orange-glow));
+}
+
+.rocket-container {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Rocket Fuselage Body */
+.rocket-fuselage {
+  position: relative;
+  width: 76px;
+  height: 44px;
+  background: linear-gradient(135deg, #1e1e28 0%, #0c0c12 100%);
+  border: 2px solid var(--orange);
+  border-radius: 12px 28px 28px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 22px var(--orange-glow), 0 10px 25px rgba(0, 0, 0, 0.9);
+  margin-left: 38px;
+  z-index: 2;
+}
+
+/* 4-11 Official Logo inside Rocket */
+.rocket-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-right: 6px;
+}
+.rocket-logo-img {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 8px rgba(255, 73, 59, 0.9));
+}
+.rocket-core-badge {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  color: var(--retro-yellow);
+  letter-spacing: 0.15em;
+  margin-top: 1px;
+}
+
+/* Rocket Nose Cone */
+.rocket-nose {
+  position: absolute;
+  right: -11px;
+  width: 0; height: 0;
+  border-top: 11px solid transparent;
+  border-bottom: 11px solid transparent;
+  border-left: 13px solid var(--orange);
+  filter: drop-shadow(2px 0 6px var(--orange-glow));
+}
+
+/* Stabilizer Fins */
+.rocket-fin {
+  position: absolute;
+  left: 6px;
+  width: 18px; height: 11px;
+  background: var(--orange-deep);
+  border: 1px solid var(--orange-light);
+}
+.rocket-fin-top {
+  top: -10px;
+  border-radius: 6px 6px 0 0;
+  transform: skewX(-24deg);
+}
+.rocket-fin-bottom {
+  bottom: -10px;
+  border-radius: 0 0 6px 6px;
+  transform: skewX(24deg);
+}
+
+/* Thruster Exhaust & Flames */
+.rocket-thrusters-group {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Main Rear Plume */
+.thruster-main {
+  position: relative;
+  width: 40px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+}
+.flame-plume {
+  position: absolute;
+  right: 0;
+  border-radius: 99px 0 0 99px;
+}
+.flame-plume-outer {
+  width: 40px; height: 20px;
+  background: linear-gradient(270deg, var(--orange) 20%, transparent 100%);
+  animation: flameFlicker 0.12s ease-in-out infinite alternate;
+  filter: blur(1px);
+}
+.flame-plume-mid {
+  width: 28px; height: 12px;
+  background: linear-gradient(270deg, #facc15 30%, transparent 100%);
+  animation: flameFlicker 0.08s ease-in-out infinite alternate-reverse;
+}
+.flame-plume-core {
+  width: 16px; height: 6px;
+  background: linear-gradient(270deg, #ffffff 40%, transparent 100%);
+  border-radius: 99px 0 0 99px;
+}
+
+/* Side Thruster Flames */
+.thruster-side {
+  position: absolute;
+  right: 6px;
+  width: 24px; height: 9px;
+}
+.thruster-side-top {
+  top: -13px;
+  transform: rotate(22deg);
+}
+.thruster-side-bottom {
+  bottom: -13px;
+  transform: rotate(-22deg);
+}
+.flame-jet {
+  width: 100%; height: 100%;
+  background: linear-gradient(270deg, #ff493b 20%, #facc15 60%, transparent 100%);
+  border-radius: 99px 0 0 99px;
+  animation: flameFlicker 0.1s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+@keyframes flameFlicker {
+  0% { transform: scaleX(0.85) scaleY(0.9); opacity: 0.8; }
+  100% { transform: scaleX(1.25) scaleY(1.1); opacity: 1; }
+}
+
+/* Emitting Sparks */
+.flame-spark {
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: #facc15;
+  box-shadow: 0 0 8px #facc15;
+}
+.spark-1 {
+  left: -8px; top: 3px;
+  animation: sparkDrift 0.35s linear infinite;
+}
+.spark-2 {
+  left: -14px; bottom: 4px;
+  animation: sparkDrift 0.45s linear infinite 0.15s;
+}
+@keyframes sparkDrift {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(-20px, -6px) scale(0); opacity: 0; }
+}
+
+/* Turbo Boost Mode */
+.rocket-voyager.rocket-turbo .flame-plume-outer {
+  width: 75px;
+  filter: blur(0px) drop-shadow(0 0 20px var(--orange));
+}
+.rocket-voyager.rocket-turbo .flame-plume-mid {
+  width: 50px;
+}
+.rocket-voyager.rocket-turbo .flame-jet {
+  width: 42px;
+}
+.rocket-voyager.rocket-turbo .rocket-fuselage {
+  box-shadow: 0 0 45px var(--orange), 0 0 80px rgba(255, 73, 59, 0.9);
+}
+
+/* Mobile Rocket Sizing */
+@media (max-width: 768px) {
+  .rocket-voyager {
+    width: 96px; height: 48px;
+  }
+  .rocket-fuselage {
+    width: 60px; height: 34px;
+    margin-left: 28px;
+  }
+  .rocket-logo-img { height: 17px; }
+  .rocket-core-badge { font-size: 6px; }
+  .thruster-main { width: 28px; }
+  .flame-plume-outer { width: 28px; height: 16px; }
+  .thruster-side { width: 16px; height: 7px; }
+}
+
+/* ========================================================
    WANDERING DRIFT ANIMATIONS (TRAVELING FROM ONE PLACE TO ANOTHER)
 ======================================================== */
 @keyframes wanderDrift1 {
