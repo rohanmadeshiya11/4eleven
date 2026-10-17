@@ -112,7 +112,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   z-index: 2;
 }
 .loader-logo-img {
-  width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen;
+  width: 96px; height: auto; max-height: 52px; object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(255, 73, 59, 0.65));
   animation: logoPulse 2.4s ease-in-out infinite;
 }
 @keyframes logoPulse {
@@ -731,16 +732,31 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 .brand-block {
   display: flex; align-items: center; gap: 14px; cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.brand-block:hover {
+  transform: translateY(-1px) scale(1.02);
 }
 .brand-logo-img {
-  height: 38px; width: auto; object-fit: contain; mix-blend-mode: screen;
-  filter: drop-shadow(0 0 12px var(--orange-glow));
+  height: 44px;
+  width: auto;
+  max-width: 96px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 14px rgba(255, 73, 59, 0.75)) drop-shadow(0 0 2px #ffffff);
+  transition: filter 0.25s ease;
+}
+.brand-block:hover .brand-logo-img {
+  filter: drop-shadow(0 0 20px var(--orange)) drop-shadow(0 0 3px #ffffff);
 }
 .brand-sub-badge {
-  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 800;
   letter-spacing: 0.18em; text-transform: uppercase; color: var(--orange);
-  border: 1px solid rgba(255, 73, 59, 0.35); padding: 3px 8px; border-radius: 99px;
-  background: rgba(255, 73, 59, 0.08);
+  border: 1.5px solid rgba(255, 73, 59, 0.45); padding: 5px 11px; border-radius: 99px;
+  background: rgba(255, 73, 59, 0.12);
+  box-shadow: 0 0 14px rgba(255, 73, 59, 0.22);
+  display: inline-block;
+  line-height: 1;
 }
 
 /* Hamburger Menu Icon */
@@ -1102,6 +1118,24 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .left-rail { display: none; }
   .hero-wrapper {
     padding: 20px 16px;
+  }
+  
+  /* Prominent & Bold Header Brand Block on Mobile */
+  .top-header {
+    margin-bottom: 8px;
+  }
+  .brand-block {
+    gap: 10px;
+  }
+  .brand-logo-img {
+    height: 38px;
+    max-width: 82px;
+  }
+  .brand-sub-badge {
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 8px;
+    letter-spacing: 0.14em;
   }
   
   /* Center typography strictly with soft dark vignette ensuring 100% clarity */
