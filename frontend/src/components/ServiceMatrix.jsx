@@ -1,68 +1,96 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Video, Layers, Globe, Megaphone } from "lucide-react";
+import { ChevronDown, Video, Palette, Share2, Star, Mic } from "lucide-react";
 
 const services = [
   {
-    id: "motion",
+    id: "video",
     number: "01",
     icon: Video,
-    title: "Motion & Film Production",
-    subtitle: "Cinematic commercial films and brand stories crafted to stop the scroll.",
+    title: "Video Production & Editing",
+    tagline: "Stories worth watching.",
+    description:
+      "We turn raw footage and creative concepts into engaging visual content designed for digital platforms and audiences.",
     deliverables: [
-      "Commercial & Campaign Films",
-      "Creative Direction & Storyboarding",
-      "Color Grading & Post-Production",
-      "Bespoke Sound Design & Audio Signatures",
-      "Short-Form High-Impact Social Cuts",
+      "Video editing and post-production",
+      "Instagram Reels and YouTube Shorts",
+      "YouTube long-form editing",
+      "Brand and promotional videos",
+      "Podcast video editing",
+      "Event videos and behind-the-scenes content",
     ],
   },
   {
-    id: "brand",
+    id: "design",
     number: "02",
-    icon: Layers,
-    title: "Brand Architecture",
-    subtitle: "Enduring identity systems that give companies unmistakable presence.",
+    icon: Palette,
+    title: "Creative Design & Artwork",
+    tagline: "Visuals that make an impression.",
+    description:
+      "We create distinctive visual assets that help brands communicate clearly and maintain a consistent identity.",
     deliverables: [
-      "Core Visual Identity & Logomarks",
-      "Typographic Hierarchy & Color Systems",
-      "Comprehensive Brand Guidelines",
-      "Brand Positioning, Naming & Voice",
-      "Packaging & Physical Collateral",
+      "Poster and artwork design",
+      "Social media creatives",
+      "Campaign visuals",
+      "Thumbnails and digital assets",
+      "Promotional graphics",
+      "Presentation and pitch deck design",
     ],
   },
   {
-    id: "digital",
+    id: "social",
     number: "03",
-    icon: Globe,
-    title: "Digital Flagships & Web",
-    subtitle: "Award-winning websites engineered for speed, aesthetics, and conversion.",
+    icon: Share2,
+    title: "Social Media Management",
+    tagline: "Make every scroll count.",
+    description:
+      "We help brands and personalities build a consistent digital presence through strategic planning, engaging content, and creative execution.",
     deliverables: [
-      "Custom UI/UX Architecture & Prototyping",
-      "Interactive 3D / WebGL Micro-Interactions",
-      "React, Next.js & Modern Web Engineering",
-      "Headless E-Commerce & CMS Systems",
-      "Mobile-First Responsive Optimization",
+      "Social media account management",
+      "Content strategy and planning",
+      "Reels, posts, and carousels",
+      "Captions and content calendars",
+      "Creative direction",
+      "Brand collaborations",
     ],
   },
   {
-    id: "campaigns",
+    id: "talent",
     number: "04",
-    icon: Megaphone,
-    title: "Cultural Campaigns",
-    subtitle: "Go-to-market narratives that capture public imagination and drive volume.",
+    icon: Star,
+    title: "Celebrity & Talent Management",
+    tagline: "Talent meets opportunity.",
+    description:
+      "We support public personalities, actors, comedians, and creators in building their digital presence and connecting with relevant opportunities.",
     deliverables: [
-      "Product Launch Strategy & Rollouts",
-      "Editorial Content Direction",
-      "Digital Advertising Creative Suites",
-      "Creator & Cultural Collaborations",
-      "Performance Asset Iteration",
+      "Celebrity social media management",
+      "Personal branding",
+      "Brand collaboration coordination",
+      "Promotional content",
+      "Event PR and publicity support",
+      "Celebrity-led digital campaigns",
+    ],
+  },
+  {
+    id: "podcast",
+    number: "05",
+    icon: Mic,
+    title: "Podcast Production",
+    tagline: "Conversations, crafted for the screen.",
+    description:
+      "We help transform recorded conversations into polished, engaging content ready for digital platforms.",
+    deliverables: [
+      "Podcast video editing",
+      "Episode post-production",
+      "Short-form clips",
+      "Podcast artwork and promotional creatives",
+      "Social media content repurposing",
     ],
   },
 ];
 
 export const ServiceMatrix = () => {
-  const [expandedId, setExpandedId] = useState("motion");
+  const [expandedId, setExpandedId] = useState("video");
 
   return (
     <section id="services" className="py-24 px-5 sm:px-8 bg-[#080809] text-white border-t border-white/10">
@@ -70,23 +98,23 @@ export const ServiceMatrix = () => {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-14 border-b border-white/10">
           <div>
-            <div className="font-mono text-xs text-[#ff493b] tracking-[0.25em] uppercase mb-3">
-              [ 4 CORE PILLARS ]
+            <div className="font-mono text-xs text-[#ff493b] tracking-[0.25em] uppercase mb-3 font-semibold">
+              [ OUR SERVICES ]
             </div>
             <h2 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-[-0.03em] uppercase leading-[0.95]">
-              WHAT WE
+              IDEAS ARE ONLY
               <br />
-              <span className="text-[#ff493b]">&gt;</span> DELIVER
+              <span className="text-[#ff493b]">&gt;</span> THE BEGINNING.
             </h2>
           </div>
 
           <p className="text-white/70 max-w-md text-sm sm:text-base leading-relaxed">
-            Full-spectrum creative execution without agency layers or bloated timelines.
-            Direct partnership with senior directors.
+            We bring creative thinking and hands-on execution together to help
+            brands and personalities stand out.
           </p>
         </div>
 
-        {/* 4 Expandable Service Pillars */}
+        {/* 5 Expandable Service Rows */}
         <div className="divide-y divide-white/10 mt-6">
           {services.map((item) => {
             const isExpanded = expandedId === item.id;
@@ -100,19 +128,24 @@ export const ServiceMatrix = () => {
               >
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                   {/* Left: Number + Title */}
-                  <div className="flex items-center gap-6">
-                    <span className="font-mono text-xs text-[#ff493b] tracking-widest font-semibold">
+                  <div className="flex items-start sm:items-center gap-5 sm:gap-6">
+                    <span className="font-mono text-xs text-[#ff493b] tracking-widest font-semibold mt-1 sm:mt-0">
                       [{item.number}]
                     </span>
-                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:border-[#ff493b] transition-colors">
+                    <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:border-[#ff493b] transition-colors flex-shrink-0">
                       <IconComponent className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white group-hover:text-[#ff493b] transition-colors">
-                        {item.title}
-                      </h3>
-                      <p className="text-white/60 text-xs sm:text-sm mt-1 max-w-xl font-normal">
-                        {item.subtitle}
+                      <div className="flex flex-wrap items-center gap-3">
+                        <h3 className="font-display font-bold text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white group-hover:text-[#ff493b] transition-colors">
+                          {item.title}
+                        </h3>
+                        <span className="font-mono text-xs text-[#ff493b] hidden sm:inline-block">
+                          // {item.tagline}
+                        </span>
+                      </div>
+                      <p className="text-white/60 text-xs sm:text-sm mt-1.5 max-w-2xl font-normal leading-relaxed">
+                        {item.description}
                       </p>
                     </div>
                   </div>
@@ -145,8 +178,8 @@ export const ServiceMatrix = () => {
                       className="overflow-hidden"
                     >
                       <div className="mt-8 pt-6 border-t border-white/5 pl-0 sm:pl-16">
-                        <div className="font-mono text-xs text-[#ff493b] uppercase tracking-wider mb-4">
-                          KEY DELIVERABLES:
+                        <div className="font-mono text-xs text-[#ff493b] uppercase tracking-wider mb-4 font-semibold">
+                          WHAT WE DELIVER:
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                           {item.deliverables.map((deliv, i) => (
@@ -154,7 +187,7 @@ export const ServiceMatrix = () => {
                               key={i}
                               className="bg-[#121217] border border-white/10 px-4 py-3 rounded-xl flex items-center gap-3 text-xs text-white/80 font-mono"
                             >
-                              <span className="w-1.5 h-1.5 rounded-full bg-[#ff493b]" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#ff493b] flex-shrink-0" />
                               <span>{deliv}</span>
                             </div>
                           ))}

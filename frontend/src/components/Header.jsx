@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Menu, X, Sparkles } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import CloverIcon from "./CloverIcon";
 
 export const Header = () => {
@@ -38,12 +38,12 @@ export const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#080809]/85 backdrop-blur-md border-b border-white/10 py-3"
+          ? "bg-[#080809]/90 backdrop-blur-md border-b border-white/10 py-3"
           : "bg-transparent py-5"
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-5 sm:px-8 flex items-center justify-between">
-        {/* Left: Capsule toggle / Logo */}
+        {/* Left: Brand */}
         <div className="flex items-center gap-4">
           <a
             href="#top"
@@ -56,27 +56,27 @@ export const Header = () => {
               </div>
             </div>
             <span className="font-display font-bold tracking-tight text-white text-base flex items-center gap-1.5">
-              4:11
-              <span className="text-[#ff493b] text-xs font-mono font-normal">STUDIO</span>
+              4—11
+              <span className="text-[#ff493b] text-xs font-mono font-normal">STUDIO®</span>
             </span>
           </a>
 
-          {/* Desktop Nav links */}
+          {/* Nav links */}
           <nav className="hidden md:flex items-center gap-7 ml-8 text-[13px] text-white/70 font-medium">
-            <a href="#work" className="hover:text-white transition-colors">
-              Work
-            </a>
-            <a href="#philosophy" className="hover:text-white transition-colors">
-              Ethos
+            <a href="#about" className="hover:text-white transition-colors">
+              About
             </a>
             <a href="#services" className="hover:text-white transition-colors">
               Services
             </a>
-            <a href="#process" className="hover:text-white transition-colors">
-              Process
+            <a href="#work" className="hover:text-white transition-colors">
+              Work
             </a>
-            <a href="#planner" className="hover:text-white transition-colors">
-              Planner
+            <a href="#collaborators" className="hover:text-white transition-colors">
+              In Good Company
+            </a>
+            <a href="#process" className="hover:text-white transition-colors">
+              Approach
             </a>
           </nav>
         </div>
@@ -86,16 +86,16 @@ export const Header = () => {
           <span className="w-1.5 h-1.5 rounded-full bg-[#ff493b] animate-ping" />
           <span>MUMBAI, IN</span>
           <span className="text-white/30">•</span>
-          <span className="text-white font-medium">{timeStr || "23:25"} IST</span>
+          <span className="text-white font-medium">{timeStr || "23:35"} IST</span>
         </div>
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
           <a
-            href="#planner"
+            href="#contact"
             className="inline-flex items-center gap-2 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white font-semibold text-xs tracking-wide px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-[#ff493b]/30"
           >
-            <span>Start a Project</span>
+            <span>Let's Talk</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
 
@@ -130,18 +130,11 @@ export const Header = () => {
           >
             <nav className="flex flex-col gap-4 text-sm font-medium text-white/80">
               <a
-                href="#work"
+                href="#about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
-                Work
-              </a>
-              <a
-                href="#philosophy"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
-              >
-                Ethos
+                About
               </a>
               <a
                 href="#services"
@@ -151,25 +144,32 @@ export const Header = () => {
                 Services
               </a>
               <a
+                href="#work"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Work
+              </a>
+              <a
+                href="#collaborators"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                In Good Company
+              </a>
+              <a
                 href="#process"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
-                Process
+                Approach
               </a>
               <a
-                href="#planner"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
-              >
-                Project Planner
-              </a>
-              <a
-                href="#planner"
+                href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 text-center py-2.5 rounded-full bg-[#ff493b] text-white font-semibold text-xs tracking-wider"
               >
-                START A PROJECT ↗
+                LET'S TALK ↗
               </a>
             </nav>
           </motion.div>

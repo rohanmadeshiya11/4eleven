@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Philosophy from "@/components/Philosophy";
-import WorkGallery from "@/components/WorkGallery";
+import AboutSection from "@/components/AboutSection";
 import ServiceMatrix from "@/components/ServiceMatrix";
-import EditorialShowcase from "@/components/EditorialShowcase";
-import ProjectPlanner from "@/components/ProjectPlanner";
-import ProjectCta from "@/components/ProjectCta";
+import WorkGallery from "@/components/WorkGallery";
+import InGoodCompany from "@/components/InGoodCompany";
+import OurApproach from "@/components/OurApproach";
+import ContactSection from "@/components/ContactSection";
 import SiteFooter from "@/components/SiteFooter";
 
 export const Landing = () => {
@@ -14,12 +14,12 @@ export const Landing = () => {
       <Header />
       <main id="main-content">
         <Hero />
-        <Philosophy />
-        <WorkGallery />
+        <AboutSection />
         <ServiceMatrix />
-        <EditorialShowcase />
-        <ProjectPlanner />
-        <ProjectCta />
+        <WorkGallery />
+        <InGoodCompany />
+        <OurApproach />
+        <ContactSection />
       </main>
       <SiteFooter />
     </div>
