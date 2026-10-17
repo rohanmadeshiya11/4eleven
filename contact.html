@@ -207,8 +207,8 @@
       </button>
     </header>
 
-    <!-- Subpage Main Content -->
-    <main class="subpage-main">
+    <!-- Expansive Main Content -->
+    <main class="expansive-main">
       
       <!-- Subpage Hero -->
       <section class="subpage-hero">
@@ -228,10 +228,10 @@
         </p>
       </section>
 
-      <!-- Dual Column Contact & Intake Layout -->
+      <!-- Expansive Dual-Column Layout Grid -->
       <div class="contact-layout-grid">
         
-        <!-- Left Column: Direct Coordinates -->
+        <!-- Left Column: Direct Coordinates & FAQs -->
         <div class="contact-info-panel">
           <div class="section-meta-label">STUDIO COORDINATES // संपर्क सूत्र</div>
           <h2 style="font-family: var(--font-display); font-size: 32px; font-weight: 800; text-transform: uppercase; margin-bottom: 24px;">DIRECT TOUCH</h2>
@@ -245,7 +245,7 @@
           <div class="contact-item">
             <div class="contact-item-label">Studio Base</div>
             <div class="contact-item-value" style="font-size: 24px;">MUMBAI, INDIA</div>
-            <div class="contact-item-sub">Bandra West • Maharashtra 400050</div>
+            <div class="contact-item-sub">Bandra West • Maharashtra 400050 • 19.0760° N, 72.8777° E</div>
           </div>
 
           <div class="contact-item">
@@ -257,13 +257,26 @@
             </div>
           </div>
 
-          <div class="contact-item" style="margin-bottom: 0;">
+          <div class="contact-item">
             <div class="contact-item-label">Digital Presence</div>
             <div class="social-pills-row">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-pill">Instagram ↗</a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-pill">YouTube ↗</a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill">LinkedIn ↗</a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-pill">X (Twitter) ↗</a>
+            </div>
+          </div>
+
+          <!-- Quick FAQ Accordion/Info -->
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; margin-top: 28px;">
+            <div class="section-meta-label">ENGAGEMENT FAQ</div>
+            <div style="font-size: 14px; color: var(--white-dim); line-height: 1.6; margin-bottom: 12px;">
+              <strong style="color: #fff;">How do we work?</strong><br>
+              We partner on a project basis (flagship films, brand redesigns, digital drops) or ongoing monthly creative retainers.
+            </div>
+            <div style="font-size: 14px; color: var(--white-dim); line-height: 1.6;">
+              <strong style="color: #fff;">Response time:</strong><br>
+              Every qualified brief receives a detailed response within 24 business hours.
             </div>
           </div>
         </div>
@@ -276,7 +289,8 @@
               <span class="chip-toggle active" data-group="service">Video Production & Film</span>
               <span class="chip-toggle" data-group="service">Brand Identity & Design</span>
               <span class="chip-toggle" data-group="service">Social Media Strategy</span>
-              <span class="chip-toggle" data-group="service">Digital Flagship / Web</span>
+              <span class="chip-toggle" data-group="service">Digital Flagship / WebGL</span>
+              <span class="chip-toggle" data-group="service">Creator / Talent IP</span>
               <span class="chip-toggle" data-group="service">Full Creative Retainer</span>
             </div>
 
@@ -287,7 +301,14 @@
               <span class="chip-toggle" data-group="timeline">Ongoing Retainer</span>
             </div>
 
-            <div class="form-section-title">03 / YOUR DETAILS</div>
+            <div class="form-section-title">03 / BUDGET RANGE</div>
+            <div class="chips-group">
+              <span class="chip-toggle" data-group="budget">₹5L — ₹10L</span>
+              <span class="chip-toggle active" data-group="budget">₹10L — ₹25L</span>
+              <span class="chip-toggle" data-group="budget">₹25L+ / USD Equivalent</span>
+            </div>
+
+            <div class="form-section-title">04 / YOUR DETAILS</div>
             <div class="form-inputs-grid">
               <div class="input-wrap">
                 <label class="input-label" for="contact-name">Your Name *</label>
@@ -310,12 +331,20 @@
               </div>
             </div>
 
-            <div class="input-wrap" style="margin-bottom: 28px;">
+            <div class="input-wrap" style="margin-bottom: 20px;">
               <label class="input-label" for="contact-message">Project Vision & Overview *</label>
               <textarea id="contact-message" class="textarea-input" placeholder="Tell us about the project goals, deliverables, reference aesthetics, and any deadlines..." required></textarea>
             </div>
 
-            <button type="submit" class="btn-orange-pill" style="width: 100%; justify-content: center; padding: 14px 28px;">
+            <!-- Dynamic Live Brief Summary -->
+            <div class="brief-live-summary-card">
+              <div class="brief-summary-text">
+                Brief Scope: <span id="brief-live-services">Video Production & Film</span> • Target: <span id="brief-live-timeline">Immediate (< 1 Month)</span>
+              </div>
+              <div style="color: var(--orange); font-weight: 700;">Ready to Send ↗</div>
+            </div>
+
+            <button type="submit" class="btn-orange-pill" style="width: 100%; justify-content: center; padding: 16px 28px; margin-top: 24px;">
               <span>SEND PROJECT BRIEF TO 4—11</span>
               <span class="btn-arrow-circle">→</span>
             </button>
@@ -350,6 +379,7 @@
       <div class="footer-links">
         <a href="index.html" class="footer-link">Home</a>
         <a href="about.html" class="footer-link">About</a>
+        <a href="services.html" class="footer-link">What We Do</a>
         <a href="work.html" class="footer-link">Work</a>
         <a href="contact.html" class="footer-link" style="color: var(--orange);">Contact</a>
       </div>
@@ -376,12 +406,16 @@
         <span class="drawer-nav-num">02</span>
         <span>About & Ethos</span>
       </a>
-      <a href="work.html" class="drawer-nav-item">
+      <a href="services.html" class="drawer-nav-item">
         <span class="drawer-nav-num">03</span>
+        <span>What We Do</span>
+      </a>
+      <a href="work.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">04</span>
         <span>Selected Works</span>
       </a>
       <a href="contact.html" class="drawer-nav-item active">
-        <span class="drawer-nav-num">04</span>
+        <span class="drawer-nav-num">05</span>
         <span>Start a Project</span>
       </a>
     </div>

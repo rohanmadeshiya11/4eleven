@@ -353,6 +353,15 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: "साझेदारी", styleClass: "style-matchbox-pop" }
   ]);
 
+  // Services (What We Do) Page Rotator
+  setupWordRotator('dynamic-services', [
+    { text: "विशेषज्ञता", styleClass: "style-bollywood" },
+    { text: "Capabilities", styleClass: "style-street-neon" },
+    { text: "कौशल", styleClass: "style-royal-saffron" },
+    { text: "Excellence", styleClass: "style-truck-art" },
+    { text: "कारीगरी", styleClass: "style-matchbox-pop" }
+  ]);
+
   // ========================================================
   // 5. 4—11 ROCKET SHIP VOYAGER (AUTONOMOUS FLIGHT + SIDE FLAMES)
   // ========================================================
@@ -532,18 +541,33 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. CONTACT PAGE: SERVICE CHIP TOGGLES & INTAKE SUBMIT
   // ========================================================
   const chipToggles = document.querySelectorAll('.chip-toggle');
+  function updateLiveBriefSummary() {
+    const briefServicesEl = document.getElementById('brief-live-services');
+    const briefTimelineEl = document.getElementById('brief-live-timeline');
+    if (briefServicesEl) {
+      const active = Array.from(document.querySelectorAll('.chip-toggle.active[data-group="service"]'))
+        .map(c => c.textContent.trim());
+      briefServicesEl.textContent = active.length ? active.join(' + ') : 'None selected';
+    }
+    if (briefTimelineEl) {
+      const activeT = document.querySelector('.chip-toggle.active[data-group="timeline"]');
+      briefTimelineEl.textContent = activeT ? activeT.textContent.trim() : 'Flexible';
+    }
+  }
+
   chipToggles.forEach(chip => {
     chip.addEventListener('click', () => {
-      // If single-choice in group (e.g. timeline) vs multi-choice (services)
       const group = chip.getAttribute('data-group');
-      if (group === 'timeline') {
-        document.querySelectorAll(`.chip-toggle[data-group="timeline"]`).forEach(c => c.classList.remove('active'));
+      if (group === 'timeline' || group === 'budget') {
+        document.querySelectorAll(`.chip-toggle[data-group="${group}"]`).forEach(c => c.classList.remove('active'));
         chip.classList.add('active');
       } else {
         chip.classList.toggle('active');
       }
+      updateLiveBriefSummary();
     });
   });
+  updateLiveBriefSummary();
 
   const contactForm = document.getElementById('contact-form');
   const formSuccessCard = document.getElementById('form-success-card');

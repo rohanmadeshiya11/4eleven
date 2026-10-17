@@ -1809,3 +1809,458 @@ body.subpage {
 .footer-link:hover {
   color: var(--orange);
 }
+
+/* ========================================================
+   EXPANSIVE LAYOUT SYSTEM (ANY SIZE EDITORIAL GRIDS)
+======================================================== */
+.expansive-main {
+  max-width: 1440px;
+  width: 100%;
+  margin: 20px auto 80px auto;
+  position: relative;
+  z-index: 12;
+}
+
+/* 1. Asymmetrical Split Hero */
+.split-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(30px, 5vw, 64px);
+  align-items: center;
+  margin-bottom: clamp(60px, 10vh, 100px);
+  padding: clamp(24px, 4vw, 48px);
+  background: radial-gradient(ellipse 90% 85% at 50% 50%, rgba(12, 12, 16, 0.92) 0%, rgba(8, 8, 10, 0.6) 75%, transparent 100%);
+  border-radius: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+@media (max-width: 1024px) {
+  .split-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+.split-hero-left {
+  display: flex;
+  flex-direction: column;
+}
+.split-hero-left .hero-headline {
+  text-align: left;
+  margin-bottom: 24px;
+}
+@media (max-width: 1024px) {
+  .split-hero-left .hero-headline {
+    text-align: center;
+  }
+}
+.split-hero-left .hero-subtext {
+  margin: 0 0 32px 0;
+  text-align: left;
+  max-width: 620px;
+}
+@media (max-width: 1024px) {
+  .split-hero-left .hero-subtext {
+    margin: 0 auto 32px auto;
+    text-align: center;
+  }
+}
+.split-hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+@media (max-width: 1024px) {
+  .split-hero-badges-row {
+    justify-content: center;
+  }
+}
+.hero-stat-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 99px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-stat-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
+}
+
+/* Split Hero Visual Media Card */
+.split-hero-media-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 73, 59, 0.2);
+  aspect-ratio: 4 / 3;
+  background: #111118;
+}
+.split-hero-media-card img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: brightness(0.9) saturate(1.1);
+}
+.split-hero-media-card:hover img {
+  transform: scale(1.04);
+}
+.split-hero-media-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 8, 10, 0.95) 100%);
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 28px;
+}
+.media-card-title {
+  font-family: var(--font-display);
+  font-size: 26px; font-weight: 800; color: #fff; text-transform: uppercase;
+}
+.media-card-coords {
+  font-family: var(--font-mono); font-size: 11px; color: var(--orange);
+  letter-spacing: 0.16em; margin-top: 4px;
+}
+
+/* 2. Full-Bleed Editorial Marquee Ribbon */
+.editorial-marquee-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 0;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 10;
+}
+.editorial-marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marqueeRoll 28s linear infinite;
+  gap: 30px;
+}
+.editorial-marquee-track span {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.marquee-dot {
+  color: var(--orange);
+  font-size: 14px;
+}
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* 3. The 4-Phase Production Engine Process Grid */
+.process-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+@media (max-width: 1024px) {
+  .process-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .process-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.process-step-card {
+  background: #0f0f15;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 30px 24px;
+  position: relative;
+  transition: all 0.3s;
+}
+.process-step-card:hover {
+  border-color: var(--orange);
+  transform: translateY(-4px);
+  background: #14141c;
+}
+.process-step-num {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.2);
+  line-height: 1;
+  margin-bottom: 16px;
+  transition: color 0.3s;
+}
+.process-step-card:hover .process-step-num {
+  color: var(--orange);
+}
+.process-step-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.process-step-desc {
+  font-size: 14px;
+  color: var(--white-dim);
+  line-height: 1.55;
+}
+
+/* 4. Expansive Services (What We Do) 5-Pillar Matrix */
+.services-expanded-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 36px;
+}
+.service-expanded-card {
+  position: relative;
+  background: linear-gradient(135deg, #12121a 0%, #0a0a0f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 32px;
+  padding: clamp(32px, 5vw, 54px);
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 36px;
+  align-items: center;
+}
+@media (max-width: 960px) {
+  .service-expanded-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+.service-expanded-card:hover {
+  border-color: rgba(255, 73, 59, 0.5);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 73, 59, 0.18);
+  transform: translateY(-4px);
+}
+/* Giant Devanagari Watermark in Background */
+.service-watermark {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-family: var(--font-hindi-yatra);
+  font-size: clamp(120px, 16vw, 220px);
+  color: rgba(255, 255, 255, 0.03);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 1;
+  transition: color 0.4s;
+}
+.service-expanded-card:hover .service-watermark {
+  color: rgba(255, 73, 59, 0.06);
+}
+.service-card-content {
+  position: relative;
+  z-index: 2;
+}
+.service-card-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--orange);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  margin-bottom: 12px;
+}
+.service-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.8vw, 44px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.service-card-desc {
+  font-size: 16px;
+  color: var(--white-dim);
+  line-height: 1.65;
+  margin-bottom: 24px;
+}
+.service-deliverables-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+}
+.service-deliverables-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.service-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 14px;
+  border-radius: 99px;
+  transition: all 0.2s;
+}
+.service-chip:hover {
+  background: rgba(255, 73, 59, 0.2);
+  border-color: var(--orange);
+}
+.service-card-sidebar {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.service-stat-value {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--retro-yellow);
+  line-height: 1;
+}
+.service-stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--white-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* 5. Production Tooling / Hardware Strip */
+.craft-hardware-section {
+  margin-top: 60px;
+  background: #09090d;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  padding: 36px 32px;
+}
+.hardware-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+.hardware-pill {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 8px 18px;
+  border-radius: 8px;
+}
+
+/* 6. Asymmetrical Work Portfolio Masonry Layout */
+.work-masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 28px;
+}
+.work-item-col-12 {
+  grid-column: span 12;
+}
+.work-item-col-7 {
+  grid-column: span 7;
+}
+.work-item-col-5 {
+  grid-column: span 5;
+}
+.work-item-col-6 {
+  grid-column: span 6;
+}
+@media (max-width: 960px) {
+  .work-item-col-7,
+  .work-item-col-5,
+  .work-item-col-6 {
+    grid-column: span 12;
+  }
+}
+
+/* Marquee Hero Project Card (21:9 Aspect Ratio) */
+.project-card.marquee-card {
+  background: #111118;
+  border-radius: 32px;
+}
+.project-card.marquee-card .project-thumb-wrap {
+  height: clamp(300px, 42vw, 520px);
+}
+.project-card.marquee-card .project-card-title {
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+/* Client Roster Marquee Ticker */
+.client-roster-section {
+  margin-top: 80px;
+  text-align: center;
+}
+.client-roster-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+.client-badge-pill {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 12px 28px;
+  border-radius: 99px;
+  transition: all 0.3s;
+}
+.client-badge-pill:hover {
+  color: #fff;
+  border-color: var(--orange);
+  background: rgba(255, 73, 59, 0.08);
+  transform: scale(1.04);
+}
+
+/* 7. Interactive Brief Planner Summary Card */
+.brief-live-summary-card {
+  margin-top: 24px;
+  background: rgba(255, 73, 59, 0.06);
+  border: 1px solid rgba(255, 73, 59, 0.25);
+  border-radius: 18px;
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brief-summary-text span {
+  color: var(--retro-yellow);
+  font-weight: 700;
+}
+
