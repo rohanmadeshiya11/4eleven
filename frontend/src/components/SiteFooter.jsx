@@ -30,19 +30,19 @@ export const SiteFooter = () => {
               EXPLORE
             </div>
             <div className="flex flex-col gap-2.5 text-sm font-medium text-white/70">
-              <a href="#about" className="hover:text-white transition-colors">
+              <a href="/" className="hover:text-white transition-colors">
+                Home
+              </a>
+              <a href="/about" className="hover:text-white transition-colors">
                 About
               </a>
-              <a href="#services" className="hover:text-white transition-colors">
+              <a href="/services" className="hover:text-white transition-colors">
                 Services
               </a>
-              <a href="#work" className="hover:text-white transition-colors">
+              <a href="/work" className="hover:text-white transition-colors">
                 Work
               </a>
-              <a href="#collaborators" className="hover:text-white transition-colors">
-                In Good Company
-              </a>
-              <a href="#contact" className="hover:text-white transition-colors">
+              <a href="/contact" className="hover:text-white transition-colors">
                 Contact
               </a>
             </div>

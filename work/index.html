@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080809">
+  <meta name="description" content="Selected Work by 4—11 Studio — Video editing, artwork design, celebrity social media, and podcast production projects.">
+  <title>Selected Work — 4—11 STUDIO®</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .filter-bar {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 99px; padding: 10px 22px; font-family: var(--font-mono); font-size: 12px;
+      color: rgba(255, 255, 255, 0.7); cursor: pointer; transition: all 0.25s;
+    }
+    .filter-btn:hover {
+      background: rgba(255, 255, 255, 0.12); color: #fff;
+    }
+    .filter-btn.active {
+      background: var(--orange); color: #fff; border-color: var(--orange);
+      box-shadow: 0 0 15px var(--orange-glow);
+    }
+    .work-item {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-links">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/" class="active">Work</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 6px;">DIRECT ENQUIRY</div>
+      <a href="mailto:hello@4-11.studio" style="font-size: 18px; font-weight: 700;">hello@4-11.studio</a>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="header" id="navbar">
+    <div class="container header-inner">
+      <div class="brand-wrap">
+        <a href="/" class="toggle-pill" aria-label="4-11 Studio Home">
+          <div class="toggle-knob"><span></span></div>
+        </a>
+        <a href="/" class="logo-text">
+          4—11 <span class="logo-sub">STUDIO®</span>
+        </a>
+        <nav class="nav-links" style="margin-left: 28px;">
+          <a href="/">Home</a>
+          <a href="/about/">About</a>
+          <a href="/services/">Services</a>
+          <a href="/work/" class="active">Work</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+
+      <div class="time-badge">
+        <span class="pulse-dot"></span>
+        <span>MUMBAI, IN</span>
+        <span style="opacity: 0.3;">•</span>
+        <span id="live-time">23:30 IST</span>
+      </div>
+
+      <div class="header-actions">
+        <a href="/contact/" class="cta-btn">
+          <span>Let's Talk</span>
+          <span>↗</span>
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-eyebrow">
+          <span class="pulse-dot"></span>
+          <span>SELECTED WORK</span>
+        </div>
+        <h1 class="page-title">
+          Ideas brought<br>
+          <span style="color: var(--orange);">to life.</span>
+        </h1>
+        <p class="page-lead">
+          A selection of creative projects, collaborations, and content produced across brands, entertainment, and digital platforms. From video edits and campaign artwork to social media content and podcast production, every project is an opportunity to tell a story differently.
+        </p>
+      </div>
+    </section>
+
+    <!-- Work Gallery Section -->
+    <section class="section-pad">
+      <div class="container">
+        <!-- Interactive Filter Pills -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="video">Video & Post</button>
+          <button class="filter-btn" data-filter="design">Creative Design & Artwork</button>
+          <button class="filter-btn" data-filter="social">Social & Celebrity</button>
+          <button class="filter-btn" data-filter="podcast">Podcast Production</button>
+        </div>
+
+        <div class="grid-3" id="work-grid">
+
+          <!-- Project 1: Faizan Bhatt -->
+          <div class="work-card work-item" data-category="video design">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80" alt="Faizan Bhatt Stand-up Comedian">
+              <div class="work-badge">Comedy Tour</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Faizan Bhatt</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Stand-up Comedian</div>
+              <p class="work-desc">
+                Supporting his stand-up comedy content through engaging short-form video edits, punchy timing, and distinctive tour poster design.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Poster Design
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Sushmita Mukherjee -->
+          <div class="work-card work-item" data-category="social">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Sushmita Mukherjee Actress">
+              <div class="work-badge">Talent Management</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Sushmita Mukherjee</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Actress & Artist</div>
+              <p class="work-desc">
+                Managing her multi-platform social media presence, securing prominent brand collaborations, and directing event PR and publicity support.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Social Media · Brand Collabs · Event PR
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Pronto -->
+          <div class="work-card work-item" data-category="video design">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80" alt="Pronto Commercial Brand">
+              <div class="work-badge">Commercial Brand</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Pronto</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Brand Identity</div>
+              <p class="work-desc">
+                Creating polished commercial video content and distinctive visual artwork for digital brand communication, launches, and performance marketing.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Artwork Design
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Nashia Kondia -->
+          <div class="work-card work-item" data-category="podcast video">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80" alt="Nashia Kondia Podcast">
+              <div class="work-badge">Podcast Series</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Nashia Kondia</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Podcast Project</div>
+              <p class="work-desc">
+                Editing full podcast episodes and refining raw recorded conversations into polished, audience-ready multi-platform audio-visual content.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Podcast Editing · Post-Production
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Studio Anthology -->
+          <div class="work-card work-item" data-category="design">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Creative Posters">
+              <div class="work-badge">Visuals & Artwork</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Kinetic Posters</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Experimental Typographic Series</div>
+              <p class="work-desc">
+                A custom poster series exploring brutalist Swiss typography, vibrant gradients, and high-impact digital campaign visual packaging.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Artwork Design · Campaign Visuals
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Short-Form Studio Vault -->
+          <div class="work-card work-item" data-category="video social">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80" alt="Video Motion">
+              <div class="work-badge">Social Video</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Digital Cutdowns</div>
+                <div class="work-arrow">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Short-Form Retention Suite</div>
+              <p class="work-desc">
+                Over 100+ viral Instagram Reels and YouTube Shorts cut with kinetic subtitles, sound design, and narrative pacing that maximize watch time.
+              </p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Social Strategy
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA Banner -->
+    <section class="container" style="margin-bottom: 80px;">
+      <div class="cta-banner-box">
+        <div class="page-eyebrow" style="margin-bottom: 16px;">READY TO CREATE?</div>
+        <h2 style="font-family: var(--font-display); font-size: clamp(34px, 5.5vw, 68px); font-weight: 700; text-transform: uppercase; margin-bottom: 14px;">
+          Want your project featured here?<br><span style="color: var(--orange);">Let's make it matter.</span>
+        </h2>
+        <p style="font-size: 16px; color: var(--text-muted); max-width: 620px; margin: 0 auto 30px; line-height: 1.6;">
+          Let's discuss how our production and visual team can bring your vision into sharp focus.
+        </p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+          <a href="/contact/" class="pill-btn-white" style="padding: 16px 36px; font-size: 13px;">
+            <span>Start a Project</span>
+            <span>↗</span>
+          </a>
+          <a href="mailto:hello@4-11.studio" class="pill-btn-trans" style="padding: 16px 36px; font-size: 13px;">
+            <span>hello@4-11.studio</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-title">
+            <svg class="clover" viewBox="0 0 100 100" width="22" height="22">
+              <circle cx="36" cy="36" r="22" fill="#ff493b"/>
+              <circle cx="64" cy="36" r="22" fill="#ff493b"/>
+              <circle cx="36" cy="64" r="22" fill="#ff493b"/>
+              <circle cx="64" cy="64" r="22" fill="#ff493b"/>
+              <circle cx="50" cy="50" r="13" fill="#ff493b"/>
+            </svg>
+            <span>4—11 STUDIO®</span>
+          </div>
+          <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); font-weight: 600; text-transform: uppercase;">Make It Matter.</div>
+          <p class="footer-brand-desc">
+            An independent creative agency working across video production, creative design, social media management, celebrity collaborations, and podcast content.
+          </p>
+        </div>
+
+        <div class="footer-links-col">
+          <h4>Explore</h4>
+          <div class="footer-nav-list">
+            <a href="/">Home</a>
+            <a href="/about/">About Us</a>
+            <a href="/services/">Our Services</a>
+            <a href="/work/">Selected Work</a>
+            <a href="/contact/">Start a Project</a>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <div class="footer-links-col">
+            <h4>Contact</h4>
+            <a href="mailto:hello@4-11.studio" class="footer-contact-link">hello@4-11.studio</a>
+            <div style="font-size: 13px; color: var(--text-dim); margin-top: 10px;">
+              Mumbai, India • Available Worldwide
+            </div>
+            <div class="footer-socials">
+              <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bot">
+        <div>© 2026 4—11 Studio. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>Make It Matter.</span>
+          <span>•</span>
+          <span>Mumbai, IN</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

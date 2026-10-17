@@ -63,20 +63,20 @@ export const Header = () => {
 
           {/* Nav links */}
           <nav className="hidden md:flex items-center gap-7 ml-8 text-[13px] text-white/70 font-medium">
-            <a href="#about" className="hover:text-white transition-colors">
+            <a href="/" className="hover:text-white transition-colors">
+              Home
+            </a>
+            <a href="/about" className="hover:text-white transition-colors">
               About
             </a>
-            <a href="#services" className="hover:text-white transition-colors">
+            <a href="/services" className="hover:text-white transition-colors">
               Services
             </a>
-            <a href="#work" className="hover:text-white transition-colors">
+            <a href="/work" className="hover:text-white transition-colors">
               Work
             </a>
-            <a href="#collaborators" className="hover:text-white transition-colors">
-              In Good Company
-            </a>
-            <a href="#process" className="hover:text-white transition-colors">
-              Approach
+            <a href="/contact" className="hover:text-white transition-colors">
+              Contact
             </a>
           </nav>
         </div>
@@ -92,7 +92,7 @@ export const Header = () => {
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white font-semibold text-xs tracking-wide px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-[#ff493b]/30"
           >
             <span>Let's Talk</span>
@@ -130,42 +130,42 @@ export const Header = () => {
           >
             <nav className="flex flex-col gap-4 text-sm font-medium text-white/80">
               <a
-                href="#about"
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Home
+              </a>
+              <a
+                href="/about"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
                 About
               </a>
               <a
-                href="#services"
+                href="/services"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
                 Services
               </a>
               <a
-                href="#work"
+                href="/work"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
                 Work
               </a>
               <a
-                href="#collaborators"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="py-2 border-b border-white/5 hover:text-[#ff493b]"
               >
-                In Good Company
+                Contact
               </a>
               <a
-                href="#process"
-                onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
-              >
-                Approach
-              </a>
-              <a
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-2 text-center py-2.5 rounded-full bg-[#ff493b] text-white font-semibold text-xs tracking-wider"
               >
