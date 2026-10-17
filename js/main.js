@@ -172,4 +172,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ========================================================
+  // 4. DYNAMIC CHANGING WORD (INDIAN STYLES: HINDI <-> ENGLISH)
+  // ========================================================
+  const dynamicWordEl = document.getElementById('dynamic-ignore');
+
+  if (dynamicWordEl) {
+    const wordStyles = [
+      { text: "Ignore", styleClass: "style-bollywood" },
+      { text: "नज़रअंदाज़", styleClass: "style-truck-art" },
+      { text: "अनदेखा", styleClass: "style-royal-saffron" },
+      { text: "इग्नोर", styleClass: "style-matchbox-pop" },
+      { text: "IGNORE", styleClass: "style-street-neon" }
+    ];
+
+    let currentIdx = 0;
+
+    setInterval(() => {
+      // 1. Transition out current word
+      dynamicWordEl.classList.add('morph-out');
+
+      setTimeout(() => {
+        // 2. Remove all style classes
+        wordStyles.forEach(w => dynamicWordEl.classList.remove(w.styleClass));
+
+        // Advance index
+        currentIdx = (currentIdx + 1) % wordStyles.length;
+        const next = wordStyles[currentIdx];
+
+        // 3. Update text & apply new Indian design style
+        dynamicWordEl.textContent = next.text;
+        dynamicWordEl.classList.add(next.styleClass);
+
+        // Prep morph in from below
+        dynamicWordEl.classList.remove('morph-out');
+        dynamicWordEl.classList.add('morph-in');
+
+        // Force browser layout repaint
+        void dynamicWordEl.offsetWidth;
+
+        // 4. Animate to neutral state smoothly
+        dynamicWordEl.classList.remove('morph-in');
+      }, 350);
+    }, 2400);
+  }
+
 });

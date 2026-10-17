@@ -595,6 +595,95 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   font-weight: 800; color: #ffffff;
 }
 
+/* ========================================================
+   DYNAMIC CHANGING WORD (INDIAN STYLES: HINDI <-> ENGLISH)
+======================================================== */
+.dynamic-word-wrap {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  white-space: nowrap;
+  perspective: 600px;
+}
+
+.dynamic-word {
+  display: inline-block;
+  font-weight: 800;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.42s ease, filter 0.42s ease;
+  will-change: transform, opacity, filter;
+  padding: 0 6px;
+  line-height: 1;
+}
+
+/* Morph transition states */
+.dynamic-word.morph-out {
+  transform: translateY(-28px) rotateX(35deg) scale(0.9);
+  opacity: 0;
+  filter: blur(5px);
+}
+.dynamic-word.morph-in {
+  transform: translateY(28px) rotateX(-35deg) scale(0.9);
+  opacity: 0;
+  filter: blur(5px);
+}
+
+/* 5 DISTINCT INDIAN STYLES FOR THE CHANGING WORD */
+
+/* Style 1: Retro Bollywood Hand-Painted Cinema (English: Ignore) */
+.dynamic-word.style-bollywood {
+  font-family: var(--font-hindi-yatra);
+  color: var(--orange);
+  text-shadow: 
+    2px 2px 0 var(--retro-yellow),
+    4px 4px 0 #000000;
+  letter-spacing: 0.02em;
+}
+
+/* Style 2: 3D Extruded Indian Truck-Art (Hindi: नज़रअंदाज़) */
+.dynamic-word.style-truck-art {
+  font-family: var(--font-hindi-yatra);
+  color: var(--retro-yellow);
+  text-shadow: 
+    2px 2px 0 #b91c1c,
+    4px 4px 0 #991b1b,
+    6px 6px 0 #7f1d1d,
+    8px 8px 18px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.01em;
+}
+
+/* Style 3: Royal Saffron & Gold Foil Script (Hindi: अनदेखा) */
+.dynamic-word.style-royal-saffron {
+  font-family: var(--font-hindi-rozha);
+  background: linear-gradient(135deg, #ffffff 15%, #fbbf24 55%, #ff493b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(251, 191, 36, 0.7));
+  letter-spacing: 0.03em;
+}
+
+/* Style 4: Cobalt Matchbox Label Stamp (Hindi: इग्नोर) */
+.dynamic-word.style-matchbox-pop {
+  font-family: var(--font-hindi-yatra);
+  color: #60a5fa;
+  text-shadow: 
+    2px 2px 0 #ffffff,
+    4px 4px 0 #1d4ed8,
+    6px 6px 0 #000000;
+  letter-spacing: 0.02em;
+}
+
+/* Style 5: Street Stencil Neon Pop (English: IGNORE) */
+.dynamic-word.style-street-neon {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #ffffff;
+  -webkit-text-stroke: 1.5px var(--orange);
+  text-shadow: 
+    0 0 20px var(--orange-glow),
+    0 0 45px rgba(255, 73, 59, 0.5);
+  letter-spacing: 0.04em;
+}
+
 .hero-subtext {
   font-size: clamp(14px, 1.45vw, 17px);
   color: var(--white-dim);
