@@ -613,4 +613,198 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========================================================
+  // 9. WORK PAGE: BRAND APPART STACKED CARDS CONTROLLER
+  // ========================================================
+  const stackContainer = document.getElementById('tiles-stack-container');
+  const stackItems = document.querySelectorAll('.tiles_stack_item');
+  const shipNavBtns = document.querySelectorAll('.ship-nav-btn');
+  const bottomTabsWrap = document.getElementById('bottom-stack-tabs');
+  const magneticCursor = document.getElementById('magnetic-case-cursor');
+
+  if (stackContainer && stackItems.length) {
+    const cardDefs = [
+      { idx: 0, title: '(01) Branding & Identity', color: '#3b35ba' },
+      { idx: 1, title: '(02) Film & Motion', color: '#ff493b' },
+      { idx: 2, title: '(03) Digital Flagships', color: '#df2626' },
+      { idx: 3, title: '(04) Decks & Campaigns', color: '#785f47' }
+    ];
+
+    let currentActiveIdx = 0;
+
+    function renderBottomTabs(activeIdx) {
+      if (!bottomTabsWrap) return;
+      bottomTabsWrap.innerHTML = '';
+      
+      // Collect cards that are not active
+      const underCards = [];
+      for (let i = 0; i < cardDefs.length; i++) {
+        if (i !== activeIdx) {
+          underCards.push(cardDefs[i]);
+        }
+      }
+
+      underCards.forEach((card, order) => {
+        const tab = document.createElement('div');
+        tab.className = `stack-tab-layer layer-${order + 1}`;
+        tab.style.backgroundColor = card.color;
+        tab.setAttribute('data-target-idx', card.idx);
+        tab.title = `Switch to ${card.title}`;
+
+        const label = document.createElement('span');
+        label.className = 'tab-pill-label';
+        label.textContent = card.title;
+        tab.appendChild(label);
+
+        tab.addEventListener('click', (e) => {
+          e.stopPropagation();
+          activateStackCard(card.idx);
+        });
+
+        bottomTabsWrap.appendChild(tab);
+      });
+    }
+
+    function activateStackCard(targetIdx) {
+      currentActiveIdx = targetIdx;
+
+      // Update Nav buttons
+      shipNavBtns.forEach((btn, idx) => {
+        if (idx === targetIdx) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      // Update Stack items
+      const underIndices = [];
+      for (let i = 0; i < stackItems.length; i++) {
+        if (i !== targetIdx) underIndices.push(i);
+      }
+
+      stackItems.forEach((item, idx) => {
+        item.classList.remove('active', 'under-1', 'under-2', 'under-3');
+
+        if (idx === targetIdx) {
+          item.classList.add('active');
+          item.style.zIndex = '10';
+        } else {
+          const underPos = underIndices.indexOf(idx);
+          if (underPos === 0) {
+            item.classList.add('under-1');
+            item.style.zIndex = '8';
+          } else if (underPos === 1) {
+            item.classList.add('under-2');
+            item.style.zIndex = '6';
+          } else {
+            item.classList.add('under-3');
+            item.style.zIndex = '4';
+          }
+        }
+      });
+
+      renderBottomTabs(targetIdx);
+    }
+
+    // Nav button event listeners
+    shipNavBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-deck-index'), 10);
+        activateStackCard(idx);
+      });
+    });
+
+    // Magnetic Cursor Badge
+    if (magneticCursor) {
+      stackContainer.addEventListener('mousemove', (e) => {
+        const rect = stackContainer.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        magneticCursor.style.left = `${x}px`;
+        magneticCursor.style.top = `${y}px`;
+      });
+    }
+
+    // Clicking "SEE OUR CASE STUDIES →" pill
+    const casePills = document.querySelectorAll('.service-card-case-pill');
+    casePills.forEach(pill => {
+      pill.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetCat = pill.getAttribute('data-open-cat');
+        const archiveSection = document.getElementById('work-archive');
+        
+        // Filter archive
+        if (targetCat) {
+          const matchingBtn = document.querySelector(`.filter-btn[data-filter="${targetCat}"]`);
+          if (matchingBtn) matchingBtn.click();
+        }
+
+        if (archiveSection) {
+          archiveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Clicking individual visual tiles opens the case study modal
+    const galleryTiles = document.querySelectorAll('.service-gallery-tile');
+    galleryTiles.forEach(tile => {
+      tile.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const targetTitle = tile.getAttribute('data-project-target');
+        if (!targetTitle) return;
+
+        const matchingCard = Array.from(document.querySelectorAll('.project-card')).find(card => {
+          const cardTitle = card.getAttribute('data-title');
+          return cardTitle && cardTitle.toLowerCase().includes(targetTitle.toLowerCase());
+        });
+
+        if (matchingCard) {
+          matchingCard.click();
+        } else {
+          // If no specific card, scroll to archive
+          const archiveSection = document.getElementById('work-archive');
+          if (archiveSection) archiveSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Smooth horizontal dragging on visual galleries
+    const galleryWraps = document.querySelectorAll('.service-gallery-wrapper');
+    galleryWraps.forEach(wrap => {
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+
+      wrap.addEventListener('mousedown', (e) => {
+        isDown = true;
+        wrap.style.cursor = 'grabbing';
+        startX = e.pageX - wrap.offsetLeft;
+        scrollLeft = wrap.scrollLeft;
+      });
+
+      wrap.addEventListener('mouseleave', () => {
+        isDown = false;
+        wrap.style.cursor = 'grab';
+      });
+
+      wrap.addEventListener('mouseup', () => {
+        isDown = false;
+        wrap.style.cursor = 'grab';
+      });
+
+      wrap.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - wrap.offsetLeft;
+        const walk = (x - startX) * 1.8;
+        wrap.scrollLeft = scrollLeft - walk;
+      });
+    });
+
+    // Initialize bottom tabs on load
+    renderBottomTabs(0);
+  }
+
 });
+

@@ -13,7 +13,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.7">
+  <link rel="stylesheet" href="css/style.css?v=3.8">
 </head>
 <body class="subpage work-page">
   <!-- Grain Overlay -->
@@ -227,6 +227,393 @@
           A curated portfolio of commercials, brand identities, digital flagships, and cultural campaigns built for ambitious clients who refuse to blend into the background.
         </p>
       </section>
+
+      <!-- ========================================================
+           BRAND APPART STACKED CARDS SHOWCASE: "WHAT WE SHIP"
+           ======================================================== -->
+      <section id="what-we-ship" class="ship-stacked-section">
+        <div class="ship-headline-wrap">
+          <div class="ship-overline">What we ship.</div>
+          <h2 class="ship-main-title">Our ways to move fast</h2>
+          <p class="ship-lead-text">
+            We create innovative and purposeful designs that not only capture attention but also drive meaningful results.
+          </p>
+
+          <!-- Quick Navigation Pills for the Stack -->
+          <div class="ship-deck-nav">
+            <button class="ship-nav-btn active" data-deck-index="0"><span>(01)</span> Branding &amp; Identity</button>
+            <button class="ship-nav-btn" data-deck-index="1"><span>(02)</span> Film &amp; Motion</button>
+            <button class="ship-nav-btn" data-deck-index="2"><span>(03)</span> Digital Flagships</button>
+            <button class="ship-nav-btn" data-deck-index="3"><span>(04)</span> Decks &amp; Campaigns</button>
+          </div>
+        </div>
+
+        <!-- The Stacked Card Deck Container -->
+        <div class="c-tiles-stack-container" id="tiles-stack-container">
+          
+          <!-- Floating Magnetic Cursor Pill (Desktop) -->
+          <div class="magnetic-case-cursor" id="magnetic-case-cursor">
+            <span>See our case studies</span>
+            <svg viewBox="0 0 12 13" fill="none" class="cursor-arrow-svg"><path d="M10 6.3L2 6.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M7.5 8.8L10 6.3L7.5 3.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </div>
+
+          <div class="tiles_stack_list" id="tiles-stack-list">
+            
+            <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
+            <div class="tiles_stack_item active" data-card-idx="0" style="background-color: #3b35ba; z-index: 10;">
+              <div class="service-card" style="background-color: #3b35ba;">
+                
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <div class="service-card-count">(01)</div>
+                    <h3 class="service-card-title">Branding that drives conversion &amp; funding.</h3>
+                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Brand Identity">
+                      <span>SEE OUR CASE STUDIES</span>
+                      <span class="pill-arrow">→</span>
+                    </a>
+                  </div>
+                  <p class="service-card-desc">
+                    We clarify your positioning, define a distinctive tone of voice, and build a visual system that works across acquisition and product. Each sprint ships a robust logo, pragmatic brand guidelines, and a social kit so you can launch fast. The goal is simple: perceived value up.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “Working with 4—11 has been an absolute pleasure. Beyond their creativity and professionalism, there’s a real sense of care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. Truly impressed by their reliability, flexibility, and collaborative spirit.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&h=120&q=80" alt="Jérémy Bendayan" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Jérémy Bendayan</div>
+                        <div class="author-title">Co-founder &amp; COO @Jaws Group</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      
+                      <!-- Tile 1: Neon Lime "IN" -->
+                      <div class="service-gallery-tile tile-lime" data-project-target="Aura Systems" title="View Aura Systems Case Study">
+                        <div class="tile-lime-inner">
+                          <span class="tile-lime-logo">IN</span>
+                        </div>
+                        <span class="tile-hover-tag">Brand Identity</span>
+                      </div>
+
+                      <!-- Tile 2: Cream Linen 3D Embossed "IMPORTANT HOUSE" -->
+                      <div class="service-gallery-tile tile-beige-emboss" data-project-target="Mumbai Noir" title="View Mumbai Noir Case Study">
+                        <div class="tile-emboss-texture"></div>
+                        <div class="tile-emboss-text">
+                          <span>IMPORTANT</span>
+                          <span>HOUSE</span>
+                        </div>
+                        <span class="tile-hover-tag">Embossed Identity</span>
+                      </div>
+
+                      <!-- Tile 3: Cadmium Yellow Script "Qio" -->
+                      <div class="service-gallery-tile tile-yellow-script" data-project-target="Running Club" title="View Running Club Case Study">
+                        <div class="tile-script-inner">
+                          <span class="tile-script-logo">Qio</span>
+                        </div>
+                        <span class="tile-hover-tag">Design System</span>
+                      </div>
+
+                      <!-- Tile 4: Obsidian Black with Fiery Orange 4-11 Symbol -->
+                      <div class="service-gallery-tile tile-noir-symbol" data-project-target="Afterglow" title="View 4-11 Brand Mark">
+                        <div class="tile-noir-inner">
+                          <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="tile-411-glyph">
+                        </div>
+                        <span class="tile-hover-tag">Brand Mark</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- CARD 02: FILM & MOTION (Fiery Orange) -->
+            <div class="tiles_stack_item under-1" data-card-idx="1" style="background-color: #ff493b; z-index: 8;">
+              <div class="service-card" style="background-color: #ff493b;">
+                
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <div class="service-card-count">(02)</div>
+                    <h3 class="service-card-title">Commercial film &amp; motion that commands absolute attention.</h3>
+                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Film & Motion">
+                      <span>SEE OUR CASE STUDIES</span>
+                      <span class="pill-arrow">→</span>
+                    </a>
+                  </div>
+                  <p class="service-card-desc">
+                    Commercial films, 35mm analog grading, bespoke soundscapes, and viral motion edits engineered for high retention. We direct and produce cinematic visual narratives that turn passive viewers into cult brand advocates across cinema, broadcast, and social channels.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “The commercial 4—11 delivered didn't just win international festival acclaim—it doubled our inbound pipeline within 48 hours of drop. Unmatched velocity, lighting intuition, and cinematic taste.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&h=120&q=80" alt="Maya Sen" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Maya Sen</div>
+                        <div class="author-title">Creative Director @Tempo Athletics</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      
+                      <!-- Tile 1: 35mm Mumbai Nocturne Film Still -->
+                      <div class="service-gallery-tile tile-cinema-1" data-project-target="Afterglow" title="View Afterglow Film">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Nocturne Film" class="tile-img-fill">
+                        <div class="tile-film-overlay">
+                          <span class="tile-timecode">REC ● 00:14:02:18</span>
+                          <span class="tile-play-icon">▶</span>
+                        </div>
+                        <span class="tile-hover-tag">35mm Film</span>
+                      </div>
+
+                      <!-- Tile 2: Afterglow Neon Title -->
+                      <div class="service-gallery-tile tile-cinema-neon" data-project-target="Afterglow" title="View Title Sequence">
+                        <div class="tile-neon-title">
+                          <span>AFTER</span>
+                          <span>GLOW</span>
+                        </div>
+                        <span class="tile-lens-flare"></span>
+                        <span class="tile-hover-tag">Title Direction</span>
+                      </div>
+
+                      <!-- Tile 3: High-contrast Silhouette -->
+                      <div class="service-gallery-tile tile-cinema-silhouette" data-project-target="Running Club" title="View Silhouette Direction">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=600&q=80" alt="Silhouette Frame" class="tile-img-fill">
+                        <div class="tile-film-overlay">
+                          <span class="tile-play-icon">▶</span>
+                        </div>
+                        <span class="tile-hover-tag">Color Grade</span>
+                      </div>
+
+                      <!-- Tile 4: Sound Design Waveform -->
+                      <div class="service-gallery-tile tile-soundboard" data-project-target="Solar Pulse" title="View Sound Design">
+                        <div class="tile-waveform-bars">
+                          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <span class="tile-sound-label">Bespoke 32-Bit Audio</span>
+                        <span class="tile-hover-tag">Sound Design</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- CARD 03: DIGITAL FLAGSHIPS & WEBGL (Deep Crimson) -->
+            <div class="tiles_stack_item under-2" data-card-idx="2" style="background-color: #df2626; z-index: 6;">
+              <div class="service-card" style="background-color: #df2626;">
+                
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <div class="service-card-count">(03)</div>
+                    <h3 class="service-card-title">Digital flagships &amp; WebGL that scale revenue.</h3>
+                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Digital Flagships">
+                      <span>SEE OUR CASE STUDIES</span>
+                      <span class="pill-arrow">→</span>
+                    </a>
+                  </div>
+                  <p class="service-card-desc">
+                    Fluid WebGL interactions, editorial typography systems, and ultra-responsive front-end architecture. We design digital flagships that feel alive, load instantly, and leave competitors looking obsolete while driving proven conversion lifts.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “The flagship digital experience 4—11 crafted completely reset the standard in our industry. Investors, customers, and talent all comment on how fluid and electric it feels. 3x conversion uplift within month one.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Kabir Roy" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Kabir Roy</div>
+                        <div class="author-title">Head of Product @Human Nature</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      
+                      <!-- Tile 1: Fluid WebGL Shader -->
+                      <div class="service-gallery-tile tile-webgl-fluid" data-project-target="Human Nature" title="View WebGL Shader">
+                        <div class="tile-shader-orb"></div>
+                        <span class="tile-webgl-badge">60 FPS WebGL</span>
+                        <span class="tile-hover-tag">Shader Architecture</span>
+                      </div>
+
+                      <!-- Tile 2: Solar Pulse Interface -->
+                      <div class="service-gallery-tile tile-solar-pulse" data-project-target="Solar Pulse" title="View UI System">
+                        <div class="tile-solar-grid">
+                          <span class="solar-glow-tag">SYS // V3.2</span>
+                          <span class="solar-metric">+184% RETENTION</span>
+                        </div>
+                        <span class="tile-hover-tag">Interactive UI</span>
+                      </div>
+
+                      <!-- Tile 3: 3D Product Viewport -->
+                      <div class="service-gallery-tile tile-3d-viewport" data-project-target="Human Nature" title="View 3D Viewport">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="3D Viewport" class="tile-img-fill">
+                        <div class="tile-3d-crosshairs">
+                          <span>+</span><span>+</span>
+                        </div>
+                        <span class="tile-hover-tag">Spatial 3D</span>
+                      </div>
+
+                      <!-- Tile 4: Front-end Typography Index -->
+                      <div class="service-gallery-tile tile-typo-index" data-project-target="Aura Systems" title="View Front-end System">
+                        <div class="typo-lines">
+                          <div class="typo-line">4—11 / CORE</div>
+                          <div class="typo-line">ARCHITECTURE</div>
+                          <div class="typo-line">ZERO LATENCY</div>
+                        </div>
+                        <span class="tile-hover-tag">Performance</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- CARD 04: INVESTOR DECKS & CAMPAIGNS (Warm Bronze) -->
+            <div class="tiles_stack_item under-3" data-card-idx="3" style="background-color: #785f47; z-index: 4;">
+              <div class="service-card" style="background-color: #785f47;">
+                
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <div class="service-card-count">(04)</div>
+                    <h3 class="service-card-title">Investor-proof decks that raise faster.</h3>
+                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Campaigns">
+                      <span>SEE OUR CASE STUDIES</span>
+                      <span class="pill-arrow">→</span>
+                    </a>
+                  </div>
+                  <p class="service-card-desc">
+                    We craft the narrative that gets meetings and a precise ask. Design serves the story: readable numbers, rhythm across slides, and versions for teaser/one-pager. Your deck can be pitched in 5 minutes, read solo, and generates faster responses.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “In a crowded funding round, 4—11’s deck was the single asset every partner paused on. Closed our Series A two weeks ahead of schedule with total investor conviction.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Rohan Mehra" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Rohan Mehra</div>
+                        <div class="author-title">Founder @Aura Protocol</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      
+                      <!-- Tile 1: Billboard Takeover Mockup -->
+                      <div class="service-gallery-tile tile-billboard" data-project-target="Running Club" title="View OOH Takeover">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Billboard" class="tile-img-fill">
+                        <div class="tile-billboard-tag">HIGHWAY OOH // MUMBAI</div>
+                        <span class="tile-hover-tag">OOH Takeover</span>
+                      </div>
+
+                      <!-- Tile 2: Gold Foil Deck Slide -->
+                      <div class="service-gallery-tile tile-deck-foil" data-project-target="Aura Systems" title="View Investor Deck">
+                        <div class="deck-foil-inner">
+                          <span class="foil-badge">SERIES A // PITCH</span>
+                          <span class="foil-stat">$18.5M RAISED</span>
+                        </div>
+                        <span class="tile-hover-tag">Pitch Deck</span>
+                      </div>
+
+                      <!-- Tile 3: The 10X Leap Headline Poster -->
+                      <div class="service-gallery-tile tile-poster-craft" data-project-target="Mumbai Noir" title="View Campaign Strategy">
+                        <div class="poster-inner-text">
+                          <span>THE</span>
+                          <span>10X LEAP</span>
+                        </div>
+                        <span class="tile-hover-tag">Narrative</span>
+                      </div>
+
+                      <!-- Tile 4: Luxury Packaging Case -->
+                      <div class="service-gallery-tile tile-luxury-box" data-project-target="Solar Pulse" title="View Custom Packaging">
+                        <div class="box-foil-crest">✦ 4—11 ✦</div>
+                        <span class="tile-hover-tag">Packaging</span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Stepped Card Stacking Tabs (Peeking layers at bottom matching screenshot) -->
+          <div class="tiles-bottom-stack-tabs" id="bottom-stack-tabs">
+            <div class="stack-tab-layer layer-1" data-target-idx="1" title="Switch to (02) Commercial Film & Motion">
+              <span class="tab-pill-label">(02) Commercial Film &amp; Motion</span>
+            </div>
+            <div class="stack-tab-layer layer-2" data-target-idx="2" title="Switch to (03) Digital Flagships">
+              <span class="tab-pill-label">(03) Digital Flagships &amp; WebGL</span>
+            </div>
+            <div class="stack-tab-layer layer-3" data-target-idx="3" title="Switch to (04) Investor Decks">
+              <span class="tab-pill-label">(04) Investor Decks &amp; Campaigns</span>
+            </div>
+          </div>
+
+          <!-- Floating Discovery Call Bottom Bar -->
+          <div class="discovery-floating-bar" id="discovery-bar">
+            <span class="discovery-text">Book a free discovery call</span>
+            <a href="contact.html" class="discovery-btn">
+              <span class="discovery-btn-text">BOOK A CALL</span>
+              <div class="discovery-avatar">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64&q=80" alt="Founder">
+              </div>
+              <span class="discovery-arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ========================================================
+           FULL CURATED WORKS ARCHIVE (CATEGORY FILTERABLE)
+           ======================================================== -->
+      <div id="work-archive" class="work-archive-header" style="margin-top: 100px; margin-bottom: 24px; text-align: center;">
+        <div class="tagline-badge" style="margin-bottom: 12px;">
+          <span>INDEX // FULL ARCHIVE</span>
+        </div>
+        <h3 style="font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; text-transform: uppercase;">
+          Curated Case Studies &amp; Films
+        </h3>
+      </div>
 
       <!-- Category Filter Tabs -->
       <div class="filter-tabs-row">
@@ -536,6 +923,6 @@
     </div>
   </div>
 
-  <script src="js/main.js?v=3.7"></script>
+  <script src="js/main.js?v=3.8"></script>
 </body>
 </html>
