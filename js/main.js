@@ -1,8 +1,8 @@
-// 4—11 STUDIO® — Interactive Three.js 3D Wireframe Background & Preloader
+// 4—11 STUDIO® — 3D Kinetic Canvas & Preloader Architecture
 document.addEventListener('DOMContentLoaded', () => {
 
   // ========================================================
-  // 1. PRELOADER ANIMATION (4—11 LOGO & COUNTER)
+  // 1. ANIMATED PRELOADER (4—11 LOGO & COUNTER)
   // ========================================================
   const preloader = document.getElementById('preloader');
   const counterEl = document.getElementById('loader-counter');
@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let count = 0;
   const counterInterval = setInterval(() => {
-    // Accelerate smoothly to 100
-    const increment = Math.floor(Math.random() * 8) + 3;
+    const increment = Math.floor(Math.random() * 8) + 4;
     count = Math.min(count + increment, 100);
     
     if (counterEl) counterEl.textContent = `${count}%`;
@@ -25,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }, 350);
     }
-  }, 45);
+  }, 40);
 
   // ========================================================
-  // 2. THREE.JS 3D WIREFRAME DODECAHEDRONS (HLF REFERENCE)
+  // 2. THREE.JS 3D TORUS KNOT, ORBITING RINGS & EMBER FIELD
   // ========================================================
   const canvas = document.getElementById('webgl-canvas');
   if (canvas && typeof THREE !== 'undefined') {
@@ -50,35 +49,92 @@ document.addEventListener('DOMContentLoaded', () => {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Create Wireframe Polyhedron Helper
-    function createWireframePolyhedron(radius, color, opacity) {
-      const geometry = new THREE.DodecahedronGeometry(radius, 0);
-      const wireframe = new THREE.WireframeGeometry(geometry);
-      const material = new THREE.LineBasicMaterial({
-        color: color,
-        transparent: true,
-        opacity: opacity,
-        linewidth: 1
-      });
-      return new THREE.LineSegments(wireframe, material);
+    // Group for mouse parallax
+    const worldGroup = new THREE.Group();
+    scene.add(worldGroup);
+
+    // A. HERO 3D ELEMENT: Magnificent Kinetic Torus Knot on the Right
+    const knotGeom = new THREE.TorusKnotGeometry(4.4, 1.15, 120, 22, 2, 3);
+    const knotWire = new THREE.WireframeGeometry(knotGeom);
+    
+    // Primary white wireframe
+    const knotMat = new THREE.LineBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.14
+    });
+    const knotMesh = new THREE.LineSegments(knotWire, knotMat);
+    knotMesh.position.set(10.5, 0.5, 0);
+    worldGroup.add(knotMesh);
+
+    // Secondary subtle orange accent inner glow
+    const knotAccentMat = new THREE.LineBasicMaterial({
+      color: 0xff493b,
+      transparent: true,
+      opacity: 0.08
+    });
+    const knotAccentMesh = new THREE.LineSegments(knotWire, knotAccentMat);
+    knotAccentMesh.scale.set(0.99, 0.99, 0.99);
+    knotMesh.add(knotAccentMesh);
+
+    // B. SECOND ELEMENT: Floating Icosahedron with Gyroscope Ring (Top-Left)
+    const icoGeom = new THREE.IcosahedronGeometry(2.4, 0);
+    const icoWire = new THREE.WireframeGeometry(icoGeom);
+    const icoMat = new THREE.LineBasicMaterial({
+      color: 0xffffff,
+      transparent: true,
+      opacity: 0.13
+    });
+    const icoMesh = new THREE.LineSegments(icoWire, icoMat);
+    icoMesh.position.set(-11.5, 6.5, -2);
+    worldGroup.add(icoMesh);
+
+    // Gyroscope ring around icosahedron
+    const ringGeom = new THREE.RingGeometry(3.6, 3.65, 48);
+    const ringWire = new THREE.WireframeGeometry(ringGeom);
+    const ringMat = new THREE.LineBasicMaterial({
+      color: 0xff493b,
+      transparent: true,
+      opacity: 0.18
+    });
+    const ringMesh = new THREE.LineSegments(ringWire, ringMat);
+    icoMesh.add(ringMesh);
+
+    // C. THIRD ELEMENT: Floating Kinetic Stardust Particle Field
+    const particleCount = 200;
+    const particleGeom = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
+
+    for (let i = 0; i < particleCount * 3; i += 3) {
+      positions[i] = (Math.random() - 0.5) * 50;
+      positions[i + 1] = (Math.random() - 0.5) * 35;
+      positions[i + 2] = (Math.random() - 0.5) * 25;
+
+      // Color mix: subtle fiery orange & pure white
+      if (Math.random() > 0.4) {
+        colors[i] = 1.0;
+        colors[i + 1] = 0.29;
+        colors[i + 2] = 0.23; // #ff493b
+      } else {
+        colors[i] = 0.9;
+        colors[i + 1] = 0.9;
+        colors[i + 2] = 1.0;
+      }
     }
+    particleGeom.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    particleGeom.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-    // 1. Top-Left Medium Dodecahedron
-    const meshTopLeft = createWireframePolyhedron(3.2, 0xffffff, 0.12);
-    meshTopLeft.position.set(-11, 6.5, -2);
-    scene.add(meshTopLeft);
+    const particleMat = new THREE.PointsMaterial({
+      size: 0.18,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.55
+    });
+    const particleSystem = new THREE.Points(particleGeom, particleMat);
+    worldGroup.add(particleSystem);
 
-    // 2. Giant Right Dodecahedron (Matches Screenshot)
-    const meshRightLarge = createWireframePolyhedron(7.5, 0xffffff, 0.15);
-    meshRightLarge.position.set(10.5, 1.5, 0);
-    scene.add(meshRightLarge);
-
-    // 3. Subtle Bottom-Center Dodecahedron
-    const meshBottom = createWireframePolyhedron(2.8, 0xffffff, 0.08);
-    meshBottom.position.set(2.5, -8.5, -4);
-    scene.add(meshBottom);
-
-    // Mouse Parallax Variables
+    // Mouse Parallax
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
@@ -87,31 +143,34 @@ document.addEventListener('DOMContentLoaded', () => {
     const windowHalfY = window.innerHeight / 2;
 
     window.addEventListener('mousemove', (e) => {
-      mouseX = (e.clientX - windowHalfX) * 0.0006;
-      mouseY = (e.clientY - windowHalfY) * 0.0006;
+      mouseX = (e.clientX - windowHalfX) * 0.0005;
+      mouseY = (e.clientY - windowHalfY) * 0.0005;
     });
 
-    // Animation Loop
+    // Render Animation Loop
     function animate() {
       requestAnimationFrame(animate);
 
-      // Smooth Lerp for Parallax
-      targetX += (mouseX - targetX) * 0.05;
-      targetY += (mouseY - targetY) * 0.05;
+      // Smooth Lerp
+      targetX += (mouseX - targetX) * 0.045;
+      targetY += (mouseY - targetY) * 0.045;
 
-      // Constant Majestic Rotation
-      meshTopLeft.rotation.x += 0.0018;
-      meshTopLeft.rotation.y += 0.0022;
+      // Torus Knot dynamic multi-axis rotation
+      knotMesh.rotation.x += 0.0016;
+      knotMesh.rotation.y += 0.0022;
+      knotMesh.rotation.z += 0.0008;
 
-      meshRightLarge.rotation.x += 0.0012;
-      meshRightLarge.rotation.y += 0.0016;
+      // Icosahedron & ring counter-rotations
+      icoMesh.rotation.x -= 0.002;
+      icoMesh.rotation.y += 0.0025;
+      ringMesh.rotation.z += 0.004;
 
-      meshBottom.rotation.x -= 0.0015;
-      meshBottom.rotation.z += 0.002;
+      // Particles gentle drift
+      particleSystem.rotation.y += 0.0004;
 
-      // Apply Parallax Tilt
-      scene.rotation.y = targetX * 1.5;
-      scene.rotation.x = targetY * 1.5;
+      // Parallax Tilt
+      worldGroup.rotation.y = targetX * 1.8;
+      worldGroup.rotation.x = targetY * 1.8;
 
       renderer.render(scene, camera);
     }
@@ -126,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 3. MENU DRAWER & MODAL CONTROLS
+  // 3. MENU DRAWER & MODAL INTERACTIONS
   // ========================================================
   const menuBtn = document.getElementById('menu-btn');
   const menuDrawer = document.getElementById('menu-drawer');
@@ -176,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Close buttons for modals
+  // Close buttons
   document.querySelectorAll('.modal-close-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const modal = btn.closest('.modal-overlay');
@@ -184,14 +243,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close modals on overlay backdrop click
+  // Backdrop click close
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
     overlay.addEventListener('click', (e) => {
       if (e.target === overlay) closeModal(overlay);
     });
   });
 
-  // ESC key to close any drawer or modal
+  // ESC key
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       closeDrawer();
