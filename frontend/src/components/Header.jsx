@@ -1,55 +1,171 @@
-import { useTheme } from "@/context/ThemeContext";
-import { Sun, Moon } from "lucide-react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowUpRight, Menu, X, Sparkles } from "lucide-react";
+import CloverIcon from "./CloverIcon";
 
-const Header = () => {
-  const { theme, toggle } = useTheme();
+export const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [timeStr, setTimeStr] = useState("");
 
-  const scrollToBrief = () => {
-    const el = document.getElementById("brief");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(
+        now.toLocaleTimeString("en-US", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          timeZone: "Asia/Kolkata",
+        })
+      );
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
-    <motion.header
-      initial={{ y: -40, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/60 border-b border-border"
-      data-testid="site-header"
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-[#080809]/80 backdrop-blur-md border-b border-white/10 py-3"
+          : "bg-transparent py-5"
+      }`}
     >
-      <div className="flex items-center justify-between px-6 sm:px-12 h-16">
-        <a
-          href="#top"
-          data-testid="nav-logo"
-          className="font-display font-bold text-xl tracking-tighter uppercase"
-        >
-          4-11<span className="text-accent">.</span>Studio
-        </a>
-
-        <div className="flex items-center gap-4 sm:gap-6">
-          <button
-            onClick={toggle}
-            data-testid="theme-toggle"
-            aria-label="Toggle theme"
-            className="p-2 border border-border rounded-none hover:border-accent hover:text-accent transition-colors duration-300"
+      <div className="max-w-[1440px] mx-auto px-5 sm:px-8 flex items-center justify-between">
+        {/* Left: Capsule toggle / Logo */}
+        <div className="flex items-center gap-4">
+          <a
+            href="#top"
+            className="flex items-center gap-2 group cursor-pointer"
+            aria-label="4-11 Studio Home"
           >
-            {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
-          </button>
-
-          <button
-            onClick={scrollToBrief}
-            data-testid="nav-submit-brief"
-            className="hidden sm:inline-flex font-mono text-xs uppercase tracking-[0.2em] border border-foreground px-5 py-2.5 relative overflow-hidden group"
-          >
-            <span className="relative z-10 group-hover:text-accent-foreground transition-colors duration-500">
-              Notify Me
+            <div className="w-10 h-6 bg-white/10 hover:bg-white/15 border border-white/20 rounded-full flex items-center px-1 transition-colors">
+              <div className="w-4 h-4 bg-[#ff493b] rounded-full shadow-[0_0_12px_#ff493b] flex items-center justify-center">
+                <span className="w-1.5 h-1.5 bg-white rounded-full"></span>
+              </div>
+            </div>
+            <span className="font-display font-bold tracking-tight text-white text-base flex items-center gap-1.5">
+              4:11
+              <span className="text-[#ff493b] text-xs font-mono font-normal">STUDIO</span>
             </span>
-            <span className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+          </a>
+
+          {/* Desktop Nav links */}
+          <nav className="hidden md:flex items-center gap-7 ml-6 text-[13px] text-white/70 font-medium">
+            <a href="#work" className="hover:text-white transition-colors">
+              Work
+            </a>
+            <a href="#services" className="hover:text-white transition-colors">
+              Services
+            </a>
+            <a href="#capabilities" className="hover:text-white transition-colors">
+              Capabilities
+            </a>
+            <a href="#process" className="hover:text-white transition-colors">
+              Process
+            </a>
+          </nav>
+        </div>
+
+        {/* Center: Live Time / Location indicator */}
+        <div className="hidden lg:flex items-center gap-2 text-[11px] font-mono tracking-wider text-white/60 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ff493b] animate-ping" />
+          <span>MUMBAI, IN</span>
+          <span className="text-white/30">•</span>
+          <span className="text-white font-medium">{timeStr || "21:28"} IST</span>
+        </div>
+
+        {/* Right: Actions */}
+        <div className="flex items-center gap-3">
+          <a
+            href="mailto:studio@4eleven.in"
+            className="inline-flex items-center gap-2 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white font-semibold text-xs tracking-wide px-4 py-2 rounded-full transition-all duration-300 shadow-lg hover:shadow-[#ff493b]/30"
+          >
+            <span>Let's talk</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+
+          {/* Creative Avatar badge */}
+          <div className="w-8 h-8 rounded-full border border-white/20 overflow-hidden hidden sm:block">
+            <img
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
+              alt="4-11 Studio"
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-white/80 hover:text-white"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
-    </motion.header>
+
+      {/* Mobile Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-[#0c0c0e]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6"
+          >
+            <nav className="flex flex-col gap-4 text-sm font-medium text-white/80">
+              <a
+                href="#work"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Work
+              </a>
+              <a
+                href="#services"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Services
+              </a>
+              <a
+                href="#capabilities"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Capabilities
+              </a>
+              <a
+                href="#process"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 border-b border-white/5 hover:text-[#ff493b]"
+              >
+                Process
+              </a>
+              <a
+                href="mailto:studio@4eleven.in"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-2 text-center py-2.5 rounded-full bg-[#ff493b] text-white font-semibold text-xs tracking-wider"
+              >
+                START A PROJECT ↗
+              </a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 };
 
