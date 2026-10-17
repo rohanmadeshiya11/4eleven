@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ========================================================
-  // 4. DYNAMIC CHANGING WORD (INDIAN STYLES: HINDI <-> ENGLISH)
+  // 4. DYNAMIC CHANGING WORD (5 INDIAN STYLES: HINDI <-> ENGLISH)
   // ========================================================
   const dynamicWordEl = document.getElementById('dynamic-ignore');
 
@@ -274,34 +274,61 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let currentIdx = 0;
+    let isMorphing = false;
 
-    setInterval(() => {
-      // 1. Transition out current word
-      dynamicWordEl.classList.add('morph-out');
+    function morphToNext() {
+      if (isMorphing) return;
+      isMorphing = true;
+
+      // Phase 1: Slide up and fade out current word
+      dynamicWordEl.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease, filter 0.35s ease';
+      dynamicWordEl.style.transform = 'translateY(-24px) scale(0.92)';
+      dynamicWordEl.style.opacity = '0';
+      dynamicWordEl.style.filter = 'blur(4px)';
 
       setTimeout(() => {
-        // 2. Remove all style classes
+        // Phase 2: Advance and swap style class & text content while invisible
         wordStyles.forEach(w => dynamicWordEl.classList.remove(w.styleClass));
-
-        // Advance index
         currentIdx = (currentIdx + 1) % wordStyles.length;
         const next = wordStyles[currentIdx];
 
-        // 3. Update text & apply new Indian design style
         dynamicWordEl.textContent = next.text;
         dynamicWordEl.classList.add(next.styleClass);
 
-        // Prep morph in from below
-        dynamicWordEl.classList.remove('morph-out');
-        dynamicWordEl.classList.add('morph-in');
+        // Instantly position below before animating in
+        dynamicWordEl.style.transition = 'none';
+        dynamicWordEl.style.transform = 'translateY(24px) scale(0.92)';
+        dynamicWordEl.style.opacity = '0';
+        dynamicWordEl.style.filter = 'blur(4px)';
 
         // Force browser layout repaint
         void dynamicWordEl.offsetWidth;
 
-        // 4. Animate to neutral state smoothly
-        dynamicWordEl.classList.remove('morph-in');
+        // Phase 3: Animate into neutral position smoothly
+        requestAnimationFrame(() => {
+          dynamicWordEl.style.transition = 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, filter 0.45s ease';
+          dynamicWordEl.style.transform = 'translateY(0) scale(1)';
+          dynamicWordEl.style.opacity = '1';
+          dynamicWordEl.style.filter = 'blur(0)';
+
+          setTimeout(() => {
+            isMorphing = false;
+          }, 450);
+        });
       }, 350);
-    }, 2400);
+    }
+
+    // Auto-cycle in loop every 2.2 seconds
+    let morphInterval = setInterval(morphToNext, 2200);
+
+    // Also allow user to click on the word directly to cycle instantly
+    dynamicWordEl.style.cursor = 'pointer';
+    dynamicWordEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      clearInterval(morphInterval);
+      morphToNext();
+      morphInterval = setInterval(morphToNext, 2200);
+    });
   }
 
 });
