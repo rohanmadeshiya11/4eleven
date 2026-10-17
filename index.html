@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080809">
   <meta name="description" content="4—11 Studio is an independent creative agency working across content production, visual design, social media, and talent collaborations. Make It Matter.">
-  <title>4—11 STUDIO® — Make It Matter.</title>
+  <title>4—11 STUDIO® — Creative Digital Agency</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,14 +17,16 @@
 <body>
   <div class="grain"></div>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Navigation Drawer -->
   <div class="mobile-nav" id="mobile-nav">
     <div class="mobile-nav-links">
-      <a href="/" class="active">Home</a>
-      <a href="/about/">About</a>
-      <a href="/services/">Services</a>
-      <a href="/work/">Work</a>
-      <a href="/contact/">Contact</a>
+      <a href="#top" class="mobile-link">Home</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#about" class="mobile-link">About Us</a>
+      <a href="#work" class="mobile-link">Selected Work</a>
+      <a href="#collaborators" class="mobile-link">In Good Company</a>
+      <a href="#process" class="mobile-link">Our Approach</a>
+      <a href="#contact" class="mobile-link">Let's Talk</a>
     </div>
     <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
       <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 6px;">DIRECT ENQUIRY</div>
@@ -32,100 +34,184 @@
     </div>
   </div>
 
-  <!-- Header Navigation -->
-  <header class="header" id="navbar">
-    <div class="container header-inner">
-      <div class="brand-wrap">
-        <a href="/" class="toggle-pill" aria-label="4-11 Studio Home">
-          <div class="toggle-knob"><span></span></div>
-        </a>
-        <a href="/" class="logo-text">
-          4—11 <span class="logo-sub">STUDIO®</span>
-        </a>
-        <nav class="nav-links" style="margin-left: 28px;">
-          <a href="/" class="active">Home</a>
-          <a href="/about/">About</a>
-          <a href="/services/">Services</a>
-          <a href="/work/">Work</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-
-      <div class="time-badge">
-        <span class="pulse-dot"></span>
-        <span>MUMBAI, IN</span>
-        <span style="opacity: 0.3;">•</span>
-        <span id="live-time">23:30 IST</span>
-      </div>
-
-      <div class="header-actions">
-        <a href="/contact/" class="cta-btn">
-          <span>Let's Talk</span>
-          <span>↗</span>
-        </a>
-        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">☰</button>
-      </div>
-    </div>
-  </header>
-
   <main>
-    <!-- 1. Hero Section -->
-    <section class="hero" id="top" style="position: relative; min-height: 94vh; display: flex; flex-direction: column; justify-content: space-between; padding-top: 130px; padding-bottom: 40px; overflow: hidden; background: var(--black);">
-      <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;">
-        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2200&q=88" alt="Athletes in motion" style="width: 100%; height: 100%; object-fit: cover; object-position: center 35%; filter: brightness(0.65) contrast(1.15) saturate(1.2); transform: scale(1.04);">
-        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, var(--black) 0%, transparent 25%, transparent 60%, var(--black) 100%), linear-gradient(90deg, rgba(8,8,9,0.7) 0%, transparent 40%, rgba(8,8,9,0.7) 100%);"></div>
-      </div>
-
-      <div class="container" style="width: 100%; position: relative; z-index: 2;">
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
-          <div class="page-eyebrow" style="margin-bottom: 0;">
-            <span class="pulse-dot"></span>
-            <span>Make It Matter.</span>
-          </div>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: rgba(255, 255, 255, 0.6); text-align: right; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.5;">
-            4—11 STUDIO® • MUMBAI<br>
-            <span style="opacity: 0.5;">CREATIVE AGENCY & TALENT MGMT</span>
-          </div>
+    <!-- ========================================================
+         HERO SECTION (FAITHFUL TO REFERENCE IMAGE CANVAS)
+    ======================================================== -->
+    <div class="hero-frame-wrap" id="top">
+      <div class="hero-canvas">
+        
+        <!-- Athlete Runner Motion Background -->
+        <div class="hero-bg-media">
+          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=2200&q=88" alt="Athletic runners in high-speed motion">
+          <div class="hero-bg-gradient"></div>
         </div>
 
-        <div style="padding: 20px 0;">
-          <div class="eyebrow-mono" style="margin-bottom: 12px;">4—11 STUDIO® // MAKE IT MATTER.</div>
-          <h1 style="font-family: var(--font-display); font-weight: 700; font-size: clamp(44px, 8.2vw, 126px); line-height: 0.9; letter-spacing: -0.04em; text-transform: uppercase; text-shadow: 0 15px 40px rgba(0,0,0,0.85);">
-            <div>WE MAKE BRANDS</div>
-            <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 0.25em;">
-              <span>IMPOSSIBLE</span>
-              <svg class="clover" viewBox="0 0 100 100" width="80" height="80" style="vertical-align: middle;">
-                <circle cx="36" cy="36" r="22" fill="#ff493b"/>
-                <circle cx="64" cy="36" r="22" fill="#ff493b"/>
-                <circle cx="36" cy="64" r="22" fill="#ff493b"/>
-                <circle cx="64" cy="64" r="22" fill="#ff493b"/>
-                <circle cx="50" cy="50" r="13" fill="#ff493b"/>
-              </svg>
-              <span style="font-family: var(--font-serif); font-style: italic; font-weight: 400; text-transform: lowercase; color: #fff;">to</span>
-              <span>IGNORE.</span>
+        <!-- Top Navigation Bar -->
+        <header class="hero-nav">
+          <!-- Left: Clover Logo + Menu Toggle Pill -->
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <a href="#top" class="nav-left-pill" aria-label="4-11 Studio">
+              <span class="nav-clover-icon">
+                <svg viewBox="0 0 100 100" width="18" height="18">
+                  <circle cx="36" cy="36" r="22" fill="#080809"/>
+                  <circle cx="64" cy="36" r="22" fill="#080809"/>
+                  <circle cx="36" cy="64" r="22" fill="#080809"/>
+                  <circle cx="64" cy="64" r="22" fill="#080809"/>
+                  <circle cx="50" cy="50" r="13" fill="#080809"/>
+                </svg>
+              </span>
+              <span style="font-size: 13px; font-family: var(--font-display); letter-spacing: -0.01em;">=</span>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="nav-links-menu">
+              <a href="#services">Service</a>
+              <a href="#about">About</a>
+              <a href="#work">Work</a>
+              <a href="#collaborators">Testimonials</a>
+            </nav>
+          </div>
+
+          <!-- Center: Dynamic Day & Date Banner -->
+          <div class="nav-center-date">
+            <div class="day" id="hero-current-day">Sunday</div>
+            <div class="date-range" id="hero-current-date">18 Oct — 4—11 Studio 2026</div>
+          </div>
+
+          <!-- Right: Start Free / Sign in Action Pill -->
+          <div class="nav-right-actions">
+            <div class="nav-auth-pill">
+              <a href="#about" style="opacity: 0.75; font-size: 11px;">Agency</a>
+              <span style="opacity: 0.25;">|</span>
+              <a href="#contact" style="display: flex; align-items: center; gap: 8px;">
+                <span>Start free</span>
+                <span class="btn-circle-plus">+</span>
+              </a>
             </div>
+            <button class="mobile-toggle" id="mobile-toggle" style="display: none;" aria-label="Toggle navigation">☰</button>
+          </div>
+        </header>
+
+        <!-- Giant Typography Headline (Image Match) -->
+        <div class="hero-title-area">
+          <h1 class="hero-giant-heading">
+            <span class="hero-row-1">CREATIVE</span>
+            <span class="hero-row-2">
+              <span>DIGITAL</span>
+              <!-- Geometric Orange Clover Icon -->
+              <span class="hero-clover-badge">
+                <svg viewBox="0 0 100 100" width="100%" height="100%">
+                  <!-- Top Left Leaf -->
+                  <rect x="14" y="14" width="32" height="32" rx="8" fill="#ff493b" transform="rotate(-10 30 30)"/>
+                  <!-- Top Right Leaf -->
+                  <rect x="54" y="14" width="32" height="32" rx="8" fill="#ff493b" transform="rotate(10 70 30)"/>
+                  <!-- Bottom Left Leaf -->
+                  <rect x="14" y="54" width="32" height="32" rx="8" fill="#ff493b" transform="rotate(10 30 70)"/>
+                  <!-- Bottom Right Leaf -->
+                  <rect x="54" y="54" width="32" height="32" rx="8" fill="#ff493b" transform="rotate(-10 70 70)"/>
+                </svg>
+              </span>
+              <span>AGENCY</span>
+            </span>
           </h1>
         </div>
 
-        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; margin-top: 36px; flex-wrap: wrap;">
-          <p style="max-width: 580px; font-size: 16px; color: rgba(255, 255, 255, 0.85); line-height: 1.6; text-shadow: 0 4px 14px rgba(0, 0, 0, 0.8);">
-            We create compelling content, design distinctive visuals, and build digital presence for brands, businesses, and personalities. From video production and social media to celebrity collaborations, we bring creative ideas to life.
-          </p>
-          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
-            <a href="/work/" class="pill-btn-white">
-              <span>Explore Our Work</span>
-              <span>→</span>
+        <!-- Middle Content Row -->
+        <div class="hero-mid-row">
+          <div class="hero-left-col">
+            <div class="hero-stars-row">
+              <span class="stars-orange">★★★★★</span>
+              <span class="stars-label">3000+ Customers • 4—11 STUDIO®</span>
+            </div>
+            <div class="hero-statement-lead">
+              WE TURN IDEAS INTO BRANDS PEOPLE CHOOSE.
+            </div>
+            <p class="hero-statement-desc">
+              We create compelling content, design distinctive visuals, and build digital presence for brands, businesses, and personalities. From video production and social media to celebrity collaborations, we bring creative ideas to life.
+            </p>
+          </div>
+
+          <div class="hero-right-ctas">
+            <a href="#contact" class="btn-dark-pill">
+              <span>Start Project</span>
+              <span class="btn-circle-arrow">→</span>
             </a>
-            <a href="/contact/" class="pill-btn-trans">
-              <span>Let's Talk</span>
-              <span>↗</span>
+            <a href="#work" class="btn-white-pill">
+              <span>View Our Work</span>
             </a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- 2. About Us Teaser -->
+        <!-- 4 Bottom Floating Cards (Image Match) -->
+        <div class="hero-bottom-cards">
+          
+          <!-- Card 1: Stat & Playback Box -->
+          <div class="stat-card-box">
+            <div class="stat-card-top">
+              <div class="stat-monogram">
+                <svg viewBox="0 0 100 100" width="16" height="16">
+                  <circle cx="36" cy="36" r="22" fill="#ff493b"/>
+                  <circle cx="64" cy="36" r="22" fill="#ff493b"/>
+                  <circle cx="36" cy="64" r="22" fill="#ff493b"/>
+                  <circle cx="64" cy="64" r="22" fill="#ff493b"/>
+                  <circle cx="50" cy="50" r="13" fill="#ff493b"/>
+                </svg>
+              </div>
+              <div class="stat-play-btn">▶</div>
+            </div>
+            <div class="stat-card-main">
+              <div class="stat-card-val">50+ Projects Delivered</div>
+              <div class="stat-card-sub">3x Avg Client Growth</div>
+            </div>
+            <div class="stat-card-arrows">
+              <span>←</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Tall Portrait Card -->
+          <div class="portrait-card-box">
+            <img class="portrait-bg-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Creative portrait">
+            <div class="portrait-overlay-grad"></div>
+            <div class="portrait-center-icon">
+              <svg viewBox="0 0 100 100" width="18" height="18">
+                <rect x="20" y="20" width="28" height="28" rx="6" fill="#ff493b"/>
+                <rect x="52" y="20" width="28" height="28" rx="6" fill="#ff493b"/>
+                <rect x="20" y="52" width="28" height="28" rx="6" fill="#ff493b"/>
+                <rect x="52" y="52" width="28" height="28" rx="6" fill="#ff493b"/>
+              </svg>
+            </div>
+            <div class="portrait-caption">
+              Trusted by many startups & brands from various field.
+            </div>
+          </div>
+
+          <!-- Card 3: Motion Blur Card -->
+          <div class="thumb-blur-card">
+            <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=600&q=80" alt="Rotational flower motion blur">
+            <div class="thumb-dashed-icon">
+              <svg viewBox="0 0 40 40" width="22" height="22">
+                <circle cx="20" cy="20" r="8" fill="#fff" opacity="0.9"/>
+                <circle cx="20" cy="20" r="16" stroke="#fff" stroke-width="2" stroke-dasharray="3,3" fill="none"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 4: Warm Atmosphere Card -->
+          <div class="thumb-glow-card">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80" alt="Warm golden ambient glow">
+            <div class="thumb-glow-label">4—11 Atmosphere</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================================
+         SECTION 2: ABOUT US (ALL-IN-ONE SINGLE PAGE)
+    ======================================================== -->
     <section class="section-pad" id="about">
       <div class="container">
         <div style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 60px; align-items: center;">
@@ -133,47 +219,37 @@
             <div class="eyebrow-mono">ABOUT US</div>
             <h2 class="sec-title" style="margin-bottom: 24px;">Creativity with a point of view.</h2>
             <p style="font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px;">
-              4—11 Studio is an independent creative agency working across content production, visual design, social media, and talent collaborations. We work with brands, artists, and public personalities to create engaging content, build stronger digital identities, and communicate their stories through thoughtful creative work.
+              4—11 Studio is an independent creative agency working across content production, visual design, social media, and talent collaborations.
             </p>
-            <div style="border-left: 2px solid var(--orange); padding: 14px 20px; margin: 24px 0; background: rgba(255, 255, 255, 0.02); border-radius: 0 14px 14px 0; font-size: 16px; font-weight: 500; font-style: italic; color: #fff; line-height: 1.6;">
+            <p style="font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px;">
+              We work with brands, artists, and public personalities to create engaging content, build stronger digital identities, and communicate their stories through thoughtful creative work.
+            </p>
+
+            <div style="border-left: 2px solid var(--orange); padding: 16px 22px; margin: 24px 0; background: rgba(255, 255, 255, 0.02); border-radius: 0 14px 14px 0; font-size: 17px; font-weight: 500; font-style: italic; color: #fff; line-height: 1.6;">
               "We believe great work isn't just about looking good. It's about making people stop, pay attention, and remember."
             </div>
-            <div style="display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap;">
-              <a href="/about/" class="pill-btn-white">
-                <span>Read Full Story & Philosophy</span>
-                <span>→</span>
-              </a>
-              <div style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: flex; align-items: center; gap: 6px;">
-                <span class="pulse-dot"></span>
-                <span>Thoughtfully created. Intentionally different.</span>
-              </div>
+
+            <div style="display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 12px; color: var(--orange); background: rgba(255, 73, 59, 0.1); border: 1px solid rgba(255, 73, 59, 0.25); padding: 8px 18px; border-radius: 99px; margin-top: 10px;">
+              <span class="pulse-dot"></span>
+              <span>Thoughtfully created. Intentionally different.</span>
             </div>
           </div>
 
-          <div style="background: var(--card-dark); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px; position: relative;">
-            <div class="eyebrow-mono" style="margin-bottom: 8px;">THE 4—11 ADVANTAGE</div>
-            <h3 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; margin-bottom: 20px;">Why Brands Work With Us</h3>
-            <div style="display: flex; flex-direction: column; gap: 18px;">
-              <div style="display: flex; gap: 14px;">
-                <span style="font-family: var(--font-mono); color: var(--orange); font-weight: 700;">01</span>
-                <div>
-                  <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">Original Editorial Perspective</h4>
-                  <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">We don't do template content. Every piece is built around what makes your brand or story authentic.</p>
-                </div>
+          <div style="background: var(--card-dark); border: 1px solid var(--card-border); border-radius: 30px; padding: 40px;">
+            <div class="eyebrow-mono" style="margin-bottom: 12px;">HOW WE WORK</div>
+            <h3 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; margin-bottom: 24px;">Creative Ethos</h3>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+              <div>
+                <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;">Editorial Perspective</h4>
+                <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">We reject generic templates. Every visual cut, campaign, and poster is developed with a clear point of view.</p>
               </div>
-              <div style="display: flex; gap: 14px;">
-                <span style="font-family: var(--font-mono); color: var(--orange); font-weight: 700;">02</span>
-                <div>
-                  <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">Talent & Celebrity Network</h4>
-                  <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Direct access to prominent comedians, actors, and creators for organic collaborations that resonate.</p>
-                </div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+                <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;">Talent & Celebrity Network</h4>
+                <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">Direct collaborations with leading stand-up comedians, actors, creators, and entertainment projects.</p>
               </div>
-              <div style="display: flex; gap: 14px;">
-                <span style="font-family: var(--font-mono); color: var(--orange); font-weight: 700;">03</span>
-                <div>
-                  <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">Full-Spectrum In-House Execution</h4>
-                  <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">From concept and editing to design, post-production, and distribution strategy under one roof.</p>
-                </div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px;">
+                <h4 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px;">Complete In-House Production</h4>
+                <p style="font-size: 13px; color: var(--text-muted); line-height: 1.5;">From concept direction and filming to editing, audio cleanup, design assets, and social distribution.</p>
               </div>
             </div>
           </div>
@@ -181,186 +257,304 @@
       </div>
     </section>
 
-    <!-- 3. Our Services Preview -->
+    <!-- ========================================================
+         SECTION 3: OUR SERVICES (ALL 5 EXPANDABLE PILLARS)
+    ======================================================== -->
     <section class="section-pad" id="services">
       <div class="container">
-        <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 20px;">
-          <div>
-            <div class="eyebrow-mono">OUR CAPABILITIES</div>
-            <h2 class="sec-title">Ideas are only the beginning.</h2>
-            <p style="font-size: 15px; color: var(--text-muted); margin-top: 10px; max-width: 620px;">
-              We bring creative thinking and hands-on execution together to help brands and personalities stand out.
-            </p>
-          </div>
-          <a href="/services/" class="pill-btn-trans">
-            <span>Explore All 5 Pillars & Deliverables</span>
-            <span>→</span>
-          </a>
+        <div style="margin-bottom: 48px;">
+          <div class="eyebrow-mono">OUR SERVICES</div>
+          <h2 class="sec-title">Ideas are only the beginning.</h2>
+          <p style="font-size: 16px; color: var(--text-muted); margin-top: 12px; max-width: 650px;">
+            We bring creative thinking and hands-on execution together to help brands and personalities stand out.
+          </p>
         </div>
 
         <div style="display: flex; flex-direction: column;">
-          <!-- 01 -->
-          <div class="service-row active" style="padding: 28px 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
-            <div class="service-head" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+          <!-- Pillar 01: Video Production & Editing -->
+          <div class="service-row active">
+            <div class="service-row-head">
               <div style="display: flex; align-items: baseline; gap: 20px;">
                 <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--orange);">01</span>
                 <div>
-                  <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 36px); text-transform: uppercase;">Video Production & Editing</span>
-                  <span style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); margin-left: 14px;">Stories worth watching.</span>
+                  <span class="service-title-text">Video Production & Editing</span>
+                  <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-left: 14px; font-weight: 500;">Stories worth watching.</span>
                 </div>
               </div>
-              <a href="/services/#video" style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: inline-flex; align-items: center; gap: 4px;">Learn More ↗</a>
+              <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">[Expand ▾]</span>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 38px; max-width: 750px;">
-              We turn raw footage and creative concepts into engaging visual content designed for digital platforms and audiences. Video editing, Instagram Reels, YouTube long-form, brand videos, and podcast cuts.
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 40px; max-width: 780px;">
+              We turn raw footage and creative concepts into engaging visual content designed for digital platforms and audiences.
             </p>
+            <div class="service-row-drawer">
+              <div class="service-tags-grid">
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Video editing and post-production</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Instagram Reels and YouTube Shorts</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>YouTube long-form editing</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Brand and promotional videos</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Podcast video editing</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Event videos and behind-the-scenes content</div>
+              </div>
+            </div>
           </div>
 
-          <!-- 02 -->
-          <div class="service-row" style="padding: 28px 0; border-bottom: 1px solid var(--card-border);">
-            <div class="service-head" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+          <!-- Pillar 02: Creative Design & Artwork -->
+          <div class="service-row">
+            <div class="service-row-head">
               <div style="display: flex; align-items: baseline; gap: 20px;">
                 <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--orange);">02</span>
                 <div>
-                  <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 36px); text-transform: uppercase;">Creative Design & Artwork</span>
-                  <span style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); margin-left: 14px;">Visuals that make an impression.</span>
+                  <span class="service-title-text">Creative Design & Artwork</span>
+                  <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-left: 14px; font-weight: 500;">Visuals that make an impression.</span>
                 </div>
               </div>
-              <a href="/services/#design" style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: inline-flex; align-items: center; gap: 4px;">Learn More ↗</a>
+              <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">[Expand ▾]</span>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 38px; max-width: 750px;">
-              Distinctive visual assets that help brands communicate clearly and maintain a consistent identity. Posters, artwork, social creatives, campaign visuals, and presentation pitch decks.
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 40px; max-width: 780px;">
+              We create distinctive visual assets that help brands communicate clearly and maintain a consistent identity.
             </p>
+            <div class="service-row-drawer">
+              <div class="service-tags-grid">
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Poster and artwork design</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Social media creatives</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Campaign visuals</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Thumbnails and digital assets</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Promotional graphics</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Presentation and pitch deck design</div>
+              </div>
+            </div>
           </div>
 
-          <!-- 03 -->
-          <div class="service-row" style="padding: 28px 0; border-bottom: 1px solid var(--card-border);">
-            <div class="service-head" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+          <!-- Pillar 03: Social Media Management -->
+          <div class="service-row">
+            <div class="service-row-head">
               <div style="display: flex; align-items: baseline; gap: 20px;">
                 <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--orange);">03</span>
                 <div>
-                  <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 36px); text-transform: uppercase;">Social Media Management</span>
-                  <span style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); margin-left: 14px;">Make every scroll count.</span>
+                  <span class="service-title-text">Social Media Management</span>
+                  <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-left: 14px; font-weight: 500;">Make every scroll count.</span>
                 </div>
               </div>
-              <a href="/services/#social" style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: inline-flex; align-items: center; gap: 4px;">Learn More ↗</a>
+              <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">[Expand ▾]</span>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 38px; max-width: 750px;">
-              Consistent digital presence through strategic planning, engaging content, and creative execution. Account management, content calendars, carousels, and brand collaborations.
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 40px; max-width: 780px;">
+              We help brands and personalities build a consistent digital presence through strategic planning, engaging content, and creative execution.
             </p>
+            <div class="service-row-drawer">
+              <div class="service-tags-grid">
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Social media account management</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Content strategy and planning</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Reels, posts, and carousels</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Captions and content calendars</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Creative direction</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Brand collaborations</div>
+              </div>
+            </div>
           </div>
 
-          <!-- 04 -->
-          <div class="service-row" style="padding: 28px 0; border-bottom: 1px solid var(--card-border);">
-            <div class="service-head" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+          <!-- Pillar 04: Celebrity & Talent Management -->
+          <div class="service-row">
+            <div class="service-row-head">
               <div style="display: flex; align-items: baseline; gap: 20px;">
                 <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--orange);">04</span>
                 <div>
-                  <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 36px); text-transform: uppercase;">Celebrity & Talent Management</span>
-                  <span style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); margin-left: 14px;">Talent meets opportunity.</span>
+                  <span class="service-title-text">Celebrity & Talent Management</span>
+                  <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-left: 14px; font-weight: 500;">Talent meets opportunity.</span>
                 </div>
               </div>
-              <a href="/services/#talent" style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: inline-flex; align-items: center; gap: 4px;">Learn More ↗</a>
+              <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">[Expand ▾]</span>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 38px; max-width: 750px;">
-              Supporting public personalities, actors, comedians, and creators in building their digital presence, securing brand collaborations, and event publicity.
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 40px; max-width: 780px;">
+              We support public personalities, actors, comedians, and creators in building their digital presence and connecting with relevant opportunities.
             </p>
+            <div class="service-row-drawer">
+              <div class="service-tags-grid">
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Celebrity social media management</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Personal branding</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Brand collaboration coordination</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Promotional content</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Event PR and publicity support</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Celebrity-led digital campaigns</div>
+              </div>
+            </div>
           </div>
 
-          <!-- 05 -->
-          <div class="service-row" style="padding: 28px 0; border-bottom: 1px solid var(--card-border);">
-            <div class="service-head" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+          <!-- Pillar 05: Podcast Production -->
+          <div class="service-row">
+            <div class="service-row-head">
               <div style="display: flex; align-items: baseline; gap: 20px;">
                 <span style="font-family: var(--font-mono); font-size: 14px; font-weight: 700; color: var(--orange);">05</span>
                 <div>
-                  <span style="font-family: var(--font-display); font-weight: 700; font-size: clamp(22px, 3vw, 36px); text-transform: uppercase;">Podcast Production</span>
-                  <span style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); margin-left: 14px;">Conversations, crafted for the screen.</span>
+                  <span class="service-title-text">Podcast Production</span>
+                  <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange); margin-left: 14px; font-weight: 500;">Conversations, crafted for the screen.</span>
                 </div>
               </div>
-              <a href="/services/#podcast" style="font-family: var(--font-mono); font-size: 12px; color: var(--orange); display: inline-flex; align-items: center; gap: 4px;">Learn More ↗</a>
+              <span style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">[Expand ▾]</span>
             </div>
-            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 38px; max-width: 750px;">
-              Transforming recorded conversations into polished, engaging content ready for digital platforms. Episode post-production, viral short-form clips, and podcast cover design.
+            <p style="font-size: 14px; color: var(--text-muted); margin-top: 10px; padding-left: 40px; max-width: 780px;">
+              We help transform recorded conversations into polished, engaging content ready for digital platforms.
             </p>
+            <div class="service-row-drawer">
+              <div class="service-tags-grid">
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Podcast video editing</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Episode post-production</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Short-form clips</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Podcast artwork and promotional creatives</div>
+                <div class="service-tag-pill"><span class="pulse-dot"></span>Social media content repurposing</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. Selected Work Preview -->
+    <!-- ========================================================
+         SECTION 4: SELECTED WORK (INTERACTIVE GALLERY)
+    ======================================================== -->
     <section class="section-pad" id="work">
       <div class="container">
-        <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 20px;">
-          <div>
-            <div class="eyebrow-mono">SELECTED WORK</div>
-            <h2 class="sec-title">Ideas brought to life.</h2>
-            <p style="font-size: 15px; color: var(--text-muted); margin-top: 10px; max-width: 620px;">
-              A selection of creative projects, collaborations, and content produced across brands, entertainment, and digital platforms.
-            </p>
-          </div>
-          <a href="/work/" class="pill-btn-white">
-            <span>Explore All Work Gallery</span>
-            <span>→</span>
-          </a>
+        <div style="margin-bottom: 40px;">
+          <div class="eyebrow-mono">SELECTED WORK</div>
+          <h2 class="sec-title">Ideas brought to life.</h2>
+          <p style="font-size: 16px; color: var(--text-muted); margin-top: 12px; max-width: 720px;">
+            A selection of creative projects, collaborations, and content produced across brands, entertainment, and digital platforms. From video edits and campaign artwork to social media content and podcast production, every project is an opportunity to tell a story differently.
+          </p>
         </div>
 
-        <div class="grid-3">
-          <!-- Project 1 -->
-          <a href="/work/" class="work-card">
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="video">Video & Post</button>
+          <button class="filter-btn" data-filter="design">Creative Design</button>
+          <button class="filter-btn" data-filter="social">Social & Celebrity</button>
+          <button class="filter-btn" data-filter="podcast">Podcast Production</button>
+        </div>
+
+        <div class="grid-3" id="work-grid">
+          <!-- Faizan Bhatt -->
+          <div class="work-card work-item" data-category="video design">
             <div class="work-media">
               <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=800&q=80" alt="Faizan Bhatt Stand-up">
-              <div class="work-badge">Video & Posters</div>
+              <div class="work-badge">Comedy Tour</div>
             </div>
             <div class="work-info">
               <div class="work-title-row">
                 <div class="work-title">Faizan Bhatt</div>
-                <div class="work-arrow">↗</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
               </div>
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Stand-up Comedian Special</div>
-              <div class="work-desc">Engaging video edits and distinctive creative poster design for digital release and tour promos.</div>
+              <p class="work-desc">Supporting his content through engaging video edits and creative poster design.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Poster Design
+              </div>
             </div>
-          </a>
+          </div>
 
-          <!-- Project 2 -->
-          <a href="/work/" class="work-card">
+          <!-- Sushmita Mukherjee -->
+          <div class="work-card work-item" data-category="social">
             <div class="work-media">
               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Sushmita Mukherjee Actress">
-              <div class="work-badge">Talent & PR</div>
+              <div class="work-badge">Talent Management</div>
             </div>
             <div class="work-info">
               <div class="work-title-row">
                 <div class="work-title">Sushmita Mukherjee</div>
-                <div class="work-arrow">↗</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
               </div>
               <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Actress & Cultural Icon</div>
-              <div class="work-desc">Social media management, high-visibility brand collaboration coordination, and event PR.</div>
+              <p class="work-desc">Managing her social media presence, supporting brand collaborations, and handling event PR-related work.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Social Media Management · Brand Collaborations · Event PR
+              </div>
             </div>
-          </a>
+          </div>
 
-          <!-- Project 3 -->
-          <a href="/work/" class="work-card">
+          <!-- Pronto -->
+          <div class="work-card work-item" data-category="video design">
             <div class="work-media">
-              <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80" alt="Pronto Brand Campaign">
-              <div class="work-badge">Commercial Video</div>
+              <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=800&q=80" alt="Pronto Brand">
+              <div class="work-badge">Commercial Brand</div>
             </div>
             <div class="work-info">
               <div class="work-title-row">
                 <div class="work-title">Pronto</div>
-                <div class="work-arrow">↗</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
               </div>
-              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Brand Identity & Motion</div>
-              <div class="work-desc">Polished video content and campaign artwork design for digital ad distribution.</div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Brand Identity & Digital</div>
+              <p class="work-desc">Creating polished video content and visual artwork for brand communication and digital platforms.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Artwork Design
+              </div>
             </div>
-          </a>
+          </div>
+
+          <!-- Nashia Kondia -->
+          <div class="work-card work-item" data-category="podcast video">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=800&q=80" alt="Nashia Kondia Podcast">
+              <div class="work-badge">Podcast Series</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Nashia Kondia</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Podcast Project</div>
+              <p class="work-desc">Editing podcast episodes and refining recorded conversations into polished, audience-ready content.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Podcast Editing · Post-Production
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Project 5 -->
+          <div class="work-card work-item" data-category="design">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80" alt="Typographic Posters">
+              <div class="work-badge">Art Direction</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Kinetic Posters</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Typographic Artwork Series</div>
+              <p class="work-desc">Poster and artwork design, social media creatives, and campaign visuals built to disrupt feeds.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Poster Design · Campaign Visuals
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Project 6 -->
+          <div class="work-card work-item" data-category="video social">
+            <div class="work-media">
+              <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=800&q=80" alt="Short Form Edits">
+              <div class="work-badge">Viral Retention</div>
+            </div>
+            <div class="work-info">
+              <div class="work-title-row">
+                <div class="work-title">Short-Form Suite</div>
+                <div style="font-family: var(--font-mono); font-size: 13px; color: var(--orange);">↗</div>
+              </div>
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px;">Reels & Shorts System</div>
+              <p class="work-desc">High-retention vertical edits with sound design, dynamic captions, and narrative hooks.</p>
+              <div style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); font-family: var(--font-mono); font-size: 11px; color: rgba(255,255,255,0.85);">
+                Services: Video Editing · Social Strategy
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. In Good Company -->
+    <!-- ========================================================
+         SECTION 5: IN GOOD COMPANY (PARTNERS & CLIENTS)
+    ======================================================== -->
     <section class="section-pad" id="collaborators">
       <div class="container">
         <div style="text-align: center; max-width: 680px; margin: 0 auto 50px;">
-          <div class="eyebrow-mono" style="margin-bottom: 8px;">IN GOOD COMPANY</div>
+          <div class="eyebrow-mono">IN GOOD COMPANY.</div>
           <h2 class="sec-title" style="font-size: clamp(32px, 4.5vw, 56px);">Good people. Great ideas. Creative partnerships.</h2>
           <p style="font-size: 15px; color: var(--text-muted); margin-top: 12px;">
             We collaborate with artists, brands, and creative projects to create engaging content and strengthen their digital presence.
@@ -392,7 +586,7 @@
             <div class="company-info">
               <div class="company-role">Actress</div>
               <h3 class="company-name">Sushmita Mukherjee</h3>
-              <p class="company-desc">Managing her social media presence, supporting brand collaborations, and handling event PR.</p>
+              <p class="company-desc">Managing her social media presence, supporting brand collaborations, and handling event PR-related work.</p>
             </div>
             <div class="company-bot">
               <div class="company-services-label">Services Provided</div>
@@ -408,7 +602,7 @@
             <div class="company-info">
               <div class="company-role">Brand</div>
               <h3 class="company-name">Pronto</h3>
-              <p class="company-desc">Creating polished video content and visual artwork for brand communication and platforms.</p>
+              <p class="company-desc">Creating polished video content and visual artwork for brand communication and digital platforms.</p>
             </div>
             <div class="company-bot">
               <div class="company-services-label">Services Provided</div>
@@ -435,7 +629,9 @@
       </div>
     </section>
 
-    <!-- 6. Our Approach -->
+    <!-- ========================================================
+         SECTION 6: OUR APPROACH (01-04 STEPS)
+    ======================================================== -->
     <section class="section-pad" id="process">
       <div class="container">
         <div style="margin-bottom: 48px;">
@@ -446,7 +642,7 @@
         <div class="grid-4">
           <div class="approach-card">
             <div>
-              <div class="approach-num">01</div>
+              <div class="approach-num">01 — Understand</div>
               <h3 class="approach-step-title">Understand</h3>
             </div>
             <p class="approach-step-desc">
@@ -456,7 +652,7 @@
 
           <div class="approach-card">
             <div>
-              <div class="approach-num">02</div>
+              <div class="approach-num">02 — Create</div>
               <h3 class="approach-step-title">Create</h3>
             </div>
             <p class="approach-step-desc">
@@ -466,7 +662,7 @@
 
           <div class="approach-card">
             <div>
-              <div class="approach-num">03</div>
+              <div class="approach-num">03 — Refine</div>
               <h3 class="approach-step-title">Refine</h3>
             </div>
             <p class="approach-step-desc">
@@ -476,7 +672,7 @@
 
           <div class="approach-card">
             <div>
-              <div class="approach-num">04</div>
+              <div class="approach-num">04 — Deliver</div>
               <h3 class="approach-step-title">Deliver</h3>
             </div>
             <p class="approach-step-desc">
@@ -487,41 +683,111 @@
       </div>
     </section>
 
-    <!-- 7. Call To Action Banner -->
-    <section class="container" style="margin-bottom: 80px;">
-      <div class="cta-banner-box">
-        <div class="page-eyebrow" style="margin-bottom: 16px;">LET'S WORK TOGETHER</div>
-        <h2 style="font-family: var(--font-display); font-size: clamp(34px, 5.5vw, 68px); font-weight: 700; text-transform: uppercase; margin-bottom: 14px;">
-          Got something good in mind?<br><span style="color: var(--orange);">Let's make it matter.</span>
-        </h2>
-        <p style="font-size: 16px; color: var(--text-muted); max-width: 620px; margin: 0 auto 30px; line-height: 1.6;">
-          Have a brand to build, a story to tell, a personality to grow, or a project that needs the right creative team? Tell us what you're working on.
-        </p>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="/contact/" class="pill-btn-white" style="padding: 16px 36px; font-size: 13px;">
-            <span>Start a Project</span>
-            <span>↗</span>
-          </a>
-          <a href="mailto:hello@4-11.studio" class="pill-btn-trans" style="padding: 16px 36px; font-size: 13px;">
-            <span>hello@4-11.studio</span>
-          </a>
+    <!-- ========================================================
+         SECTION 7: LET'S WORK TOGETHER (CONTACT FORM)
+    ======================================================== -->
+    <section class="section-pad" id="contact">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1.25fr; gap: 50px; align-items: start;">
+          <div>
+            <div class="eyebrow-mono">LET'S WORK TOGETHER</div>
+            <h2 class="sec-title" style="margin-bottom: 20px; font-size: clamp(32px, 4.5vw, 56px);">
+              Got something good in mind?<br>
+              <span style="color: var(--orange);">Let's make it matter.</span>
+            </h2>
+            <p style="font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px;">
+              Have a brand to build, a story to tell, a personality to grow, or a project that needs the right creative team? Tell us what you're working on. Let's create something worth remembering.
+            </p>
+
+            <div style="background: var(--card-dark); border: 1px solid var(--card-border); border-radius: 24px; padding: 28px;">
+              <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 8px; text-transform: uppercase;">Direct Email</div>
+              <a href="mailto:hello@4-11.studio" style="font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; word-break: break-all;">
+                hello@4-11.studio ↗
+              </a>
+              <div style="margin-top: 14px; font-size: 13px; color: var(--text-dim);">
+                Mumbai, India • Available Worldwide
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-card">
+            <div class="eyebrow-mono" style="margin-bottom: 8px;">START A PROJECT</div>
+            <h3 style="font-family: var(--font-display); font-size: 26px; text-transform: uppercase; margin-bottom: 24px;">Project Enquiry</h3>
+
+            <div id="form-success" style="display: none; background: rgba(34, 197, 94, 0.15); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 14px; padding: 16px; margin-bottom: 20px; font-size: 13px; color: #4ade80;">
+              Thank you! Your project enquiry has been received. Our team will get back to you within 24 hours at hello@4-11.studio.
+            </div>
+
+            <form id="studio-contact-form">
+              <div class="form-group">
+                <label class="form-label" for="contact-name">Your Name *</label>
+                <input class="form-control" type="text" id="contact-name" name="name" placeholder="e.g. Alex Morgan" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-email">Email Address *</label>
+                <input class="form-control" type="email" id="contact-email" name="email" placeholder="alex@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-brand">Brand / Project Name</label>
+                <input class="form-control" type="text" id="contact-brand" name="brand" placeholder="e.g. Pronto / Comedy Special">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Services Required</label>
+                <div class="service-checkboxes">
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Video Production"> Video Production & Editing
+                  </label>
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Creative Design"> Creative Design & Artwork
+                  </label>
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Social Media"> Social Media Management
+                  </label>
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Celebrity & Talent"> Celebrity & Talent Management
+                  </label>
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Podcast Production"> Podcast Production
+                  </label>
+                  <label class="checkbox-pill">
+                    <input type="checkbox" name="services" value="Full Creative Suite"> Full Creative Retainer
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-details">Project Brief / Details *</label>
+                <textarea class="form-control" id="contact-details" name="details" rows="4" placeholder="Tell us what you're working on. Let's create something worth remembering..." required></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <span>Start a Project</span>
+                <span>↗</span>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="footer-brand-title">
-            <svg class="clover" viewBox="0 0 100 100" width="22" height="22">
-              <circle cx="36" cy="36" r="22" fill="#ff493b"/>
-              <circle cx="64" cy="36" r="22" fill="#ff493b"/>
-              <circle cx="36" cy="64" r="22" fill="#ff493b"/>
-              <circle cx="64" cy="64" r="22" fill="#ff493b"/>
-              <circle cx="50" cy="50" r="13" fill="#ff493b"/>
+            <svg viewBox="0 0 100 100" width="22" height="22" style="fill: var(--orange);">
+              <circle cx="36" cy="36" r="22"/>
+              <circle cx="64" cy="36" r="22"/>
+              <circle cx="36" cy="64" r="22"/>
+              <circle cx="64" cy="64" r="22"/>
+              <circle cx="50" cy="50" r="13"/>
             </svg>
             <span>4—11 STUDIO®</span>
           </div>
@@ -534,11 +800,10 @@
         <div class="footer-links-col">
           <h4>Explore</h4>
           <div class="footer-nav-list">
-            <a href="/">Home</a>
-            <a href="/about/">About Us</a>
-            <a href="/services/">Our Services</a>
-            <a href="/work/">Selected Work</a>
-            <a href="/contact/">Start a Project</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#contact">Contact</a>
           </div>
         </div>
 

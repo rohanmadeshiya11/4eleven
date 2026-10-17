@@ -1,28 +1,17 @@
-// 4—11 STUDIO® — Interactive Core Scripts
+// 4—11 STUDIO® — Interactive Core Scripts (Single-Page Experience)
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Live Mumbai Time
-  function updateTime() {
-    const timeEl = document.getElementById('live-time');
-    if (!timeEl) return;
+  // 1. Dynamic Day and Date Banner for Hero
+  const dayEl = document.getElementById('hero-current-day');
+  const dateEl = document.getElementById('hero-current-date');
+  if (dayEl && dateEl) {
     const now = new Date();
-    const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-    timeEl.textContent = `${now.toLocaleTimeString('en-GB', options)} IST`;
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    dayEl.textContent = days[now.getDay()];
+    dateEl.textContent = `${now.getDate()} ${months[now.getMonth()]} — 4—11 Studio ${now.getFullYear()}`;
   }
-  updateTime();
-  setInterval(updateTime, 1000);
 
-  // 2. Navbar Scroll Glass Effect
-  const navbar = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    if (!navbar) return;
-    if (window.scrollY > 40) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  // 3. Mobile Menu Toggle
+  // 2. Mobile Menu Drawer Toggle
   const mobileToggle = document.getElementById('mobile-toggle');
   const mobileNav = document.getElementById('mobile-nav');
   if (mobileToggle && mobileNav) {
@@ -32,25 +21,33 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileToggle.innerHTML = isOpen ? '✕' : '☰';
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
+        mobileToggle.innerHTML = '☰';
+        document.body.style.overflow = '';
+      });
+    });
   }
 
-  // 4. Accordion Toggle (Services / FAQ)
-  const accordions = document.querySelectorAll('.service-row, .faq-item');
-  accordions.forEach(row => {
-    const trigger = row.querySelector('.service-head, .faq-head');
-    if (trigger) {
-      trigger.addEventListener('click', () => {
-        const isCurrentActive = row.classList.contains('active');
-        // optional: collapse others
-        accordions.forEach(r => r.classList.remove('active'));
-        if (!isCurrentActive) {
+  // 3. Service Row Accordion
+  const serviceRows = document.querySelectorAll('.service-row');
+  serviceRows.forEach(row => {
+    const head = row.querySelector('.service-row-head');
+    if (head) {
+      head.addEventListener('click', () => {
+        const isActive = row.classList.contains('active');
+        serviceRows.forEach(r => r.classList.remove('active'));
+        if (!isActive) {
           row.classList.add('active');
         }
       });
     }
   });
 
-  // 5. Work Filter
+  // 4. Portfolio Filter Bar
   const filterBtns = document.querySelectorAll('.filter-btn');
   const workItems = document.querySelectorAll('.work-item');
   if (filterBtns.length > 0 && workItems.length > 0) {
@@ -62,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         workItems.forEach(item => {
           const category = item.getAttribute('data-category');
-          if (filter === 'all' || category === filter || (category && category.includes(filter))) {
+          if (filter === 'all' || (category && category.includes(filter))) {
             item.style.display = 'flex';
           } else {
             item.style.display = 'none';
@@ -72,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Interactive Contact Form Handler
+  // 5. Interactive Contact Form Submission
   const contactForm = document.getElementById('studio-contact-form');
   const formSuccess = document.getElementById('form-success');
   if (contactForm) {
@@ -94,12 +91,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         setTimeout(() => {
           if (submitBtn) {
-            submitBtn.innerHTML = "Let's Make It Matter <span>↗</span>";
+            submitBtn.innerHTML = "Start a Project <span>↗</span>";
             submitBtn.style.background = '';
             submitBtn.disabled = false;
           }
         }, 5000);
-      }, 900);
+      }, 800);
     });
   }
+
+  // 6. Smooth In-Page Anchor Scrolling
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
 });
