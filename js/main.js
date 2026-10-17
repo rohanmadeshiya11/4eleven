@@ -202,22 +202,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (whatWeDoBtn) {
     whatWeDoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(servicesModal);
+      const targetSec = document.getElementById('what-we-ship') || document.getElementById('capabilities');
+      if (targetSec) {
+        e.preventDefault();
+        targetSec.scrollIntoView({ behavior: 'smooth' });
+      } else if (servicesModal) {
+        e.preventDefault();
+        openModal(servicesModal);
+      }
     });
   }
 
   if (viewWorksBtn) {
     viewWorksBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(workModal);
+      const targetSec = document.getElementById('selected-work');
+      if (targetSec) {
+        e.preventDefault();
+        targetSec.scrollIntoView({ behavior: 'smooth' });
+      } else if (workModal) {
+        e.preventDefault();
+        openModal(workModal);
+      }
     });
   }
 
   if (scrollBadgeBtn) {
     scrollBadgeBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openModal(servicesModal);
+      const targetSec = document.getElementById('what-we-ship');
+      if (targetSec) {
+        e.preventDefault();
+        targetSec.scrollIntoView({ behavior: 'smooth' });
+      } else if (servicesModal) {
+        e.preventDefault();
+        openModal(servicesModal);
+      }
     });
   }
 
