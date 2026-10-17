@@ -1,4 +1,4 @@
-/* 4—11 STUDIO® — Official High-End Creative Experience */
+/* 4—11 STUDIO® — Retro Indian Pop-Art Background Elements Stylesheet */
 :root {
   --bg-black: #080809;
   --bg-dark: #0d0d12;
@@ -12,9 +12,19 @@
   --orange-light: #ff6859;
   --orange-glow: rgba(255, 73, 59, 0.45);
   --orange-deep: #e03224;
+  /* Retro Indian Pop Colors */
+  --retro-yellow: #facc15;
+  --retro-gold: #fbbf24;
+  --retro-blue: #1d4ed8;
+  --retro-dark-blue: #172554;
+  --retro-green: #15803d;
+  --retro-red: #dc2626;
+  --retro-cream: #fef3c7;
   --font-display: 'Clash Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+  --font-hindi-yatra: 'Yatra One', cursive;
+  --font-hindi-rozha: 'Rozha One', serif;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +41,7 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 
 /* Subtle Grain Texture */
 .grain {
-  position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: 0.035;
+  position: fixed; inset: 0; pointer-events: none; z-index: 50; opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -102,10 +112,208 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 /* ========================================================
-   THREE.JS 3D KINETIC BACKGROUND CANVAS
+   FLOATING RETRO HINDI POP-ART BACKGROUND ELEMENTS
 ======================================================== */
-#webgl-canvas {
-  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+.retro-bg-canvas {
+  position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden;
+}
+
+/* Base style for all floating badges */
+.retro-element {
+  position: absolute;
+  pointer-events: auto;
+  cursor: grab;
+  user-select: none;
+  --mx: 0px;
+  --my: 0px;
+  transition: box-shadow 0.3s ease, filter 0.3s ease;
+  will-change: transform;
+}
+.retro-element:hover {
+  filter: brightness(1.12);
+  z-index: 25;
+}
+
+/* 1. ब्रांडिंग (BRANDING) — Matchbox / Cinema Poster Style */
+.badge-branding {
+  top: 14%; right: 7%;
+  width: 220px;
+  background: var(--retro-blue);
+  border: 4px solid #ffffff;
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(29, 78, 216, 0.35);
+  transform: rotate(5deg);
+  animation: floatDrift1 11s ease-in-out infinite;
+  overflow: hidden;
+}
+.badge-branding::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: radial-gradient(var(--retro-yellow) 22%, transparent 24%);
+  background-size: 14px 14px; opacity: 0.15;
+}
+.branding-sunburst {
+  position: absolute; top: -30px; right: -30px; width: 120px; height: 120px;
+  background: radial-gradient(circle, var(--retro-gold) 0%, transparent 70%);
+  opacity: 0.3; pointer-events: none;
+}
+.branding-tagline {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  color: var(--retro-yellow); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2px;
+}
+.branding-title {
+  font-family: var(--font-hindi-yatra);
+  font-size: 38px;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 
+    2px 2px 0 var(--retro-red),
+    4px 4px 0 #000000;
+}
+.branding-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 10px; padding-top: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.25);
+  font-family: var(--font-mono); font-size: 9px; color: rgba(255, 255, 255, 0.8);
+}
+.branding-stamp {
+  width: 22px; height: 22px; border-radius: 50%; background: var(--retro-red);
+  color: #fff; font-size: 8px; font-weight: 700; display: flex; align-items: center; justify-content: center;
+}
+
+/* 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Style (Reference Match) */
+.badge-design {
+  top: 46%; right: 4%;
+  background: var(--retro-green);
+  border: 4px solid var(--retro-yellow);
+  border-radius: 16px;
+  padding: 16px 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(21, 128, 61, 0.4);
+  transform: rotate(-6deg);
+  animation: floatDrift2 13s ease-in-out infinite;
+}
+.design-label-small {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 800;
+  color: var(--retro-cream); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2px;
+}
+.design-headline {
+  font-family: var(--font-hindi-yatra);
+  font-size: 52px;
+  line-height: 1;
+  color: var(--retro-yellow);
+  /* 3D Extruded Drop Shadow directly matching reference image */
+  text-shadow: 
+    2px 2px 0 #7f1d1d,
+    4px 4px 0 #7f1d1d,
+    6px 6px 0 #7f1d1d,
+    8px 8px 0 #7f1d1d,
+    10px 10px 0 #450a0a,
+    12px 12px 20px rgba(0,0,0,0.85);
+}
+.design-subline {
+  font-family: var(--font-hindi-rozha); font-size: 14px; color: #ffffff;
+  margin-top: 6px; font-weight: 600;
+}
+
+/* 3. प्रमोशन (PROMOTION) — Retro Matchbox / Ticket Style */
+.badge-promotion {
+  bottom: 12%; right: 28%;
+  background: #111116;
+  border: 3px solid var(--orange);
+  border-radius: 20px;
+  padding: 14px 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--orange-glow);
+  transform: rotate(4deg);
+  animation: floatDrift3 10s ease-in-out infinite;
+  display: flex; align-items: center; gap: 14px;
+}
+.promotion-icon-pill {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--orange);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 900; box-shadow: 0 0 15px var(--orange-glow);
+}
+.promotion-texts { display: flex; flex-direction: column; }
+.promotion-title {
+  font-family: var(--font-hindi-yatra);
+  font-size: 32px;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 2px 2px 0 var(--orange-deep), 4px 4px 0 #000;
+}
+.promotion-eng {
+  font-family: var(--font-mono); font-size: 10px; color: var(--orange-light);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+}
+
+/* 4. एजेंसी (AGENCY) — Vintage Distressed Stamp */
+.badge-agency {
+  top: 18%; left: 6%;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 3px dashed var(--orange);
+  background: rgba(224, 50, 36, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 12px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(255, 73, 59, 0.2);
+  transform: rotate(-10deg);
+  animation: floatDrift4 12s ease-in-out infinite;
+}
+.agency-star { font-size: 12px; color: var(--retro-gold); margin-bottom: 2px; }
+.agency-title {
+  font-family: var(--font-hindi-rozha);
+  font-size: 34px;
+  line-height: 1;
+  color: #ffffff;
+  text-shadow: 0 0 12px var(--orange-glow);
+}
+.agency-sub {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+  color: var(--orange-light); letter-spacing: 0.18em; text-transform: uppercase; margin-top: 4px;
+}
+
+/* 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Ribbon */
+.badge-slogan {
+  bottom: 16%; left: 8%;
+  background: var(--retro-cream);
+  color: #080809;
+  padding: 10px 22px;
+  border-radius: 6px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 4px 4px 0 var(--orange);
+  transform: rotate(-5deg);
+  animation: floatDrift5 14s ease-in-out infinite;
+}
+.slogan-title {
+  font-family: var(--font-hindi-yatra);
+  font-size: 24px;
+  line-height: 1.1;
+  color: #080809;
+  text-shadow: 1px 1px 0 rgba(255, 73, 59, 0.5);
+}
+.slogan-sub {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 800;
+  color: #4b5563; letter-spacing: 0.15em; text-transform: uppercase;
+}
+
+/* Keyframe Floating Animations for Organic Random Motion */
+@keyframes floatDrift1 {
+  0%, 100% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(0) rotate(5deg) scale(1); }
+  50% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(-16px) translateX(-8px) rotate(8deg) scale(1.02); }
+}
+@keyframes floatDrift2 {
+  0%, 100% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(0) rotate(-6deg) scale(1); }
+  50% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(18px) translateX(10px) rotate(-3deg) scale(1.03); }
+}
+@keyframes floatDrift3 {
+  0%, 100% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(0) rotate(4deg) scale(1); }
+  50% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(-14px) translateX(6px) rotate(2deg) scale(0.99); }
+}
+@keyframes floatDrift4 {
+  0%, 100% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(0) rotate(-10deg) scale(1); }
+  50% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(-12px) translateX(-10px) rotate(-6deg) scale(1.04); }
+}
+@keyframes floatDrift5 {
+  0%, 100% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(0) rotate(-5deg) scale(1); }
+  50% { transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) translateY(14px) translateX(-6px) rotate(-8deg) scale(1.02); }
 }
 
 /* ========================================================
@@ -366,13 +574,38 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 
 /* Responsiveness */
+@media (max-width: 1024px) {
+  .badge-branding { width: 180px; padding: 12px 14px; right: 4%; }
+  .branding-title { font-size: 28px; }
+  .badge-design { padding: 12px 18px; right: 2%; }
+  .design-headline { font-size: 38px; }
+  .badge-agency { width: 110px; height: 110px; left: 3%; }
+  .agency-title { font-size: 26px; }
+}
 @media (max-width: 768px) {
   .left-rail { display: none; }
   .hero-content { padding-left: 0; }
-  .hero-headline { font-size: clamp(38px, 9.5vw, 56px); }
-  .bottom-right-badge { right: 20px; bottom: 20px; }
-  .spinning-badge-wrap { width: 92px; height: 92px; }
-  .badge-center-btn { width: 42px; height: 42px; font-size: 15px; }
+  .hero-headline { font-size: clamp(36px, 9.5vw, 54px); }
+  .bottom-right-badge { right: 16px; bottom: 16px; }
+  .spinning-badge-wrap { width: 88px; height: 88px; }
+  .badge-center-btn { width: 38px; height: 38px; font-size: 14px; }
   .hero-cta-row { flex-direction: column; align-items: stretch; }
   .btn-orange-pill, .btn-ghost-pill { justify-content: center; }
+  
+  /* Preserve all Indian pop-art badges scaled and subtle on mobile */
+  .badge-branding { top: 9%; right: 4%; width: 130px; padding: 8px 10px; transform: scale(0.85) rotate(4deg); }
+  .branding-title { font-size: 20px; }
+  
+  .badge-design { top: 32%; right: -18px; padding: 10px 14px; transform: scale(0.65) rotate(-6deg); opacity: 0.7; }
+  .design-headline { font-size: 32px; }
+
+  .badge-promotion { bottom: 22%; right: 2%; padding: 8px 12px; transform: scale(0.72) rotate(3deg); opacity: 0.75; }
+  .promotion-title { font-size: 22px; }
+  .promotion-icon-pill { width: 30px; height: 30px; font-size: 13px; }
+
+  .badge-agency { top: 10%; left: -14px; width: 90px; height: 90px; transform: scale(0.7) rotate(-8deg); opacity: 0.65; }
+  .agency-title { font-size: 20px; }
+
+  .badge-slogan { bottom: 8%; left: 4%; padding: 6px 14px; transform: scale(0.78) rotate(-4deg); }
+  .slogan-title { font-size: 18px; }
 }

@@ -7,15 +7,13 @@
   <meta name="description" content="4—11 Studio — We Make Brands Impossible to Ignore. Make It Matter. An independent creative agency working across video production, creative design, social media, and talent collaborations.">
   <title>4—11 STUDIO® — Make It Matter.</title>
 
-  <!-- Typography: Clash Display, Manrope, JetBrains Mono -->
+  <!-- Typography: Clash Display, Manrope, JetBrains Mono, Yatra One & Rozha One -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/style.css">
-  <!-- Three.js CDN for 3D Kinetic Elements -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <!-- Grain Overlay -->
@@ -29,7 +27,7 @@
       <!-- Official 4-11 Logo with Pulsing Halo -->
       <div class="loader-logo-wrap">
         <div class="loader-halo"></div>
-        <img src="/assets/logo-411.png" alt="4-11 Logo" class="loader-logo-img">
+        <img src="assets/logo-411.png" alt="4-11 Logo" class="loader-logo-img">
       </div>
 
       <div class="loader-brand">
@@ -48,9 +46,51 @@
   </div>
 
   <!-- ========================================================
-       2. THREE.JS 3D KINETIC BACKGROUND CANVAS
+       2. FLOATING RETRO HINDI POP-ART BACKGROUND CANVAS
   ======================================================== -->
-  <canvas id="webgl-canvas"></canvas>
+  <div class="retro-bg-canvas" id="retro-bg-canvas">
+    
+    <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
+    <div class="retro-element badge-branding" data-speed="1.2" data-parallax="0.04">
+      <div class="branding-sunburst"></div>
+      <div class="branding-tagline">4—11 STUDIO // 01</div>
+      <div class="branding-title">ब्रांडिंग</div>
+      <div class="branding-footer">
+        <span>BRAND IDENTITY</span>
+        <span class="branding-stamp">★</span>
+      </div>
+    </div>
+
+    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage (Direct Reference Match) -->
+    <div class="retro-element badge-design" data-speed="0.8" data-parallax="0.07">
+      <div class="design-label-small">CREATIVE ARTWORK // 02</div>
+      <div class="design-headline">डिजाइन</div>
+      <div class="design-subline">DISTINCTIVE VISUALS</div>
+    </div>
+
+    <!-- 3. प्रमोशन (PROMOTION) — Retro Ticket Badge -->
+    <div class="retro-element badge-promotion" data-speed="1.4" data-parallax="0.05">
+      <div class="promotion-icon-pill">★</div>
+      <div class="promotion-texts">
+        <span class="promotion-eng">CAMPAIGNS // 03</span>
+        <span class="promotion-title">प्रमोशन</span>
+      </div>
+    </div>
+
+    <!-- 4. एजेंसी (AGENCY) — Vintage Distressed Stamp -->
+    <div class="retro-element badge-agency" data-speed="0.9" data-parallax="0.06">
+      <div class="agency-star">✦ ✦ ✦</div>
+      <div class="agency-title">एजेंसी</div>
+      <div class="agency-sub">INDEPENDENT</div>
+    </div>
+
+    <!-- 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag -->
+    <div class="retro-element badge-slogan" data-speed="1.1" data-parallax="0.03">
+      <div class="slogan-title">मेक इट मैटर</div>
+      <div class="slogan-sub">4—11 STUDIO®</div>
+    </div>
+
+  </div>
 
   <!-- ========================================================
        3. HERO VIEWPORT CONTAINER
@@ -61,7 +101,7 @@
     <header class="top-header">
       <!-- Official 4-11 Logo + Badge -->
       <div class="brand-block">
-        <img src="/assets/logo-411.png" alt="4-11 Studio Logo" class="brand-logo-img">
+        <img src="assets/logo-411.png" alt="4-11 Studio Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
       </div>
 
@@ -133,7 +173,7 @@
   <div class="side-drawer" id="menu-drawer">
     <div class="drawer-header">
       <div class="brand-block">
-        <img src="/assets/logo-411.png" alt="4-11 Logo" style="height: 34px; mix-blend-mode: screen;">
+        <img src="assets/logo-411.png" alt="4-11 Logo" style="height: 34px; mix-blend-mode: screen;">
         <span class="brand-sub-badge">STUDIO®</span>
       </div>
       <button class="drawer-close-btn" id="drawer-close-btn">✕</button>
@@ -322,6 +362,6 @@
     </div>
   </div>
 
-  <script src="/js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
