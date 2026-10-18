@@ -324,9 +324,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const flyoutClose = document.querySelector('.flyout_close_btn');
+  if (flyoutClose) {
+    flyoutClose.addEventListener('click', closeAllFlyouts);
+  }
+
   if (overlay) {
     overlay.addEventListener('click', closeAllFlyouts);
   }
+
+  // Header background blur on scroll
+  const siteHeader = document.querySelector('.header');
+  window.addEventListener('scroll', () => {
+    if (siteHeader) {
+      if (window.scrollY > 40) {
+        siteHeader.classList.add('is-scrolled');
+      } else {
+        siteHeader.classList.remove('is-scrolled');
+      }
+    }
+  }, { passive: true });
 
   // ========================================================
   // 9. CASE STUDY MODAL DETAILS (CLICK ANY CASE/CARD)
