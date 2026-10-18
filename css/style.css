@@ -28,14 +28,47 @@
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
-  width: 100%; height: 100%;
+html {
+  width: 100%;
+  min-height: 100%;
   background: var(--bg-black);
   color: var(--white);
   font-family: var(--font-body);
-  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
+
+body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--bg-black);
+  color: var(--white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ONLY the homepage is strictly locked to the single-screen hero */
+body.homepage, html:has(body.homepage) {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Subpages (Work, About, Services, Contact) are completely unlocked and fluid */
+body.subpage, html:has(body.subpage) {
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+body.work-page, html:has(body.work-page) {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 100vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 
@@ -1898,7 +1931,8 @@ body.subpage {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255, 73, 59, 0.2);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: auto;
+  min-height: 380px;
   background: #111118;
 }
 .split-hero-media-card img {
@@ -3326,12 +3360,13 @@ body.landing-page .rocket-voyager {
    BRAND APPART INSPIRED LANDING PAGE SYSTEM FOR WORK PAGE
 -------------------------------------------------------- */
 .ba-page-container {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 clamp(20px, 4vw, 56px);
+  max-width: 100%;
   width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 4.5vw, 72px);
   position: relative;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 /* Brand Appart Minimalist Header */
@@ -3549,8 +3584,8 @@ body.landing-page .rocket-voyager {
 
 .ba-video-card {
   width: 100%;
-  aspect-ratio: 16/9;
-  max-height: 640px;
+  aspect-ratio: auto;
+  min-height: clamp(340px, 45vw, 680px);
   border-radius: 28px;
   position: relative;
   overflow: hidden;
@@ -3775,12 +3810,15 @@ body.landing-page .rocket-voyager {
 .project_card {
   position: relative;
   width: 100%;
-  aspect-ratio: 500/350;
+  aspect-ratio: auto;
+  min-height: clamp(340px, 34vw, 520px);
   border-radius: 26px;
   overflow: hidden;
   background: #0d0d12;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7);
@@ -3788,7 +3826,8 @@ body.landing-page .rocket-voyager {
 }
 
 .projects_mosaique_item.is-span-2 .project_card {
-  aspect-ratio: 1000/500;
+  aspect-ratio: auto;
+  min-height: clamp(400px, 44vw, 660px);
 }
 
 .project_card:hover {
@@ -3881,7 +3920,8 @@ body.landing-page .rocket-voyager {
   }
   .project_card,
   .projects_mosaique_item.is-span-2 .project_card {
-    aspect-ratio: 4/3;
+    aspect-ratio: auto;
+    min-height: 320px;
   }
 }
 
@@ -4012,7 +4052,8 @@ body.landing-page .rocket-voyager {
 
 .teammate_pic {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: auto;
+  min-height: 280px;
   overflow: hidden;
   background: #000;
 }
