@@ -335,61 +335,117 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalClose = document.querySelector('.modal-close-btn');
 
   const caseData = {
-    'Bricks': {
-      title: 'Bricks — Real Estate Tokenization',
-      client: 'Bricks Technologies',
+    'Faizan Bhatt': {
+      title: 'Faizan Bhatt — Stand-up Comedy',
+      client: 'Faizan Bhatt',
+      year: '2025–2026',
+      cat: 'Artist & Comedy Content',
+      desc: 'Supporting his creative journey through engaging video edits, high-retention comedy reels, and eye-catching promotional poster designs for live shows.',
+      tags: ['Video Editing', 'Poster Design', 'Reels Strategy', 'Show Branding']
+    },
+    'Sushmita Mukherjee': {
+      title: 'Sushmita Mukherjee — Media Presence & PR',
+      client: 'Sushmita Mukherjee',
+      year: '2025–2026',
+      cat: 'Celebrity & Entertainment',
+      desc: 'Managing her social media presence, coordinating strategic brand collaborations, and supporting event publicity and high-visibility PR activities.',
+      tags: ['Social Media Management', 'Brand Collaborations', 'Event PR', 'Publicity']
+    },
+    'Pronto': {
+      title: 'Pronto — Brand Content & Platforms',
+      client: 'Pronto Digital',
       year: '2025',
-      cat: 'Fintech & Investment Deck',
-      desc: 'Institutional fundraising deck that transformed fractional real estate mechanics into an airtight, high-conviction narrative for Tier-1 European funds.',
-      tags: ['Narrative Strategy', 'Slide Architecture', 'Data Viz', 'Series A Pitch']
+      cat: 'Brand & Commercial',
+      desc: 'Creating polished video content and visual artwork to support brand communication, promotional releases, and multi-channel digital platforms.',
+      tags: ['Video Editing', 'Artwork Design', 'Brand Communication', 'Digital Assets']
     },
-    'Gostan': {
-      title: 'Gostan — Maritime AI Logistics',
-      client: 'Gostan Autonomous',
-      year: '2026',
-      cat: 'Deep Tech & AI Deck',
-      desc: 'Engineered an investor narrative showing freight efficiency through computer vision, structuring complex technical claims into instant visual clarity.',
-      tags: ['Deep Tech Strategy', '3D Graphics', 'Seed Round', 'Investor Pitch']
+    'Nashia Kondia': {
+      title: 'Nashia Kondia — Podcast Post-Production',
+      client: 'Nashia Kondia Project',
+      year: '2025–2026',
+      cat: 'Podcast & Long-Form Production',
+      desc: 'Transforming recorded conversations into polished, engaging podcast episodes through professional multi-cam editing, audio mastering, and episodic artwork.',
+      tags: ['Podcast Editing', 'Post-Production', 'Audio Mastering', 'Episodic Content']
     },
-    'Forbes': {
-      title: 'Forbes — Media & Scale Narrative',
-      client: 'Forbes Media Group',
+    'Traya Health': {
+      title: 'Traya Health — Digital Content Production',
+      client: 'Traya Health',
       year: '2025',
-      cat: 'Media & Keynote Presentation',
-      desc: 'Designed high-stakes presentation deck communicating global audience scale, brand legacy, and scalable multi-channel monetization pathways.',
-      tags: ['Executive Presentation', 'Editorial Design', 'Brand Coherence']
+      cat: 'Health & Wellness',
+      desc: 'Supporting digital content production through high-converting video editing, brand storytelling, and agile creative execution.',
+      tags: ['Video Editing', 'Digital Content', 'Health & Wellness', 'Creative Execution']
     },
-    'Incard': {
-      title: 'Incard — Next-Gen Corporate Finance',
-      client: 'Incard FinTech',
+    'Kibo Hair Science': {
+      title: 'Kibo Hair Science — YouTube & Visual Production',
+      client: 'Kibo Hair Science',
+      year: '2025–2026',
+      cat: 'Healthcare & Hair Science',
+      desc: 'Creating authoritative YouTube content with long-form and short-form video editing, clickable thumbnail engineering, and content production.',
+      tags: ['Video Editing', 'Thumbnail Design', 'Content Production', 'YouTube Growth']
+    },
+    'mCaffeine': {
+      title: 'mCaffeine — Visual Content & Campaigns',
+      client: 'mCaffeine D2C',
       year: '2025',
-      cat: 'Fintech & Product Suite',
-      desc: 'From brand positioning to fundraising materials, created a cohesive visual language that helped secure major institutional funding rounds.',
-      tags: ['Fintech Suite', 'Investor Deck', 'Visual Identity', 'Series A']
+      cat: 'Beauty & Skincare',
+      desc: 'Creative content and visual assets crafted for impactful digital communication, product campaigns, and brand presence.',
+      tags: ['Creative Design', 'Social Media Creatives', 'D2C Campaigns', 'Brand Visuals']
     },
-    'Sobry': {
-      title: 'Sobry — Cognitive Audio Intelligence',
-      client: 'Sobry Audio',
-      year: '2026',
-      cat: 'Consumer Tech & Pitch Deck',
-      desc: 'Custom kinetic presentation deck crafted to show acoustic AI synthesis for international venture syndicates.',
-      tags: ['Acoustic AI', 'Keynote Deck', 'Venture Round']
+    'Dr. Pal': {
+      title: 'Dr. Pal — Digital Video & Content',
+      client: 'Dr. Pal Digital',
+      year: '2025–2026',
+      cat: 'Digital Video Content',
+      desc: 'Supporting digital video content through fast-paced editing, visual creative assets, and high-CTR thumbnail designs.',
+      tags: ['Video Editing', 'Thumbnail Design', 'Visual Assets', 'Educational Video']
     },
-    'Notez-Nous': {
-      title: 'Notez-Nous — Trust & Verification Protocol',
-      client: 'Notez-Nous SAS',
+    'Dr. Kumar Vishwas': {
+      title: 'Dr. Kumar Vishwas — Media & Entertainment',
+      client: 'Dr. Kumar Vishwas',
+      year: '2025–2026',
+      cat: 'Media & Entertainment',
+      desc: 'Creative and promotional media work for cultural entertainment, televised appearances, and digital platforms.',
+      tags: ['Creative Content', 'Promotional Artwork', 'Stage & Digital PR', 'Media Work']
+    },
+    'Himeya': {
+      title: 'Himeya — Product Visuals & Identity',
+      client: 'Himeya Living & Personal Care',
       year: '2025',
-      cat: 'B2B SaaS Platform',
-      desc: 'Comprehensive B2B investor presentation making complex compliance, customer acquisition metrics, and viral loops crystal clear.',
-      tags: ['B2B SaaS', 'Financial Modeling Viz', 'Seed to Series A']
+      cat: 'Beauty & Personal Care',
+      desc: 'Visual content and bespoke creative design supporting product communication, digital storytelling, and brand identity.',
+      tags: ['Creative Design', 'Product Visuals', 'Brand Identity', 'Product Communication']
+    },
+    'Rock Paper Rum': {
+      title: 'Rock Paper Rum — Lifestyle & Artwork',
+      client: 'Rock Paper Rum',
+      year: '2025',
+      cat: 'Lifestyle & Beverage',
+      desc: 'Creative artwork and promotional visuals engineered for distinctive brand communication and product launches.',
+      tags: ['Graphic Design', 'Promotional Artwork', 'Lifestyle & Beverage', 'Brand Identity']
+    },
+    'Halwa Tour Poster': {
+      title: 'Halwa Tour Poster — Campaign Typography',
+      client: 'Halwa Tour Productions',
+      year: '2025',
+      cat: 'Poster & Campaign Design',
+      desc: 'Poster design focused on expressive typography, dynamic visual composition, and promotional communication across tour stops.',
+      tags: ['Poster Design', 'Typography', 'Artwork Design', 'Campaign Identity']
     }
   };
+
+  // Backwards compatibility aliases
+  caseData['Bricks'] = caseData['Traya Health'];
+  caseData['Gostan'] = caseData['Kibo Hair Science'];
+  caseData['Forbes'] = caseData['Dr. Kumar Vishwas'];
+  caseData['Incard'] = caseData['mCaffeine'];
+  caseData['Sobry'] = caseData['Faizan Bhatt'];
+  caseData['Notez-Nous'] = caseData['Pronto'];
 
   document.querySelectorAll('[data-case-target]').forEach(trigger => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
       const targetName = trigger.getAttribute('data-case-target');
-      const data = caseData[targetName] || caseData['Bricks'];
+      const data = caseData[targetName] || caseData['Faizan Bhatt'];
       if (projectModal && data) {
         document.getElementById('modal-proj-title').textContent = data.title;
         document.getElementById('modal-proj-client').textContent = data.client;
@@ -412,4 +468,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========================================================
+  // 10. PORTFOLIO CATEGORY FILTER TABS
+  // ========================================================
+  const filterPills = document.querySelectorAll('.filter_pill');
+  const portfolioCards = document.querySelectorAll('.portfolio_card');
+
+  if (filterPills.length > 0 && portfolioCards.length > 0) {
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filterValue = pill.getAttribute('data-filter');
+
+        portfolioCards.forEach(card => {
+          const cardCat = card.getAttribute('data-category');
+          if (filterValue === 'all' || cardCat === filterValue) {
+            card.style.display = 'flex';
+            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 20);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => { card.style.display = 'none'; }, 200);
+          }
+        });
+      });
+    });
+  }
+
 });
+
