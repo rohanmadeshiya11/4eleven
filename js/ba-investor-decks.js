@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Pronto Digital',
       year: '2025',
       cat: 'Brand & Commercial',
-      image: 'assets/projects/pronto.jpg',
+      image: 'assets/projects/pronto.png',
       desc: 'Creating polished video content and visual artwork to support brand communication, promotional releases, and multi-channel digital platforms.',
       tags: ['Video Editing', 'Artwork Design', 'Brand Communication', 'Digital Assets']
     },
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Kibo Hair Science',
       year: '2025–2026',
       cat: 'Healthcare & Hair Science',
-      image: 'assets/projects/kibo-hair-science.webp',
+      image: 'assets/projects/kibo-hair-science.png',
       desc: 'Creating authoritative YouTube content with long-form and short-form video editing, clickable thumbnail engineering, and content production.',
       tags: ['Video Editing', 'Thumbnail Design', 'Content Production', 'YouTube Growth']
     },
