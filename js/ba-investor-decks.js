@@ -340,6 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Faizan Bhatt',
       year: '2025–2026',
       cat: 'Artist & Comedy Content',
+      image: 'assets/projects/faizan-bhatt.png',
       desc: 'Supporting his creative journey through engaging video edits, high-retention comedy reels, and eye-catching promotional poster designs for live shows.',
       tags: ['Video Editing', 'Poster Design', 'Reels Strategy', 'Show Branding']
     },
@@ -348,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Sushmita Mukherjee',
       year: '2025–2026',
       cat: 'Celebrity & Entertainment',
+      image: 'assets/projects/sushmita-mukherjee.jpg',
       desc: 'Managing her social media presence, coordinating strategic brand collaborations, and supporting event publicity and high-visibility PR activities.',
       tags: ['Social Media Management', 'Brand Collaborations', 'Event PR', 'Publicity']
     },
@@ -356,6 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Pronto Digital',
       year: '2025',
       cat: 'Brand & Commercial',
+      image: 'assets/projects/pronto.jpg',
       desc: 'Creating polished video content and visual artwork to support brand communication, promotional releases, and multi-channel digital platforms.',
       tags: ['Video Editing', 'Artwork Design', 'Brand Communication', 'Digital Assets']
     },
@@ -364,6 +367,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Nashia Kondia Project',
       year: '2025–2026',
       cat: 'Podcast & Long-Form Production',
+      image: 'assets/projects/nashia-kondia.jpg',
       desc: 'Transforming recorded conversations into polished, engaging podcast episodes through professional multi-cam editing, audio mastering, and episodic artwork.',
       tags: ['Podcast Editing', 'Post-Production', 'Audio Mastering', 'Episodic Content']
     },
@@ -372,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Traya Health',
       year: '2025',
       cat: 'Health & Wellness',
+      image: 'assets/projects/traya-health.png',
       desc: 'Supporting digital content production through high-converting video editing, brand storytelling, and agile creative execution.',
       tags: ['Video Editing', 'Digital Content', 'Health & Wellness', 'Creative Execution']
     },
@@ -380,6 +385,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Kibo Hair Science',
       year: '2025–2026',
       cat: 'Healthcare & Hair Science',
+      image: 'assets/projects/kibo-hair-science.webp',
       desc: 'Creating authoritative YouTube content with long-form and short-form video editing, clickable thumbnail engineering, and content production.',
       tags: ['Video Editing', 'Thumbnail Design', 'Content Production', 'YouTube Growth']
     },
@@ -388,6 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'mCaffeine D2C',
       year: '2025',
       cat: 'Beauty & Skincare',
+      image: 'assets/projects/mcaffeine.jpg',
       desc: 'Creative content and visual assets crafted for impactful digital communication, product campaigns, and brand presence.',
       tags: ['Creative Design', 'Social Media Creatives', 'D2C Campaigns', 'Brand Visuals']
     },
@@ -396,6 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Dr. Pal Digital',
       year: '2025–2026',
       cat: 'Digital Video Content',
+      image: 'assets/projects/dr-pal.webp',
       desc: 'Supporting digital video content through fast-paced editing, visual creative assets, and high-CTR thumbnail designs.',
       tags: ['Video Editing', 'Thumbnail Design', 'Visual Assets', 'Educational Video']
     },
@@ -404,6 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Dr. Kumar Vishwas',
       year: '2025–2026',
       cat: 'Media & Entertainment',
+      image: 'assets/projects/dr-kumar-vishwas.jpg',
       desc: 'Creative and promotional media work for cultural entertainment, televised appearances, and digital platforms.',
       tags: ['Creative Content', 'Promotional Artwork', 'Stage & Digital PR', 'Media Work']
     },
@@ -412,6 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Himeya Living & Personal Care',
       year: '2025',
       cat: 'Beauty & Personal Care',
+      image: 'assets/projects/himeya.jpg',
       desc: 'Visual content and bespoke creative design supporting product communication, digital storytelling, and brand identity.',
       tags: ['Creative Design', 'Product Visuals', 'Brand Identity', 'Product Communication']
     },
@@ -420,6 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Rock Paper Rum',
       year: '2025',
       cat: 'Lifestyle & Beverage',
+      image: 'assets/projects/rock-paper-rum.jpg',
       desc: 'Creative artwork and promotional visuals engineered for distinctive brand communication and product launches.',
       tags: ['Graphic Design', 'Promotional Artwork', 'Lifestyle & Beverage', 'Brand Identity']
     },
@@ -428,6 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
       client: 'Halwa Tour Productions',
       year: '2025',
       cat: 'Poster & Campaign Design',
+      image: 'assets/projects/halwa-tour.jpg',
       desc: 'Poster design focused on expressive typography, dynamic visual composition, and promotional communication across tour stops.',
       tags: ['Poster Design', 'Typography', 'Artwork Design', 'Campaign Identity']
     }
@@ -452,6 +464,15 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-proj-year').textContent = data.year;
         document.getElementById('modal-proj-cat').textContent = data.cat;
         document.getElementById('modal-proj-desc').textContent = data.desc;
+        const modalImg = document.getElementById('modal-proj-image');
+        const modalImgBox = document.getElementById('modal-proj-image-container');
+        if (modalImg && data.image) {
+          modalImg.src = data.image;
+          modalImg.alt = data.title;
+          if (modalImgBox) modalImgBox.style.display = 'block';
+        } else if (modalImgBox) {
+          modalImgBox.style.display = 'none';
+        }
         const tagsBox = document.getElementById('modal-proj-tags');
         if (tagsBox) {
           tagsBox.innerHTML = data.tags.map(t => `<span class="pillar-tag">${t}</span>`).join('');
