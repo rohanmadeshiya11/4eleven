@@ -476,8 +476,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   // 6. LIVE IST CLOCK (MUMBAI COORDINATES)
   // ========================================================
-  const liveClockEl = document.getElementById('live-ist-time');
-  if (liveClockEl) {
+  const liveClockEls = document.querySelectorAll('#live-ist-time, #ba-live-time');
+  if (liveClockEls.length) {
     function updateIST() {
       try {
         const now = new Date();
@@ -488,11 +488,14 @@ document.addEventListener('DOMContentLoaded', () => {
           minute: '2-digit',
           second: '2-digit'
         });
-        liveClockEl.textContent = `${istTimeStr} IST`;
+        liveClockEls.forEach(el => {
+          el.textContent = `${istTimeStr} IST`;
+        });
       } catch (err) {
-        // Fallback
         const now = new Date();
-        liveClockEl.textContent = now.toLocaleTimeString();
+        liveClockEls.forEach(el => {
+          el.textContent = now.toLocaleTimeString();
+        });
       }
     }
     updateIST();
@@ -503,7 +506,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. WORK PAGE: CATEGORY FILTERING & PROJECT MODALS
   // ========================================================
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCards = document.querySelectorAll('.project-card, .project_card');
 
   if (filterBtns.length && projectCards.length) {
     filterBtns.forEach(btn => {
@@ -515,14 +518,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         projectCards.forEach(card => {
           const cardCat = card.getAttribute('data-category');
+          const parentItem = card.closest('.projects_mosaique_item, .work-item-col-12, .work-item-col-7, .work-item-col-5');
           if (selectedCat === 'All' || cardCat === selectedCat) {
-            card.style.display = 'flex';
+            if (parentItem) parentItem.style.display = '';
+            card.style.display = '';
             card.style.opacity = '1';
-            card.style.transform = 'scale(1)';
           } else {
+            if (parentItem) parentItem.style.display = 'none';
             card.style.display = 'none';
           }
         });
+      });
+    });
+  }
+
+  // Brand Appart Showreel Video Scrubber Interactive Timeline
+  const timelineThumbs = document.querySelectorAll('.ba-timeline-thumb-item');
+  const scrubProgress = document.querySelector('.ba-timeline-scrub-progress');
+  const mainVideoFrame = document.getElementById('ba-showreel-media');
+
+  if (timelineThumbs.length && scrubProgress) {
+    timelineThumbs.forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => {
+        timelineThumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+
+        const percent = ((idx + 1) / timelineThumbs.length) * 100;
+        scrubProgress.style.width = `${percent}%`;
+
+        const newMediaSrc = thumb.getAttribute('data-preview-src');
+        if (newMediaSrc && mainVideoFrame) {
+          mainVideoFrame.src = newMediaSrc;
+        }
       });
     });
   }
@@ -531,7 +558,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectModal = document.getElementById('project-detail-modal');
   if (projectModal) {
     projectCards.forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('a[href^="tel:"], a[href^="mailto:"]')) return;
+        e.preventDefault();
         const title = card.getAttribute('data-title');
         const client = card.getAttribute('data-client');
         const year = card.getAttribute('data-year');

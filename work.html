@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#080809">
-  <meta name="description" content="Selected Works — 4—11 Studio®. A curated showcase of commercial films, visual identities, digital flagships, and cultural campaigns crafted with precision.">
-  <title>Selected Works — 4—11 STUDIO®</title>
+  <meta name="description" content="Selected Works — 4—11 STUDIO®. The creative partner for top-tier companies. Iconic brand identities, conversion-ready flagships, commercial films, and investor-proof decks.">
+  <title>Selected Works — 4—11 STUDIO® | The Creative Partner</title>
 
-  <!-- Typography: Clash Display, Manrope, JetBrains Mono, Yatra One & Rozha One -->
+  <!-- Typography: Clash Display, Manrope, JetBrains Mono, Rozha One & Yatra One -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@
     <div class="retro-element badge-promotion" id="el-promotion">
       <div class="promotion-top">SPECIAL PROMO // प्रचार</div>
       <div class="promotion-title">प्रमोशन</div>
-      <div class="promotion-eng">PROMOTION & CAMPAIGNS</div>
+      <div class="promotion-eng">PROMOTION &amp; CAMPAIGNS</div>
     </div>
 
     <div class="retro-element badge-slogan" id="el-slogan">
@@ -143,7 +143,7 @@
     <div class="retro-element badge-content" id="el-content">
       <div class="content-num">NO. 06</div>
       <div class="content-title">कंटेंट</div>
-      <div class="content-eng">CONTENT & MOTION</div>
+      <div class="content-eng">CONTENT &amp; MOTION</div>
     </div>
 
     <div class="retro-element badge-production" id="el-production">
@@ -191,45 +191,383 @@
     </div>
   </div>
 
-  <!-- Page Viewport Container -->
-  <div class="subpage-container">
-    
-    <!-- Top Header -->
-    <header class="top-header">
+  <!-- Brand Appart Left Floating Dock Navigation (From Reference Screen) -->
+  <aside class="ba-left-dock" aria-label="Quick Dock Navigation">
+    <a href="index.html" class="ba-dock-item" aria-label="Homepage">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span class="ba-dock-tooltip">Home</span>
+    </a>
+    <a href="work.html" class="ba-dock-item active" aria-label="Selected Works">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+      </svg>
+      <span class="ba-dock-tooltip">Selected Works</span>
+    </a>
+    <a href="services.html" class="ba-dock-item" aria-label="Capabilities &amp; What We Do">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+        <polyline points="2 17 12 22 22 17"></polyline>
+        <polyline points="2 12 12 17 22 12"></polyline>
+      </svg>
+      <span class="ba-dock-tooltip">Capabilities</span>
+    </a>
+    <a href="about.html" class="ba-dock-item" aria-label="About &amp; Ethos">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+      </svg>
+      <span class="ba-dock-tooltip">About &amp; Ethos</span>
+    </a>
+    <a href="contact.html" class="ba-dock-item" aria-label="Contact &amp; Discovery">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+      <span class="ba-dock-tooltip">Contact Us</span>
+    </a>
+  </aside>
+
+  <!-- Brand Appart Full Page Layout Container -->
+  <div class="ba-page-container">
+
+    <!-- Brand Appart Minimalist Capsule Header -->
+    <header class="ba-header">
       <a href="index.html" class="brand-block" title="Back to Homepage">
-        <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
+        <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
       </a>
 
-      <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
-        <span class="menu-line menu-line-1"></span>
-        <span class="menu-line menu-line-2"></span>
-      </button>
+      <!-- Capsule Nav Group -->
+      <nav class="ba-nav-pill-group" aria-label="Primary Navigation">
+        <a href="work.html" class="ba-nav-pill-item active">
+          <span class="ba-nav-dot"></span>
+          <span>Works</span>
+        </a>
+        <a href="services.html" class="ba-nav-pill-item">Capabilities</a>
+        <a href="about.html" class="ba-nav-pill-item">Ethos &amp; About</a>
+        <a href="contact.html" class="ba-nav-pill-item">Contact</a>
+      </nav>
+
+      <!-- Right Header Group -->
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--white-dim); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 99px;" class="desktop-only">
+          Mumbai, India • <span id="ba-live-time" style="color: #fff; font-weight: 700;">11:28 AM IST</span>
+        </div>
+
+        <a href="contact.html" class="ba-call-btn">
+          <span>BOOK A CALL NOW</span>
+          <span>→</span>
+        </a>
+
+        <button class="menu-btn" id="menu-btn" aria-label="Open Mobile Menu" style="margin-left: 6px;">
+          <span class="menu-line menu-line-1"></span>
+          <span class="menu-line menu-line-2"></span>
+        </button>
+      </div>
     </header>
 
     <!-- Expansive Main Content -->
-    <main class="expansive-main">
-      
-      <!-- Subpage Hero -->
-      <section class="subpage-hero">
-        <div class="tagline-badge">
+    <main>
+
+      <!-- ========================================================
+           BRAND APPART HERO SECTION
+           ======================================================== -->
+      <section class="ba-hero-section">
+        <div class="tagline-badge" style="margin-bottom: 24px;">
           <span class="pulse-dot"></span>
-          <span>SELECTED WORK // 2025—2026</span>
+          <span>THE CREATIVE© PARTNER FOR TOP-TIER COMPANIES</span>
         </div>
 
-        <h1 class="hero-headline page-headline">
-          <span class="headline-line headline-line-1">Works Built To Be</span>
-          <span class="headline-line headline-line-2"><span class="highlight-word">Impossible To</span></span>
-          <span class="headline-line headline-line-3"><span class="dynamic-word-wrap"><span class="dynamic-word style-truck-art" id="dynamic-work">कृतियाँ</span></span></span>
+        <h1 class="ba-hero-headline">
+          The creative<span class="is-orange">©</span> partner for top-tier companies
         </h1>
 
-        <p class="hero-subtext">
-          A curated portfolio of commercials, brand identities, digital flagships, and cultural campaigns built for ambitious clients who refuse to blend into the background.
-        </p>
+        <!-- Client Logo Marquee Ribbon (Monochromatic Brand Appart Style) -->
+        <div class="ba-logo-marquee-wrap" aria-label="Client Roster Marquee">
+          <div class="ba-logo-marquee-track">
+            <span class="ba-logo-pill">INCARD <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">FORBES <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">PMU <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">BNP PARIBAS <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">ROCKFI <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">IRCAM AMPLIFY <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">AURA PROTOCOL <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">TEMPO ATHLETICS <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">JAWS GROUP <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">SOBRY <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">BRICKS CAPITAL <span class="ba-logo-bullet">✦</span></span>
+            <!-- Duplicate for Infinite Loop -->
+            <span class="ba-logo-pill">INCARD <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">FORBES <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">PMU <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">BNP PARIBAS <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">ROCKFI <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">IRCAM AMPLIFY <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">AURA PROTOCOL <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">TEMPO ATHLETICS <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">JAWS GROUP <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">SOBRY <span class="ba-logo-bullet">✦</span></span>
+            <span class="ba-logo-pill">BRICKS CAPITAL <span class="ba-logo-bullet">✦</span></span>
+          </div>
+        </div>
+
+        <!-- Hero Content Split (Large Text + Avatar Intro Capsule) -->
+        <div class="ba-hero-content">
+          <p class="ba-hero-lead">
+            We help funded startups and ambitious companies ship iconic brands, conversion-ready sites, and investor-proof decks.
+          </p>
+
+          <a href="contact.html" class="ba-intro-call-link">
+            <span class="ba-intro-text">Book an intro call</span>
+            <div class="ba-intro-avatar">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=80&h=80&q=80" alt="Partner">
+            </div>
+            <span style="font-size: 14px; margin-left: 2px;">📞</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           BRAND APPART SHOWREEL VIDEO & SCRUBBER SECTION
+           ======================================================== -->
+      <section class="ba-video-section">
+        <div class="ba-video-card">
+          <!-- Active Preview Frame -->
+          <img id="ba-showreel-media" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=85" alt="Showreel Preview" class="ba-video-media-fill">
+
+          <!-- Video Top Badges -->
+          <div class="ba-video-top-meta">
+            <div class="ba-video-rec-badge">
+              <span class="ba-rec-dot"></span>
+              <span>REC // 01:24 — 4—11 SHOWREEL 2026</span>
+            </div>
+            <button class="ba-sound-btn" id="sound-toggle-btn" aria-label="Toggle Sound">
+              <span>SOUND</span>
+              <span>🔊</span>
+            </button>
+          </div>
+
+          <!-- Video Timeline Scrubber Gallery (Brand Appart Interactive Feature) -->
+          <div class="ba-video-timeline-wrap">
+            <div class="ba-timeline-scrub-bar">
+              <div class="ba-timeline-scrub-progress"></div>
+            </div>
+
+            <div class="ba-timeline-thumbs-row">
+              <div class="ba-timeline-thumb-item active" data-preview-src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=70" alt="Afterglow" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">01 Afterglow</span>
+              </div>
+              <div class="ba-timeline-thumb-item" data-preview-src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=120&q=70" alt="Aura" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">02 Aura Systems</span>
+              </div>
+              <div class="ba-timeline-thumb-item" data-preview-src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=120&q=70" alt="Tempo" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">03 Tempo Athletics</span>
+              </div>
+              <div class="ba-timeline-thumb-item" data-preview-src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=120&q=70" alt="Incard" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">04 Incard Global</span>
+              </div>
+              <div class="ba-timeline-thumb-item" data-preview-src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=70" alt="Bricks" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">05 Bricks Capital</span>
+              </div>
+              <div class="ba-timeline-thumb-item" data-preview-src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=85">
+                <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=120&q=70" alt="Future State" class="ba-timeline-thumb-img">
+                <span class="ba-timeline-thumb-title">06 Future State</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================================
+           BRAND APPART FEATURED WORK MOSAIQUE GRID
+           ======================================================== -->
+      <section class="ba-featured-section" id="featured-work">
+        <div class="ba-headline-split">
+          <h2 class="ba-big-title">
+            Featured<br><span class="ba-title-dim">work</span>
+          </h2>
+
+          <div class="ba-featured-intro">
+            <div class="ba-arrow-icon-circle">↓</div>
+            <p class="ba-intro-text-large">
+              We create innovative and purposeful designs that not only capture attention but also drive meaningful results.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="filter-tabs-row" style="margin-bottom: 36px;">
+          <button class="filter-btn active" data-filter="All">All Works (6)</button>
+          <button class="filter-btn" data-filter="Film & Motion">Film &amp; Motion</button>
+          <button class="filter-btn" data-filter="Brand Identity">Brand Identity</button>
+          <button class="filter-btn" data-filter="Digital Flagships">Digital Flagships</button>
+          <button class="filter-btn" data-filter="Campaigns">Campaigns</button>
+        </div>
+
+        <!-- Brand Appart Projects Mosaique Grid -->
+        <div class="projects_mosaique">
+
+          <!-- Mosaique 1 (Span 2 Wide): Afterglow — Nocturnal Mumbai -->
+          <div class="projects_mosaique_item is-span-2">
+            <a href="#case" class="project_card project-card"
+              data-category="Film & Motion"
+              data-title="Afterglow — Mumbai Nocturne"
+              data-client="Kinetic Cinema"
+              data-year="2026"
+              data-desc="A cinematic short film shot on 35mm across South Mumbai and Bandra over four consecutive nights, featuring bespoke analog sound choreography."
+              data-tags="Campaign Film, Sound Design, 35mm Grading, Art Direction">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Afterglow</h3>
+                  <div class="project_card_infos">
+                    <span>2026</span>
+                    <span>•</span>
+                    <span>Kinetic Cinema</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=85" alt="Afterglow" class="project_card_thumbnail">
+            </a>
+          </div>
+
+          <!-- Mosaique 2: Incard -->
+          <div class="projects_mosaique_item">
+            <a href="#case" class="project_card project-card"
+              data-category="Brand Identity"
+              data-title="Incard — Financial Infrastructure"
+              data-client="Incard Global"
+              data-year="2024"
+              data-desc="Comprehensive brand identity, premium physical card packaging, and tactile design system for an elite founder banking platform."
+              data-tags="Brand Architecture, Custom Typography, Luxury Packaging, Guidelines">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Incard</h3>
+                  <div class="project_card_infos">
+                    <span>2024</span>
+                    <span>•</span>
+                    <span>Fintech</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=85" alt="Incard" class="project_card_thumbnail">
+            </a>
+          </div>
+
+          <!-- Mosaique 3: Sobry -->
+          <div class="projects_mosaique_item">
+            <a href="#case" class="project_card project-card"
+              data-category="Digital Flagships"
+              data-title="Sobry — Sustainable Energy"
+              data-client="Sobry Electrical"
+              data-year="2026"
+              data-desc="Modern digital flagship with real-time solar battery diagnostics, 3D interactive hardware exploded views, and frictionless quote intake."
+              data-tags="WebGL Flagship, 3D Hardware, Interactive Canvas, E-Commerce">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Sobry</h3>
+                  <div class="project_card_infos">
+                    <span>2026</span>
+                    <span>•</span>
+                    <span>Energy Tech</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85" alt="Sobry" class="project_card_thumbnail">
+            </a>
+          </div>
+
+          <!-- Mosaique 4: Stables -->
+          <div class="projects_mosaique_item">
+            <a href="#case" class="project_card project-card"
+              data-category="Campaigns"
+              data-title="Stables — Cultural Takeover"
+              data-client="Stables Web3"
+              data-year="2025"
+              data-desc="Global OOH billboard campaign, athlete endorsement docuseries, and viral social cuts leading to 4.2M views in the first 72 hours."
+              data-tags="Global Campaign, OOH Billboards, Influencer Direction, Docuseries">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Stables</h3>
+                  <div class="project_card_infos">
+                    <span>2025</span>
+                    <span>•</span>
+                    <span>Web 3.0</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1000&q=85" alt="Stables" class="project_card_thumbnail">
+            </a>
+          </div>
+
+          <!-- Mosaique 5: Bricks -->
+          <div class="projects_mosaique_item">
+            <a href="#case" class="project_card project-card"
+              data-category="Brand Identity"
+              data-title="Bricks — Real Estate Tokenization"
+              data-client="Bricks Capital"
+              data-year="2025"
+              data-desc="Complete rebranding, narrative deck, and web platform redesign, boosting investor credibility and lowering customer acquisition cost."
+              data-tags="Brand Identity, Pitch Deck, Web Platform, Design Tokens">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Bricks</h3>
+                  <div class="project_card_infos">
+                    <span>2025</span>
+                    <span>•</span>
+                    <span>Fintech</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=85" alt="Bricks" class="project_card_thumbnail">
+            </a>
+          </div>
+
+          <!-- Mosaique 6 (Span 2 Wide): Future State -->
+          <div class="projects_mosaique_item is-span-2">
+            <a href="#case" class="project_card project-card"
+              data-category="Digital Flagships"
+              data-title="Future State — Aerospace Intelligence UI"
+              data-client="Apex Spatial"
+              data-year="2026"
+              data-desc="Spatial design system, software UI choreography, and kinetic motion tokens for an aerospace tracking console."
+              data-tags="Design System, Product UI, Kinetic Motion, Three.js">
+              <div class="project_card_headline">
+                <div class="project_card_headline_inner">
+                  <h3 class="project_card_title">Future State</h3>
+                  <div class="project_card_infos">
+                    <span>2026</span>
+                    <span>•</span>
+                    <span>Aerospace UI</span>
+                  </div>
+                </div>
+                <div class="project_discover">Discover case →</div>
+              </div>
+              <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=85" alt="Future State" class="project_card_thumbnail">
+            </a>
+          </div>
+
+        </div>
       </section>
 
       <!-- ========================================================
            BRAND APPART STACKED CARDS SHOWCASE: "WHAT WE SHIP"
+           (Directly matches user uploaded reference screenshot!)
            ======================================================== -->
       <section id="what-we-ship" class="ship-stacked-section">
         <div class="ship-headline-wrap">
@@ -248,18 +586,17 @@
           </div>
         </div>
 
-        <!-- The Stacked Card Deck Container -->
-        <div class="c-tiles-stack-container" id="tiles-stack-container">
+        <div class="c-tiles-stack-wrap" id="tiles-stack-container">
           
-          <!-- Floating Magnetic Cursor Pill (Desktop) -->
-          <div class="magnetic-case-cursor" id="magnetic-case-cursor">
-            <span>See our case studies</span>
-            <svg viewBox="0 0 12 13" fill="none" class="cursor-arrow-svg"><path d="M10 6.3L2 6.3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M7.5 8.8L10 6.3L7.5 3.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          <!-- Magnetic Cursor Badge -->
+          <div class="magnetic-case-badge" id="magnetic-case-cursor">
+            <span>SEE OUR CASE STUDIES</span>
+            <span class="badge-arrow">→</span>
           </div>
 
-          <div class="tiles_stack_list" id="tiles-stack-list">
+          <div class="tiles_stack_stage">
             
-            <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
+            <!-- CARD 01: BRANDING (Iconic Brand Appart Royal Purple #3b35ba) -->
             <div class="tiles_stack_item active" data-card-idx="0" style="background-color: #3b35ba; z-index: 10;">
               <div class="service-card" style="background-color: #3b35ba;">
                 
@@ -267,7 +604,7 @@
                   <div class="service-card-title-group">
                     <div class="service-card-count">(01)</div>
                     <h3 class="service-card-title">Branding that drives conversion &amp; funding.</h3>
-                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Brand Identity">
+                    <a href="#featured-work" class="service-card-case-pill" data-open-cat="Brand Identity">
                       <span>SEE OUR CASE STUDIES</span>
                       <span class="pill-arrow">→</span>
                     </a>
@@ -280,7 +617,7 @@
                 <div class="service-card-content">
                   <div class="service-card-quote">
                     <blockquote class="quote-text">
-                      “Working with 4—11 has been an absolute pleasure. Beyond their creativity and professionalism, there’s a real sense of care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. Truly impressed by their reliability, flexibility, and collaborative spirit.”
+                      “Working with 4—11 has been an absolute pleasure. Beyond their creativity and professionalism, there’s a real sense of kindness and care in everything they do. The team is always open, generous, and never gets stuck on small details.”
                     </blockquote>
                     <div class="author-row">
                       <div class="author-avatar-wrap">
@@ -293,43 +630,32 @@
                     </div>
                   </div>
 
+                  <!-- Horizontal Visual Tiles Row Matching Reference Image -->
                   <div class="service-gallery-wrapper">
                     <div class="service-gallery">
-                      
-                      <!-- Tile 1: Neon Lime "IN" -->
-                      <div class="service-gallery-tile tile-lime" data-project-target="Aura Systems" title="View Aura Systems Case Study">
-                        <div class="tile-lime-inner">
-                          <span class="tile-lime-logo">IN</span>
-                        </div>
-                        <span class="tile-hover-tag">Brand Identity</span>
+                      <!-- Tile 1: Lime Green Tile with Black IN Block Mark -->
+                      <div class="service-gallery-tile tile-lime-brand" data-project-target="Aura Systems" title="View Incard Brand Identity">
+                        <div class="tile-lime-logo-shape">IN</div>
+                        <span class="tile-hover-tag">Brandmark</span>
                       </div>
 
-                      <!-- Tile 2: Cream Linen 3D Embossed "IMPORTANT HOUSE" -->
-                      <div class="service-gallery-tile tile-beige-emboss" data-project-target="Mumbai Noir" title="View Mumbai Noir Case Study">
-                        <div class="tile-emboss-texture"></div>
-                        <div class="tile-emboss-text">
-                          <span>IMPORTANT</span>
-                          <span>HOUSE</span>
-                        </div>
-                        <span class="tile-hover-tag">Embossed Identity</span>
+                      <!-- Tile 2: Embossed Leather 'IMPORTANT HOUSE' -->
+                      <div class="service-gallery-tile tile-leather-card" data-project-target="Bricks" title="View Luxury Emboss Craft">
+                        <div class="leather-foil-title">IMPORTANT HOUSE</div>
+                        <span class="tile-hover-tag">Emboss Craft</span>
                       </div>
 
-                      <!-- Tile 3: Cadmium Yellow Script "Qio" -->
-                      <div class="service-gallery-tile tile-yellow-script" data-project-target="Running Club" title="View Running Club Case Study">
-                        <div class="tile-script-inner">
-                          <span class="tile-script-logo">Qio</span>
-                        </div>
-                        <span class="tile-hover-tag">Design System</span>
+                      <!-- Tile 3: Vibrant Yellow Tile with Dark Olive '2io' Script -->
+                      <div class="service-gallery-tile tile-yellow-pop" data-project-target="Sobry" title="View Custom Script Typography">
+                        <div class="yellow-script-logo">qio</div>
+                        <span class="tile-hover-tag">Custom Script</span>
                       </div>
 
-                      <!-- Tile 4: Obsidian Black with Fiery Orange 4-11 Symbol -->
-                      <div class="service-gallery-tile tile-noir-symbol" data-project-target="Afterglow" title="View 4-11 Brand Mark">
-                        <div class="tile-noir-inner">
-                          <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="tile-411-glyph">
-                        </div>
-                        <span class="tile-hover-tag">Brand Mark</span>
+                      <!-- Tile 4: Deep Burgundy / Crimson Tile with Angular Flame Crest -->
+                      <div class="service-gallery-tile tile-crimson-crest" data-project-target="Afterglow" title="View Kinetic Cinema Emblem">
+                        <div class="crimson-flame-emblem">✦</div>
+                        <span class="tile-hover-tag">Vector Crest</span>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -337,81 +663,71 @@
               </div>
             </div>
 
-            <!-- CARD 02: FILM & MOTION (Fiery Orange) -->
-            <div class="tiles_stack_item under-1" data-card-idx="1" style="background-color: #ff493b; z-index: 8;">
-              <div class="service-card" style="background-color: #ff493b;">
+            <!-- CARD 02: PRODUCT EXPERIENCES & FILM (Brand Appart Vibrant Orange #f72) -->
+            <div class="tiles_stack_item under-1" data-card-idx="1" style="background-color: #e25b1f; z-index: 8;">
+              <div class="service-card" style="background-color: #e25b1f;">
                 
                 <div class="service-card-header">
                   <div class="service-card-title-group">
                     <div class="service-card-count">(02)</div>
-                    <h3 class="service-card-title">Commercial film &amp; motion that commands absolute attention.</h3>
-                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Film & Motion">
+                    <h3 class="service-card-title">Commercial Film &amp; Motion that captures culture.</h3>
+                    <a href="#featured-work" class="service-card-case-pill" data-open-cat="Film & Motion">
                       <span>SEE OUR CASE STUDIES</span>
                       <span class="pill-arrow">→</span>
                     </a>
                   </div>
                   <p class="service-card-desc">
-                    Commercial films, 35mm analog grading, bespoke soundscapes, and viral motion edits engineered for high retention. We direct and produce cinematic visual narratives that turn passive viewers into cult brand advocates across cinema, broadcast, and social channels.
+                    We start from business goals, map critical emotional journeys, and choreograph 35mm cinematics that make people pause their feed. Every commercial cut is mixed with analog sound design and high-saturation color grading that makes your brand impossible to ignore.
                   </p>
                 </div>
 
                 <div class="service-card-content">
                   <div class="service-card-quote">
                     <blockquote class="quote-text">
-                      “The commercial 4—11 delivered didn't just win international festival acclaim—it doubled our inbound pipeline within 48 hours of drop. Unmatched velocity, lighting intuition, and cinematic taste.”
+                      “A huge thank you to the entire 4—11 team for your outstanding work on our film and rebranding! We’re thrilled to have you as an integral creative partner, and we can’t wait to reveal what’s coming next.”
                     </blockquote>
                     <div class="author-row">
                       <div class="author-avatar-wrap">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&h=120&q=80" alt="Maya Sen" class="author-avatar-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Théo Cesarini" class="author-avatar-img">
                       </div>
                       <div class="author-info">
-                        <div class="author-name">Maya Sen</div>
-                        <div class="author-title">Creative Director @Tempo Athletics</div>
+                        <div class="author-name">Théo Cesarini</div>
+                        <div class="author-title">CEO &amp; Co-Founder @Incard &amp; @Fundree</div>
                       </div>
                     </div>
                   </div>
 
                   <div class="service-gallery-wrapper">
                     <div class="service-gallery">
-                      
-                      <!-- Tile 1: 35mm Mumbai Nocturne Film Still -->
-                      <div class="service-gallery-tile tile-cinema-1" data-project-target="Afterglow" title="View Afterglow Film">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Nocturne Film" class="tile-img-fill">
-                        <div class="tile-film-overlay">
-                          <span class="tile-timecode">REC ● 00:14:02:18</span>
-                          <span class="tile-play-icon">▶</span>
-                        </div>
-                        <span class="tile-hover-tag">35mm Film</span>
+                      <div class="service-gallery-tile tile-film-frame" data-project-target="Afterglow" title="View 35mm Frame">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" alt="Film" class="tile-img-fill">
+                        <span class="tile-rec-pill">● REC 35MM</span>
+                        <span class="tile-hover-tag">Cinematics</span>
                       </div>
 
-                      <!-- Tile 2: Afterglow Neon Title -->
-                      <div class="service-gallery-tile tile-cinema-neon" data-project-target="Afterglow" title="View Title Sequence">
-                        <div class="tile-neon-title">
-                          <span>AFTER</span>
-                          <span>GLOW</span>
+                      <div class="service-gallery-tile tile-motion-kinetic" data-project-target="Tempo Athletics" title="View Typography Motion">
+                        <div class="kinetic-text-wrap">
+                          <span>FAST</span>
+                          <span>FORWARD</span>
                         </div>
-                        <span class="tile-lens-flare"></span>
-                        <span class="tile-hover-tag">Title Direction</span>
+                        <span class="tile-hover-tag">Motion Kinetic</span>
                       </div>
 
-                      <!-- Tile 3: High-contrast Silhouette -->
-                      <div class="service-gallery-tile tile-cinema-silhouette" data-project-target="Running Club" title="View Silhouette Direction">
-                        <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=600&q=80" alt="Silhouette Frame" class="tile-img-fill">
-                        <div class="tile-film-overlay">
-                          <span class="tile-play-icon">▶</span>
+                      <div class="service-gallery-tile tile-sound-wave" data-project-target="Aura Systems" title="View Audio Design">
+                        <div class="sound-bars">
+                          <span style="height: 60%;"></span>
+                          <span style="height: 90%;"></span>
+                          <span style="height: 40%;"></span>
+                          <span style="height: 100%;"></span>
+                          <span style="height: 70%;"></span>
                         </div>
-                        <span class="tile-hover-tag">Color Grade</span>
+                        <span class="tile-hover-tag">Analog Audio</span>
                       </div>
 
-                      <!-- Tile 4: Sound Design Waveform -->
-                      <div class="service-gallery-tile tile-soundboard" data-project-target="Solar Pulse" title="View Sound Design">
-                        <div class="tile-waveform-bars">
-                          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                        </div>
-                        <span class="tile-sound-label">Bespoke 32-Bit Audio</span>
-                        <span class="tile-hover-tag">Sound Design</span>
+                      <div class="service-gallery-tile tile-poster-crop" data-project-target="Future State" title="View Key Visuals">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80" alt="Poster" class="tile-img-fill">
+                        <span class="tile-hover-tag">Key Visuals</span>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -419,78 +735,67 @@
               </div>
             </div>
 
-            <!-- CARD 03: DIGITAL FLAGSHIPS & WEBGL (Deep Crimson) -->
-            <div class="tiles_stack_item under-2" data-card-idx="2" style="background-color: #df2626; z-index: 6;">
-              <div class="service-card" style="background-color: #df2626;">
+            <!-- CARD 03: DIGITAL FLAGSHIPS & WEBGL (Brand Appart Fire Red #ff3c34) -->
+            <div class="tiles_stack_item under-2" data-card-idx="2" style="background-color: #ff3c34; z-index: 6;">
+              <div class="service-card" style="background-color: #ff3c34;">
                 
                 <div class="service-card-header">
                   <div class="service-card-title-group">
                     <div class="service-card-count">(03)</div>
-                    <h3 class="service-card-title">Digital flagships &amp; WebGL that scale revenue.</h3>
-                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Digital Flagships">
+                    <h3 class="service-card-title">Digital flagships &amp; WebGL that convert at scale.</h3>
+                    <a href="#featured-work" class="service-card-case-pill" data-open-cat="Digital Flagships">
                       <span>SEE OUR CASE STUDIES</span>
                       <span class="pill-arrow">→</span>
                     </a>
                   </div>
                   <p class="service-card-desc">
-                    Fluid WebGL interactions, editorial typography systems, and ultra-responsive front-end architecture. We design digital flagships that feel alive, load instantly, and leave competitors looking obsolete while driving proven conversion lifts.
+                    We align messaging, page architecture, and UI. You get clear structure, modular components, and 60fps WebGL shaders. The site loads ultra-fast, tells the right story, and pushes to action without dev firefighting. Your team gets a scalable base they can evolve effortlessly.
                   </p>
                 </div>
 
                 <div class="service-card-content">
                   <div class="service-card-quote">
                     <blockquote class="quote-text">
-                      “The flagship digital experience 4—11 crafted completely reset the standard in our industry. Investors, customers, and talent all comment on how fluid and electric it feels. 3x conversion uplift within month one.”
+                      “I’ve worked with 4—11 on multiple projects: website development, landing pages for branding, and interactive presentations. I love how flexible, fast, and professional the team is. That speed and agility are exactly what we needed.”
                     </blockquote>
                     <div class="author-row">
                       <div class="author-avatar-wrap">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="Kabir Roy" class="author-avatar-img">
+                        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&h=120&q=80" alt="Alexis Botaya" class="author-avatar-img">
                       </div>
                       <div class="author-info">
-                        <div class="author-name">Kabir Roy</div>
-                        <div class="author-title">Head of Product @Human Nature</div>
+                        <div class="author-name">Alexis Botaya</div>
+                        <div class="author-title">Managing director @Sound Experience</div>
                       </div>
                     </div>
                   </div>
 
                   <div class="service-gallery-wrapper">
                     <div class="service-gallery">
-                      
-                      <!-- Tile 1: Fluid WebGL Shader -->
-                      <div class="service-gallery-tile tile-webgl-fluid" data-project-target="Human Nature" title="View WebGL Shader">
-                        <div class="tile-shader-orb"></div>
-                        <span class="tile-webgl-badge">60 FPS WebGL</span>
-                        <span class="tile-hover-tag">Shader Architecture</span>
+                      <div class="service-gallery-tile tile-webgl-shader" data-project-target="Sobry" title="View Fluid WebGL Flagship">
+                        <div class="shader-blob-mesh"></div>
+                        <span class="tile-webgl-pill">✦ 60 FPS WEBGL</span>
+                        <span class="tile-hover-tag">Shader Mesh</span>
                       </div>
 
-                      <!-- Tile 2: Solar Pulse Interface -->
-                      <div class="service-gallery-tile tile-solar-pulse" data-project-target="Solar Pulse" title="View UI System">
-                        <div class="tile-solar-grid">
-                          <span class="solar-glow-tag">SYS // V3.2</span>
-                          <span class="solar-metric">+184% RETENTION</span>
+                      <div class="service-gallery-tile tile-device-mockup" data-project-target="Future State" title="View Mobile Design System">
+                        <div class="mockup-screen">
+                          <div class="mockup-bar"></div>
+                          <div class="mockup-card-block"></div>
                         </div>
-                        <span class="tile-hover-tag">Interactive UI</span>
+                        <span class="tile-hover-tag">Design System</span>
                       </div>
 
-                      <!-- Tile 3: 3D Product Viewport -->
-                      <div class="service-gallery-tile tile-3d-viewport" data-project-target="Human Nature" title="View 3D Viewport">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="3D Viewport" class="tile-img-fill">
-                        <div class="tile-3d-crosshairs">
-                          <span>+</span><span>+</span>
+                      <div class="service-gallery-tile tile-micro-ux" data-project-target="Bricks" title="View Micro-Interactions">
+                        <div class="ux-toggle-switch">
+                          <span class="toggle-knob"></span>
                         </div>
-                        <span class="tile-hover-tag">Spatial 3D</span>
+                        <span class="tile-hover-tag">Tactile UI</span>
                       </div>
 
-                      <!-- Tile 4: Front-end Typography Index -->
-                      <div class="service-gallery-tile tile-typo-index" data-project-target="Aura Systems" title="View Front-end System">
-                        <div class="typo-lines">
-                          <div class="typo-line">4—11 / CORE</div>
-                          <div class="typo-line">ARCHITECTURE</div>
-                          <div class="typo-line">ZERO LATENCY</div>
-                        </div>
-                        <span class="tile-hover-tag">Performance</span>
+                      <div class="service-gallery-tile tile-dark-ecom" data-project-target="Incard" title="View Digital Flagship">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Ecom" class="tile-img-fill">
+                        <span class="tile-hover-tag">E-Commerce</span>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -498,7 +803,7 @@
               </div>
             </div>
 
-            <!-- CARD 04: INVESTOR DECKS & CAMPAIGNS (Warm Bronze) -->
+            <!-- CARD 04: INVESTOR DECKS & CAMPAIGNS (Brand Appart Warm Bronze #785f47) -->
             <div class="tiles_stack_item under-3" data-card-idx="3" style="background-color: #785f47; z-index: 4;">
               <div class="service-card" style="background-color: #785f47;">
                 
@@ -506,7 +811,7 @@
                   <div class="service-card-title-group">
                     <div class="service-card-count">(04)</div>
                     <h3 class="service-card-title">Investor-proof decks that raise faster.</h3>
-                    <a href="#work-archive" class="service-card-case-pill" data-open-cat="Campaigns">
+                    <a href="#featured-work" class="service-card-case-pill" data-open-cat="Campaigns">
                       <span>SEE OUR CASE STUDIES</span>
                       <span class="pill-arrow">→</span>
                     </a>
@@ -534,15 +839,12 @@
 
                   <div class="service-gallery-wrapper">
                     <div class="service-gallery">
-                      
-                      <!-- Tile 1: Billboard Takeover Mockup -->
-                      <div class="service-gallery-tile tile-billboard" data-project-target="Running Club" title="View OOH Takeover">
+                      <div class="service-gallery-tile tile-billboard" data-project-target="Stables" title="View OOH Takeover">
                         <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80" alt="Billboard" class="tile-img-fill">
                         <div class="tile-billboard-tag">HIGHWAY OOH // MUMBAI</div>
                         <span class="tile-hover-tag">OOH Takeover</span>
                       </div>
 
-                      <!-- Tile 2: Gold Foil Deck Slide -->
                       <div class="service-gallery-tile tile-deck-foil" data-project-target="Aura Systems" title="View Investor Deck">
                         <div class="deck-foil-inner">
                           <span class="foil-badge">SERIES A // PITCH</span>
@@ -551,8 +853,7 @@
                         <span class="tile-hover-tag">Pitch Deck</span>
                       </div>
 
-                      <!-- Tile 3: The 10X Leap Headline Poster -->
-                      <div class="service-gallery-tile tile-poster-craft" data-project-target="Mumbai Noir" title="View Campaign Strategy">
+                      <div class="service-gallery-tile tile-poster-craft" data-project-target="Afterglow" title="View Campaign Strategy">
                         <div class="poster-inner-text">
                           <span>THE</span>
                           <span>10X LEAP</span>
@@ -560,12 +861,10 @@
                         <span class="tile-hover-tag">Narrative</span>
                       </div>
 
-                      <!-- Tile 4: Luxury Packaging Case -->
-                      <div class="service-gallery-tile tile-luxury-box" data-project-target="Solar Pulse" title="View Custom Packaging">
+                      <div class="service-gallery-tile tile-luxury-box" data-project-target="Sobry" title="View Custom Packaging">
                         <div class="box-foil-crest">✦ 4—11 ✦</div>
                         <span class="tile-hover-tag">Packaging</span>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -577,7 +876,7 @@
 
           <!-- Stepped Card Stacking Tabs (Peeking layers at bottom matching screenshot) -->
           <div class="tiles-bottom-stack-tabs" id="bottom-stack-tabs">
-            <div class="stack-tab-layer layer-1" data-target-idx="1" title="Switch to (02) Commercial Film & Motion">
+            <div class="stack-tab-layer layer-1" data-target-idx="1" title="Switch to (02) Commercial Film &amp; Motion">
               <span class="tab-pill-label">(02) Commercial Film &amp; Motion</span>
             </div>
             <div class="stack-tab-layer layer-2" data-target-idx="2" title="Switch to (03) Digital Flagships">
@@ -588,7 +887,7 @@
             </div>
           </div>
 
-          <!-- Floating Discovery Call Bottom Bar -->
+          <!-- Floating Discovery Call Bottom Bar (Brand Appart Style) -->
           <div class="discovery-floating-bar" id="discovery-bar">
             <span class="discovery-text">Book a free discovery call</span>
             <a href="contact.html" class="discovery-btn">
@@ -604,252 +903,254 @@
       </section>
 
       <!-- ========================================================
-           FULL CURATED WORKS ARCHIVE (CATEGORY FILTERABLE)
+           BRAND APPART FOUNDERS / TESTIMONIALS SECTION
            ======================================================== -->
-      <div id="work-archive" class="work-archive-header" style="margin-top: 100px; margin-bottom: 24px; text-align: center;">
-        <div class="tagline-badge" style="margin-bottom: 12px;">
-          <span>INDEX // FULL ARCHIVE</span>
+      <section class="ba-founders-section">
+        <div class="tagline-badge" style="margin-bottom: 16px;">
+          <span>FOUNDER VALIDATION // 40+ VENTURES</span>
         </div>
-        <h3 style="font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 38px); font-weight: 800; text-transform: uppercase;">
-          Curated Case Studies &amp; Films
-        </h3>
-      </div>
+        <h2 class="ba-big-title">
+          Trusted by<br><span class="ba-title-dim">+40 founders</span>
+        </h2>
 
-      <!-- Category Filter Tabs -->
-      <div class="filter-tabs-row">
-        <button class="filter-btn active" data-filter="All">All Works (6)</button>
-        <button class="filter-btn" data-filter="Film & Motion">Film & Motion</button>
-        <button class="filter-btn" data-filter="Brand Identity">Brand Identity</button>
-        <button class="filter-btn" data-filter="Digital Flagships">Digital Flagships</button>
-        <button class="filter-btn" data-filter="Campaigns">Campaigns</button>
-      </div>
+        <div class="ba-founders-grid">
 
-      <!-- Asymmetrical Masonry Work Grid -->
-      <div class="work-masonry-grid">
-        
-        <!-- Project 1: Afterglow (Full 12-Column Marquee Feature) -->
-        <div class="work-item-col-12">
-          <article class="project-card marquee-card" 
-            data-category="Film & Motion"
-            data-title="Afterglow"
-            data-client="Kinetic Cinema"
-            data-year="2026"
-            data-desc="A cinematic commercial short exploring nocturnal Mumbai energy, bespoke analog audio design, and high-saturation 35mm film grading."
-            data-tags="Campaign Film, Sound Design, 35mm Color Grading, Motion Direction">
-            <div class="project-thumb-wrap">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1600&q=85" alt="Afterglow" class="project-thumb-img">
-              <span class="project-card-badge">✦ FEATURED // Film & Motion</span>
-              <span class="project-card-year">2026</span>
+          <!-- Founder Card 1: David Katz -->
+          <div class="founder_card">
+            <div>
+              <div class="founder_rating">★★★★★</div>
+              <blockquote class="founder_quote">
+                “Notez-Nous chose 4—11 to lead our rebranding project, including a full website and platform redesign. The boost in credibility has significantly improved our ability to close enterprise deals and raise capital.”
+              </blockquote>
             </div>
-            <div class="project-card-info" style="padding: 32px;">
-              <div class="project-card-client">Kinetic Cinema</div>
-              <div class="project-card-title">
-                <span>Afterglow — Mumbai Nocturne</span>
-                <span class="project-card-arrow">↗</span>
-              </div>
-              <p style="color: var(--white-dim); font-size: 15px; margin-bottom: 16px; max-width: 720px; line-height: 1.6;">
-                A 35mm visual poem shot across South Mumbai and Bandra over 4 consecutive nights. Commissioned for Kinetic Cinema's international festival debut.
-              </p>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Campaign Film</span>
-                <span class="project-card-tag">Sound Design</span>
-                <span class="project-card-tag">35mm Color Grading</span>
-                <span class="project-card-tag">Direction</span>
-              </div>
-            </div>
-          </article>
-        </div>
 
-        <!-- Project 2: Aura Systems (Col 7) -->
-        <div class="work-item-col-7">
-          <article class="project-card" 
-            data-category="Brand Identity"
-            data-title="Aura Systems"
-            data-client="Aura Protocol"
-            data-year="2025"
-            data-desc="Complete brand architecture and custom typography system for a decentralized computing protocol, blending technical rigor with elevated aesthetic restraint."
-            data-tags="Visual Identity, Custom Typography, Design System, Packaging">
-            <div class="project-thumb-wrap" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1000&q=85" alt="Aura Systems" class="project-thumb-img">
-              <span class="project-card-badge">Brand Identity</span>
-              <span class="project-card-year">2025</span>
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-client">Aura Protocol</div>
-              <div class="project-card-title">
-                <span>Aura Systems</span>
-                <span class="project-card-arrow">↗</span>
+            <div class="founder_profile_row">
+              <div class="founder_avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=80" alt="David Katz">
               </div>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Visual Identity</span>
-                <span class="project-card-tag">Typography</span>
-                <span class="project-card-tag">Guidelines</span>
+              <div>
+                <div class="founder_name">David Katz</div>
+                <div class="founder_company">CEO &amp; Founder @Notez-Nous</div>
               </div>
+              <div class="founder_stat_badge">+180% ARR</div>
             </div>
-          </article>
-        </div>
+          </div>
 
-        <!-- Project 3: Running Club (Col 5) -->
-        <div class="work-item-col-5">
-          <article class="project-card" 
-            data-category="Campaigns"
-            data-title="Running Club"
-            data-client="Tempo Athletics"
-            data-year="2026"
-            data-desc="Global cultural rollout for an apparel label spanning billboard takeovers, viral TikTok/Reels editorial series, and athlete documentary portraits."
-            data-tags="Global Rollout, Social Series, OOH Billboards, Influencer Strategy">
-            <div class="project-thumb-wrap" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&w=1000&q=85" alt="Running Club" class="project-thumb-img">
-              <span class="project-card-badge">Campaigns</span>
-              <span class="project-card-year">2026</span>
+          <!-- Founder Card 2: Sébastien Tomi -->
+          <div class="founder_card">
+            <div>
+              <div class="founder_rating">★★★★★</div>
+              <blockquote class="founder_quote">
+                “We’d seen other agencies lock everything down after two rounds of feedback. With 4—11, the flexibility was real. The rebranding landed exactly where we wanted, and external feedback has been overwhelmingly positive.”
+              </blockquote>
             </div>
-            <div class="project-card-info">
-              <div class="project-card-client">Tempo Athletics</div>
-              <div class="project-card-title">
-                <span>Running Club</span>
-                <span class="project-card-arrow">↗</span>
-              </div>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Global Rollout</span>
-                <span class="project-card-tag">Social Formats</span>
-                <span class="project-card-tag">OOH</span>
-              </div>
-            </div>
-          </article>
-        </div>
 
-        <!-- Project 4: Human Nature (Col 5) -->
-        <div class="work-item-col-5">
-          <article class="project-card" 
-            data-category="Digital Flagships"
-            data-title="Human Nature"
-            data-client="Studio Botanica"
-            data-year="2026"
-            data-desc="An interactive WebGL e-commerce flagship featuring fluid shaders, real-time 3D product previews, and 60fps micro-interactions."
-            data-tags="Immersive Web, 3D Architecture, WebGL, E-Commerce Flagship">
-            <div class="project-thumb-wrap" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=85" alt="Human Nature" class="project-thumb-img">
-              <span class="project-card-badge">Digital Flagships</span>
-              <span class="project-card-year">2026</span>
-            </div>
-            <div class="project-card-info">
-              <div class="project-card-client">Studio Botanica</div>
-              <div class="project-card-title">
-                <span>Human Nature</span>
-                <span class="project-card-arrow">↗</span>
+            <div class="founder_profile_row">
+              <div class="founder_avatar">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="Sébastien Tomi">
               </div>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Immersive Web</span>
-                <span class="project-card-tag">3D Architecture</span>
-                <span class="project-card-tag">WebGL</span>
+              <div>
+                <div class="founder_name">Sébastien Tomi</div>
+                <div class="founder_company">Co-Founder &amp; CEO @Mysunbed</div>
               </div>
+              <div class="founder_stat_badge">Seed Raised</div>
             </div>
-          </article>
-        </div>
+          </div>
 
-        <!-- Project 5: Youth Culture (Col 7) -->
-        <div class="work-item-col-7">
-          <article class="project-card" 
-            data-category="Film & Motion"
-            data-title="Youth Culture"
-            data-client="Neon Collective"
-            data-year="2025"
-            data-desc="A multi-episode docuseries documenting the underground music and street dance renaissance across Mumbai and Delhi."
-            data-tags="Docuseries, Audio Signature, Social Teasers, Viral Cuts">
-            <div class="project-thumb-wrap" style="height: 280px;">
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=1000&q=85" alt="Youth Culture" class="project-thumb-img">
-              <span class="project-card-badge">Film & Motion</span>
-              <span class="project-card-year">2025</span>
+          <!-- Founder Card 3: Yoann Ros -->
+          <div class="founder_card">
+            <div>
+              <div class="founder_rating">★★★★★</div>
+              <blockquote class="founder_quote">
+                “The team adapted to how we work: fast, informal, no unnecessary meetings. What stood out most was the quality of the output. When we saw the new platform, the entire team was back in love with the project.”
+              </blockquote>
             </div>
-            <div class="project-card-info">
-              <div class="project-card-client">Neon Collective</div>
-              <div class="project-card-title">
-                <span>Youth Culture Series</span>
-                <span class="project-card-arrow">↗</span>
-              </div>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Docuseries</span>
-                <span class="project-card-tag">Audio Signature</span>
-                <span class="project-card-tag">Teasers</span>
-              </div>
-            </div>
-          </article>
-        </div>
 
-        <!-- Project 6: Future State (Col 12 Wide Spotlight) -->
-        <div class="work-item-col-12">
-          <article class="project-card marquee-card" 
-            data-category="Digital Flagships"
-            data-title="Future State"
-            data-client="Apex Spatial"
-            data-year="2026"
-            data-desc="Spatial design system, software UI guidelines, and kinetic motion choreography for an aerospace intelligence platform."
-            data-tags="Design System, Product UI, Kinetic Motion, Design Token Architecture">
-            <div class="project-thumb-wrap" style="height: clamp(260px, 32vw, 420px);">
-              <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?auto=format&fit=crop&w=1600&q=85" alt="Future State" class="project-thumb-img">
-              <span class="project-card-badge">Digital Flagships</span>
-              <span class="project-card-year">2026</span>
-            </div>
-            <div class="project-card-info" style="padding: 30px;">
-              <div class="project-card-client">Apex Spatial</div>
-              <div class="project-card-title">
-                <span>Future State — Aerospace Intelligence UI</span>
-                <span class="project-card-arrow">↗</span>
+            <div class="founder_profile_row">
+              <div class="founder_avatar">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=120&h=120&q=80" alt="Yoann Ros">
               </div>
-              <div class="project-card-tags">
-                <span class="project-card-tag">Design System</span>
-                <span class="project-card-tag">Product UI</span>
-                <span class="project-card-tag">Kinetic Motion</span>
-                <span class="project-card-tag">Three.js</span>
+              <div>
+                <div class="founder_name">Yoann Ros</div>
+                <div class="founder_company">CMO @Bricks Capital</div>
               </div>
+              <div class="founder_stat_badge">Series A</div>
             </div>
-          </article>
-        </div>
+          </div>
 
-      </div>
-
-      <!-- Client Roster Marquee -->
-      <section class="client-roster-section">
-        <div class="section-meta-label" style="justify-content: center;">COLLABORATORS // विश्वासपात्र ब्रांड</div>
-        <h3 style="font-family: var(--font-display); font-size: clamp(24px, 3.5vw, 36px); font-weight: 800; text-transform: uppercase;">TRUSTED BY AMBITIOUS TEAMS</h3>
-        
-        <div class="client-roster-grid">
-          <span class="client-badge-pill">Kinetic Cinema</span>
-          <span class="client-badge-pill">Aura Protocol</span>
-          <span class="client-badge-pill">Tempo Athletics</span>
-          <span class="client-badge-pill">Studio Botanica</span>
-          <span class="client-badge-pill">Neon Collective</span>
-          <span class="client-badge-pill">Apex Spatial</span>
-          <span class="client-badge-pill">Mumbai Soundworks</span>
         </div>
       </section>
 
-      <!-- Bottom Callout Card -->
-      <section style="margin-top: 80px; text-align: center; background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(255, 73, 59, 0.12) 0%, rgba(8,8,9,0.85) 70%, transparent 100%); padding: 50px 24px; border-radius: 32px; border: 1px solid rgba(255, 255, 255, 0.1);">
-        <div class="section-meta-label" style="justify-content: center;">READY TO BUILD? // शुरुआत करें</div>
-        <h2 class="section-heading-lg" style="margin-bottom: 16px;">HAVE A PROJECT IN MIND?<br><span style="color: var(--orange);">LET'S MAKE IT UNFORGETTABLE.</span></h2>
-        <p style="color: var(--white-dim); font-size: 16px; max-width: 540px; margin: 0 auto 28px auto;">
-          Whether launching a new brand identity, a flagship film, or an editorial series, let's create something people remember.
+      <!-- ========================================================
+           BRAND APPART SMALL TEAM, BIG RESULTS SECTION
+           ======================================================== -->
+      <section class="ba-team-section">
+        <div class="tagline-badge" style="margin-bottom: 16px;">
+          <span>COLLECTIVE DIRECTORS // UNFILTERED CRAFT</span>
+        </div>
+        <h2 class="ba-big-title">
+          Small team,<br><span class="ba-title-dim">big results</span>
+        </h2>
+        <p class="ba-intro-text-large" style="margin-top: 18px; max-width: 680px;">
+          We operate without account managers, layers of bureaucracy, or junior handoffs. You partner directly with the creatives crafting your identity.
         </p>
-        <a href="contact.html" class="btn-orange-pill" style="display: inline-flex;">
-          <span>START A PROJECT WITH US</span>
-          <span class="btn-arrow-circle">→</span>
-        </a>
+
+        <div class="ba-team-grid">
+
+          <!-- Teammate 1 -->
+          <div class="teammate_card">
+            <div class="teammate_pic">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&h=600&q=80" alt="Rohan Madeshiya">
+            </div>
+            <div class="teammate_info">
+              <div class="teammate_name">Rohan Madeshiya</div>
+              <div class="teammate_role">Founder &amp; Executive Creative Director</div>
+            </div>
+          </div>
+
+          <!-- Teammate 2 -->
+          <div class="teammate_card">
+            <div class="teammate_pic">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&h=600&q=80" alt="Alexandre Ardourel">
+            </div>
+            <div class="teammate_info">
+              <div class="teammate_name">Alexandre Ardourel</div>
+              <div class="teammate_role">Design Director &amp; Brand Strategist</div>
+            </div>
+          </div>
+
+          <!-- Teammate 3 -->
+          <div class="teammate_card">
+            <div class="teammate_pic">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&h=600&q=80" alt="Théodore Jean">
+            </div>
+            <div class="teammate_info">
+              <div class="teammate_name">Théodore Jean</div>
+              <div class="teammate_role">Lead Motion Director &amp; 3D Artist</div>
+            </div>
+          </div>
+
+          <!-- Teammate 4 -->
+          <div class="teammate_card">
+            <div class="teammate_pic">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=600&q=80" alt="Victor Lignel">
+            </div>
+            <div class="teammate_info">
+              <div class="teammate_name">Victor Lignel</div>
+              <div class="teammate_role">Principal WebGL &amp; Digital Architect</div>
+            </div>
+          </div>
+
+        </div>
       </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="site-subpage-footer">
-      <div class="footer-brand">
-        4—11 STUDIO® • MAKE IT MATTER. • MUMBAI, INDIA
+    <!-- ========================================================
+         BRAND APPART MULTI-COLUMN FOOTER WITH BOUNCING KEYS
+         ======================================================== -->
+    <footer class="ba-footer">
+      <!-- Bouncing Keychain Token Strip -->
+      <div class="footer_keys_strip" aria-hidden="true">
+        <div class="footer_key_item">✦</div>
+        <div class="footer_key_item">4</div>
+        <div class="footer_key_item">—</div>
+        <div class="footer_key_item">11</div>
+        <div class="footer_key_item">★</div>
+        <div class="footer_key_item">IN</div>
+        <div class="footer_key_item">⚡</div>
+        <div class="footer_key_item">४</div>
+        <div class="footer_key_item">११</div>
+        <div class="footer_key_item">◎</div>
       </div>
-      <div class="footer-links">
-        <a href="index.html" class="footer-link">Home</a>
-        <a href="about.html" class="footer-link">About</a>
-        <a href="services.html" class="footer-link">What We Do</a>
-        <a href="work.html" class="footer-link" style="color: var(--orange);">Work</a>
-        <a href="contact.html" class="footer-link">Contact</a>
+
+      <!-- Footer Big CTA -->
+      <div class="ba-footer-cta-block">
+        <h2 class="ba-footer-heading">
+          <span class="ba-footer-heading-dim">Make every </span>pixel pay for itself!<br>
+          <span style="color: var(--orange);">Make your brand impossible to ignore.</span>
+        </h2>
+        
+        <a href="contact.html" class="btn-orange-pill" style="display: inline-flex; font-size: 14px; padding: 16px 36px;">
+          <span>BOOK A CALL WITH US</span>
+          <span class="btn-arrow-circle">→</span>
+        </a>
+      </div>
+
+      <!-- 5-Column Navigation Matrix -->
+      <div class="ba-footer-nav-grid">
+        <div>
+          <div class="ba-footer-col-title">Studio</div>
+          <ul class="ba-footer-link-list">
+            <li><a href="index.html" class="ba-footer-link">Home</a></li>
+            <li><a href="work.html" class="ba-footer-link" style="color: var(--orange);">Selected Works</a></li>
+            <li><a href="services.html" class="ba-footer-link">Capabilities</a></li>
+            <li><a href="about.html" class="ba-footer-link">About &amp; Ethos</a></li>
+            <li><a href="contact.html" class="ba-footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="ba-footer-col-title">Industries</div>
+          <ul class="ba-footer-link-list">
+            <li><a href="services.html#b2b" class="ba-footer-link">B2B SaaS</a></li>
+            <li><a href="services.html#deeptech" class="ba-footer-link">DeepTech &amp; AI</a></li>
+            <li><a href="services.html#fintech" class="ba-footer-link">Fintech</a></li>
+            <li><a href="services.html#web3" class="ba-footer-link">Web 3.0</a></li>
+            <li><a href="services.html#culture" class="ba-footer-link">Culture &amp; Retail</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="ba-footer-col-title">Capabilities</div>
+          <ul class="ba-footer-link-list">
+            <li><a href="services.html#branding" class="ba-footer-link">Brand Identity</a></li>
+            <li><a href="services.html#film" class="ba-footer-link">Commercial Films</a></li>
+            <li><a href="services.html#webgl" class="ba-footer-link">Digital Flagships</a></li>
+            <li><a href="services.html#decks" class="ba-footer-link">Investor Pitch Decks</a></li>
+            <li><a href="services.html#motion" class="ba-footer-link">Kinetic Motion</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="ba-footer-col-title">Featured Works</div>
+          <ul class="ba-footer-link-list">
+            <li><a href="#case" class="ba-footer-link">Afterglow Nocturne</a></li>
+            <li><a href="#case" class="ba-footer-link">Incard Global</a></li>
+            <li><a href="#case" class="ba-footer-link">Sobry Systems</a></li>
+            <li><a href="#case" class="ba-footer-link">Stables Web3</a></li>
+            <li><a href="#case" class="ba-footer-link">Future State UI</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="ba-footer-col-title">Coordinates</div>
+          <ul class="ba-footer-link-list">
+            <li><span class="ba-footer-link" style="color: #fff;">Mumbai, India</span></li>
+            <li><span class="ba-footer-link" style="color: rgba(255,255,255,0.45);">Paris, France</span></li>
+            <li><a href="mailto:hello@4-11.studio" class="ba-footer-link" style="color: var(--orange);">hello@4-11.studio ↗</a></li>
+            <li><a href="tel:+919876543210" class="ba-footer-link">+91 98765 43210</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="ba-footer-bottom-bar">
+        <div class="ba-footer-socials">
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="ba-footer-social-link">Instagram ↗</a>
+          <a href="https://x.com" target="_blank" rel="noopener" class="ba-footer-social-link">Twitter / X ↗</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="ba-footer-social-link">LinkedIn ↗</a>
+          <a href="https://behance.net" target="_blank" rel="noopener" class="ba-footer-social-link">Behance ↗</a>
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--white-dim);">
+          © 2026 4—11 STUDIO®. ALL RIGHTS RESERVED. • MUMBAI, INDIA
+        </div>
+      </div>
+
+      <!-- Giant Background Watermark -->
+      <div class="ba-footer-watermark" aria-hidden="true">
+        4—11 STUDIO
       </div>
     </footer>
 
@@ -858,7 +1159,7 @@
   <!-- Project Detail Modal -->
   <div class="modal-overlay" id="project-detail-modal">
     <div class="modal-window">
-      <button class="modal-close-btn">✕</button>
+      <button class="modal-close-btn" aria-label="Close Case Modal">✕</button>
       <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">
         CASE STUDY // <span id="modal-proj-client"></span> • <span id="modal-proj-year"></span>
       </div>
@@ -896,7 +1197,7 @@
       </a>
       <a href="about.html" class="drawer-nav-item">
         <span class="drawer-nav-num">02</span>
-        <span>About & Ethos</span>
+        <span>About &amp; Ethos</span>
       </a>
       <a href="services.html" class="drawer-nav-item">
         <span class="drawer-nav-num">03</span>
