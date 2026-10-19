@@ -120,6 +120,8 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
 }
 .preloader.loaded {
   transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 .loader-content {

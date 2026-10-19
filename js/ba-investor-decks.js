@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const centerMinY = (screenH - safeCenterH) / 2;
       const centerMaxY = (screenH + safeCenterH) / 2;
 
+      const isWorkPage = document.body.classList.contains('work-page');
+
       retroElements.forEach((el, i) => {
         const state = elementStates[i];
         const rect = el.getBoundingClientRect();
@@ -84,25 +86,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const originY = rect.top - state.y;
 
         let destX, destY;
-        let attempts = 0;
-        do {
-          destX = padding + Math.random() * (screenW - elW - padding * 2);
+        if (isWorkPage && screenW > 900) {
+          const minDestX = screenW * 0.56;
+          destX = minDestX + Math.random() * (screenW - minDestX - elW - padding);
           destY = padding + Math.random() * (screenH - elH - padding * 2);
-          attempts++;
-        } while (
-          !isMobile &&
-          destX + elW > centerMinX &&
-          destX < centerMaxX &&
-          destY + elH > centerMinY &&
-          destY < centerMaxY &&
-          attempts < 25
-        );
+        } else {
+          let attempts = 0;
+          do {
+            destX = padding + Math.random() * (screenW - elW - padding * 2);
+            destY = padding + Math.random() * (screenH - elH - padding * 2);
+            attempts++;
+          } while (
+            !isMobile &&
+            destX + elW > centerMinX &&
+            destX < centerMaxX &&
+            destY + elH > centerMinY &&
+            destY < centerMaxY &&
+            attempts < 25
+          );
 
-        if (destX + elW > centerMinX && destX < centerMaxX && destY + elH > centerMinY && destY < centerMaxY) {
-          if (Math.random() > 0.5) {
-            destX = Math.random() > 0.5 ? padding : screenW - elW - padding;
-          } else {
-            destY = Math.random() > 0.5 ? padding : screenH - elH - padding;
+          if (destX + elW > centerMinX && destX < centerMaxX && destY + elH > centerMinY && destY < centerMaxY) {
+            if (Math.random() > 0.5) {
+              destX = Math.random() > 0.5 ? padding : screenW - elW - padding;
+            } else {
+              destY = Math.random() > 0.5 ? padding : screenH - elH - padding;
+            }
           }
         }
 
@@ -134,11 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!window.__MAIN_ENGINE_ACTIVE__ && rocket) {
     let screenW = window.innerWidth;
-    let screenH = window.innerHeight;
+    const isWorkPage = document.body.classList.contains('work-page');
+    let minBoundX = (isWorkPage && screenW > 900) ? screenW * 0.56 : 30;
 
-    let posX = Math.random() * (screenW * 0.4) + screenW * 0.1;
+    let posX = (isWorkPage && screenW > 900)
+      ? screenW * 0.62 + Math.random() * (screenW * 0.25)
+      : Math.random() * (screenW * 0.4) + screenW * 0.1;
     let posY = Math.random() * (screenH * 0.4) + screenH * 0.2;
-    let targetX = screenW * 0.7;
+    let targetX = (isWorkPage && screenW > 900) ? screenW * 0.78 : screenW * 0.7;
     let targetY = screenH * 0.6;
     let currentAngle = 0;
     let speed = 2.4;
@@ -147,11 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       screenW = window.innerWidth;
       screenH = window.innerHeight;
+      minBoundX = (isWorkPage && screenW > 900) ? screenW * 0.56 : 30;
     }, { passive: true });
 
     function pickRandomWaypoint() {
-      const margin = 80;
-      targetX = margin + Math.random() * (screenW - margin * 2);
+      const margin = 70;
+      minBoundX = (isWorkPage && screenW > 900) ? screenW * 0.56 : margin;
+      targetX = minBoundX + Math.random() * (screenW - minBoundX - margin);
       targetY = margin + Math.random() * (screenH - margin * 2);
     }
     pickRandomWaypoint();
@@ -174,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pickRandomWaypoint();
       }
 
-      if (posX < 30) { posX = 30; pickRandomWaypoint(); }
+      if (posX < minBoundX) { posX = minBoundX; pickRandomWaypoint(); }
       if (posX > screenW - 30) { posX = screenW - 30; pickRandomWaypoint(); }
       if (posY < 30) { posY = 30; pickRandomWaypoint(); }
       if (posY > screenH - 30) { posY = screenH - 30; pickRandomWaypoint(); }
