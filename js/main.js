@@ -1,4 +1,5 @@
 // 4—11 STUDIO® — Interactive Engine (Preloader, Retro Pop-Art Parallax, Drawer & Modals)
+window.__MAIN_ENGINE_ACTIVE__ = true;
 document.addEventListener('DOMContentLoaded', () => {
 
   // ========================================================

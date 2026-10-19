@@ -637,87 +637,88 @@ button {
 }
 
 /* -------------------------------------------------------------
-   5. TOP SITE HEADER WITH CLEAN NAVIGATION
+   5. TOP SITE HEADER WITH EXACT HOMEPAGE DESIGN SYSTEM
 ------------------------------------------------------------- */
-.header {
+.top-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   width: 100%;
-  z-index: 100;
-  pointer-events: none;
-  padding: 1.25em clamp(1.5em, 4vw, 3.5em);
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
-}
-.header.is-scrolled {
-  background-color: rgba(8, 8, 9, 0.88);
+  z-index: 500;
+  padding: 1.1em clamp(1.25em, 3.5vw, 3.5em);
+  background: rgba(8, 8, 9, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-subtle);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.header_inner {
+.top-header.is-scrolled {
+  background: rgba(8, 8, 9, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  padding: 0.85em clamp(1.25em, 3.5vw, 3.5em);
+}
+.top-header-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
-  max-width: 1320px;
+  max-width: 1360px;
   margin: 0 auto;
-  pointer-events: none;
 }
-.brand_desktop_wrap {
+
+/* Brand Block (Enlarged Official 4-11 Logo + STUDIO® Saffron Badge) */
+.brand-block {
   display: flex;
   align-items: center;
-  gap: 12px;
-  pointer-events: all;
+  gap: 14px;
+  cursor: pointer;
   text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.brand_emblem {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--orange), #e03224);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 16px var(--orange-glow);
-  transition: transform 0.3s var(--ease);
+.brand-block:hover {
+  transform: translateY(-1px) scale(1.02);
 }
-.brand_desktop_wrap:hover .brand_emblem {
-  transform: scale(1.08) rotate(12deg);
+.brand-logo-img {
+  width: clamp(38px, 3.6vw, 48px);
+  height: clamp(38px, 3.6vw, 48px);
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px var(--orange-glow));
 }
-.brand_emblem img {
-  width: 18px;
-  height: auto;
-  filter: brightness(0) invert(1);
-}
-.brand_wordmark {
-  font-family: var(--font-display);
+.brand-sub-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 700;
-  font-size: 1.15em;
-  letter-spacing: -0.02em;
-  color: #ffffff;
+  letter-spacing: 0.18em;
+  color: var(--orange);
+  background: rgba(255, 73, 59, 0.12);
+  border: 1px solid rgba(255, 73, 59, 0.32);
+  padding: 4px 10px;
+  border-radius: 99px;
+  text-transform: uppercase;
 }
+
+/* Center Desktop Navigation Capsule */
 .desktop_nav_links {
   display: flex;
   align-items: center;
-  gap: 2.2em;
-  pointer-events: all;
-  background-color: rgba(18, 18, 24, 0.75);
+  gap: 2em;
+  background-color: rgba(18, 18, 24, 0.82);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  padding: 0.6em 1.8em;
+  padding: 0.55em 1.8em;
   border-radius: 99px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .nav_text_link {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.85em;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--color-grey);
   transition: color 0.2s ease;
   position: relative;
+  text-decoration: none;
 }
 .nav_text_link:hover {
   color: #ffffff;
@@ -735,53 +736,334 @@ button {
   background-color: var(--orange);
   border-radius: 2px;
 }
-.header_btns {
-  pointer-events: all;
-}
-.btn {
-  display: inline-flex;
+
+/* Right Header Group (CTA Pill + Hamburger Button) */
+.header_right_group {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  background-color: var(--orange);
-  color: #ffffff;
-  padding: 0.7em 1.5em;
-  border-radius: 99px;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  transition: transform 0.25s var(--ease), box-shadow 0.25s ease, background-color 0.2s ease;
-  box-shadow: 0 4px 18px var(--orange-glow);
-}
-.btn:hover {
-  background-color: #ffffff;
-  color: #080809;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+  gap: 14px;
 }
 
-.header_mobile {
-  display: none;
-  pointer-events: all;
+/* Homepage Hamburger Menu Button */
+.menu-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-.menu_toggle {
-  width: 42px; height: 42px; border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border-subtle);
-  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--orange);
 }
-.menu_toggle_line {
-  width: 18px; height: 2px; background-color: #ffffff; transition: transform 0.3s ease;
+.menu-line {
+  width: 18px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.25s, width 0.25s;
+}
+.menu-line-2 {
+  width: 12px;
+  align-self: flex-end;
+  margin-right: 13px;
+}
+.menu-btn:hover .menu-line-2 {
+  width: 18px;
+  margin-right: 0;
 }
 
 @media (max-width: 900px) {
-  .brand_desktop_wrap, .desktop_nav_links, .header_btns { display: none; }
-  .header_mobile { display: flex; }
+  .desktop_nav_links,
+  .header-cta-pill {
+    display: none !important;
+  }
 }
+
+/* -------------------------------------------------------------
+   SIGNATURE HOMEPAGE BUTTONS (.btn-orange-pill & .btn-ghost-pill)
+------------------------------------------------------------- */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.btn-orange-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--orange);
+  color: #ffffff;
+  padding: 8px 8px 8px 24px;
+  border-radius: 99px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 8px 25px var(--orange-glow);
+}
+.btn-orange-pill:hover {
+  background: #ffffff;
+  color: #080809;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+}
+.btn-arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #080809;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  transition: transform 0.3s, background 0.3s, color 0.3s;
+}
+.btn-orange-pill:hover .btn-arrow-circle {
+  transform: translateX(3px);
+  background: var(--orange);
+  color: #ffffff;
+}
+
+.btn-ghost-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  color: #ffffff;
+  padding: 8px 8px 8px 22px;
+  border-radius: 99px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.btn-ghost-pill:hover {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+.btn-ghost-arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+/* Tagline Badge with Pulse Dot */
+.tagline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 73, 59, 0.1);
+  border: 1px solid rgba(255, 73, 59, 0.35);
+  padding: 6px 16px;
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--orange);
+  text-transform: uppercase;
+}
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 10px var(--orange);
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 73, 59, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 73, 59, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 73, 59, 0); }
+}
+
+/* -------------------------------------------------------------
+   HOMEPAGE DYNAMIC WORD ROTATOR STYLES
+------------------------------------------------------------- */
+.dynamic-word-wrap {
+  display: inline-block;
+  min-width: 140px;
+  text-align: left;
+  vertical-align: baseline;
+}
+.dynamic-word {
+  display: inline-block;
+  font-weight: 800;
+  will-change: transform, opacity, filter;
+  padding: 0 4px;
+  line-height: 1;
+}
+.dynamic-word.style-bollywood {
+  font-family: var(--font-hindi-yatra, 'Yatra One', cursive);
+  color: var(--orange);
+  -webkit-text-stroke: 1px var(--retro-yellow);
+  text-shadow: 
+    2px 2px 0 var(--retro-yellow),
+    4px 4px 0 #7f1d1d,
+    6px 6px 0 #000000;
+  letter-spacing: 0.03em;
+}
+.dynamic-word.style-truck-art {
+  font-family: var(--font-hindi-rozha, 'Rozha One', serif);
+  color: var(--retro-yellow);
+  -webkit-text-stroke: 1px var(--retro-blue);
+  text-shadow: 
+    2px 2px 0 var(--retro-blue),
+    4px 4px 0 var(--orange),
+    6px 6px 0 #000000;
+  letter-spacing: 0.04em;
+}
+.dynamic-word.style-royal-saffron {
+  font-family: var(--font-display);
+  color: var(--retro-gold);
+  text-shadow: 
+    0 0 20px rgba(251, 191, 36, 0.6),
+    2px 2px 0 #78350f;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.dynamic-word.style-street-neon {
+  font-family: var(--font-mono);
+  color: #60a5fa;
+  text-shadow: 
+    0 0 10px #3b82f6,
+    0 0 24px #1d4ed8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.dynamic-word.style-matchbox-pop {
+  font-family: var(--font-hindi-yatra, 'Yatra One', cursive);
+  color: #ffffff;
+  background: var(--orange);
+  padding: 2px 12px;
+  border: 2px solid var(--retro-yellow);
+  box-shadow: 4px 4px 0 #000000;
+  display: inline-block;
+}
+
+/* -------------------------------------------------------------
+   ROTATING CIRCULAR BADGE (MAKE IT MATTER • 4-11 STUDIO)
+------------------------------------------------------------- */
+.hero-rotating-badge-wrap {
+  position: absolute;
+  right: clamp(20px, 3.5vw, 40px);
+  bottom: clamp(20px, 3.5vw, 40px);
+  z-index: 10;
+}
+.spinning-badge-wrap {
+  width: 112px;
+  height: 112px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.badge-svg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  animation: spinBadge 14s linear infinite;
+}
+@keyframes spinBadge {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.badge-center-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 900;
+  box-shadow: 0 0 20px var(--orange-glow);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, color 0.3s;
+}
+.spinning-badge-wrap:hover .badge-center-btn {
+  transform: scale(1.12);
+  background: #ffffff;
+  color: #080809;
+}
+
+/* -------------------------------------------------------------
+   SLIDE-OUT MENU DRAWER (HAMBURGER)
+------------------------------------------------------------- */
+.side-drawer {
+  position: fixed; inset: 0; z-index: 990;
+  background: rgba(8, 8, 10, 0.97); backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(30px, 6vh, 60px) clamp(30px, 6vw, 80px);
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.side-drawer.open {
+  transform: translateX(0);
+}
+.drawer-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.drawer-close-btn {
+  width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.drawer-close-btn:hover {
+  background: var(--orange); border-color: var(--orange);
+}
+.drawer-nav-list {
+  display: flex; flex-direction: column; gap: 24px;
+}
+.drawer-nav-item {
+  font-family: var(--font-display); font-size: clamp(34px, 5.5vw, 64px); font-weight: 700;
+  text-transform: uppercase; color: rgba(255, 255, 255, 0.55);
+  display: flex; align-items: baseline; gap: 20px; transition: color 0.25s;
+  text-decoration: none;
+}
+.drawer-nav-item:hover, .drawer-nav-item.active { color: #fff; }
+.drawer-nav-num {
+  font-family: var(--font-mono); font-size: 14px; color: var(--orange); font-weight: 600;
+}
+.drawer-footer {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; flex-wrap: wrap; gap: 20px;
+}
+.drawer-contact-title { font-family: var(--font-mono); font-size: 11px; color: var(--orange); text-transform: uppercase; margin-bottom: 6px; }
+.drawer-email { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: #fff; text-decoration: none; }
+.drawer-email:hover { color: var(--orange); }
 
 /* -------------------------------------------------------------
    6. SECTION 1: HERO SECTION (.service_hero)
@@ -794,6 +1076,7 @@ button {
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--border-subtle);
+  padding-top: 70px;
 }
 @media (max-width: 900px) {
   .service_hero {

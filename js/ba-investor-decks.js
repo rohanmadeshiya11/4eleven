@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   const retroElements = document.querySelectorAll('.retro-element');
   
-  if (retroElements.length > 0) {
+  if (!window.__MAIN_ENGINE_ACTIVE__ && retroElements.length > 0) {
     let mouseX = 0;
     let mouseY = 0;
     let currentX = 0;
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   const rocket = document.getElementById('rocket-411');
 
-  if (rocket) {
+  if (!window.__MAIN_ENGINE_ACTIVE__ && rocket) {
     let screenW = window.innerWidth;
     let screenH = window.innerHeight;
 
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   // 3. STICKY HEADER SCROLL DETECTION
   // ========================================================
-  const header = document.querySelector('.header');
+  const header = document.querySelector('.top-header') || document.querySelector('.header');
   if (header) {
     window.addEventListener('scroll', () => {
       if (window.scrollY > 40) {
@@ -676,28 +676,19 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(updateWorkClock, 1000);
 
   // ========================================================
-  // 13. MOBILE MENU TOGGLE
+  // 13. KEYBOARD (ESC) LISTENER FOR MODAL & DRAWER
   // ========================================================
-  const menuToggle = document.querySelector('.menu_toggle');
-  const flyoutMenu = document.getElementById('nav-flyout-menu');
-  const flyoutClose = document.querySelector('.flyout_close_btn');
-  const navOverlay = document.querySelector('.nav_overlay');
-
-  if (menuToggle && flyoutMenu) {
-    function openMobileMenu() {
-      flyoutMenu.classList.add('is-open');
-      if (navOverlay) navOverlay.classList.add('is-active');
-      document.body.style.overflow = 'hidden';
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (projectModal && projectModal.style.display === 'flex') {
+        projectModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+      const menuDrawer = document.getElementById('menu-drawer');
+      if (menuDrawer && menuDrawer.classList.contains('open')) {
+        menuDrawer.classList.remove('open');
+      }
     }
-    function closeMobileMenu() {
-      flyoutMenu.classList.remove('is-open');
-      if (navOverlay) navOverlay.classList.remove('is-active');
-      document.body.style.overflow = '';
-    }
-
-    menuToggle.addEventListener('click', openMobileMenu);
-    if (flyoutClose) flyoutClose.addEventListener('click', closeMobileMenu);
-    if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
-  }
+  });
 
 });

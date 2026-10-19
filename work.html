@@ -24,8 +24,9 @@
   <link rel="preconnect" href="https://player.vimeo.com">
   <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin="anonymous">
 
-  <!-- Indian Desi Theme Stylesheet -->
-  <link rel="stylesheet" href="css/ba-investor-decks.css?v=5.0">
+  <!-- Homepage Core & Indian Desi Theme Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=3.9">
+  <link rel="stylesheet" href="css/ba-investor-decks.css?v=5.1">
 </head>
 <body class="work-page subpage">
 
@@ -215,19 +216,17 @@
 
   </div>
 
-  <!-- Top Site Header with Clean Navigation -->
-  <header class="header">
-    <div class="header_inner">
-      <!-- Top-Left Brand Logo (Desktop) -->
-      <a aria-label="4—11 Studio Homepage" class="brand_desktop_wrap" href="index.html">
-        <div class="brand_emblem">
-          <img src="assets/logo-411-mark.png" alt="4-11 Logo">
-        </div>
-        <span class="brand_wordmark">4—11 STUDIO</span>
+  <!-- Top Header (Homepage Exact Design System + Clean Desktop Nav) -->
+  <header class="top-header" id="siteHeader">
+    <div class="top-header-inner">
+      <!-- Official 4-11 Logo + Badge (Homepage Design) -->
+      <a href="index.html" class="brand-block" title="4—11 Studio Homepage">
+        <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
+        <span class="brand-sub-badge">STUDIO®</span>
       </a>
 
       <!-- Clean Horizontal Top Navigation (Desktop) -->
-      <nav class="desktop_nav_links">
+      <nav class="desktop_nav_links" aria-label="Main Navigation">
         <a href="index.html" class="nav_text_link">Home</a>
         <a href="work.html" class="nav_text_link active">Work</a>
         <a href="about.html" class="nav_text_link">About</a>
@@ -235,59 +234,21 @@
         <a href="contact.html" class="nav_text_link">Contact</a>
       </nav>
 
-      <!-- Top Right Button: Book a Call -->
-      <div class="header_btns">
-        <a class="btn" href="contact.html">
-          <span>book a call now ↗</span>
+      <!-- Right Header Actions: CTA Pill + Hamburger Button -->
+      <div class="header_right_group">
+        <a class="btn-orange-pill header-cta-pill" href="contact.html">
+          <span>BOOK A CALL</span>
+          <span class="btn-arrow-circle">↗</span>
         </a>
-      </div>
 
-      <!-- Mobile Top Bar (Mobile Viewports Only) -->
-      <div class="header_mobile">
-        <a aria-label="4—11 Studio" class="brand_desktop_wrap" href="index.html" style="display:flex;">
-          <div class="brand_emblem" style="width:32px; height:32px;">
-            <img src="assets/logo-411-mark.png" alt="4-11 Logo" style="width:14px;">
-          </div>
-          <span class="brand_wordmark" style="font-size:1em;">4—11 STUDIO</span>
-        </a>
-        <button class="menu_toggle" type="button" aria-label="Open menu">
-          <span class="menu_toggle_line"></span>
-          <span class="menu_toggle_line"></span>
+        <!-- Hamburger Menu Button (Opens Slide-out Drawer) -->
+        <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+          <span class="menu-line menu-line-1"></span>
+          <span class="menu-line menu-line-2"></span>
         </button>
       </div>
     </div>
-
-    <!-- Background Dimming Overlay for Mobile Menu -->
-    <div class="nav_overlay" aria-hidden="true"></div>
   </header>
-
-  <!-- Mobile Directory Flyout Drawer -->
-  <div id="nav-flyout-menu" class="nav_flyout is-menu" style="z-index:999; background:#0d0d14; color:#ffffff; position:fixed; top:0; right:0; bottom:0; width:100%; max-width:380px; transform:translateX(100%); transition:transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); border-left:1px solid rgba(255,255,255,0.1);">
-    <div class="nav_flyout_body" style="padding: 4em 2.5em; position:relative;">
-      <button type="button" class="flyout_close_btn" style="position:absolute; top:24px; right:24px; background:rgba(255,255,255,0.1); border:none; color:#fff; width:38px; height:38px; border-radius:50%; cursor:pointer; font-size:16px; display:flex; justify-content:center; align-items:center;">✕</button>
-      <div style="font-family:var(--font-hindi-yatra); font-size:14px; letter-spacing:0.1em; color:var(--orange); text-transform:uppercase; margin-bottom:1.8em;">४—११ स्टूडियो // DIRECTORY</div>
-      <div style="display:flex; flex-direction:column; gap:1.4em;">
-        <a href="index.html" style="font-family:var(--font-display); font-size:2em; font-weight:800; color:#ffffff; text-decoration:none;">01. Home</a>
-        <a href="work.html" style="font-family:var(--font-display); font-size:2em; font-weight:800; color:var(--orange); text-decoration:none;">02. Selected Works</a>
-        <a href="about.html" style="font-family:var(--font-display); font-size:2em; font-weight:800; color:#ffffff; text-decoration:none;">03. About &amp; Ethos</a>
-        <a href="services.html" style="font-family:var(--font-display); font-size:2em; font-weight:800; color:#ffffff; text-decoration:none;">04. Services</a>
-        <a href="contact.html" style="font-family:var(--font-display); font-size:2em; font-weight:800; color:#ffffff; text-decoration:none;">05. Start a Project</a>
-      </div>
-      <div style="margin-top:3.5em; font-family:var(--font-mono); font-size:11px; color:rgba(255,255,255,0.5); line-height:1.6;">
-        MUMBAI, INDIA • EST. 2026<br/>MAKE IT MATTER.
-      </div>
-    </div>
-  </div>
-
-  <style>
-    #nav-flyout-menu.is-open {
-      transform: translateX(0) !important;
-    }
-    .nav_overlay.is-active {
-      display: block !important;
-      position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(16px); z-index: 998;
-    }
-  </style>
 
   <!-- Main Landing Page Content Container -->
   <main class="page">
@@ -295,31 +256,44 @@
     <!-- SECTION 1: HERO (55fr / 45fr SPLIT LAYOUT) -->
     <section class="service_hero" id="top">
       <div class="service_hero_content">
-        <div class="desi-sub-tag">
-          <span class="time_dot"></span> पोर्टफोलियो // PORTFOLIO PROJECTS &amp; CLIENT WORK
+        <div class="tagline-badge" style="margin: 0 0 20px 0; align-self: flex-start;">
+          <span class="pulse-dot"></span>
+          <span>PORTFOLIO PROJECTS &amp; CLIENT WORK // पोर्टफोलियो</span>
         </div>
         <h1 data-text-reveal="" class="service_hero_title">
           Good People.<br/>
           <span class="text-saffron">Great Ideas.</span><br/>
-          Creative Partnerships.
+          Creative <span class="dynamic-word-wrap"><span class="dynamic-word style-truck-art" id="dynamic-work">कृतियाँ</span></span>
         </h1>
         <p class="service_hero_text">
           We collaborate with artists, brands, and creative projects to create engaging content, build strong digital identities, and strengthen their online presence.
         </p>
-        <div style="display:flex; gap:1.25em; align-items:center; flex-wrap:wrap; margin-top:1.75em;">
-          <a class="btn" href="contact.html">
-            <span>Start a collaboration ↗</span>
+        <div class="hero-cta-row" style="margin-top:1.8em; justify-content: flex-start; gap: 16px;">
+          <a class="btn-orange-pill" href="contact.html">
+            <span>START A COLLABORATION</span>
+            <span class="btn-arrow-circle">→</span>
           </a>
-          <a class="link" href="#featured-projects">
-            <div class="link-title text-youth">Explore 12 client works</div>
-            <div class="link-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6.53 1.47a.75.75 0 0 0-1.06 1.06L8.19 5.25H1.5a.75.75 0 0 0 0 1.5h6.69L5.47 9.47a.75.75 0 1 0 1.06 1.06l4-4a.75.75 0 0 0 0-1.06l-4-4Z" fill="currentColor"></path></svg>
-            </div>
+          <a class="btn-ghost-pill" href="#featured-projects">
+            <span>EXPLORE 12 WORKS</span>
+            <span class="btn-ghost-arrow">↓</span>
           </a>
         </div>
       </div>
       <div class="service_hero_visual">
         <img alt="4—11 Studio Creative Work" decoding="async" class="u-cover" sizes="(max-width: 767px) 100vw, 45vw" src="assets/ba/fintech-hero.jpg"/>
+        <div class="hero-rotating-badge-wrap">
+          <a href="#featured-projects" class="spinning-badge-wrap" title="Explore Selected Works">
+            <svg class="badge-svg" viewBox="0 0 120 120">
+              <path id="textCircleWork" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
+              <text fill="rgba(255, 255, 255, 0.85)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
+                <textPath href="#textCircleWork" startOffset="0%">
+                  • MAKE IT MATTER • 4—11 STUDIO •
+                </textPath>
+              </text>
+            </svg>
+            <div class="badge-center-btn">↓</div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -338,15 +312,14 @@
           <p class="service_intro_text">
             From high-retention video editing and clickable thumbnail engineering to complete social media management, brand PR, and promotional poster design—we build visual systems that demand attention and sustain real engagement.
           </p>
-          <div class="service_intro_ctas">
-            <a class="btn" href="contact.html">
-              <span>Start a project ↗</span>
+          <div class="service_intro_ctas" style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:24px;">
+            <a class="btn-orange-pill" href="contact.html">
+              <span>START A PROJECT</span>
+              <span class="btn-arrow-circle">→</span>
             </a>
-            <a class="link" href="#featured-projects">
-              <div class="link-title text-youth">View all 12 projects</div>
-              <div class="link-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6.53 1.47a.75.75 0 0 0-1.06 1.06L8.19 5.25H1.5a.75.75 0 0 0 0 1.5h6.69L5.47 9.47a.75.75 0 1 0 1.06 1.06l4-4a.75.75 0 0 0 0-1.06l-4-4Z" fill="currentColor"></path></svg>
-              </div>
+            <a class="btn-ghost-pill" href="#featured-projects">
+              <span>ALL 12 PROJECTS</span>
+              <span class="btn-ghost-arrow">↓</span>
             </a>
           </div>
         </div>
@@ -1260,8 +1233,9 @@
           </div>
         </div>
         <div class="footer_cta" style="margin-top: 1.5em;">
-          <a class="btn" href="contact.html">
-            <span>Book a call now ↗</span>
+          <a class="btn-orange-pill" href="contact.html">
+            <span>BOOK A CALL NOW</span>
+            <span class="btn-arrow-circle">→</span>
           </a>
         </div>
       </div>
@@ -1355,14 +1329,63 @@
       <div style="font-family:var(--font-mono); font-size:11px; color:#fff; text-transform:uppercase; margin-bottom:10px; font-weight:700;">DELIVERABLES COMPLETED:</div>
       <div class="pillar-tags" id="modal-proj-tags" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px;"></div>
       <div style="display:flex; gap:16px; flex-wrap:wrap;">
-        <a href="contact.html" class="btn">
-          <span>Inquire About Similar Project ↗</span>
+        <a href="contact.html" class="btn-orange-pill">
+          <span>INQUIRE ABOUT SIMILAR PROJECT</span>
+          <span class="btn-arrow-circle">→</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Interactive Logic Engine -->
-  <script src="js/ba-investor-decks.js?v=5.0"></script>
+  <!-- ========================================================
+       SLIDE-OUT MENU DRAWER (HAMBURGER)
+  ======================================================== -->
+  <div class="side-drawer" id="menu-drawer">
+    <div class="drawer-header">
+      <a href="index.html" class="brand-block" title="4—11 Studio Homepage">
+        <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="brand-logo-img">
+        <span class="brand-sub-badge">STUDIO®</span>
+      </a>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">✕</button>
+    </div>
+
+    <div class="drawer-nav-list">
+      <a href="index.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">01</span>
+        <span>Home</span>
+      </a>
+      <a href="about.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">02</span>
+        <span>About &amp; Ethos</span>
+      </a>
+      <a href="services.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">03</span>
+        <span>What We Do</span>
+      </a>
+      <a href="work.html" class="drawer-nav-item active">
+        <span class="drawer-nav-num">04</span>
+        <span style="color:var(--orange);">Selected Works</span>
+      </a>
+      <a href="contact.html" class="drawer-nav-item">
+        <span class="drawer-nav-num">05</span>
+        <span>Start a Project</span>
+      </a>
+    </div>
+
+    <div class="drawer-footer">
+      <div>
+        <div class="drawer-contact-title">Direct Enquiries</div>
+        <a href="mailto:hello@4-11.studio" class="drawer-email">hello@4-11.studio ↗</a>
+      </div>
+      <div style="font-family: var(--font-mono); font-size: 11px; color: rgba(255, 255, 255, 0.45);">
+        Mumbai, India • Make It Matter.
+      </div>
+    </div>
+  </div>
+
+  <!-- Homepage Core Interactive Engine (Pop-Art Parallax, Rocket, Drawer, Word Rotator) -->
+  <script src="js/main.js?v=3.9"></script>
+  <!-- Work Page Specialist Engine (Orbit Wheel, Sticky Stack, Modals, FAQ, Physics Badges) -->
+  <script src="js/ba-investor-decks.js?v=5.1"></script>
 </body>
 </html>
