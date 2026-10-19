@@ -1,25 +1,218 @@
-// 4—11 STUDIO® x Brand Appart Engine: Exact Animations, Reactions, Orbit Wheel, Sticky Process, FAQ & Bouncing Keychain Physics
+// 4—11 STUDIO® x Brand Appart Engine: Indian Desi Theme, Interactive Pop-Art Physics, Orbit Wheel, Sticky Process, FAQ & Bouncing Badges
 
 document.addEventListener('DOMContentLoaded', () => {
 
   // ========================================================
-  // 1. SCROLL PROGRESS INDICATOR (VERTICAL TRACKER ON RIGHT)
+  // 1. FLOATING RETRO HINDI POP-ART PARALLAX & SCATTER PHYSICS ("PLAY WITH ELEMENTS")
   // ========================================================
-  const progressLine = document.querySelector('.page_scroll_progress');
-  const progressCursor = document.querySelector('.scroll_progress_cursor');
+  const retroElements = document.querySelectorAll('.retro-element');
+  
+  if (retroElements.length > 0) {
+    let mouseX = 0;
+    let mouseY = 0;
+    let currentX = 0;
+    let currentY = 0;
+    const ease = 0.06;
 
-  function updateScrollProgress() {
-    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-    if (totalHeight > 0 && progressCursor) {
-      const progress = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
-      progressCursor.style.transform = `translateY(${progress * 60}px)`;
+    // Track state for each element
+    const elementStates = Array.from(retroElements).map(() => ({
+      x: 0,
+      y: 0,
+      targetX: 0,
+      targetY: 0,
+      speed: 0.08
+    }));
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX - window.innerWidth / 2;
+      mouseY = e.clientY - window.innerHeight / 2;
+    }, { passive: true });
+
+    // Gyroscope tilt on mobile
+    if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+      window.addEventListener('deviceorientation', (e) => {
+        if (e.gamma !== null && e.beta !== null) {
+          mouseX = (e.gamma || 0) * 8;
+          mouseY = ((e.beta || 0) - 45) * 8;
+        }
+      }, { passive: true });
     }
+
+    // Physics animation loop
+    function renderParallax() {
+      currentX += (mouseX - currentX) * ease;
+      currentY += (mouseY - currentY) * ease;
+
+      retroElements.forEach((el, i) => {
+        const state = elementStates[i];
+        state.x += (state.targetX - state.x) * state.speed;
+        state.y += (state.targetY - state.y) * state.speed;
+
+        const parallaxFactor = parseFloat(el.getAttribute('data-parallax') || '0.05');
+        const totalPx = (currentX * parallaxFactor) + state.x;
+        const totalPy = (currentY * parallaxFactor) + state.y;
+
+        el.style.setProperty('--mx', `${totalPx.toFixed(2)}px`);
+        el.style.setProperty('--my', `${totalPy.toFixed(2)}px`);
+      });
+
+      requestAnimationFrame(renderParallax);
+    }
+    renderParallax();
+
+    // Scatter elements when clicked ("Play with elements!")
+    function scatterAllElements(clickedElement) {
+      const screenW = window.innerWidth;
+      const screenH = window.innerHeight;
+      const padding = Math.min(60, screenW * 0.06);
+
+      const isMobile = screenW <= 768;
+      const safeCenterW = isMobile ? screenW * 0.75 : Math.min(680, screenW * 0.6);
+      const safeCenterH = isMobile ? screenH * 0.65 : Math.min(380, screenH * 0.5);
+      const centerMinX = (screenW - safeCenterW) / 2;
+      const centerMaxX = (screenW + safeCenterW) / 2;
+      const centerMinY = (screenH - safeCenterH) / 2;
+      const centerMaxY = (screenH + safeCenterH) / 2;
+
+      retroElements.forEach((el, i) => {
+        const state = elementStates[i];
+        const rect = el.getBoundingClientRect();
+        const elW = rect.width || 140;
+        const elH = rect.height || 60;
+
+        const originX = rect.left - state.x;
+        const originY = rect.top - state.y;
+
+        let destX, destY;
+        let attempts = 0;
+        do {
+          destX = padding + Math.random() * (screenW - elW - padding * 2);
+          destY = padding + Math.random() * (screenH - elH - padding * 2);
+          attempts++;
+        } while (
+          !isMobile &&
+          destX + elW > centerMinX &&
+          destX < centerMaxX &&
+          destY + elH > centerMinY &&
+          destY < centerMaxY &&
+          attempts < 25
+        );
+
+        if (destX + elW > centerMinX && destX < centerMaxX && destY + elH > centerMinY && destY < centerMaxY) {
+          if (Math.random() > 0.5) {
+            destX = Math.random() > 0.5 ? padding : screenW - elW - padding;
+          } else {
+            destY = Math.random() > 0.5 ? padding : screenH - elH - padding;
+          }
+        }
+
+        state.targetX = destX - originX;
+        state.targetY = destY - originY;
+        state.speed = (el === clickedElement) ? 0.14 : 0.06 + Math.random() * 0.05;
+      });
+
+      if (clickedElement) {
+        clickedElement.classList.add('element-clicked-burst');
+        setTimeout(() => {
+          clickedElement.classList.remove('element-clicked-burst');
+        }, 500);
+      }
+    }
+
+    retroElements.forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        scatterAllElements(el);
+      });
+    });
   }
-  window.addEventListener('scroll', updateScrollProgress, { passive: true });
-  updateScrollProgress();
 
   // ========================================================
-  // 2. ORBITING ROTATING PROJECT CIRCLE (#seemore)
+  // 2. 4—11 ROCKET SHIP VOYAGER (AUTONOMOUS FLIGHT + TURBO BOOST ON CLICK)
+  // ========================================================
+  const rocket = document.getElementById('rocket-411');
+
+  if (rocket) {
+    let screenW = window.innerWidth;
+    let screenH = window.innerHeight;
+
+    let posX = Math.random() * (screenW * 0.4) + screenW * 0.1;
+    let posY = Math.random() * (screenH * 0.4) + screenH * 0.2;
+    let targetX = screenW * 0.7;
+    let targetY = screenH * 0.6;
+    let currentAngle = 0;
+    let speed = 2.4;
+    let isBoosting = false;
+
+    window.addEventListener('resize', () => {
+      screenW = window.innerWidth;
+      screenH = window.innerHeight;
+    }, { passive: true });
+
+    function pickRandomWaypoint() {
+      const margin = 80;
+      targetX = margin + Math.random() * (screenW - margin * 2);
+      targetY = margin + Math.random() * (screenH - margin * 2);
+    }
+    pickRandomWaypoint();
+
+    function updateRocket() {
+      const dx = targetX - posX;
+      const dy = targetY - posY;
+      const dist = Math.hypot(dx, dy);
+
+      const desiredAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+      let diffAngle = (desiredAngle - currentAngle + 180) % 360 - 180;
+      currentAngle += diffAngle * 0.045;
+
+      const rad = currentAngle * (Math.PI / 180);
+      const currentSpeed = isBoosting ? speed * 2.8 : speed;
+      posX += Math.cos(rad) * currentSpeed;
+      posY += Math.sin(rad) * currentSpeed;
+
+      if (dist < 90) {
+        pickRandomWaypoint();
+      }
+
+      if (posX < 30) { posX = 30; pickRandomWaypoint(); }
+      if (posX > screenW - 30) { posX = screenW - 30; pickRandomWaypoint(); }
+      if (posY < 30) { posY = 30; pickRandomWaypoint(); }
+      if (posY > screenH - 30) { posY = screenH - 30; pickRandomWaypoint(); }
+
+      rocket.style.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) rotate(${currentAngle.toFixed(1)}deg)`;
+      requestAnimationFrame(updateRocket);
+    }
+    requestAnimationFrame(updateRocket);
+
+    rocket.addEventListener('click', (e) => {
+      e.stopPropagation();
+      isBoosting = true;
+      rocket.classList.add('rocket-turbo');
+      pickRandomWaypoint();
+
+      setTimeout(() => {
+        isBoosting = false;
+        rocket.classList.remove('rocket-turbo');
+      }, 1500);
+    });
+  }
+
+  // ========================================================
+  // 3. STICKY HEADER SCROLL DETECTION
+  // ========================================================
+  const header = document.querySelector('.header');
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    }, { passive: true });
+  }
+
+  // ========================================================
+  // 4. ORBITING ROTATING PROJECT CIRCLE (#seemore)
   // ========================================================
   const circleList = document.querySelector('.project_circle_list');
   const circleItems = document.querySelectorAll('.project_circle_item');
@@ -28,14 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (circleList && circleItems.length > 0) {
     let currentRotation = -120;
     let targetRotation = -120;
-    let autoSpeed = 0.08; // ambient continuous drift
+    let autoSpeed = 0.08;
     let isDragging = false;
     let startX = 0;
     let dragStartRotation = 0;
     let isHovered = false;
     let lastScrollY = window.scrollY;
 
-    // Distribute items radially around 360 degrees
     const totalItems = circleItems.length;
     const angleStep = 360 / totalItems;
 
@@ -49,14 +241,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Accelerated rotation on scroll
     window.addEventListener('scroll', () => {
       const deltaY = window.scrollY - lastScrollY;
       lastScrollY = window.scrollY;
       targetRotation += deltaY * 0.12;
     }, { passive: true });
 
-    // Drag to spin with mouse / touch
     if (seeMoreSection) {
       seeMoreSection.addEventListener('mousedown', (e) => {
         if (e.target.closest('a')) return;
@@ -89,7 +279,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.addEventListener('touchend', () => { isDragging = false; });
     }
 
-    // Animation Loop
     function renderOrbit() {
       if (!isHovered && !isDragging) {
         targetRotation += autoSpeed;
@@ -102,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 3. MAGNETIC PROCESS CURSOR ("SEE OUR CASE STUDIES ->")
+  // 5. MAGNETIC PROCESS CURSOR
   // ========================================================
   const processSection = document.getElementById('services');
   const magneticCursor = document.querySelector('.c-tiles-stack .cursor');
@@ -127,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-    });
+    }, { passive: true });
 
     function renderMagneticCursor() {
       if (isInside) {
@@ -141,13 +330,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 4. STICKY PROCESS STACK CARDS SCROLL EFFECT
+  // 6. STICKY PROCESS STACK CARDS SCROLL EFFECT
   // ========================================================
   const stackItems = document.querySelectorAll('.tiles_stack_item');
   if (stackItems.length > 0) {
     function updateStacking() {
       const vh = window.innerHeight;
-      stackItems.forEach((item, index) => {
+      stackItems.forEach((item) => {
         const rect = item.getBoundingClientRect();
         const topProgress = rect.top / vh;
         if (topProgress < 0.25 && topProgress > -0.6) {
@@ -164,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 5. INDUSTRY VIDEO PLAYER & AUDIO MUTE TOGGLE
+  // 7. INDUSTRY VIDEO PLAYER & AUDIO MUTE TOGGLE
   // ========================================================
   const muteBtn = document.querySelector('.industry_video_mute');
   const vimeoFrame = document.querySelector('.industry_video_plyr iframe');
@@ -182,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 6. ACCORDION FAQ (INTERACTIVE EXPAND / COLLAPSE)
+  // 8. ACCORDION FAQ (INTERACTIVE EXPAND / COLLAPSE)
   // ========================================================
   const faqItems = document.querySelectorAll('.faq-question-item');
   faqItems.forEach((item) => {
@@ -193,7 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
       question.addEventListener('click', () => {
         const isOpen = question.classList.contains('--open');
 
-        // Close all others
         faqItems.forEach(other => {
           const q = other.querySelector('.faq-question');
           const a = other.querySelector('.faq-answer');
@@ -203,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
 
-        // Toggle current
         if (!isOpen) {
           question.classList.add('--open');
           answer.style.height = `${answer.scrollHeight}px`;
@@ -213,23 +400,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ========================================================
-  // 7. BOUNCING KEYCHAIN BADGES (PHYSICS SIMULATION IN FOOTER)
+  // 9. BOUNCING KEYCHAIN BADGES (PHYSICS SIMULATION IN FOOTER)
   // ========================================================
   const keysContainer = document.querySelector('.c-keys-bounce');
-  const keyImages = document.querySelectorAll('.keys-bounce-items img');
+  const keyItems = document.querySelectorAll('.keys-bounce-items img, .keys-bounce-items .desi-key-badge');
 
-  if (keysContainer && keyImages.length > 0) {
-    const itemsData = Array.from(keyImages).map((img, i) => {
+  if (keysContainer && keyItems.length > 0) {
+    const itemsData = Array.from(keyItems).map((img, i) => {
       return {
         el: img,
-        x: Math.random() * 200 + 40 * i,
+        x: Math.random() * 200 + 45 * i,
         y: Math.random() * 80 + 20,
         vx: (Math.random() * 2 - 1) * 1.5,
         vy: (Math.random() * 2 - 1) * 1.5,
         rot: Math.random() * 360,
         vRot: (Math.random() * 2 - 1) * 0.8,
-        width: 140,
-        height: 140
+        width: 130,
+        height: 130
       };
     });
 
@@ -244,109 +431,44 @@ document.addEventListener('DOMContentLoaded', () => {
           item.y += item.vy;
           item.rot += item.vRot;
 
-          // Wall collision left / right
           if (item.x <= 0) {
             item.x = 0;
             item.vx *= -1;
-            item.vRot = (Math.random() - 0.5) * 1.5;
           } else if (item.x + item.width >= maxX) {
             item.x = maxX - item.width;
             item.vx *= -1;
-            item.vRot = (Math.random() - 0.5) * 1.5;
           }
 
-          // Wall collision top / bottom
           if (item.y <= 0) {
             item.y = 0;
             item.vy *= -1;
-            item.vRot = (Math.random() - 0.5) * 1.5;
           } else if (item.y + item.height >= maxY) {
             item.y = maxY - item.height;
             item.vy *= -1;
-            item.vRot = (Math.random() - 0.5) * 1.5;
           }
 
           item.el.style.transform = `translate3d(${item.x.toFixed(1)}px, ${item.y.toFixed(1)}px, 0) rotate(${item.rot.toFixed(1)}deg)`;
         });
       }
+
       requestAnimationFrame(stepPhysics);
     }
     requestAnimationFrame(stepPhysics);
-  }
 
-  // ========================================================
-  // 8. FLYOUT NAVIGATION DRAWERS (INDUSTRIES, SERVICES, MENU)
-  // ========================================================
-  const navButtons = document.querySelectorAll('[aria-controls^="nav-flyout"]');
-  const flyouts = document.querySelectorAll('.nav_flyout');
-  const overlay = document.querySelector('.nav_overlay');
-  const mobileToggle = document.querySelector('.menu_toggle');
-
-  function closeAllFlyouts() {
-    flyouts.forEach(f => f.removeAttribute('data-state'));
-    navButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
-    if (overlay) overlay.style.display = 'none';
-  }
-
-  navButtons.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const flyoutId = btn.getAttribute('aria-controls');
-      const targetFlyout = document.getElementById(flyoutId);
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-
-      if (isExpanded) {
-        closeAllFlyouts();
-      } else {
-        closeAllFlyouts();
-        btn.setAttribute('aria-expanded', 'true');
-        if (targetFlyout) {
-          targetFlyout.setAttribute('data-state', 'open');
+    keyItems.forEach((el, index) => {
+      el.addEventListener('click', () => {
+        const item = itemsData[index];
+        if (item) {
+          item.vx = (Math.random() * 2 - 1) * 7;
+          item.vy = -Math.abs(Math.random() * 7 + 4);
+          item.vRot = (Math.random() * 2 - 1) * 12;
         }
-        if (overlay) overlay.style.display = 'block';
-      }
-    });
-  });
-
-  if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-      const menuFlyout = document.getElementById('nav-flyout-menu');
-      if (menuFlyout) {
-        const isOpen = menuFlyout.getAttribute('data-state') === 'open';
-        if (isOpen) {
-          closeAllFlyouts();
-        } else {
-          closeAllFlyouts();
-          menuFlyout.setAttribute('data-state', 'open');
-          if (overlay) overlay.style.display = 'block';
-        }
-      }
+      });
     });
   }
 
-  const flyoutClose = document.querySelector('.flyout_close_btn');
-  if (flyoutClose) {
-    flyoutClose.addEventListener('click', closeAllFlyouts);
-  }
-
-  if (overlay) {
-    overlay.addEventListener('click', closeAllFlyouts);
-  }
-
-  // Header background blur on scroll
-  const siteHeader = document.querySelector('.header');
-  window.addEventListener('scroll', () => {
-    if (siteHeader) {
-      if (window.scrollY > 40) {
-        siteHeader.classList.add('is-scrolled');
-      } else {
-        siteHeader.classList.remove('is-scrolled');
-      }
-    }
-  }, { passive: true });
-
   // ========================================================
-  // 9. CASE STUDY MODAL DETAILS (CLICK ANY CASE/CARD)
+  // 10. CASE STUDY DETAIL MODAL (FOR ALL 12 PROJECTS)
   // ========================================================
   const projectModal = document.getElementById('project-detail-modal');
   const modalClose = document.querySelector('.modal-close-btn');
@@ -356,25 +478,25 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Faizan Bhatt — Stand-up Comedy',
       client: 'Faizan Bhatt',
       year: '2025–2026',
-      cat: 'Artist & Comedy Content',
+      cat: 'Artist & Comedy Content // कलाकार',
       image: 'assets/projects/faizan-bhatt.png',
       desc: 'Supporting his creative journey through engaging video edits, high-retention comedy reels, and eye-catching promotional poster designs for live shows.',
-      tags: ['Video Editing', 'Poster Design', 'Reels Strategy', 'Show Branding']
+      tags: ['Video Editing', 'Poster Design', 'Reels Strategy', 'Show Branding', 'सुपरहिट Comedy']
     },
     'Sushmita Mukherjee': {
       title: 'Sushmita Mukherjee — Media Presence & PR',
       client: 'Sushmita Mukherjee',
       year: '2025–2026',
-      cat: 'Celebrity & Entertainment',
+      cat: 'Celebrity & Entertainment // स्टार पीआर',
       image: 'assets/projects/sushmita-mukherjee.jpg',
       desc: 'Managing her social media presence, coordinating strategic brand collaborations, and supporting event publicity and high-visibility PR activities.',
-      tags: ['Social Media Management', 'Brand Collaborations', 'Event PR', 'Publicity']
+      tags: ['Social Media Management', 'Brand Collaborations', 'Event PR', 'Publicity', 'Entertainment']
     },
     'Pronto': {
       title: 'Pronto — Brand Content & Platforms',
       client: 'Pronto Digital',
       year: '2025',
-      cat: 'Brand & Commercial',
+      cat: 'Brand & Commercial // 100% खरा',
       image: 'assets/projects/pronto.png',
       desc: 'Creating polished video content and visual artwork to support brand communication, promotional releases, and multi-channel digital platforms.',
       tags: ['Video Editing', 'Artwork Design', 'Brand Communication', 'Digital Assets']
@@ -383,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Nashia Kondia — Podcast Post-Production',
       client: 'Nashia Kondia Project',
       year: '2025–2026',
-      cat: 'Podcast & Long-Form Production',
+      cat: 'Podcast & Long-Form Production // पॉडकास्ट',
       image: 'assets/projects/nashia-kondia.jpg',
       desc: 'Transforming recorded conversations into polished, engaging podcast episodes through professional multi-cam editing, audio mastering, and episodic artwork.',
       tags: ['Podcast Editing', 'Post-Production', 'Audio Mastering', 'Episodic Content']
@@ -392,7 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Traya Health — Digital Content Production',
       client: 'Traya Health',
       year: '2025',
-      cat: 'Health & Wellness',
+      cat: 'Health & Wellness // वेलनेस',
       image: 'assets/projects/traya-health.png',
       desc: 'Supporting digital content production through high-converting video editing, brand storytelling, and agile creative execution.',
       tags: ['Video Editing', 'Digital Content', 'Health & Wellness', 'Creative Execution']
@@ -401,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Kibo Hair Science — YouTube & Visual Production',
       client: 'Kibo Hair Science',
       year: '2025–2026',
-      cat: 'Healthcare & Hair Science',
+      cat: 'Healthcare & Hair Science // यूट्यूब ग्रोथ',
       image: 'assets/projects/kibo-hair-science.png',
       desc: 'Creating authoritative YouTube content with long-form and short-form video editing, clickable thumbnail engineering, and content production.',
       tags: ['Video Editing', 'Thumbnail Design', 'Content Production', 'YouTube Growth']
@@ -410,7 +532,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'mCaffeine — Visual Content & Campaigns',
       client: 'mCaffeine D2C',
       year: '2025',
-      cat: 'Beauty & Skincare',
+      cat: 'Beauty & Skincare // D2C अभियान',
       image: 'assets/projects/mcaffeine.jpg',
       desc: 'Creative content and visual assets crafted for impactful digital communication, product campaigns, and brand presence.',
       tags: ['Creative Design', 'Social Media Creatives', 'D2C Campaigns', 'Brand Visuals']
@@ -419,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Dr. Pal — Digital Video & Content',
       client: 'Dr. Pal Digital',
       year: '2025–2026',
-      cat: 'Digital Video Content',
+      cat: 'Digital Video Content // वायरल एडिट',
       image: 'assets/projects/dr-pal.webp',
       desc: 'Supporting digital video content through fast-paced editing, visual creative assets, and high-CTR thumbnail designs.',
       tags: ['Video Editing', 'Thumbnail Design', 'Visual Assets', 'Educational Video']
@@ -428,7 +550,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Dr. Kumar Vishwas — Media & Entertainment',
       client: 'Dr. Kumar Vishwas',
       year: '2025–2026',
-      cat: 'Media & Entertainment',
+      cat: 'Media & Entertainment // साहित्य & कला',
       image: 'assets/projects/dr-kumar-vishwas.jpg',
       desc: 'Creative and promotional media work for cultural entertainment, televised appearances, and digital platforms.',
       tags: ['Creative Content', 'Promotional Artwork', 'Stage & Digital PR', 'Media Work']
@@ -437,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Himeya — Product Visuals & Identity',
       client: 'Himeya Living & Personal Care',
       year: '2025',
-      cat: 'Beauty & Personal Care',
+      cat: 'Beauty & Personal Care // लक्ज़री डिजाइन',
       image: 'assets/projects/himeya.jpg',
       desc: 'Visual content and bespoke creative design supporting product communication, digital storytelling, and brand identity.',
       tags: ['Creative Design', 'Product Visuals', 'Brand Identity', 'Product Communication']
@@ -446,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Rock Paper Rum — Lifestyle & Artwork',
       client: 'Rock Paper Rum',
       year: '2025',
-      cat: 'Lifestyle & Beverage',
+      cat: 'Lifestyle & Beverage // लाइफस्टाइल',
       image: 'assets/projects/rock-paper-rum.jpg',
       desc: 'Creative artwork and promotional visuals engineered for distinctive brand communication and product launches.',
       tags: ['Graphic Design', 'Promotional Artwork', 'Lifestyle & Beverage', 'Brand Identity']
@@ -455,14 +577,13 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Halwa Tour Poster — Campaign Typography',
       client: 'Halwa Tour Productions',
       year: '2025',
-      cat: 'Poster & Campaign Design',
+      cat: 'Poster & Campaign Design // टूर पोस्टर मास्टर',
       image: 'assets/projects/halwa-tour.jpg',
       desc: 'Poster design focused on expressive typography, dynamic visual composition, and promotional communication across tour stops.',
       tags: ['Poster Design', 'Typography', 'Artwork Design', 'Campaign Identity']
     }
   };
 
-  // Backwards compatibility aliases
   caseData['Bricks'] = caseData['Traya Health'];
   caseData['Gostan'] = caseData['Kibo Hair Science'];
   caseData['Forbes'] = caseData['Dr. Kumar Vishwas'];
@@ -507,7 +628,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 10. PORTFOLIO CATEGORY FILTER TABS
+  // 11. PORTFOLIO CATEGORY FILTER TABS
   // ========================================================
   const filterPills = document.querySelectorAll('.filter_pill');
   const portfolioCards = document.querySelectorAll('.portfolio_card');
@@ -534,5 +655,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-});
+  // ========================================================
+  // 12. LIVE MUMBAI IST CLOCK
+  // ========================================================
+  const clockEl = document.getElementById('mumbaiClockWork');
+  function updateWorkClock() {
+    if (!clockEl) return;
+    const now = new Date();
+    const options = {
+      timeZone: 'Asia/Kolkata',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    };
+    const formatter = new Intl.DateTimeFormat('en-GB', options);
+    clockEl.textContent = `MUMBAI, IN ${formatter.format(now)} IST`;
+  }
+  updateWorkClock();
+  setInterval(updateWorkClock, 1000);
 
+  // ========================================================
+  // 13. MOBILE MENU TOGGLE
+  // ========================================================
+  const menuToggle = document.querySelector('.menu_toggle');
+  const flyoutMenu = document.getElementById('nav-flyout-menu');
+  const flyoutClose = document.querySelector('.flyout_close_btn');
+  const navOverlay = document.querySelector('.nav_overlay');
+
+  if (menuToggle && flyoutMenu) {
+    function openMobileMenu() {
+      flyoutMenu.classList.add('is-open');
+      if (navOverlay) navOverlay.classList.add('is-active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMobileMenu() {
+      flyoutMenu.classList.remove('is-open');
+      if (navOverlay) navOverlay.classList.remove('is-active');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMobileMenu);
+    if (flyoutClose) flyoutClose.addEventListener('click', closeMobileMenu);
+    if (navOverlay) navOverlay.addEventListener('click', closeMobileMenu);
+  }
+
+});
