@@ -176,11 +176,14 @@ button {
    4. FLOATING RETRO HINDI POP-ART CANVAS (9 BADGES + ROCKET)
 ------------------------------------------------------------- */
 .retro-bg-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 12;
-  overflow: hidden;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  overflow: hidden !important;
 }
 
 .retro-element {
@@ -192,17 +195,18 @@ button {
   will-change: transform;
   --mx: 0px;
   --my: 0px;
+  z-index: 6;
 }
 .retro-element:hover {
   filter: brightness(1.22);
-  z-index: 40;
+  z-index: 7;
 }
 .retro-element:active {
   cursor: grabbing;
 }
 .retro-element.element-clicked-burst {
   filter: brightness(1.4) drop-shadow(0 0 35px var(--orange)) !important;
-  z-index: 70 !important;
+  z-index: 8 !important;
   animation: clickJiggle 0.45s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 @keyframes clickJiggle {
@@ -213,14 +217,14 @@ button {
   100% { transform: translate3d(var(--mx), var(--my), 0) scale(1) rotate(0deg); }
 }
 
-/* 1. ब्रांडिंग (BRANDING) — Retro Matchbox Card */
+/* 1. ब्रांडिंग (BRANDING) — Retro Matchbox Card (Top Right Periphery) */
 .badge-branding {
-  top: 14%; right: 7%;
-  width: 200px;
+  top: 95px; right: 4%;
+  width: 180px;
   background: var(--retro-blue);
   border: 4px solid #ffffff;
   border-radius: 18px;
-  padding: 12px 16px;
+  padding: 10px 14px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(29, 78, 216, 0.4);
   animation: wanderDrift1 24s ease-in-out infinite;
   overflow: hidden;
@@ -240,7 +244,7 @@ button {
   color: var(--retro-yellow); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 2px;
 }
 .branding-title {
-  font-family: var(--font-hindi-yatra); font-size: 34px; line-height: 1.1; color: #ffffff;
+  font-family: var(--font-hindi-yatra); font-size: 32px; line-height: 1.1; color: #ffffff;
   text-shadow: 2px 2px 0 var(--retro-red), 4px 4px 0 #000000;
 }
 .branding-footer {
@@ -253,13 +257,13 @@ button {
   color: #fff; font-size: 8px; font-weight: 700; display: flex; align-items: center; justify-content: center;
 }
 
-/* 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage */
+/* 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage (Far Right Margin) */
 .badge-design {
-  top: 48%; right: 4%;
+  top: 48%; right: 2%;
   background: var(--retro-green);
   border: 4px solid var(--retro-yellow);
   border-radius: 16px;
-  padding: 12px 20px;
+  padding: 10px 18px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(21, 128, 61, 0.4);
   animation: wanderDrift2 28s ease-in-out infinite;
 }
@@ -268,84 +272,84 @@ button {
   color: #dcfce7; letter-spacing: 0.18em; text-transform: uppercase;
 }
 .design-headline {
-  font-family: var(--font-hindi-yatra); font-size: 44px; line-height: 1; color: var(--retro-yellow);
+  font-family: var(--font-hindi-yatra); font-size: 40px; line-height: 1; color: var(--retro-yellow);
   text-shadow: 2px 2px 0 #7f1d1d, 4px 4px 0 #7f1d1d, 6px 6px 0 #7f1d1d, 8px 8px 16px rgba(0,0,0,0.85);
 }
 .design-subline {
   font-family: var(--font-hindi-rozha); font-size: 13px; color: #ffffff; margin-top: 3px; font-weight: 600;
 }
 
-/* 3. प्रमोशन (PROMOTION) — Retro Matchbox / Ticket Style */
+/* 3. प्रमोशन (PROMOTION) — Retro Matchbox / Ticket Style (Bottom Right Margin) */
 .badge-promotion {
-  bottom: 12%; right: 22%;
+  bottom: 40px; right: 18%;
   background: #111116;
   border: 3px solid var(--orange);
   border-radius: 20px;
-  padding: 10px 18px;
+  padding: 8px 16px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 25px var(--orange-glow);
   animation: wanderDrift3 26s ease-in-out infinite;
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; gap: 10px;
 }
 .promotion-icon-pill {
-  width: 36px; height: 36px; border-radius: 50%; background: var(--orange);
+  width: 32px; height: 32px; border-radius: 50%; background: var(--orange);
   color: #fff; display: flex; align-items: center; justify-content: center;
-  font-size: 14px; font-weight: 900; box-shadow: 0 0 15px var(--orange-glow);
+  font-size: 13px; font-weight: 900; box-shadow: 0 0 15px var(--orange-glow);
 }
 .promotion-texts { display: flex; flex-direction: column; }
 .promotion-title {
-  font-family: var(--font-hindi-yatra); font-size: 28px; line-height: 1.1; color: #ffffff;
+  font-family: var(--font-hindi-yatra); font-size: 26px; line-height: 1.1; color: #ffffff;
   text-shadow: 2px 2px 0 var(--orange-deep), 4px 4px 0 #000;
 }
 .promotion-eng {
-  font-family: var(--font-mono); font-size: 9px; color: var(--orange-light); letter-spacing: 0.16em; font-weight: 700;
+  font-family: var(--font-mono); font-size: 8px; color: var(--orange-light); letter-spacing: 0.16em; font-weight: 700;
 }
 
-/* 4. एजेंसी (AGENCY) — Vintage Distressed Stamp */
+/* 4. एजेंसी (AGENCY) — Vintage Distressed Stamp (Top Left Corner) */
 .badge-agency {
-  top: 14%; left: 4%;
-  width: 120px; height: 120px;
+  top: 95px; left: 3%;
+  width: 105px; height: 105px;
   border-radius: 50%;
   border: 3px dashed var(--orange);
   background: rgba(224, 50, 36, 0.15);
   backdrop-filter: blur(8px);
-  padding: 10px;
+  padding: 8px;
   display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), inset 0 0 20px rgba(255, 73, 59, 0.2);
   animation: wanderDrift4 30s ease-in-out infinite;
 }
-.agency-star { font-size: 11px; color: var(--retro-gold); margin-bottom: 2px; }
+.agency-star { font-size: 10px; color: var(--retro-gold); margin-bottom: 2px; }
 .agency-title {
-  font-family: var(--font-hindi-rozha); font-size: 30px; line-height: 1; color: #ffffff;
+  font-family: var(--font-hindi-rozha); font-size: 28px; line-height: 1; color: #ffffff;
   text-shadow: 0 0 12px var(--orange-glow);
 }
 .agency-sub {
   font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: var(--orange-light); letter-spacing: 0.18em;
 }
 
-/* 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag */
+/* 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag (Bottom Left Corner) */
 .badge-slogan {
-  bottom: 14%; left: 6%;
+  bottom: 35px; left: 3%;
   background: var(--retro-cream);
   color: #080809;
-  padding: 10px 18px;
+  padding: 8px 16px;
   border-radius: 6px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 4px 4px 0 var(--orange);
   animation: wanderDrift5 22s ease-in-out infinite;
 }
 .slogan-title {
-  font-family: var(--font-hindi-yatra); font-size: 22px; line-height: 1.1; color: #080809;
+  font-family: var(--font-hindi-yatra); font-size: 20px; line-height: 1.1; color: #080809;
 }
 .slogan-sub {
   font-family: var(--font-mono); font-size: 8px; font-weight: 800; color: #4b5563; letter-spacing: 0.15em;
 }
 
-/* 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket Style */
+/* 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket Style (Far Left Margin) */
 .badge-content {
-  top: 52%; left: 3%;
+  top: 55%; left: 2%;
   background: #1c0e0e;
   border: 3px dashed var(--retro-yellow);
   border-radius: 14px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), 0 0 20px rgba(250, 204, 21, 0.2);
   animation: wanderDrift6 26s ease-in-out infinite;
 }
@@ -353,20 +357,20 @@ button {
   font-family: var(--font-mono); font-size: 8px; font-weight: 800; color: var(--retro-yellow); letter-spacing: 0.15em;
 }
 .content-title {
-  font-family: var(--font-hindi-yatra); font-size: 30px; line-height: 1.1; color: #ffffff;
+  font-family: var(--font-hindi-yatra); font-size: 26px; line-height: 1.1; color: #ffffff;
   text-shadow: 2px 2px 0 var(--retro-red), 3px 3px 0 #000;
 }
 .content-eng {
   font-family: var(--font-mono); font-size: 8px; color: var(--white-dim); letter-spacing: 0.14em;
 }
 
-/* 7. प्रोडक्शन (PRODUCTION) — Indian Truck-Art Pill */
+/* 7. प्रोडक्शन (PRODUCTION) — Indian Truck-Art Pill (Top Center Margin) */
 .badge-production {
-  top: 9%; left: 28%;
+  top: 95px; left: 52%;
   background: #0d2218;
   border: 2px solid #22c55e;
   border-radius: 99px;
-  padding: 8px 18px;
+  padding: 6px 16px;
   display: flex; align-items: center; gap: 8px;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 20px rgba(34, 197, 94, 0.25);
   animation: wanderDrift7 32s ease-in-out infinite;
@@ -375,19 +379,19 @@ button {
   width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e;
 }
 .production-title {
-  font-family: var(--font-hindi-rozha); font-size: 22px; line-height: 1; color: #ffffff;
+  font-family: var(--font-hindi-rozha); font-size: 20px; line-height: 1; color: #ffffff;
 }
 .production-eng {
   font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #86efac; letter-spacing: 0.16em;
 }
 
-/* 8. सोशल मीडिया (SOCIAL MEDIA) — Retro Sunburst Badge */
+/* 8. सोशल मीडिया (SOCIAL MEDIA) — Retro Sunburst Badge (Bottom Right Corner) */
 .badge-social {
-  bottom: 8%; right: 4%;
+  bottom: 35px; right: 3%;
   background: #0d1629;
   border: 3px solid #60a5fa;
   border-radius: 16px;
-  padding: 10px 16px;
+  padding: 8px 14px;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8), 0 0 20px rgba(96, 165, 250, 0.3);
   animation: wanderDrift8 27s ease-in-out infinite;
 }
@@ -395,27 +399,27 @@ button {
   font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: #93c5fd; letter-spacing: 0.15em;
 }
 .social-title {
-  font-family: var(--font-hindi-yatra); font-size: 28px; line-height: 1.1; color: #ffffff;
+  font-family: var(--font-hindi-yatra); font-size: 26px; line-height: 1.1; color: #ffffff;
   text-shadow: 2px 2px 0 #1d4ed8, 3px 3px 0 #000;
 }
 .social-eng {
   font-family: var(--font-mono); font-size: 8px; color: var(--white-dim);
 }
 
-/* 9. ४—११ स्टूडियो (4-11 STUDIO) — Starburst Medallion */
+/* 9. ४—११ स्टूडियो (4-11 STUDIO) — Starburst Medallion (Bottom Center Margin) */
 .badge-seal {
-  bottom: 6%; left: 32%;
+  bottom: 30px; left: 52%;
   background: #240a0b;
   border: 2px solid var(--orange);
   border-radius: 50px;
-  padding: 8px 18px;
+  padding: 6px 16px;
   display: flex; align-items: center; gap: 8px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.75), 0 0 25px var(--orange-glow);
   animation: wanderDrift9 29s ease-in-out infinite;
 }
 .seal-star { color: var(--orange); font-size: 13px; }
 .seal-title {
-  font-family: var(--font-hindi-yatra); font-size: 22px; color: #ffffff; line-height: 1;
+  font-family: var(--font-hindi-yatra); font-size: 20px; color: #ffffff; line-height: 1;
 }
 .seal-eng {
   font-family: var(--font-mono); font-size: 8px; font-weight: 700; color: var(--orange-light); letter-spacing: 0.15em;
@@ -425,9 +429,9 @@ button {
    4b. 4—11 ROCKET SHIP VOYAGER (AUTONOMOUS FLIGHT PHYSICS)
 ------------------------------------------------------------- */
 .rocket-voyager {
-  position: fixed;
+  position: absolute !important;
   top: 0; left: 0;
-  z-index: 25;
+  z-index: 6 !important;
   pointer-events: auto;
   cursor: pointer;
   user-select: none;
@@ -439,6 +443,51 @@ button {
 }
 .rocket-voyager:hover {
   filter: brightness(1.25) drop-shadow(0 0 25px var(--orange-glow));
+}
+
+/* Protection Rules for Tablets and Mobile:
+   Hide center-floating badges & rocket so they never overlap mobile text */
+@media (max-width: 900px) {
+  .badge-design,
+  .badge-promotion,
+  .badge-content,
+  .badge-production,
+  .badge-seal,
+  .rocket-voyager {
+    display: none !important;
+  }
+
+  .badge-branding {
+    top: 85px !important; right: 3% !important; left: auto !important;
+    width: 120px !important; padding: 6px 10px !important;
+    transform: scale(0.68) rotate(4deg) !important;
+    display: block !important;
+  }
+  .branding-title { font-size: 18px !important; }
+
+  .badge-agency {
+    top: 85px !important; left: 3% !important; right: auto !important;
+    width: 72px !important; height: 72px !important;
+    transform: scale(0.65) rotate(-6deg) !important;
+    display: flex !important;
+  }
+  .agency-title { font-size: 16px !important; }
+
+  .badge-slogan {
+    bottom: 20px !important; left: 3% !important; right: auto !important;
+    padding: 6px 12px !important;
+    transform: scale(0.68) rotate(-4deg) !important;
+    display: block !important;
+  }
+  .slogan-title { font-size: 16px !important; }
+
+  .badge-social {
+    bottom: 20px !important; right: 3% !important; left: auto !important;
+    padding: 6px 12px !important;
+    transform: scale(0.68) rotate(4deg) !important;
+    display: block !important;
+  }
+  .social-title { font-size: 16px !important; }
 }
 .rocket-container {
   position: relative; width: 100%; height: 100%; display: flex; align-items: center;
@@ -1072,7 +1121,7 @@ button {
   display: grid;
   grid-template-columns: 55fr 45fr;
   min-height: 100vh;
-  background-color: var(--bg);
+  background-color: transparent;
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--border-subtle);
@@ -1090,6 +1139,12 @@ button {
   justify-content: center;
   align-items: flex-start;
   padding: clamp(6em, 10vw, 9em) clamp(2em, 4vw, 4em) 6em clamp(5em, 8vw, 10em);
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+.service_hero_content > * {
+  pointer-events: auto;
 }
 @media (max-width: 768px) {
   .service_hero_content {
@@ -1100,11 +1155,11 @@ button {
   font-family: var(--font-display);
   font-size: clamp(38px, 4.8vw, 68px);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   color: var(--base);
-  margin-bottom: 0.45em;
-  max-width: 10em;
+  margin-bottom: 0.55em;
+  max-width: 100%;
 }
 .service_hero_text {
   font-size: clamp(17px, 1.5vw, 22px);
@@ -1147,9 +1202,11 @@ button {
 }
 .service_hero_visual {
   position: relative;
+  z-index: 2;
   background-color: #0b0a0a;
   overflow: hidden;
   min-height: 440px;
+  pointer-events: auto;
 }
 .service_hero_visual img {
   position: absolute;
@@ -1166,12 +1223,30 @@ button {
 
 /* -------------------------------------------------------------
    7. SECTION 2: INTRO SECTION (.service_intro)
+   All subsequent sections have solid background & z-index: 20 !important
+   so the hero background elements never bleed or overlap.
 ------------------------------------------------------------- */
+.service_intro,
+.seemore,
+.service_expertise,
+.service_bento,
+.c-projects,
+.c-tiles-stack,
+.industry_video,
+.selected_partners,
+.testimonials,
+.faq-section,
+.site-subpage-footer {
+  position: relative !important;
+  z-index: 20 !important;
+  background-color: var(--bg) !important;
+}
+
 .service_intro {
   padding: 8em clamp(2em, 8vw, 10em);
   background-color: var(--bg);
   position: relative;
-  z-index: 2;
+  z-index: 10;
   border-bottom: 1px solid var(--border-subtle);
 }
 @media (max-width: 768px) {
@@ -2479,8 +2554,44 @@ button {
 /* -------------------------------------------------------------
    18. CASE STUDY DETAIL MODAL (LUXURY DARK GLASS)
 ------------------------------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.modal-overlay.open,
 #project-detail-modal.open {
+  opacity: 1 !important;
+  pointer-events: auto !important;
   display: flex !important;
+}
+.modal-overlay .modal-window {
+  background: #101017;
+  color: #ffffff;
+  border-radius: 1.25em;
+  max-width: 680px;
+  width: 100%;
+  padding: clamp(24px, 4vw, 48px);
+  position: relative;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(24px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.modal-overlay.open .modal-window {
+  transform: translateY(0);
 }
 .modal_proj_media {
   width: 100%;

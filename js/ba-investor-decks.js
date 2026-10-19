@@ -625,6 +625,11 @@ document.addEventListener('DOMContentLoaded', () => {
     projectModal.addEventListener('click', (e) => {
       if (e.target === projectModal) projectModal.classList.remove('open');
     });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal.classList.contains('open')) {
+        projectModal.classList.remove('open');
+      }
+    });
   }
 
   // ========================================================

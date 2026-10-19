@@ -93,14 +93,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const screenH = window.innerHeight;
     const padding = Math.min(60, screenW * 0.06);
 
-    // Protected center zone so text stays legible
+    // Protected text zone so text stays legible
     const isMobile = screenW <= 768;
-    const safeCenterW = isMobile ? screenW * 0.75 : Math.min(680, screenW * 0.6);
-    const safeCenterH = isMobile ? screenH * 0.65 : Math.min(380, screenH * 0.5);
-    const centerMinX = (screenW - safeCenterW) / 2;
-    const centerMaxX = (screenW + safeCenterW) / 2;
-    const centerMinY = (screenH - safeCenterH) / 2;
-    const centerMaxY = (screenH + safeCenterH) / 2;
+    const heroContent = document.querySelector('.service_hero_content');
+    let centerMinX, centerMaxX, centerMinY, centerMaxY;
+    if (heroContent) {
+      const hRect = heroContent.getBoundingClientRect();
+      centerMinX = hRect.left;
+      centerMaxX = hRect.right;
+      centerMinY = hRect.top;
+      centerMaxY = hRect.bottom;
+    } else {
+      const safeCenterW = isMobile ? screenW * 0.75 : Math.min(680, screenW * 0.6);
+      const safeCenterH = isMobile ? screenH * 0.65 : Math.min(380, screenH * 0.5);
+      centerMinX = (screenW - safeCenterW) / 2;
+      centerMaxX = (screenW + safeCenterW) / 2;
+      centerMinY = (screenH - safeCenterH) / 2;
+      centerMaxY = (screenH + safeCenterH) / 2;
+    }
 
     retroElements.forEach((el, i) => {
       const state = elementStates[i];
