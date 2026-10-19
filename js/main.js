@@ -701,7 +701,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 9. WORK PAGE: BRAND APPART STACKED CARDS CONTROLLER
+  // 9. WORK PAGE: BRAND APPART STACKED CARDS CONTROLLER (VIDEO REF)
   // ========================================================
   const stackContainer = document.getElementById('tiles-stack-container');
   const stackItems = document.querySelectorAll('.tiles_stack_item');
@@ -711,10 +711,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (stackContainer && stackItems.length) {
     const cardDefs = [
-      { idx: 0, title: '(01) Branding & Identity', color: '#3b35ba' },
-      { idx: 1, title: '(02) Film & Motion', color: '#ff493b' },
-      { idx: 2, title: '(03) Digital Flagships', color: '#df2626' },
-      { idx: 3, title: '(04) Decks & Campaigns', color: '#785f47' }
+      { idx: 0, title: '(01) Branding & Identity', color: '#242bc6' },
+      { idx: 1, title: '(02) Product Experience', color: '#ff5c26' },
+      { idx: 2, title: '(03) Web Design', color: '#ea3834' },
+      { idx: 3, title: '(04) Investor Decks', color: '#6b5a45' }
     ];
 
     let currentActiveIdx = 0;
@@ -723,12 +723,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!bottomTabsWrap) return;
       bottomTabsWrap.innerHTML = '';
       
-      // Collect cards that are not active
+      // Collect cards that are underneath in the stack (only those after activeIdx)
       const underCards = [];
-      for (let i = 0; i < cardDefs.length; i++) {
-        if (i !== activeIdx) {
-          underCards.push(cardDefs[i]);
-        }
+      for (let i = activeIdx + 1; i < cardDefs.length; i++) {
+        underCards.push(cardDefs[i]);
       }
 
       underCards.forEach((card, order) => {
@@ -765,23 +763,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // Update Stack items
-      const underIndices = [];
-      for (let i = 0; i < stackItems.length; i++) {
-        if (i !== targetIdx) underIndices.push(i);
-      }
-
       stackItems.forEach((item, idx) => {
-        item.classList.remove('active', 'under-1', 'under-2', 'under-3');
+        item.classList.remove('active', 'under-1', 'under-2', 'under-3', 'passed');
 
         if (idx === targetIdx) {
           item.classList.add('active');
           item.style.zIndex = '10';
+        } else if (idx < targetIdx) {
+          // Cards that have passed / slid away
+          item.classList.add('passed');
+          item.style.zIndex = `${1 + idx}`;
         } else {
-          const underPos = underIndices.indexOf(idx);
-          if (underPos === 0) {
+          // Cards peeking underneath
+          const diff = idx - targetIdx;
+          if (diff === 1) {
             item.classList.add('under-1');
             item.style.zIndex = '8';
-          } else if (underPos === 1) {
+          } else if (diff === 2) {
             item.classList.add('under-2');
             item.style.zIndex = '6';
           } else {
@@ -796,11 +794,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nav button event listeners
     shipNavBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         const idx = parseInt(btn.getAttribute('data-deck-index'), 10);
         activateStackCard(idx);
       });
     });
+
+    // Direct click on any stacked card that is peeking
+    stackItems.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        if (idx !== currentActiveIdx) {
+          e.stopPropagation();
+          activateStackCard(idx);
+        }
+      });
+    });
+
+    // Mousewheel scroll cycling inside services section
+    let isScrollingCards = false;
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > 35 && !isScrollingCards) {
+          if (e.deltaY > 0 && currentActiveIdx < stackItems.length - 1) {
+            e.preventDefault();
+            isScrollingCards = true;
+            activateStackCard(currentActiveIdx + 1);
+            setTimeout(() => { isScrollingCards = false; }, 550);
+          } else if (e.deltaY < 0 && currentActiveIdx > 0) {
+            e.preventDefault();
+            isScrollingCards = true;
+            activateStackCard(currentActiveIdx - 1);
+            setTimeout(() => { isScrollingCards = false; }, 550);
+          }
+        }
+      }, { passive: false });
+    }
+
+    // Touch swipe support on mobile
+    let touchStartY = 0;
+    stackContainer.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    stackContainer.addEventListener('touchend', (e) => {
+      const deltaY = touchStartY - e.changedTouches[0].clientY;
+      if (Math.abs(deltaY) > 40) {
+        if (deltaY > 0 && currentActiveIdx < stackItems.length - 1) {
+          activateStackCard(currentActiveIdx + 1);
+        } else if (deltaY < 0 && currentActiveIdx > 0) {
+          activateStackCard(currentActiveIdx - 1);
+        }
+      }
+    }, { passive: true });
+
+    // Initialize initial state
+    activateStackCard(0);
 
     // Magnetic Cursor Badge
     if (magneticCursor) {
@@ -812,26 +862,6 @@ document.addEventListener('DOMContentLoaded', () => {
         magneticCursor.style.top = `${y}px`;
       });
     }
-
-    // Clicking "SEE OUR CASE STUDIES →" pill
-    const casePills = document.querySelectorAll('.service-card-case-pill');
-    casePills.forEach(pill => {
-      pill.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetCat = pill.getAttribute('data-open-cat');
-        const archiveSection = document.getElementById('work-archive');
-        
-        // Filter archive
-        if (targetCat) {
-          const matchingBtn = document.querySelector(`.filter-btn[data-filter="${targetCat}"]`);
-          if (matchingBtn) matchingBtn.click();
-        }
-
-        if (archiveSection) {
-          archiveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
 
     // Clicking individual visual tiles opens the case study modal
     const galleryTiles = document.querySelectorAll('.service-gallery-tile');

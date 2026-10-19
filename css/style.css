@@ -2451,7 +2451,9 @@ body.subpage {
 .tiles_stack_list {
   position: relative;
   width: 100%;
-  min-height: 560px;
+  min-height: 670px;
+  height: 670px;
+  margin-bottom: 40px;
 }
 
 /* Individual Stack Item */
@@ -2460,52 +2462,107 @@ body.subpage {
   top: 0;
   left: 0;
   width: 100%;
+  height: 550px;
   border-radius: 28px;
   overflow: hidden;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              opacity 0.5s ease, 
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+              opacity 0.45s ease, 
               box-shadow 0.6s ease;
-  transform-origin: center bottom;
+  transform-origin: center top;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
 }
 
 /* Active card state */
 .tiles_stack_item.active {
-  position: relative;
   transform: translateY(0) scale(1);
   opacity: 1;
   z-index: 10 !important;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Underlying cards resting underneath */
 .tiles_stack_item.under-1 {
-  transform: translateY(18px) scale(0.975);
-  opacity: 0.95;
+  transform: translateY(38px) scale(0.975);
+  opacity: 1;
   z-index: 8 !important;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+.tiles_stack_item.under-1:hover {
+  transform: translateY(32px) scale(0.978);
 }
 
 .tiles_stack_item.under-2 {
-  transform: translateY(34px) scale(0.95);
-  opacity: 0.9;
+  transform: translateY(68px) scale(0.95);
+  opacity: 1;
   z-index: 6 !important;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.tiles_stack_item.under-2:hover {
+  transform: translateY(62px) scale(0.953);
 }
 
 .tiles_stack_item.under-3 {
-  transform: translateY(48px) scale(0.925);
-  opacity: 0.85;
+  transform: translateY(98px) scale(0.925);
+  opacity: 1;
   z-index: 4 !important;
+  cursor: pointer;
+  pointer-events: auto;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tiles_stack_item.under-3:hover {
+  transform: translateY(92px) scale(0.928);
+}
+
+/* Cards that have passed */
+.tiles_stack_item.passed {
+  transform: translateY(-40px) scale(0.92);
+  opacity: 0;
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+/* Bottom Tab Badge on Exposed Stepped Strip */
+.bottom-tab-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  opacity: 0.95;
+  pointer-events: none;
+  z-index: 5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.tiles_stack_item.active .bottom-tab-badge {
+  display: none;
 }
 
 /* Service Card Layout */
 .service-card {
-  padding: clamp(28px, 4vw, 48px);
+  padding: clamp(28px, 4vw, 44px);
   border-radius: 28px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 540px;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 550px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   position: relative;
   overflow: hidden;

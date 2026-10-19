@@ -343,42 +343,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 6. STICKY PROCESS STACK CARDS SCROLL EFFECT ("EK KE UPAR EK")
+  // 6. PROCESS STACK CARDS (MANAGED VIA BRAND APPART DECK CONTROLLER IN MAIN.JS)
   // ========================================================
-  const stackItems = document.querySelectorAll('.tiles_stack_item');
-  if (stackItems.length > 0) {
-    function updateStacking() {
-      const isMobile = window.innerWidth <= 800;
-      const stepOffset = isMobile ? 28 : 44;
-      const baseStickyTop = isMobile ? 75 : 90;
-
-      stackItems.forEach((item, idx) => {
-        // Count how many subsequent cards have arrived and stacked above this card
-        let stackedAbove = 0;
-        for (let j = idx + 1; j < stackItems.length; j++) {
-          const nextRect = stackItems[j].getBoundingClientRect();
-          const targetTop = baseStickyTop + (j * stepOffset);
-          if (nextRect.top <= targetTop + 5) {
-            stackedAbove++;
-          }
-        }
-
-        if (stackedAbove > 0) {
-          const scale = Math.max(0.88, 1 - (stackedAbove * 0.028));
-          const brightness = Math.max(0.68, 1 - (stackedAbove * 0.07));
-          item.style.transform = `scale(${scale})`;
-          item.style.filter = `brightness(${brightness})`;
-        } else {
-          item.style.transform = 'scale(1)';
-          item.style.filter = 'brightness(1)';
-        }
-      });
-    }
-
-    window.addEventListener('scroll', updateStacking, { passive: true });
-    window.addEventListener('resize', updateStacking, { passive: true });
-    updateStacking();
-  }
 
   // ========================================================
   // 7. INDUSTRY VIDEO PLAYER & AUDIO MUTE TOGGLE

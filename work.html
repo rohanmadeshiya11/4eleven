@@ -829,8 +829,8 @@
       </div>
     </section>
 
-    <!-- SECTION 7: PROCESS CARDS STACK (STICKY STACKING WITH MAGNETIC CURSOR) -->
-    <section id="services" class="services u-section">
+    <!-- SECTION 7: PROCESS CARDS STACK ("EK KE UPAR EK" LAYERED DECK FROM REFERENCE VIDEO) -->
+    <section id="services" class="services u-section ship-stacked-section">
       <div class="container">
         <div class="headline">
           <div class="desi-sub-tag" style="justify-content:center; display:flex;">
@@ -844,112 +844,259 @@
           <div aria-hidden="true" class="services_intro_arrow">↓</div>
           <p class="services_intro_text">How we create high-impact work : from initial creative spark to final master export.</p>
         </div>
-        <div class="c-tiles-stack">
-          <div class="cursor">
-            <div class="text-youth">Explore projects ↗</div>
-            <div class="icon cursor-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none"><path d="M10 6.2973L2 6.2973" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7.50014 8.79742C7.50014 8.79742 10.0001 6.9562 10.0001 6.2974C10.0001 5.63861 7.50012 3.79742 7.50012 3.79742" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+        <!-- Quick Navigation Pills for the Stack -->
+        <div class="ship-deck-nav">
+          <button class="ship-nav-btn active" data-deck-index="0"><span>(01)</span> Branding &amp; Identity</button>
+          <button class="ship-nav-btn" data-deck-index="1"><span>(02)</span> Product Experience</button>
+          <button class="ship-nav-btn" data-deck-index="2"><span>(03)</span> Web Design</button>
+          <button class="ship-nav-btn" data-deck-index="3"><span>(04)</span> Investor Decks</button>
+        </div>
+
+        <!-- The Stacked Card Deck Container -->
+        <div class="c-tiles-stack-container" id="tiles-stack-container">
+          <div class="tiles_stack_list" id="tiles-stack-list">
+
+            <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
+            <div class="tiles_stack_item active" data-card-idx="0" style="background-color: #242bc6; z-index: 10;">
+              <div class="service-card" style="background-color: #242bc6;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Branding that drives conversion &amp; funding.</h3>
+                    <div class="service-card-count">(01)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We clarify your positioning, define a distinctive tone of voice, and build a visual system that works across acquisition and product. Each sprint ships a robust logo, pragmatic brand guidelines, and a social kit so you can launch fast. The goal is simple: perceived value up.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “Working with Brand Appart has been an absolute pleasure. Beyond their creativity and professionalism, there’s a real sense of kindness and care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. Truly impressed by their reliability, flexibility, and collaborative spirit.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-david.avif" alt="Jérémy Bendayan" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Jérémy Bendayan</div>
+                        <div class="author-title">Co-founder &amp; COO @Jaws Group</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Neon Lime "IN" -->
+                      <div class="service-gallery-tile tile-lime" data-project-target="Aura Systems" title="View Aura Systems Case Study">
+                        <div class="tile-lime-inner">
+                          <span class="tile-lime-logo">IN</span>
+                        </div>
+                        <span class="tile-hover-tag">Brand Identity</span>
+                      </div>
+
+                      <!-- Tile 2: Cream Linen 3D Embossed "IMPORTANT HOUSE" -->
+                      <div class="service-gallery-tile tile-beige-emboss" data-project-target="Mumbai Noir" title="View Mumbai Noir Case Study">
+                        <div class="tile-emboss-texture"></div>
+                        <div class="tile-emboss-text">
+                          <span>IMPORTANT</span>
+                          <span>HOUSE</span>
+                        </div>
+                        <span class="tile-hover-tag">Embossed Identity</span>
+                      </div>
+
+                      <!-- Tile 3: Cadmium Yellow Script "Qio" -->
+                      <div class="service-gallery-tile tile-yellow-script" data-project-target="Running Club" title="View Running Club Case Study">
+                        <div class="tile-script-inner">
+                          <span class="tile-script-logo">Qio</span>
+                        </div>
+                        <span class="tile-hover-tag">Design System</span>
+                      </div>
+
+                      <!-- Tile 4: Obsidian Black with Fiery Orange 4-11 Symbol -->
+                      <div class="service-gallery-tile tile-noir-symbol" data-project-target="Afterglow" title="View 4-11 Brand Mark">
+                        <div class="tile-noir-inner">
+                          <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="tile-411-glyph">
+                        </div>
+                        <span class="tile-hover-tag">Brand Mark</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom-tab-badge"><span>(01) Branding &amp; Identity</span></div>
+              </div>
             </div>
-          </div>
-          <div class="tiles_stack_wrapper">
-            <div class="tiles_stack_list">
-              
-              <!-- 01: Discovery -->
-              <div class="tiles_stack_item" style="--card-index: 0; z-index: 10;">
-                <div data-cursor="" class="service-card is-process" style="background: linear-gradient(135deg, #1e1b4b, #312e81);">
-                  <a class="service-card-link u-cover w-inline-block" href="#featured-projects"></a>
-                  <div class="service-card-title">
-                    <div class="service-card-count text-large">(01) खोज और दृष्टि // DISCOVERY</div>
-                    <h3 class="service_card_title">Discovery &amp; Creative Vision</h3>
+
+            <!-- CARD 02: PRODUCT EXPERIENCE (Vibrant Warm Orange) -->
+            <div class="tiles_stack_item under-1" data-card-idx="1" style="background-color: #ff5c26; z-index: 8;">
+              <div class="service-card" style="background-color: #ff5c26;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Product experiences users adopt &amp; keep using.</h3>
+                    <div class="service-card-count">(02)</div>
                   </div>
-                  <div class="service-card-content">
-                    <div class="service-card-quote">
-                      <blockquote class="text-xs">We immerse ourselves in your creative identity, audience expectations, and content goals. Identifying key hooks, tone of voice, and visual benchmarks.</blockquote>
+                  <p class="service-card-desc">
+                    We align with business goals, map the critical journeys, and prototype what actually moves the needle. Every sprint ships clear flows, a reusable UI library, and a dev-ready export. Time to value down, UX friction down, retention/NPS up.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “A team that's now my go-to for branding and product design. The Incard mobile launch shattered our adoption projections in week one. Total conviction, speed, and craft.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-theo.avif" alt="Théo Cesarini" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Théo Cesarini</div>
+                        <div class="author-title">CEO &amp; Co-Founder @Incard &amp; @Fundree</div>
+                      </div>
                     </div>
                   </div>
-                  <div class="service-card-visual">
-                    <img alt="Creative Discovery" loading="lazy" decoding="async" class="u-cover" sizes="40vw" src="assets/ba/marquee-01.jpg"/>
-                  </div>
-                </div>
-              </div>
 
-              <!-- 02: Strategy -->
-              <div class="tiles_stack_item" style="--card-index: 1; z-index: 11;">
-                <div data-cursor="" class="service-card is-process" style="background: linear-gradient(135deg, #78350f, #92400e);">
-                  <a class="service-card-link u-cover w-inline-block" href="#featured-projects"></a>
-                  <div class="service-card-title">
-                    <div class="service-card-count text-large">(02) रणनीति और कहानी // STRATEGY</div>
-                    <h3 class="service_card_title">Content Strategy &amp; Narrative</h3>
-                  </div>
-                  <div class="service-card-content">
-                    <div class="service-card-quote">
-                      <blockquote class="text-xs">Detailed storyboarding, footage selection, and narrative sequencing. We plan the retention arc, graphic callouts, and sound cues before post-production begins.</blockquote>
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Fintech Dashboard Mockup -->
+                      <div class="service-gallery-tile tile-cinema-1" data-project-target="Pronto" title="View Dashboard Flow">
+                        <img src="assets/ba/fintech-hero.jpg" alt="Incard Analytics Dashboard" class="tile-img-fill">
+                        <div class="tile-film-overlay">
+                          <span class="tile-timecode">INCARD // V2.4</span>
+                          <span class="tile-play-icon">↗</span>
+                        </div>
+                        <span class="tile-hover-tag">Product UI</span>
+                      </div>
+
+                      <!-- Tile 2: Mobile Checkout Flow -->
+                      <div class="service-gallery-tile" data-project-target="Pronto" title="View Mobile Flow" style="background:#1a100c; overflow:hidden;">
+                        <img src="assets/ba/circle-qonnect.avif" alt="Mobile App Flow" class="tile-img-fill" style="object-fit:cover;">
+                        <span class="tile-hover-tag">Mobile Flow</span>
+                      </div>
+
+                      <!-- Tile 3: Onboarding 3D Cards -->
+                      <div class="service-gallery-tile" data-project-target="Pronto" title="View Onboarding" style="background:#261309; overflow:hidden;">
+                        <img src="assets/ba/circle-gostan.avif" alt="3D Onboarding Cards" class="tile-img-fill" style="object-fit:cover;">
+                        <span class="tile-hover-tag">Onboarding</span>
+                      </div>
                     </div>
                   </div>
-                  <div class="service-card-visual">
-                    <img alt="Content Strategy" loading="lazy" decoding="async" class="u-cover" sizes="40vw" src="assets/ba/marquee-02.jpg"/>
-                  </div>
                 </div>
+                <div class="bottom-tab-badge"><span>(02) Product Experience</span></div>
               </div>
-
-              <!-- 03: Craft -->
-              <div class="tiles_stack_item" style="--card-index: 2; z-index: 12;">
-                <div data-cursor="" class="service-card is-process" style="background: linear-gradient(135deg, #9a3412, #c2410c);">
-                  <a class="service-card-link u-cover w-inline-block" href="#featured-projects"></a>
-                  <div class="service-card-title">
-                    <div class="service-card-count text-large">(03) कारीगरी और मोशन // PRODUCTION</div>
-                    <h3 class="service_card_title">Editing, Motion &amp; Visual Design</h3>
-                  </div>
-                  <div class="service-card-content">
-                    <div class="service-card-quote">
-                      <blockquote class="text-xs">Precision video editing, audio mastering, custom color grading, motion graphics, and high-converting thumbnail and poster artwork designed to stand out.</blockquote>
-                    </div>
-                  </div>
-                  <div class="service-card-visual">
-                    <img alt="Production &amp; Craft" loading="lazy" decoding="async" class="u-cover" sizes="40vw" src="assets/ba/marquee-03.jpg"/>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 04: Refinements -->
-              <div class="tiles_stack_item" style="--card-index: 3; z-index: 13;">
-                <div data-cursor="" class="service-card is-process" style="background: linear-gradient(135deg, #881337, #9f1239);">
-                  <a class="service-card-link u-cover w-inline-block" href="#featured-projects"></a>
-                  <div class="service-card-title">
-                    <div class="service-card-count text-large">(04) परख और सुधार // REFINEMENTS</div>
-                    <h3 class="service_card_title">Revisions &amp; Pacing Refinements</h3>
-                  </div>
-                  <div class="service-card-content">
-                    <div class="service-card-quote">
-                      <blockquote class="text-xs">Collaborative feedback cycles to fine-tune comedic timing, musical transitions, typographic layouts, and platform-specific format adjustments.</blockquote>
-                    </div>
-                  </div>
-                  <div class="service-card-visual">
-                    <img alt="Revisions &amp; Delivery" loading="lazy" decoding="async" class="u-cover" sizes="40vw" src="assets/ba/marquee-04.jpg"/>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 05: Delivery -->
-              <div class="tiles_stack_item" style="--card-index: 4; z-index: 14;">
-                <div data-cursor="" class="service-card is-process" style="background: linear-gradient(135deg, #0f172a, #1e293b);">
-                  <a class="service-card-link u-cover w-inline-block" href="#featured-projects"></a>
-                  <div class="service-card-title">
-                    <div class="service-card-count text-large">(05) सम्पूर्ण मास्टर डिलीवरी // OMNICHANNEL</div>
-                    <h3 class="service_card_title">Omnichannel Master Delivery</h3>
-                  </div>
-                  <div class="service-card-content">
-                    <div class="service-card-quote">
-                      <blockquote class="text-xs">Final export in 4K/ProRes, vertical 9:16 reels, print-ready CMYK poster files, and social media asset kits ready for immediate distribution.</blockquote>
-                    </div>
-                  </div>
-                  <div class="service-card-visual">
-                    <img alt="Omnichannel Master Delivery" loading="lazy" decoding="async" class="u-cover" sizes="40vw" src="assets/projects/halwa-tour.jpg"/>
-                  </div>
-                </div>
-              </div>
-
             </div>
+
+            <!-- CARD 03: WEB DESIGN (Rich Crimson Red) -->
+            <div class="tiles_stack_item under-2" data-card-idx="2" style="background-color: #ea3834; z-index: 6;">
+              <div class="service-card" style="background-color: #ea3834;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Web Design for growing teams &amp; business.</h3>
+                    <div class="service-card-count">(03)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We align messaging, page architecture, and UI. You get clear structure, sections. The site loads fast, tells the right story, and pushes to action without dev firefighting. Your team gets a scalable base they can evolve without calling us for every change.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “Our new web platform delivered a 3x lift in inbound pipeline within 30 days. Fast, precise, and completely aligned with our growth milestones.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-alexis.avif" alt="Alexis Benoit" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Alexis Benoit</div>
+                        <div class="author-title">Head of Growth @Meka Design</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Web Platform Showcase -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Web Platform" style="background:#1a0808; overflow:hidden;">
+                        <img src="assets/ba/marquee-02.jpg" alt="Dark UI Platform" class="tile-img-fill">
+                        <span class="tile-hover-tag">Dark Architecture</span>
+                      </div>
+
+                      <!-- Tile 2: Responsive Web Architecture -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Web Mockup" style="background:#260a0a; overflow:hidden;">
+                        <img src="assets/ba/marquee-03.jpg" alt="SaaS Web Mockup" class="tile-img-fill">
+                        <span class="tile-hover-tag">SaaS Flagship</span>
+                      </div>
+
+                      <!-- Tile 3: MEKA Typography Portal -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Portal" style="background:#140505; overflow:hidden;">
+                        <img src="assets/ba/marquee-04.jpg" alt="MEKA Brand Portal" class="tile-img-fill">
+                        <span class="tile-hover-tag">Design System</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom-tab-badge"><span>(03) Web Design</span></div>
+              </div>
+            </div>
+
+            <!-- CARD 04: INVESTOR DECKS (Warm Bronze Brown) -->
+            <div class="tiles_stack_item under-3" data-card-idx="3" style="background-color: #6b5a45; z-index: 4;">
+              <div class="service-card" style="background-color: #6b5a45;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Investor-proof decks that raise faster.</h3>
+                    <div class="service-card-count">(04)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We craft the narrative that gets meetings and a precise ask. Design serves the story: readable numbers, rhythm across slides, and versions for teaser/one-pager. Your deck can be pitched in 5 minutes, read solo, and generates faster responses.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “In a crowded funding round, 4—11’s deck was the single asset every partner paused on. Closed our Series A two weeks ahead of schedule with total investor conviction.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-yoann.jpg" alt="Rohan Mehra" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Rohan Mehra</div>
+                        <div class="author-title">Founder @Aura Protocol</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: 3D Floating Deck Carousel -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Deck Carousel" style="background:#1e1711; overflow:hidden;">
+                        <img src="assets/ba/circle-bricks.avif" alt="Slide Carousel Mockup" class="tile-img-fill">
+                        <span class="tile-hover-tag">Deck Carousel</span>
+                      </div>
+
+                      <!-- Tile 2: Metric Growth Slide -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Metrics Slide" style="background:#281e14; overflow:hidden;">
+                        <img src="assets/ba/marquee-01.jpg" alt="Growth Slide" class="tile-img-fill">
+                        <span class="tile-hover-tag">Metrics Slide</span>
+                      </div>
+
+                      <!-- Tile 3: Typography & Poster Craft -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Typography" style="background:#19120c; overflow:hidden;">
+                        <img src="assets/projects/halwa-tour.jpg" alt="Halwa Tour Poster Craft" class="tile-img-fill">
+                        <span class="tile-hover-tag">Editorial Craft</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bottom-tab-badge"><span>(04) Investor Decks</span></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
