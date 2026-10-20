@@ -712,57 +712,102 @@ document.addEventListener('DOMContentLoaded', () => {
       gsap.registerPlugin(ScrollTrigger);
 
       // 1. Initial resting stepped layer setup
+      // Card 0 at front, Cards 1, 2, 3 stepped behind peeking at bottom
       stackItems.forEach((item, i) => {
         gsap.set(item, {
-          y: i * 30,
-          scale: 1 - i * 0.015,
+          y: i * 28,
+          scale: 1 - i * 0.016,
           z: -30 * i,
-          transformOrigin: 'top center',
+          transformOrigin: 'center top',
           zIndex: stackItems.length - i,
           opacity: 1
         });
       });
 
-      // 2. Scrubbed Timeline driven purely by native window scroll
+      // 2. Scrubbed Timeline with GSAP Pinning
+      // Locks the stack in viewport so each card is experienced one by one
+      const isMobile = window.innerWidth <= 768;
+
       const deckTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: stackWrapper,
-          start: 'top top+=80',
+          pin: stackList,
+          start: () => isMobile ? 'top top+=80' : 'top top+=75',
           end: 'bottom bottom',
-          scrub: 0.5,
-          invalidateOnRefresh: true
+          scrub: 1,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          pinSpacing: false
         }
       });
 
-      // Animate each active card sliding up and away to reveal the next
-      for (let i = 0; i < stackItems.length - 1; i++) {
+      // 3. One-by-one transitions for the cards:
+      // Card 0: Branding (Indigo)
+      // Card 1: Product (Orange)
+      // Card 2: Web Design (Crimson)
+      // Card 3: Investor Decks (Bronze Taupe)
+      // Each transition has:
+      // - Resting dwell period so the card is completely still & readable
+      // - 3D lift animation where active card flies up into perspective
+      // - Subsequent cards step up to take primary position
+      const numTransitions = stackItems.length - 1; // 3 transitions
+      
+      for (let i = 0; i < numTransitions; i++) {
         const currentCard = stackItems[i];
-        const stepTime = i * 1.1;
+        // Time slot allocation:
+        // Slot i starts at i * 2.2
+        // Dwell pause from (i * 2.2) to (i * 2.2 + 0.6)
+        // Transition from (i * 2.2 + 0.6) to (i * 2.2 + 2.0)
+        const tStart = i * 2.2 + 0.6;
+        const liftDuration = 1.4;
 
-        // Active card flies up into perspective
+        // Active card tilts, scales slightly down, and lifts out of screen
         deckTimeline.to(currentCard, {
-          y: -window.innerHeight * 0.85,
-          rotateX: 14,
+          y: -window.innerHeight * 0.95,
+          rotateX: 16,
           scale: 0.92,
           opacity: 0,
-          duration: 1,
+          duration: liftDuration,
           ease: 'power2.inOut'
-        }, stepTime);
+        }, tStart);
 
-        // Subsequent cards shift up to take the main stage
+        // Content elements inside active card tilt slightly like Brand Appart
+        const cardContent = currentCard.querySelector('.service-card-content');
+        const cardHeader = currentCard.querySelector('.service-card-header');
+        if (cardContent) {
+          deckTimeline.to(cardContent, {
+            y: -50,
+            rotateX: 25,
+            duration: liftDuration,
+            ease: 'power2.inOut'
+          }, tStart);
+        }
+        if (cardHeader) {
+          deckTimeline.to(cardHeader, {
+            y: -70,
+            rotateX: 25,
+            duration: liftDuration,
+            ease: 'power2.inOut'
+          }, tStart);
+        }
+
+        // All subsequent cards step up one tier
         for (let j = i + 1; j < stackItems.length; j++) {
           const stepOffset = j - (i + 1);
           deckTimeline.to(stackItems[j], {
-            y: stepOffset * 30,
-            scale: 1 - stepOffset * 0.015,
+            y: stepOffset * 28,
+            scale: 1 - stepOffset * 0.016,
             z: -30 * stepOffset,
-            duration: 1,
+            duration: liftDuration,
             ease: 'power2.inOut'
-          }, stepTime);
+          }, tStart);
         }
       }
 
-      // 3. Direct click on any peeking card scrolls page to bring it to top
+      // Add a trailing pause so Card 3 (Investor Decks) rests cleanly before section unpins
+      deckTimeline.to({}, { duration: 0.8 });
+
+      // 4. Direct click on any peeking card scrolls page to bring it to front
       stackItems.forEach((item, idx) => {
         item.addEventListener('click', (e) => {
           if (e.target.closest('.service-gallery-tile') || e.target.closest('a')) return;
