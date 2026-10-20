@@ -1590,13 +1590,75 @@ button {
 }
 .service_benefits_title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 4.2vw, 56px);
+  font-size: clamp(26px, 4.2vw, 56px);
   font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: var(--base);
   text-align: center;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
+  word-break: break-word;
+}
+@media (max-width: 480px) {
+  .service_benefits_title {
+    font-size: clamp(22px, 6.5vw, 28px);
+    line-height: 1.15;
+  }
+  .port_kicker {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    white-space: normal;
+    text-align: center;
+  }
+  .portfolio_filters {
+    gap: 8px;
+    margin-bottom: 2rem;
+  }
+  .filter_pill {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+}
+
+/* Category Filter Tabs */
+/* =============================================================
+   11. SECTION 6: GOOD PEOPLE. GREAT IDEAS. (PORTFOLIO SHOWCASE)
+   ============================================================= */
+.port_kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #fbbf24;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.port_kicker_dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff493b;
+  box-shadow: 0 0 10px #ff493b;
+}
+.port_title_gradient {
+  background: linear-gradient(135deg, #ffffff 20%, #ff6859 70%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+.port_subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #a1a1aa;
 }
 
 /* Category Filter Tabs */
@@ -1604,85 +1666,103 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8em;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 3.5em;
+  margin-bottom: 3.2rem;
 }
 .filter_pill {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-  color: #d4d4d8;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #a1a1aa;
   font-family: var(--font-mono);
   font-size: 12px;
-  padding: 8px 18px;
+  padding: 9px 18px;
   border-radius: 99px;
   cursor: pointer;
-  transition: all 0.25s var(--ease);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.filter_pill.active,
+.filter_pill span.pill_count {
+  opacity: 0.55;
+  font-size: 11px;
+}
 .filter_pill:hover {
-  background: var(--orange);
   color: #ffffff;
-  border-color: var(--orange);
-  box-shadow: 0 0 16px var(--orange-glow);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+.filter_pill.active {
+  background: #ff493b;
+  color: #ffffff;
+  border-color: #ff493b;
+  box-shadow: 0 4px 20px rgba(255, 73, 59, 0.35);
+}
+.filter_pill.active span.pill_count {
+  opacity: 0.85;
 }
 
 /* 12 Projects Grid */
 .portfolio_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.85em;
+  gap: 26px;
 }
 @media (max-width: 1024px) {
   .portfolio_grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 }
 @media (max-width: 640px) {
   .portfolio_grid {
     grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
 
+/* Portfolio Card - Modern Uncluttered Editorial */
 .portfolio_card {
-  background-color: #121218;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--border-radius);
-  padding: 1.4em 1.4em 1.8em;
+  background: #0d0d12;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 22px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 25em;
-  position: relative;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, background-color 0.25s ease;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
+  position: relative;
   overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease,
+              background-color 0.4s ease;
 }
 .portfolio_card.is-light,
 .portfolio_card.is-taupe {
-  background-color: #121218;
+  background: #0d0d12;
 }
 .portfolio_card:hover {
   transform: translateY(-8px);
-  background-color: #161622;
-  border-color: rgba(255, 73, 59, 0.45);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--orange-glow);
+  background: #111118;
+  border-color: rgba(255, 73, 59, 0.35);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 73, 59, 0.12);
 }
 
-.portfolio_card_media {
+/* Media Box */
+.port_media_box {
   width: 100%;
   height: 220px;
-  border-radius: calc(var(--border-radius) - 6px);
+  border-radius: 16px;
   overflow: hidden;
-  margin-bottom: 1.35em;
   position: relative;
-  background-color: #0c0c10;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #060608;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
-.portfolio_card_img {
+.port_media_img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1690,93 +1770,140 @@ button {
   display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.portfolio_card:hover .portfolio_card_img {
-  transform: scale(1.06);
-}
-.portfolio_card_media_badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-  background: rgba(10, 10, 14, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 4px 10px;
-  border-radius: 99px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index: 2;
+.portfolio_card:hover .port_media_img {
+  transform: scale(1.05);
 }
 
-.portfolio_card_top {
+/* Floating Glass Badges */
+.port_media_top {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.9em;
+  z-index: 2;
+  pointer-events: none;
 }
-.portfolio_card_count {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--retro-gold);
-}
-.portfolio_card_domain {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.port_badge_category {
+  background: rgba(13, 13, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 4px 12px;
   border-radius: 99px;
-  background-color: rgba(255, 255, 255, 0.06);
-  color: #ffffff;
-}
-.portfolio_card_name {
-  font-family: var(--font-display);
-  font-size: clamp(1.5em, 1.9vw, 2em);
-  font-weight: 900;
-  line-height: 1.1;
-  color: #ffffff;
-  margin-bottom: 0.5em;
-}
-.portfolio_card_desc {
-  font-size: 0.92em;
-  line-height: 1.55;
-  color: #a1a1aa;
-  margin-bottom: 1.35em;
-  flex-grow: 1;
-}
-.portfolio_card_services {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4em 0.6em;
-  align-items: center;
-  padding-top: 1.1em;
-  border-top: 1px solid var(--border-subtle);
-}
-.portfolio_service_tag {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--orange);
-  background: rgba(255, 73, 59, 0.1);
-  border: 1px solid rgba(255, 73, 59, 0.25);
-  padding: 3px 8px;
-  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #f4f4f5;
+  text-transform: uppercase;
 }
-.portfolio_card_cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 1em;
-  font-family: var(--font-display);
+.port_badge_num {
+  background: rgba(13, 13, 18, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 700;
-  font-size: 13px;
-  color: var(--orange);
-  transition: transform 0.2s ease;
+  color: #fbbf24;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.portfolio_card:hover .portfolio_card_cta {
-  transform: translateX(4px);
+.port_media_grad {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(13, 13, 18, 0.45) 0%, transparent 45%);
+  pointer-events: none;
+}
+
+/* Card Body Content */
+.port_body {
+  padding: 16px 6px 4px 6px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+.port_title_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.port_name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+.port_arrow_btn {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a1a1aa;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.portfolio_card:hover .port_arrow_btn {
+  background: #ff493b;
+  border-color: #ff493b;
+  color: #ffffff;
+  transform: rotate(45deg);
+  box-shadow: 0 0 16px rgba(255, 73, 59, 0.5);
+}
+.port_desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #9ca3af;
+  margin: 0 0 14px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Pill Tags */
+.port_tags_row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.port_tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: #d4d4d8;
+  letter-spacing: 0.02em;
+  transition: all 0.25s ease;
+}
+.portfolio_card:hover .port_tag {
+  border-color: rgba(255, 73, 59, 0.22);
+  color: #ff8577;
+  background: rgba(255, 73, 59, 0.06);
 }
 
 /* -------------------------------------------------------------
