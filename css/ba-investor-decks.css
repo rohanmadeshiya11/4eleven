@@ -3583,3 +3583,254 @@ div[id="top"] {
   flex-wrap: wrap;
   gap: 10px;
 }
+
+/* -------------------------------------------------------------
+   21. CREATIVE PARTNERSHIPS SHOWCASE (.partnership_showcase_section)
+   Redesigned, decluttered, high-editorial layout
+------------------------------------------------------------- */
+.partnership_showcase_section {
+  position: relative;
+  z-index: 5;
+  padding: clamp(80px, 8vw, 130px) clamp(24px, 5vw, 64px);
+  background: linear-gradient(180deg, rgba(8, 8, 9, 0.4) 0%, rgba(13, 13, 16, 0.95) 50%, rgba(8, 8, 9, 1) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  scroll-margin-top: 85px;
+}
+
+.partnership_container {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.partnership_header_row {
+  margin-bottom: clamp(36px, 4.5vw, 56px);
+}
+
+.partnership_main_title {
+  font-family: var(--font-display, "Clash Display", sans-serif);
+  font-size: clamp(36px, 4.8vw, 64px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 18px 0 16px 0;
+}
+
+.partnership_lead_subtext {
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 780px;
+}
+
+.partnership_layout_grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+@media (max-width: 980px) {
+  .partnership_layout_grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.partnership_pillars_column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.partnership_pillar_card {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 22px 26px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.partnership_pillar_card:hover {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 87, 34, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.partnership_pillar_num {
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--orange, #ff5722);
+  padding: 6px 12px;
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.25);
+  border-radius: 100px;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.partnership_pillar_title {
+  font-family: var(--font-display, "Clash Display", sans-serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.partnership_pillar_desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #a1a1aa;
+}
+
+.partnership_action_row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.partnership_visual_frame {
+  position: relative;
+}
+
+.partnership_visual_card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0f0f13;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.partnership_visual_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 32px 80px rgba(255, 87, 34, 0.18);
+  border-color: rgba(255, 87, 34, 0.4);
+}
+
+.partnership_visual_img_wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.3;
+  overflow: hidden;
+}
+
+.partnership_visual_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.8s ease;
+}
+
+.partnership_visual_card:hover .partnership_visual_img {
+  transform: scale(1.04);
+}
+
+.partnership_visual_overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 8, 9, 0.08) 0%, rgba(8, 8, 9, 0.3) 50%, rgba(8, 8, 9, 0.95) 100%);
+}
+
+.partnership_visual_badge_top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  z-index: 3;
+}
+
+.partnership_visual_caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 28px;
+  z-index: 3;
+}
+
+.partnership_visual_tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange, #ff5722);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.partnership_visual_name {
+  font-family: var(--font-display, "Clash Display", sans-serif);
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.partnership_visual_meta {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #d4d4d8;
+  max-width: 95%;
+}
+
+/* -------------------------------------------------------------
+   22. METRIC STRIP BAR
+------------------------------------------------------------- */
+.metric-strip-wrap {
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 20px clamp(20px, 4vw, 60px);
+  position: relative;
+  z-index: 5;
+}
+.metric-strip-inner {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.metric-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.metric-val {
+  font-family: var(--font-display, "Clash Display", sans-serif);
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.metric-lbl {
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  color: #a1a1aa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

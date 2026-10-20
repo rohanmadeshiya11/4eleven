@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="homepage-locked-screen">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4—11 STUDIO® — We Make Brands Impossible to Ignore. Make It Matter.</title>
+  <meta name="description" content="4—11 Studio is an independent creative agency based in Mumbai. We build visual worlds, launch cultural drops, and produce high-impact video, brand systems, and digital campaigns.">
   <meta name="theme-color" content="#080809">
-  <meta name="description" content="4—11 Studio — We Make Brands Impossible to Ignore. Make It Matter. An independent creative agency working across video production, creative design, social media, and talent collaborations.">
-  <title>4—11 STUDIO® — Make It Matter.</title>
-
+  
+  <link rel="icon" type="image/png" href="assets/logo-411-mark.png">
+  
   <!-- Typography: Clash Display, Manrope, JetBrains Mono, Yatra One & Rozha One -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=3.9">
+  <!-- Preload fonts -->
+  <link rel="preload" href="fonts/PPNeueMontreal-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="fonts/Youth_Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+  <!-- Preconnect to video services -->
+  <link rel="preconnect" href="https://vimeo.com">
+  <link rel="preconnect" href="https://player.vimeo.com">
+  <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin="anonymous">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=4.2">
+  <link rel="stylesheet" href="css/ba-investor-decks.css?v=5.4">
 </head>
-<body class="homepage-locked-screen">
-  <!-- Grain Overlay -->
+<body class="landing-page work-page">
+  <!-- Subtle Grain Overlay -->
   <div class="grain"></div>
 
-  <!-- ========================================================
-       1. ANIMATED PRELOADER (OFFICIAL 4-11 LOGO & TRADITIONAL LINE ARTWORK)
-  ======================================================== -->
-  <div class="preloader" id="preloader">
+<div class="preloader" id="preloader">
     <div class="loader-content">
       
       <!-- Indian Traditional Line Artwork Mandala Wrap Around Logo -->
@@ -131,7 +141,8 @@
   <!-- ========================================================
        2. INDIAN TRADITIONAL LINE ARTWORK WATERMARK (BACKGROUND)
   ======================================================== -->
-  <div class="bg-traditional-mandala-wrap" aria-hidden="true">
+
+<div class="bg-traditional-mandala-wrap" aria-hidden="true">
     <svg class="traditional-mandala-svg bg-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <g id="bg-petal">
@@ -216,7 +227,8 @@
   <!-- ========================================================
        3. FLOATING RETRO HINDI POP-ART BACKGROUND CANVAS (9 ELEMENTS)
   ======================================================== -->
-  <div class="retro-bg-canvas" id="retro-bg-canvas">
+
+<div class="retro-bg-canvas" id="retro-bg-canvas">
     
     <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
     <div class="retro-element badge-branding" data-parallax="0.04">
@@ -334,29 +346,52 @@
 
   </div>
 
-  <!-- ========================================================
-       3. HERO VIEWPORT CONTAINER
-  ======================================================== -->
-  <div class="hero-wrapper">
-    
-    <!-- Top Header -->
-    <header class="top-header">
-      <!-- Official 4-11 Logo + Badge (Enlarged & Prominent) -->
-      <div class="brand-block">
+  <!-- Top Header (Fixed Single-Page Navigation) -->
+  <header class="top-header" id="siteHeader">
+    <div class="top-header-inner">
+      <!-- Official 4-11 Logo + Badge -->
+      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
         <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
+      </a>
+
+      <!-- Clean Horizontal Top Navigation (Desktop Single-Page Anchors) -->
+      <nav class="desktop_nav_links" aria-label="Main Navigation">
+        <a href="#hero" class="nav_text_link active">Home</a>
+        <a href="#partnership" class="nav_text_link">Partnerships</a>
+        <a href="#capabilities" class="nav_text_link">Capabilities</a>
+        <a href="#about" class="nav_text_link">About</a>
+        <a href="#work" class="nav_text_link">Work</a>
+        <a href="#services" class="nav_text_link">Process</a>
+        <a href="#trusted-by" class="nav_text_link">Reviews</a>
+        <a href="#faq" class="nav_text_link">FAQ</a>
+        <a href="#contact" class="nav_text_link">Contact</a>
+      </nav>
+
+      <!-- Right Header Actions: CTA Pill + Hamburger Button -->
+      <div class="header_right_group">
+        <a class="btn-orange-pill header-cta-pill" href="#contact">
+          <span>START A PROJECT</span>
+          <span class="btn-arrow-circle">↗</span>
+        </a>
+
+        <!-- Hamburger Menu Button (Opens Slide-out Drawer) -->
+        <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+          <span class="menu-line menu-line-1"></span>
+          <span class="menu-line menu-line-2"></span>
+        </button>
       </div>
+    </div>
+  </header>
 
-      <!-- Hamburger Menu Button -->
-      <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
-        <span class="menu-line menu-line-1"></span>
-        <span class="menu-line menu-line-2"></span>
-      </button>
-    </header>
-
-    <!-- Left Rail: Vertical HOMEPAGE Text -->
+  <!-- ========================================================
+       1. HERO VIEWPORT CONTAINER (PRESERVED ORIGINAL HOMEPAGE DESIGN)
+  ======================================================== -->
+  <div class="hero-wrapper" id="hero">
+    
+    <!-- Left Rail: Vertical Label -->
     <div class="left-rail">
-      <div class="vertical-label">HOMEPAGE</div>
+      <div class="vertical-label">4—11 STUDIO // 2026</div>
     </div>
 
     <!-- Center Hero Content -->
@@ -367,7 +402,7 @@
         <span>MAKE IT MATTER.</span>
       </div>
 
-      <!-- Main Headline (Editorial Contrast Typography in Exactly 3 Lines Only) -->
+      <!-- Main Headline: Strictly 3 Lines Only with Dynamic Rotating Indian Typography -->
       <h1 class="hero-headline">
         <span class="headline-line headline-line-1">We <span class="highlight-word">Make</span> Brands</span>
         <span class="headline-line headline-line-2">Impossible to</span>
@@ -381,21 +416,21 @@
 
       <!-- Action Buttons -->
       <div class="hero-cta-row">
-        <a href="work.html#services" class="btn-orange-pill" id="what-we-do-btn">
+        <a href="#services" class="btn-orange-pill" id="what-we-do-btn">
           <span>WHAT WE DO</span>
-          <span class="btn-arrow-circle">→</span>
+          <span class="btn-arrow-circle">↓</span>
         </a>
 
-        <a href="work.html#work" class="btn-ghost-pill" id="view-works-btn">
+        <a href="#work" class="btn-ghost-pill" id="view-works-btn">
           <span>VIEW WORKS</span>
-          <span class="btn-ghost-arrow">→</span>
+          <span class="btn-ghost-arrow">↓</span>
         </a>
       </div>
     </div>
 
-    <!-- Bottom Right: Circular Rotating Badge (Make It Matter) -->
+    <!-- Bottom Right: Circular Rotating Badge -->
     <div class="bottom-right-badge">
-      <a href="work.html" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
+      <a href="#partnership" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
         <svg class="badge-svg" viewBox="0 0 120 120">
           <path id="textCircle" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
           <text fill="rgba(255, 255, 255, 0.75)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
@@ -404,44 +439,1610 @@
             </textPath>
           </text>
         </svg>
-        <div class="badge-center-btn">→</div>
+        <div class="badge-center-btn">↓</div>
       </a>
     </div>
 
   </div>
 
   <!-- ========================================================
-       4. SLIDE-OUT MENU DRAWER (HAMBURGER)
+       2. EDITORIAL MARQUEE & KEY METRIC STRIP
+  ======================================================== -->
+  <div class="editorial-marquee-wrap">
+    <div class="editorial-marquee-track">
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Key Metric Strip Bar -->
+  <div class="metric-strip-wrap">
+    <div class="metric-strip-inner">
+      <div class="metric-item">
+        <span class="metric-val">28+</span>
+        <span class="metric-lbl">Brands Transformed</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">₹120Cr+</span>
+        <span class="metric-lbl">Valuation Created</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val">4.9★</span>
+        <span class="metric-lbl">Client Rating</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">100%</span>
+        <span class="metric-lbl">On-Time Delivery</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Landing Page Content Container -->
+  <main class="page">
+
+  <!-- ========================================================
+       SECTION 3: CREATIVE PARTNERSHIPS SHOWCASE (ELEVATED & UNCLUTTERED)
+  ======================================================== -->
+  <section class="partnership_showcase_section" id="partnership">
+    <div class="partnership_container">
+      <div class="partnership_header_row">
+        <div class="tagline-badge" style="margin-bottom: 14px;">
+          <span class="pulse-dot"></span>
+          <span>CREATIVE PARTNERSHIPS // रचनात्मक सहयोग</span>
+        </div>
+        <div class="partnership_lead_wrap">
+          <h2 class="partnership_main_title">
+            Good People. <span class="text-saffron">Great Ideas.</span><br/>
+            Creative <span class="dynamic-word-wrap"><span class="dynamic-word style-truck-art" id="dynamic-work">Partnerships</span></span>
+          </h2>
+          <p class="partnership_lead_subtext">
+            We collaborate with artists, visionary brands, and creative leaders to create engaging visual systems, distinctive digital flagships, and stories that demand attention.
+          </p>
+        </div>
+      </div>
+
+      <!-- Editorial 2-Column Grid: Left Value Pillars + Right Framed Showcase -->
+      <div class="partnership_layout_grid">
+        <!-- Left: 3 Pillars with Clean Micro-Cards -->
+        <div class="partnership_pillars_column">
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">01</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">Direct Founder &amp; Artist Access</h3>
+              <p class="partnership_pillar_desc">No agency bureaucracy or middle layers. You collaborate directly with principal creatives who execute every detail.</p>
+            </div>
+          </div>
+
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">02</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">End-to-End Visual Precision</h3>
+              <p class="partnership_pillar_desc">From radical brand architecture and 35mm film direction to high-converting WebGL web experiences and viral social cuts.</p>
+            </div>
+          </div>
+
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">03</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">Culture-First Desi Aesthetic</h3>
+              <p class="partnership_pillar_desc">We blend authentic Indian cultural storytelling with contemporary global design benchmarks to make work that stands apart.</p>
+            </div>
+          </div>
+
+          <div class="partnership_action_row">
+            <a class="btn-orange-pill" href="#contact">
+              <span>START A PARTNERSHIP</span>
+              <span class="btn-arrow-circle">→</span>
+            </a>
+            <a class="btn-ghost-pill" href="#work">
+              <span>EXPLORE 12 WORKS</span>
+              <span class="btn-ghost-arrow">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Framed Flagship Partnership Card (Rock Paper Rum) -->
+        <div class="partnership_visual_frame">
+          <div class="partnership_visual_card">
+            <div class="partnership_visual_img_wrap">
+              <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Creative Partnership" class="partnership_visual_img" />
+              <div class="partnership_visual_overlay"></div>
+            </div>
+            <div class="partnership_visual_badge_top">
+              <span class="pulse-dot"></span>
+              <span>FLAGSHIP SHOWCASE // 2026</span>
+            </div>
+            <div class="partnership_visual_caption">
+              <div class="partnership_visual_tag">CRAFT SPIRITS · BRAND IDENTITY · 3D PACKAGING</div>
+              <h4 class="partnership_visual_name">Rock Paper Rum</h4>
+              <p class="partnership_visual_meta">Full visual brand identity, bespoke bottle packaging, and launch campaign film that drove 3.4x category engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SECTION 2: INTRO (EDITORIAL 2-COLUMN GRID) -->
+    <section class="service_intro">
+      <div class="desi-sub-tag">कला, कहानी और पहचान का संगम // WHERE CULTURE MEETS PRECISION</div>
+      <h2 data-text-reveal="" class="service_h2">
+        <span class="service_h2_dim">From cultural creators to breakthrough brands. </span>
+        <span class="text-saffron">We build creative momentum.</span>
+      </h2>
+      <div class="service_intro_grid">
+        <p class="service_intro_text">
+          Great creative partnerships are grounded in trust, agility, and visual excellence. We partner closely with stand-up comedians, actors, healthcare visionaries, podcasts, and lifestyle brands to engineer compelling stories and high-impact digital presence.
+        </p>
+        <div class="service_intro_col">
+          <p class="service_intro_text">
+            From high-retention video editing and clickable thumbnail engineering to complete social media management, brand PR, and promotional poster design—we build visual systems that demand attention and sustain real engagement.
+          </p>
+          <div class="service_intro_ctas" style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:24px;">
+            <a class="btn-orange-pill" href="#contact">
+              <span>START A PROJECT</span>
+              <span class="btn-arrow-circle">→</span>
+            </a>
+            <a class="btn-ghost-pill" href="#featured-projects">
+              <span>ALL 12 PROJECTS</span>
+              <span class="btn-ghost-arrow">↓</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ROTATING ORBIT WHEEL (12 CREATIVE PARTNERSHIPS) -->
+    <section data-color="" id="seemore" class="seemore u-section">
+      <div class="seemore_container container">
+        <div class="seemore_link is-static w-inline-block">
+          <h2 class="service_circle_title text-youth">
+            <span class="service_circle_title_dim">12 खास साझेदारियाँ : </span><br>
+            <span class="text-gold">Artists, Brands &amp; Digital Projects.</span>
+          </h2>
+        </div>
+        <div class="projects_circle">
+          <div role="list" class="project_circle_list" style="transform:rotate(-120deg)">
+            <!-- 01: Faizan Bhatt -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Faizan Bhatt" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Faizan Bhatt — Stand-up Comedian" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/faizan-bhatt.png"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Faizan Bhatt</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 02: Sushmita Mukherjee -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Sushmita Mukherjee" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Sushmita Mukherjee — Actress" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/sushmita-mukherjee.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Sushmita Mukherjee</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 03: Pronto -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Pronto" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Pronto — Brand" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/pronto.png"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Pronto</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 04: Nashia Kondia -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Nashia Kondia" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Nashia Kondia — Podcast Project" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/nashia-kondia.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Nashia Kondia</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 05: Traya Health -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Traya Health" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Traya Health — Health &amp; Wellness" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/traya-health.png"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Traya Health</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 06: Kibo Hair Science -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Kibo Hair Science" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Kibo Hair Science — Healthcare &amp; Hair Science" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/kibo-hair-science.png"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Kibo Hair Science</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 07: mCaffeine -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="mCaffeine" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="mCaffeine — Beauty &amp; Skincare" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/mcaffeine.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">mCaffeine</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 08: Dr. Pal -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Dr. Pal" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Dr. Pal — Digital Content" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/dr-pal.webp"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Dr. Pal</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 09: Dr. Kumar Vishwas -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Dr. Kumar Vishwas" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Dr. Kumar Vishwas — Media &amp; Entertainment" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/dr-kumar-vishwas.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Dr. Kumar Vishwas</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 10: Himeya -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Himeya" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Himeya — Beauty &amp; Personal Care" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/himeya.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Himeya</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 11: Rock Paper Rum -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Rock Paper Rum" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Rock Paper Rum — Lifestyle &amp; Beverage" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/rock-paper-rum.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Rock Paper Rum</span></div>
+                </div>
+              </a>
+            </div>
+            <!-- 12: Halwa Tour Poster -->
+            <div role="listitem" class="project_circle_item">
+              <a class="projects_circle_col" data-case-target="Halwa Tour Poster" href="#featured-projects">
+                <div class="projects_circle_card">
+                  <img alt="Halwa Tour Poster — Campaign Design" loading="lazy" decoding="async" class="u-cover" sizes="100vw" src="assets/projects/halwa-tour.jpg"/>
+                  <div class="projects_circle_overlay"><span class="projects_circle_name">Halwa Tour</span></div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CREATIVE MANIFESTO (STRATEGY + CRAFT) -->
+    <section data-color="" class="service_expertise">
+      <div class="desi-sub-tag">कारीगरी और रणनीति // ZERO COMPROMISES ON CRAFT</div>
+      <h2 data-text-reveal="" class="service_expertise_title">
+        <span class="service_expertise_title_dim">Creative Capabilities :</span><br/>
+        <span class="text-saffron">craft + strategy, not templates</span>
+      </h2>
+      <div class="service_expertise_grid">
+        <p class="service_expertise_text">
+          At 4—11 Studio, every project begins with narrative clarity and aesthetic precision. Whether we are producing fast-paced video edits for a comedian's stand-up tour or shaping social media campaigns for leading wellness brands, we treat content as an extension of identity.
+        </p>
+        <p class="service_expertise_text">
+          We combine high-retention post-production, sound architecture, and bespoke graphic design into an integrated creative engine that helps talent and brands build authentic, loyal followings.
+        </p>
+        <p class="service_expertise_text">
+          From YouTube episodic mastery and clickable thumbnail engineering to tour posters and high-stakes media PR, our multi-disciplinary team delivers production-ready excellence built for digital scale.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 5: BENTO GRID (CORE SERVICE PILLARS) -->
+    <section data-color="" class="service_bento" id="capabilities">
+      <p class="service_bento_eyebrow">CREATIVE CAPABILITIES &amp; EXECUTION // कारीगरी और सेवाएं</p>
+      <h2 data-text-reveal="" class="service_bento_title">
+        <span class="service_bento_title_dim">What our creative studio </span>delivers
+      </h2>
+      <div class="service_bento_grid">
+        <!-- 01: Video Editing -->
+        <div class="service_bento_card is-purple is-wide">
+          <div class="desi-sub-tag">★ सिनेमा &amp; वीडियो // HIGH RETENTION</div>
+          <h3 class="service_bento_card_title">Video Editing &amp; Content Production</h3>
+          <p class="service_bento_card_text">High-retention video editing, comedic pacing optimization, custom sound design, and precision color grading. From long-form YouTube episodes to viral short-form Reels and digital performance ads.</p>
+        </div>
+        <!-- 02: Social Media & PR -->
+        <div class="service_bento_card is-orange">
+          <div class="service_bento_card_bottom">
+            <div class="desi-sub-tag">✦ सोशल मीडिया &amp; पीआर // REACH</div>
+            <h3 class="service_bento_card_title">Social Media Management &amp; Event PR</h3>
+            <p class="service_bento_card_text">Dedicated channel strategy, celebrity brand collaborations, and high-visibility event publicity to cultivate sustained cultural relevance.</p>
+          </div>
+        </div>
+        <!-- 03: Podcast Editing -->
+        <div class="service_bento_card is-cream">
+          <div class="desi-sub-tag">🎙 पॉडकास्ट // BROADCAST AUDIO</div>
+          <h3 class="service_bento_card_title">Podcast Editing &amp; Post-Production</h3>
+          <p class="service_bento_card_text">Transforming raw recorded discussions into broadcast-grade podcast episodes with multi-cam editing, pristine audio mastering, and episodic key visuals.</p>
+        </div>
+        <!-- 04: Poster Design & Typography -->
+        <div class="service_bento_card is-red is-wide">
+          <div class="desi-sub-tag">⚡ पोस्टर &amp; कलाकृति // VISUAL ARTWORK</div>
+          <h3 class="service_bento_card_title">Poster Design, Typography &amp; Visual Artwork</h3>
+          <p class="service_bento_card_text">Eye-catching tour posters, digital creative assets, clickable YouTube thumbnails, and brand identity visuals designed to command immediate attention.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5.5: ABOUT & ETHOS (OUR PHILOSOPHY & CRAFT) -->
+    <section class="about_section u-section" id="about">
+      <div class="container">
+        <div class="headline" style="text-align: center; margin-bottom: 3.2rem;">
+          <div class="port_kicker">
+            <span class="port_kicker_dot"></span>
+            ABOUT 4—11 STUDIO // हमारी पहचान
+          </div>
+          <h2 data-text-reveal="" class="service_benefits_title" style="margin-bottom: 16px;">
+            Creativity With A Point Of View.<br/>
+            <span class="port_title_gradient">Mumbai Roots, Global Standards.</span>
+          </h2>
+          <p class="port_subtitle">
+            We are an independent creative agency based in Mumbai. We don't do safe, committee-approved mediocrity. We build visual worlds, launch cultural drops, and make brands impossible to ignore.
+          </p>
+        </div>
+
+        <!-- Beliefs 3-Column Grid -->
+        <div class="beliefs-grid">
+          <div class="belief-card">
+            <div class="belief-num">01 // TRUTH</div>
+            <h3 class="belief-title">Zero Clichés</h3>
+            <p class="belief-desc">Safe work is invisible work. We trade corporate gloss and sanitized buzzwords for raw, authentic cultural resonance that stops people mid-scroll.</p>
+          </div>
+
+          <div class="belief-card">
+            <div class="belief-num">02 // SPEED</div>
+            <h3 class="belief-title">Velocity Over Bureaucracy</h3>
+            <p class="belief-desc">Great ideas die in endless review committees. We operate in small, highly specialized squads that execute at the speed of internet culture.</p>
+          </div>
+
+          <div class="belief-card">
+            <div class="belief-num">03 // IMPACT</div>
+            <h3 class="belief-title">Culture-First Distribution</h3>
+            <p class="belief-desc">Making great content is only half the battle. We engineer visual assets to be shared, bookmarked, remixed, and quoted across platforms.</p>
+          </div>
+        </div>
+
+        <!-- Studio Coordinates & Headquarters Card -->
+        <div class="studio-meta-card">
+          <div>
+            <div class="section-meta-label" style="margin-bottom: 8px;">HEADQUARTERS // मुंबई</div>
+            <h3 class="studio-city">BANDRA WEST, MUMBAI</h3>
+            <div class="studio-coords">19.0760° N, 72.8777° E • EST. 2026 • INDIA</div>
+          </div>
+
+          <div class="studio-clock-block">
+            <div class="live-clock-badge">
+              <span class="live-clock-dot"></span>
+              <span>LIVE STUDIO TIME</span>
+            </div>
+            <div class="live-clock-time" id="about-ist-clock">MUMBAI, IN</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: PORTFOLIO PROJECTS & CLIENT WORK SHOWCASE (12 CLIENT WORKS) -->
+    <section class="service_benefits u-section" id="work">
+      <div id="featured-projects" style="position:relative; top:-85px; height:0; width:0; pointer-events:none;"></div>
+      <div class="container">
+        <div class="headline" style="text-align: center; margin-bottom: 3.2rem;">
+          <div class="port_kicker">
+            <span class="port_kicker_dot"></span>
+            SELECTED COLLABORATIONS // 12 PARTNERSHIPS
+          </div>
+          <h2 data-text-reveal="" class="service_benefits_title" style="margin-bottom: 16px;">
+            Good People. Great Ideas.<br/>
+            <span class="port_title_gradient">Creative Partnerships.</span>
+          </h2>
+          <p class="port_subtitle">
+            We collaborate with artists, brands, and creative ventures to craft high-impact visual stories, launch compelling digital identities, and amplify cultural relevance.
+          </p>
+        </div>
+
+        <!-- Filter Category Pills -->
+        <div class="portfolio_filters">
+          <button type="button" class="filter_pill active" data-filter="all">All Projects <span class="pill_count">(12)</span></button>
+          <button type="button" class="filter_pill" data-filter="artists">Artists &amp; Creators <span class="pill_count">(4)</span></button>
+          <button type="button" class="filter_pill" data-filter="brands">Brands &amp; Products <span class="pill_count">(4)</span></button>
+          <button type="button" class="filter_pill" data-filter="healthcare">Health &amp; Wellness <span class="pill_count">(2)</span></button>
+          <button type="button" class="filter_pill" data-filter="campaigns">Podcasts &amp; Campaigns <span class="pill_count">(2)</span></button>
+        </div>
+
+        <!-- 12 Project Cards Grid -->
+        <div class="portfolio_grid">
+          
+          <!-- 01: Faizan Bhatt -->
+          <div class="portfolio_card" data-category="artists" data-case-target="Faizan Bhatt">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Stand-up Comedian</span>
+                <span class="port_badge_num">01</span>
+              </div>
+              <img src="assets/projects/faizan-bhatt.png" alt="Faizan Bhatt — Stand-up Comedian" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Faizan Bhatt</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Supporting his creative journey through engaging video edits and eye-catching promotional poster designs.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Video Editing</span>
+                <span class="port_tag">Poster Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 02: Sushmita Mukherjee -->
+          <div class="portfolio_card" data-category="artists" data-case-target="Sushmita Mukherjee">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Actress &amp; Author</span>
+                <span class="port_badge_num">02</span>
+              </div>
+              <img src="assets/projects/sushmita-mukherjee.jpg" alt="Sushmita Mukherjee — Actress" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Sushmita Mukherjee</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Managing social media presence, coordinating brand collaborations, and supporting event publicity &amp; PR.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Social Media</span>
+                <span class="port_tag">Brand Collabs</span>
+                <span class="port_tag">Event PR</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 03: Pronto -->
+          <div class="portfolio_card" data-category="brands" data-case-target="Pronto">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">D2C Brand</span>
+                <span class="port_badge_num">03</span>
+              </div>
+              <img src="assets/projects/pronto.png" alt="Pronto — Brand" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Pronto</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Creating polished video content and visual artwork to support brand communication and digital platforms.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Video Editing</span>
+                <span class="port_tag">Artwork Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04: Nashia Kondia -->
+          <div class="portfolio_card" data-category="campaigns" data-case-target="Nashia Kondia">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Podcast Production</span>
+                <span class="port_badge_num">04</span>
+              </div>
+              <img src="assets/projects/nashia-kondia.jpg" alt="Nashia Kondia — Podcast Project" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Nashia Kondia</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Transforming recorded conversations into polished, engaging podcast episodes through audio-visual editing.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Podcast Editing</span>
+                <span class="port_tag">Post-Production</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05: Traya Health -->
+          <div class="portfolio_card" data-category="healthcare" data-case-target="Traya Health">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Health &amp; Wellness</span>
+                <span class="port_badge_num">05</span>
+              </div>
+              <img src="assets/projects/traya-health.png" alt="Traya Health — Health &amp; Wellness" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Traya Health</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Supporting digital content production through high-conversion video editing and creative execution.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Video Editing</span>
+                <span class="port_tag">Digital Content</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 06: Kibo Hair Science -->
+          <div class="portfolio_card" data-category="healthcare" data-case-target="Kibo Hair Science">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Healthcare &amp; Science</span>
+                <span class="port_badge_num">06</span>
+              </div>
+              <img src="assets/projects/kibo-hair-science.png" alt="Kibo Hair Science — Healthcare &amp; Hair Science" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Kibo Hair Science</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Creating YouTube content with long-form and short-form video editing and high-CTR thumbnail design.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">YouTube Edits</span>
+                <span class="port_tag">Thumbnail Design</span>
+                <span class="port_tag">Content Production</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 07: mCaffeine -->
+          <div class="portfolio_card" data-category="brands" data-case-target="mCaffeine">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Beauty &amp; Skincare</span>
+                <span class="port_badge_num">07</span>
+              </div>
+              <img src="assets/projects/mcaffeine.jpg" alt="mCaffeine — Beauty &amp; Skincare" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">mCaffeine</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Creative visual assets and high-impact social media creatives for digital communication and brand campaigns.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Creative Design</span>
+                <span class="port_tag">Social Media Creatives</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 08: Dr. Pal -->
+          <div class="portfolio_card" data-category="artists" data-case-target="Dr. Pal">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Digital Creator</span>
+                <span class="port_badge_num">08</span>
+              </div>
+              <img src="assets/projects/dr-pal.webp" alt="Dr. Pal — Digital Content" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Dr. Pal</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Supporting digital medical and wellness content through fast-paced video editing and engaging thumbnails.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Video Editing</span>
+                <span class="port_tag">Thumbnail Design</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 09: Dr. Kumar Vishwas -->
+          <div class="portfolio_card" data-category="artists" data-case-target="Dr. Kumar Vishwas">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Media &amp; Literature</span>
+                <span class="port_badge_num">09</span>
+              </div>
+              <img src="assets/projects/dr-kumar-vishwas.jpg" alt="Dr. Kumar Vishwas — Media &amp; Entertainment" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Dr. Kumar Vishwas</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Creative and promotional media work for cultural events, literary entertainment, and digital platforms.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Creative Content</span>
+                <span class="port_tag">Promotional Artwork</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10: Himeya -->
+          <div class="portfolio_card" data-category="brands" data-case-target="Himeya">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Luxury &amp; Living</span>
+                <span class="port_badge_num">10</span>
+              </div>
+              <img src="assets/projects/himeya.jpg" alt="Himeya — Beauty &amp; Personal Care" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Himeya</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Visual content and editorial creative design supporting premium product communication and brand identity.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Creative Design</span>
+                <span class="port_tag">Product Visuals</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 11: Rock Paper Rum -->
+          <div class="portfolio_card" data-category="brands" data-case-target="Rock Paper Rum">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Lifestyle &amp; Beverage</span>
+                <span class="port_badge_num">11</span>
+              </div>
+              <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum — Lifestyle &amp; Beverage" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Rock Paper Rum</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Vibrant creative artwork, packaging visuals, and promotional assets for craft beverage brand communication.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Graphic Design</span>
+                <span class="port_tag">Promotional Artwork</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 12: Halwa Tour Poster -->
+          <div class="portfolio_card" data-category="campaigns" data-case-target="Halwa Tour Poster">
+            <div class="port_media_box">
+              <div class="port_media_top">
+                <span class="port_badge_category">Campaign &amp; Tour</span>
+                <span class="port_badge_num">12</span>
+              </div>
+              <img src="assets/projects/halwa-tour.jpg" alt="Halwa Tour Poster — Poster &amp; Campaign Design" class="port_media_img" loading="lazy" />
+              <div class="port_media_grad"></div>
+            </div>
+            <div class="port_body">
+              <div>
+                <div class="port_title_row">
+                  <h3 class="port_name">Halwa Tour Poster</h3>
+                  <div class="port_arrow_btn">↗</div>
+                </div>
+                <p class="port_desc">Live tour poster design centered around bold typography, dynamic composition, and promotional momentum.</p>
+              </div>
+              <div class="port_tags_row">
+                <span class="port_tag">Poster Design</span>
+                <span class="port_tag">Typography</span>
+                <span class="port_tag">Artwork Design</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: PROCESS CARDS STACK ("EK KE UPAR EK" LAYERED DECK FROM REFERENCE VIDEO) -->
+    <section id="services" class="services u-section ship-stacked-section">
+      <div class="container">
+        <div class="headline">
+          <div class="desi-sub-tag" style="justify-content:center; display:flex;">
+            कार्यप्रणाली // PRODUCTION PIPELINE
+          </div>
+          <h2 data-text-reveal="" class="h2">
+            <span class="text-grey"><strong>Our</strong></span><strong><br/>Process</strong>
+          </h2>
+        </div>
+        <div class="services_intro">
+          <div aria-hidden="true" class="services_intro_arrow">↓</div>
+          <p class="services_intro_text">How we create high-impact work : from initial creative spark to final master export.</p>
+        </div>
+
+        <!-- The Stacked Card Deck Container (Scroll-Linked Sticky Pinning Track) -->
+        <div class="c-tiles-stack" id="tiles-stack-container">
+          <div class="tiles_stack_wrapper" id="tiles-stack-wrapper">
+            <div class="tiles_stack_list" id="tiles-stack-list">
+
+              <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
+              <div class="tiles_stack_item" data-card-idx="0" style="background-color: #242bc6; z-index: 4;">
+              <div class="service-card" style="background-color: #242bc6;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Branding that drives conversion &amp; funding.</h3>
+                    <div class="service-card-count">(01)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We clarify your positioning, define a distinctive tone of voice, and build a visual system that works across acquisition and product. Each sprint ships a robust logo, pragmatic brand guidelines, and a social kit so you can launch fast. The goal is simple: perceived value up.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “Working with Brand Appart has been an absolute pleasure. Beyond their creativity and professionalism, there’s a real sense of kindness and care in everything they do. The team is always open, generous, and never gets stuck on small details, they never say no. Truly impressed by their reliability, flexibility, and collaborative spirit.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-david.avif" alt="Jérémy Bendayan" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Jérémy Bendayan</div>
+                        <div class="author-title">Co-founder &amp; COO @Jaws Group</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Neon Lime "IN" -->
+                      <div class="service-gallery-tile tile-lime" data-project-target="Aura Systems" title="View Aura Systems Case Study">
+                        <div class="tile-lime-inner">
+                          <span class="tile-lime-logo">IN</span>
+                        </div>
+                        <span class="tile-hover-tag">Brand Identity</span>
+                      </div>
+
+                      <!-- Tile 2: Cream Linen 3D Embossed "IMPORTANT HOUSE" -->
+                      <div class="service-gallery-tile tile-beige-emboss" data-project-target="Mumbai Noir" title="View Mumbai Noir Case Study">
+                        <div class="tile-emboss-texture"></div>
+                        <div class="tile-emboss-text">
+                          <span>IMPORTANT</span>
+                          <span>HOUSE</span>
+                        </div>
+                        <span class="tile-hover-tag">Embossed Identity</span>
+                      </div>
+
+                      <!-- Tile 3: Cadmium Yellow Script "Qio" -->
+                      <div class="service-gallery-tile tile-yellow-script" data-project-target="Running Club" title="View Running Club Case Study">
+                        <div class="tile-script-inner">
+                          <span class="tile-script-logo">Qio</span>
+                        </div>
+                        <span class="tile-hover-tag">Design System</span>
+                      </div>
+
+                      <!-- Tile 4: Obsidian Black with Fiery Orange 4-11 Symbol -->
+                      <div class="service-gallery-tile tile-noir-symbol" data-project-target="Afterglow" title="View 4-11 Brand Mark">
+                        <div class="tile-noir-inner">
+                          <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="tile-411-glyph">
+                        </div>
+                        <span class="tile-hover-tag">Brand Mark</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 02: PRODUCT EXPERIENCE (Vibrant Warm Orange) -->
+            <div class="tiles_stack_item" data-card-idx="1" style="background-color: #ff5c26; z-index: 3;">
+              <div class="service-card" style="background-color: #ff5c26;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Product experiences users adopt &amp; keep using.</h3>
+                    <div class="service-card-count">(02)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We align with business goals, map the critical journeys, and prototype what actually moves the needle. Every sprint ships clear flows, a reusable UI library, and a dev-ready export. Time to value down, UX friction down, retention/NPS up.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “A team that's now my go-to for branding and product design. The Incard mobile launch shattered our adoption projections in week one. Total conviction, speed, and craft.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-theo.avif" alt="Théo Cesarini" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Théo Cesarini</div>
+                        <div class="author-title">CEO &amp; Co-Founder @Incard &amp; @Fundree</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Fintech Dashboard Mockup -->
+                      <div class="service-gallery-tile tile-cinema-1" data-project-target="Pronto" title="View Dashboard Flow">
+                        <img src="assets/ba/fintech-hero.jpg" alt="Incard Analytics Dashboard" class="tile-img-fill">
+                        <div class="tile-film-overlay">
+                          <span class="tile-timecode">INCARD // V2.4</span>
+                          <span class="tile-play-icon">↗</span>
+                        </div>
+                        <span class="tile-hover-tag">Product UI</span>
+                      </div>
+
+                      <!-- Tile 2: Mobile Checkout Flow -->
+                      <div class="service-gallery-tile" data-project-target="Pronto" title="View Mobile Flow" style="background:#1a100c; overflow:hidden;">
+                        <img src="assets/ba/circle-qonnect.avif" alt="Mobile App Flow" class="tile-img-fill" style="object-fit:cover;">
+                        <span class="tile-hover-tag">Mobile Flow</span>
+                      </div>
+
+                      <!-- Tile 3: Onboarding 3D Cards -->
+                      <div class="service-gallery-tile" data-project-target="Pronto" title="View Onboarding" style="background:#261309; overflow:hidden;">
+                        <img src="assets/ba/circle-gostan.avif" alt="3D Onboarding Cards" class="tile-img-fill" style="object-fit:cover;">
+                        <span class="tile-hover-tag">Onboarding</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 03: WEB DESIGN (Rich Crimson Red) -->
+            <div class="tiles_stack_item" data-card-idx="2" style="background-color: #ea3834; z-index: 2;">
+              <div class="service-card" style="background-color: #ea3834;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Web Design for growing teams &amp; business.</h3>
+                    <div class="service-card-count">(03)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We align messaging, page architecture, and UI. You get clear structure, sections. The site loads fast, tells the right story, and pushes to action without dev firefighting. Your team gets a scalable base they can evolve without calling us for every change.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “Our new web platform delivered a 3x lift in inbound pipeline within 30 days. Fast, precise, and completely aligned with our growth milestones.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-alexis.avif" alt="Alexis Benoit" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Alexis Benoit</div>
+                        <div class="author-title">Head of Growth @Meka Design</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: Web Platform Showcase -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Web Platform" style="background:#1a0808; overflow:hidden;">
+                        <img src="assets/ba/marquee-02.jpg" alt="Dark UI Platform" class="tile-img-fill">
+                        <span class="tile-hover-tag">Dark Architecture</span>
+                      </div>
+
+                      <!-- Tile 2: Responsive Web Architecture -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Web Mockup" style="background:#260a0a; overflow:hidden;">
+                        <img src="assets/ba/marquee-03.jpg" alt="SaaS Web Mockup" class="tile-img-fill">
+                        <span class="tile-hover-tag">SaaS Flagship</span>
+                      </div>
+
+                      <!-- Tile 3: MEKA Typography Portal -->
+                      <div class="service-gallery-tile" data-project-target="Himeya" title="View Portal" style="background:#140505; overflow:hidden;">
+                        <img src="assets/ba/marquee-04.jpg" alt="MEKA Brand Portal" class="tile-img-fill">
+                        <span class="tile-hover-tag">Design System</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 04: INVESTOR DECKS (Warm Bronze Brown) -->
+            <div class="tiles_stack_item" data-card-idx="3" style="background-color: #6b5a45; z-index: 1;">
+              <div class="service-card" style="background-color: #6b5a45;">
+                <div class="service-card-header">
+                  <div class="service-card-title-group">
+                    <h3 class="service-card-title">Investor-proof decks that raise faster.</h3>
+                    <div class="service-card-count">(04)</div>
+                  </div>
+                  <p class="service-card-desc">
+                    We craft the narrative that gets meetings and a precise ask. Design serves the story: readable numbers, rhythm across slides, and versions for teaser/one-pager. Your deck can be pitched in 5 minutes, read solo, and generates faster responses.
+                  </p>
+                </div>
+
+                <div class="service-card-content">
+                  <div class="service-card-quote">
+                    <blockquote class="quote-text">
+                      “In a crowded funding round, 4—11’s deck was the single asset every partner paused on. Closed our Series A two weeks ahead of schedule with total investor conviction.”
+                    </blockquote>
+                    <div class="author-row">
+                      <div class="author-avatar-wrap">
+                        <img src="assets/ba/avatar-yoann.jpg" alt="Rohan Mehra" class="author-avatar-img">
+                      </div>
+                      <div class="author-info">
+                        <div class="author-name">Rohan Mehra</div>
+                        <div class="author-title">Founder @Aura Protocol</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="service-gallery-wrapper">
+                    <div class="service-gallery">
+                      <!-- Tile 1: 3D Floating Deck Carousel -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Deck Carousel" style="background:#1e1711; overflow:hidden;">
+                        <img src="assets/ba/circle-bricks.avif" alt="Slide Carousel Mockup" class="tile-img-fill">
+                        <span class="tile-hover-tag">Deck Carousel</span>
+                      </div>
+
+                      <!-- Tile 2: Metric Growth Slide -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Metrics Slide" style="background:#281e14; overflow:hidden;">
+                        <img src="assets/ba/marquee-01.jpg" alt="Growth Slide" class="tile-img-fill">
+                        <span class="tile-hover-tag">Metrics Slide</span>
+                      </div>
+
+                      <!-- Tile 3: Typography & Poster Craft -->
+                      <div class="service-gallery-tile" data-project-target="Halwa Tour Poster" title="View Typography" style="background:#19120c; overflow:hidden;">
+                        <img src="assets/projects/halwa-tour.jpg" alt="Halwa Tour Poster Craft" class="tile-img-fill">
+                        <span class="tile-hover-tag">Editorial Craft</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div> <!-- tiles_stack_list -->
+        </div> <!-- tiles_stack_wrapper -->
+      </div> <!-- c-tiles-stack -->
+    </div> <!-- container -->
+  </section>
+
+
+    <!-- SECTION 9: CASE STUDIES PILL TAGS (12 CLIENT PROJECTS) -->
+    <section class="service_work u-section">
+      <div class="container">
+        <h2 class="subtitle service_work_label">Selected Clients &amp; Partners // खास साझेदार</h2>
+        <div class="service_work_tags">
+          <a class="service_work_tag" data-case-target="Faizan Bhatt" href="#featured-projects">Faizan Bhatt</a>
+          <a class="service_work_tag" data-case-target="Sushmita Mukherjee" href="#featured-projects">Sushmita Mukherjee</a>
+          <a class="service_work_tag" data-case-target="Pronto" href="#featured-projects">Pronto</a>
+          <a class="service_work_tag" data-case-target="Nashia Kondia" href="#featured-projects">Nashia Kondia</a>
+          <a class="service_work_tag" data-case-target="Traya Health" href="#featured-projects">Traya Health</a>
+          <a class="service_work_tag" data-case-target="Kibo Hair Science" href="#featured-projects">Kibo Hair Science</a>
+          <a class="service_work_tag" data-case-target="mCaffeine" href="#featured-projects">mCaffeine</a>
+          <a class="service_work_tag" data-case-target="Dr. Pal" href="#featured-projects">Dr. Pal</a>
+          <a class="service_work_tag" data-case-target="Dr. Kumar Vishwas" href="#featured-projects">Dr. Kumar Vishwas</a>
+          <a class="service_work_tag" data-case-target="Himeya" href="#featured-projects">Himeya</a>
+          <a class="service_work_tag" data-case-target="Rock Paper Rum" href="#featured-projects">Rock Paper Rum</a>
+          <a class="service_work_tag" data-case-target="Halwa Tour Poster" href="#featured-projects">Halwa Tour Poster</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: FOUNDER & CLIENT TESTIMONIALS (FANNED 5-CARD DECK MATCHING VIDEO REF) -->
+    <section class="founders u-section" id="trusted-by">
+      <div class="container">
+        <div class="founders_headline headline">
+          <div class="desi-sub-tag" style="justify-content:center; display:flex;">भरोसा और परिणाम // CLIENT TESTIMONIALS</div>
+          <h2 data-text-reveal="" class="h2">Trusted by<br/><span class="text-grey">+40 founders</span></h2>
+        </div>
+        <div class="founders_fanned_wrapper">
+          <div class="founders_fanned_track">
+            
+            <!-- CARD 1: David Katz (Light Cream, -8deg) -->
+            <div class="fanned_card_col card_fan_1">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “Notez-Nous chose Brand Appart to lead its complete rebranding process, including a full digital platform redesign. The boost in credibility has significantly improved our ability to close deals.”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-david.avif" alt="David Katz" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">David Katz</span>
+                    <span class="fanned_author_role">CEO &amp; Founder @Notez-Nous</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 2: Sébastien Tomi (Warm Taupe, -4deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_2">
+              <div class="founder_fanned_card is-taupe">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="#contact" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We'd seen other agencies lock everything down two rounds of feedback, then pay more. With Brand Appart, the flexibility was real. That's why we chose them. The quality of the work speaks for itself. The rebranding landed exactly where we wanted it to, and...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-sebastien.jpg" alt="Sébastien Tomi" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Sébastien Tomi</span>
+                    <span class="fanned_author_role">CO-Founder &amp; CEO @Mysunbed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3: Yoann Ros (Light Cream, 0deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_3">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="#contact" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We knew Brand Appart's work before reaching out: the creativity was obvious. And the final result delivered exactly that. The team adapted to how we work: fast, informal, no unnecessary calls. That made the whole collaboration genuinely...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-yoann.jpg" alt="Yoann Ros" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Yoann Ros</span>
+                    <span class="fanned_author_role">CMO @Bricks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 4: Alexis Benoit (Warm Taupe, +4deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_4">
+              <div class="founder_fanned_card is-taupe">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="#contact" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “I've worked with Brand Appart on branding and website design. The landing pages, 3D visual assets, and PowerPoint investor presentations were top tier: flexible, fast, and remarkably professional. That speed and quality is exactly what we needed.”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-alexis.avif" alt="Alexis Benoit" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Alexis Benoit</span>
+                    <span class="fanned_author_role">Managing Director @Meka Design</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 5: Mathilde Ferrari (Light Cream, +8deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_5">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="#contact" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We had a family brand that hadn't evolved since 2013. Handing it over to an external agency was a real leap of faith. What struck me most is that the team held their ground without ever steamrolling mine. I pushed back on certain directions early on. They...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-mathilde.jpg" alt="Mathilde Ferrari" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Mathilde Ferrari</span>
+                    <span class="fanned_author_role">Co-Founder &amp; CEO @Nomador</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: INTERACTIVE FAQ ACCORDION -->
+    <section class="faq u-section" id="faq">
+      <div class="container col-2 align-start">
+        <div class="headline">
+          <div class="desi-sub-tag">सवाल और जवाब // QUESTIONS</div>
+          <h2 class="faq-title">Frequently<br/>asked questions</h2>
+        </div>
+        <div class="faq-list-wrapper">
+          <div role="list" class="faq-list">
+            
+            <!-- Q1 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">What kind of clients and projects do you work with?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">We collaborate with artists, stand-up comedians, actors, healthcare pioneers, podcasts, and leading consumer brands (such as Traya Health, mCaffeine, Kibo Hair Science, and Pronto). We support their creative journey through video editing, social media management, brand PR, poster typography, and digital content.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">Do you handle both short-form and long-form video editing?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">Yes, absolutely. We produce long-form YouTube episodes and podcast recordings with multi-cam switching and deep audio mastering, as well as fast-paced, high-retention short-form video (Instagram Reels, YouTube Shorts, TikToks) engineered for maximum organic reach and algorithmic growth.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">How do you manage social media and PR for talent &amp; artists?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">For personalities like Sushmita Mukherjee and Dr. Kumar Vishwas, we provide full-service social media management: content scheduling, copy crafting, brand partnership alignment, and strategic event publicity to reinforce credibility and cultural authority.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">What is your turnaround time for creative deliverables?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">Turnaround depends on the scope. For ongoing creator partnerships (reels, thumbnails, weekly YouTube cuts), turnarounds are typically 24 to 48 hours. For tour campaign posters or major brand launches, we work in fast sprints with structured review cycles.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">Can you design promotional posters and physical campaign artwork?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">Yes. Our work on projects like the Halwa Tour Poster and Rock Paper Rum demonstrates our deep commitment to typography, visual hierarchy, and distinctive artwork design that functions seamlessly across both digital feeds and high-format physical print.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Q6 -->
+            <div role="listitem" class="faq-question-item">
+              <div class="faq-question">
+                <div class="dropdown-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none"><path d="M12 6.50003C12 6.50003 9.05404 10.5 7.99997 10.5C6.94589 10.5 4 6.5 4 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+                <div class="faq-question-title">How do we start a collaboration with 4—11 Studio?</div>
+                <div class="faq-answer">
+                  <p style="padding-top:1em;">Click "Start a project" or "Book a call" to tell us about your channel, brand, or project. We'll set up an initial discovery session to outline creative direction, deliverables, and timeline.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: INTERACTIVE PROJECT INTAKE & DIRECT CONTACT (#contact) -->
+    <section class="contact_section u-section" id="contact">
+      <div class="container">
+        <div class="headline" style="text-align: center; margin-bottom: 3.2rem;">
+          <div class="port_kicker">
+            <span class="port_kicker_dot"></span>
+            START A PROJECT // सीधे संपर्क
+          </div>
+          <h2 data-text-reveal="" class="service_benefits_title" style="margin-bottom: 16px;">
+            Let’s Build Something<br/>
+            <span class="port_title_gradient">Impossible to Ignore.</span>
+          </h2>
+          <p class="port_subtitle">
+            Have an upcoming film, brand campaign, YouTube series, or creative collaboration in mind? Outline your brief below or reach out directly to our Mumbai studio.
+          </p>
+        </div>
+
+        <div class="contact-layout-grid">
+          
+          <!-- Left Column: Direct Studio Information & Coordinates -->
+          <div class="contact-info-panel">
+            <div class="contact-item">
+              <div class="contact-item-label">DIRECT ENQUIRIES</div>
+              <a href="mailto:hello@4-11.studio" class="contact-item-value">hello@4-11.studio ↗</a>
+              <div class="contact-item-sub">For new business, creator partnerships, and direct commissions. We reply within 24 hours.</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-label">WHATSAPP / SCOPING CALL</div>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-item-value">+91 (0) 98765 43210 ↗</a>
+              <div class="contact-item-sub">Available Monday to Saturday, 10:00 — 19:00 IST for direct project scoping.</div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-label">STUDIO HEADQUARTERS</div>
+              <div class="contact-item-value" style="font-size: 22px;">Bandra West, Mumbai</div>
+              <div class="contact-item-sub">19.0760° N, 72.8777° E • Maharashtra 400050, India • Global collaborations worldwide.</div>
+            </div>
+
+            <div class="contact-item" style="margin-bottom: 0;">
+              <div class="contact-item-label">CONNECT ACROSS PLATFORMS</div>
+              <div class="social-pills-row">
+                <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="social-pill">Instagram ↗</a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-pill">YouTube ↗</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-pill">LinkedIn ↗</a>
+                <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer" class="social-pill">Vimeo ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Project Intake & Brief Builder -->
+          <div class="contact-form-panel">
+            <form id="contact-form">
+              <!-- Step 1: Services Selector -->
+              <div class="form-section-title">01 // WHAT DO YOU NEED? (SELECT SERVICES)</div>
+              <div class="chips-group">
+                <div class="chip-toggle active" data-group="service">Video Editing &amp; Film</div>
+                <div class="chip-toggle" data-group="service">Brand Architecture</div>
+                <div class="chip-toggle" data-group="service">Social Media Growth</div>
+                <div class="chip-toggle" data-group="service">Talent PR &amp; Collabs</div>
+                <div class="chip-toggle" data-group="service">Podcast Production</div>
+                <div class="chip-toggle" data-group="service">Investor &amp; Pitch Decks</div>
+              </div>
+
+              <!-- Step 2: Target Timeline -->
+              <div class="form-section-title">02 // TARGET TIMELINE</div>
+              <div class="chips-group">
+                <div class="chip-toggle active" data-group="timeline">Immediate (&lt; 1 Month)</div>
+                <div class="chip-toggle" data-group="timeline">1 — 3 Months</div>
+                <div class="chip-toggle" data-group="timeline">Ongoing Retainer</div>
+              </div>
+
+              <!-- Step 3: Client Details -->
+              <div class="form-section-title">03 // YOUR DETAILS</div>
+              <div class="form-inputs-grid">
+                <div class="input-wrap">
+                  <label class="input-label" for="contact-name">Your Name *</label>
+                  <input type="text" id="contact-name" class="text-input" placeholder="e.g. Aryan Sharma" required />
+                </div>
+                <div class="input-wrap">
+                  <label class="input-label" for="contact-brand">Brand / Channel Name *</label>
+                  <input type="text" id="contact-brand" class="text-input" placeholder="e.g. Acme Studio" required />
+                </div>
+              </div>
+
+              <div class="form-inputs-grid">
+                <div class="input-wrap">
+                  <label class="input-label" for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" class="text-input" placeholder="you@company.com" required />
+                </div>
+                <div class="input-wrap">
+                  <label class="input-label" for="contact-phone">Phone / WhatsApp</label>
+                  <input type="tel" id="contact-phone" class="text-input" placeholder="+91 98765 43210" />
+                </div>
+              </div>
+
+              <div class="input-wrap" style="margin-bottom: 20px;">
+                <label class="input-label" for="contact-message">Project Vision &amp; Overview *</label>
+                <textarea id="contact-message" class="textarea-input" placeholder="Tell us about the project goals, deliverables, reference aesthetics, and any deadlines..." required></textarea>
+              </div>
+
+              <!-- Live Brief Scope Preview -->
+              <div class="brief-live-summary-card">
+                <div class="brief-summary-text">
+                  Scope: <strong id="brief-live-services" style="color:#fff;">Video Editing &amp; Film</strong> • Timeline: <strong id="brief-live-timeline" style="color:#fbbf24;">Immediate (&lt; 1 Month)</strong>
+                </div>
+                <div style="color: var(--orange); font-weight: 700; font-family: var(--font-mono); font-size: 11px;">READY TO TRANSMIT ↗</div>
+              </div>
+
+              <button type="submit" class="btn-orange-pill" style="width: 100%; justify-content: center; padding: 16px 28px; margin-top: 24px;">
+                <span>SEND PROJECT BRIEF TO 4—11</span>
+                <span class="btn-arrow-circle">→</span>
+              </button>
+            </form>
+
+            <!-- On-Screen Confirmation Toast/Card (Shown on submission) -->
+            <div id="form-success-card" style="display: none; text-align: center; padding: 40px 20px;">
+              <div style="font-size: 48px; margin-bottom: 16px; color: var(--orange);">✦</div>
+              <h3 style="font-family: var(--font-display); font-size: 28px; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; color: #fff;">
+                BRIEF PREPARED!
+              </h3>
+              <p style="color: var(--white-dim); font-size: 15px; line-height: 1.6; max-width: 440px; margin: 0 auto 24px auto;">
+                Your email client has been opened with your brief pre-filled. If it didn't open automatically, you can send directly to <strong style="color: var(--orange);">hello@4-11.studio</strong>.
+              </p>
+              <a href="mailto:hello@4-11.studio" class="btn-orange-pill" style="display: inline-flex;">
+                <span>OPEN MAIL CLIENT</span>
+                <span class="btn-arrow-circle">↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION 12: BOUNCING BADGES FOOTER (PHYSICS SIMULATION WITH INDIAN DESI CHARMS) -->
+  <footer data-color="" class="footer">
+    <div class="footer_keys" aria-hidden="true">
+      <div class="c-keys-bounce pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="keys-bounce-items absolute left-0 top-0 inline-block">
+          <!-- Desi Physics Keychains / Badges -->
+          <div class="desi-key-badge" style="background:#dc2626; border-color:#facc15;">
+            <div class="desi-key-icon">🎬</div>
+            <div class="desi-key-title">सुपरहिट</div>
+            <div class="desi-key-eng">SUPERHIT</div>
+          </div>
+          <div class="desi-key-badge" style="background:#1d4ed8; border-color:#93c5fd;">
+            <div class="desi-key-icon">☕</div>
+            <div class="desi-key-title">चाय गरम</div>
+            <div class="desi-key-eng">CUTTING CHAI</div>
+          </div>
+          <div class="desi-key-badge" style="background:#15803d; border-color:#86efac;">
+            <div class="desi-key-icon">🛺</div>
+            <div class="desi-key-title">ऑटो 4-11</div>
+            <div class="desi-key-eng">MUMBAI AUTO</div>
+          </div>
+          <div class="desi-key-badge" style="background:#ea580c; border-color:#fed7aa;">
+            <div class="desi-key-icon">📢</div>
+            <div class="desi-key-title">हॉर्न ओके</div>
+            <div class="desi-key-eng">TRUCK ART</div>
+          </div>
+          <div class="desi-key-badge" style="background:#3b0764; border-color:#fef08a;">
+            <div class="desi-key-icon">🧿</div>
+            <div class="desi-key-title">बुरी नज़र</div>
+            <div class="desi-key-eng">NAZAR BATTU</div>
+          </div>
+          <div class="desi-key-badge" style="background:#b45309; border-color:#fef08a;">
+            <div class="desi-key-icon">✦</div>
+            <div class="desi-key-title">100% खरा</div>
+            <div class="desi-key-eng">GENUINE</div>
+          </div>
+          <div class="desi-key-badge" style="background:#172554; border-color:#60a5fa;">
+            <div class="desi-key-icon">⚡</div>
+            <div class="desi-key-title">४—११</div>
+            <div class="desi-key-eng">STUDIO MARK</div>
+          </div>
+          <div class="desi-key-badge" style="background:#701a75; border-color:#f472b6;">
+            <div class="desi-key-icon">🪷</div>
+            <div class="desi-key-title">कमल</div>
+            <div class="desi-key-eng">LOTUS CRAFT</div>
+          </div>
+          <!-- Additional image badges -->
+          <img src="assets/ba/key-sobry.avif" alt="Badge 1" loading="lazy" decoding="async"/>
+          <img src="assets/ba/key-voodoo.avif" alt="Badge 2" loading="lazy" decoding="async"/>
+          <img src="assets/ba/key-reecall.avif" alt="Badge 3" loading="lazy" decoding="async"/>
+          <img src="assets/ba/key-bricks.avif" alt="Badge 4" loading="lazy" decoding="async"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer_inner">
+      <div class="footer_content">
+        <div class="footer_heading">
+          <div data-text-reveal="" class="text-big text-youth">
+            <span class="footer_heading_dim">Make every </span>pixel pay for itself!
+          </div>
+        </div>
+        <div class="footer_cta" style="margin-top: 1.5em;">
+          <a class="btn-orange-pill" href="#contact">
+            <span>START A PROJECT WITH US</span>
+            <span class="btn-arrow-circle">→</span>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Footer Navigation" class="footer_nav">
+        <div class="footer_col">
+          <p class="footer_col_title">Navigation</p>
+          <ul class="footer_col_list">
+            <li><a class="footer_link" href="#hero">Home</a></li>
+            <li><a class="footer_link" href="#about">About &amp; Ethos</a></li>
+            <li><a class="footer_link" href="#services">Our Process</a></li>
+            <li><a class="footer_link" href="#work">Selected Works</a></li>
+            <li><a class="footer_link" href="#trusted-by">Client Reviews</a></li>
+            <li><a class="footer_link" href="#faq">FAQ</a></li>
+            <li><a class="footer_link" href="#contact" style="color:var(--orange)">Start a Project ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <p class="footer_col_title">Disciplines</p>
+          <ul class="footer_col_list">
+            <li><a class="footer_link" href="#services">Video Editing</a></li>
+            <li><a class="footer_link" href="#services">Brand Architecture</a></li>
+            <li><a class="footer_link" href="#services">Podcast Production</a></li>
+            <li><a class="footer_link" href="#services">YouTube Strategy</a></li>
+            <li><a class="footer_link" href="#services">Tour Posters</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <p class="footer_col_title">Featured Talent</p>
+          <ul class="footer_col_list">
+            <li><a class="footer_link" data-case-target="Faizan Bhatt" href="#work">Faizan Bhatt</a></li>
+            <li><a class="footer_link" data-case-target="Sushmita Mukherjee" href="#work">Sushmita Mukherjee</a></li>
+            <li><a class="footer_link" data-case-target="Dr. Pal" href="#work">Dr. Pal</a></li>
+            <li><a class="footer_link" data-case-target="Dr. Kumar Vishwas" href="#work">Dr. Kumar Vishwas</a></li>
+            <li><a class="footer_link" data-case-target="Nashia Kondia" href="#work">Nashia Kondia</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <p class="footer_col_title">Client Brands</p>
+          <ul class="footer_col_list">
+            <li><a class="footer_link" data-case-target="Traya Health" href="#work">Traya Health</a></li>
+            <li><a class="footer_link" data-case-target="mCaffeine" href="#work">mCaffeine</a></li>
+            <li><a class="footer_link" data-case-target="Kibo Hair Science" href="#work">Kibo Hair Science</a></li>
+            <li><a class="footer_link" data-case-target="Pronto" href="#work">Pronto</a></li>
+            <li><a class="footer_link" data-case-target="Rock Paper Rum" href="#work">Rock Paper Rum</a></li>
+          </ul>
+        </div>
+        <div class="footer_col">
+          <p class="footer_col_title">Connect</p>
+          <ul class="footer_col_list">
+            <li><a class="footer_link" href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a class="footer_link" href="mailto:hello@4-11.studio">hello@4-11.studio ↗</a></li>
+            <li><a class="footer_link" href="#contact">Commission an Edit ↗</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="footer_socials">
+        <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="footer_social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="mailto:hello@4-11.studio" aria-label="Email" class="footer_social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </a>
+      </div>
+
+      <div style="margin-top:1.5em; font-family:var(--font-mono); font-size:12px; color:rgba(255,255,255,0.45);">
+        © 2026 4—11 STUDIO®. ALL RIGHTS RESERVED. MAKE IT MATTER.
+      </div>
+
+      <div class="footer_time_badge">
+        <span class="time_dot"></span>
+        <span id="mumbaiClockWork">MUMBAI, IN 00:00:00 IST</span>
+      </div>
+
+      <div aria-hidden="true" class="footer_wordmark">4—11 STUDIO</div>
+    </div>
+  </footer>
+
+  <!-- Case Study Detail Modal -->
+  <div class="modal-overlay" id="project-detail-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" aria-label="Close Case Modal">✕</button>
+      <div id="modal-proj-image-container" class="modal_proj_media" style="display:none;">
+        <img id="modal-proj-image" src="" alt="" loading="lazy" />
+      </div>
+      <div style="font-family:var(--font-mono); font-size:11px; color:var(--orange); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:8px; font-weight:700;">
+        CASE STUDY // <span id="modal-proj-client"></span> • <span id="modal-proj-year"></span>
+      </div>
+      <h2 id="modal-proj-title" style="font-family:var(--font-display); font-size:clamp(28px, 4vw, 42px); font-weight:800; text-transform:uppercase; margin-bottom:16px; line-height:1.1; color:#ffffff;"></h2>
+      <div style="display:inline-block; font-family:var(--font-mono); font-size:11px; color:var(--retro-gold); background:rgba(251, 191, 36, 0.1); border:1px solid rgba(251, 191, 36, 0.3); padding:4px 12px; border-radius:99px; margin-bottom:24px;" id="modal-proj-cat"></div>
+      <p id="modal-proj-desc" style="font-size:16px; color:#a1a1aa; line-height:1.65; margin-bottom:24px;"></p>
+      <div style="font-family:var(--font-mono); font-size:11px; color:#fff; text-transform:uppercase; margin-bottom:10px; font-weight:700;">DELIVERABLES COMPLETED:</div>
+      <div class="pillar-tags" id="modal-proj-tags" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px;"></div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <a href="#contact" class="btn-orange-pill" id="modal-inquire-btn">
+          <span>INQUIRE ABOUT SIMILAR PROJECT</span>
+          <span class="btn-arrow-circle">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       SLIDE-OUT MENU DRAWER (HAMBURGER)
   ======================================================== -->
   <div class="side-drawer" id="menu-drawer">
     <div class="drawer-header">
-      <div class="brand-block">
+      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
         <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
-      </div>
-      <button class="drawer-close-btn" id="drawer-close-btn">✕</button>
+      </a>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close menu">✕</button>
     </div>
 
     <div class="drawer-nav-list">
-      <a href="index.html" class="drawer-nav-item active">
+      <a href="#hero" class="drawer-nav-item active">
         <span class="drawer-nav-num">01</span>
         <span>Home</span>
       </a>
-      <a href="work.html#about" class="drawer-nav-item">
+      <a href="#about" class="drawer-nav-item">
         <span class="drawer-nav-num">02</span>
-        <span>About & Ethos</span>
+        <span>About &amp; Ethos</span>
       </a>
-      <a href="work.html#services" class="drawer-nav-item">
+      <a href="#services" class="drawer-nav-item">
         <span class="drawer-nav-num">03</span>
-        <span>What We Do</span>
+        <span>Our Process</span>
       </a>
-      <a href="work.html#work" class="drawer-nav-item">
+      <a href="#work" class="drawer-nav-item">
         <span class="drawer-nav-num">04</span>
         <span>Selected Works</span>
       </a>
-      <a href="work.html#contact" class="drawer-nav-item">
+      <a href="#trusted-by" class="drawer-nav-item">
         <span class="drawer-nav-num">05</span>
-        <span>Start a Project</span>
+        <span>Client Reviews</span>
+      </a>
+      <a href="#faq" class="drawer-nav-item">
+        <span class="drawer-nav-num">06</span>
+        <span>FAQ</span>
+      </a>
+      <a href="#contact" class="drawer-nav-item">
+        <span class="drawer-nav-num">07</span>
+        <span style="color:var(--orange);">Start a Project ↗</span>
       </a>
     </div>
 
@@ -456,163 +2057,12 @@
     </div>
   </div>
 
-  <!-- ========================================================
-       5. "WHAT WE DO" MODAL OVERLAY
-  ======================================================== -->
-  <div class="modal-overlay" id="services-modal">
-    <div class="modal-window">
-      <button class="modal-close-btn">✕</button>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">
-        OUR CAPABILITIES // 4—11 STUDIO®
-      </div>
-      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 700; text-transform: uppercase; margin-bottom: 24px;">
-        Ideas are only the beginning.
-      </h2>
-
-      <!-- 5 Pillars -->
-      <div class="pillar-card">
-        <div class="pillar-title">
-          <span class="pillar-num">01</span>
-          <span>Video Production & Editing</span>
-        </div>
-        <p class="pillar-desc">Stories worth watching. Video editing, Instagram Reels, YouTube long-form, brand videos, and podcast cuts.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Video Editing</span>
-          <span class="pillar-tag">Reels & Shorts</span>
-          <span class="pillar-tag">YouTube Long-Form</span>
-          <span class="pillar-tag">Brand Promos</span>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-title">
-          <span class="pillar-num">02</span>
-          <span>Creative Design & Artwork</span>
-        </div>
-        <p class="pillar-desc">Visuals that make an impression. Poster & artwork design, social creatives, campaign visuals, and presentation pitch decks.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Poster Design</span>
-          <span class="pillar-tag">Social Creatives</span>
-          <span class="pillar-tag">Campaign Visuals</span>
-          <span class="pillar-tag">Pitch Decks</span>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-title">
-          <span class="pillar-num">03</span>
-          <span>Social Media Management</span>
-        </div>
-        <p class="pillar-desc">Make every scroll count. Strategic planning, engaging content, reels, content calendars, and brand collaborations.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Account Management</span>
-          <span class="pillar-tag">Content Strategy</span>
-          <span class="pillar-tag">Carousels & Posts</span>
-          <span class="pillar-tag">Brand Collabs</span>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-title">
-          <span class="pillar-num">04</span>
-          <span>Celebrity & Talent Management</span>
-        </div>
-        <p class="pillar-desc">Talent meets opportunity. Supporting public personalities, comedians, actors, and creators in building their digital presence.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Celebrity Management</span>
-          <span class="pillar-tag">Personal Branding</span>
-          <span class="pillar-tag">Brand Coordination</span>
-          <span class="pillar-tag">Event PR</span>
-        </div>
-      </div>
-
-      <div class="pillar-card" style="border-bottom: none;">
-        <div class="pillar-title">
-          <span class="pillar-num">05</span>
-          <span>Podcast Production</span>
-        </div>
-        <p class="pillar-desc">Conversations, crafted for the screen. Episode post-production, viral short-form clips, artwork, and social repurposing.</p>
-        <div class="pillar-tags">
-          <span class="pillar-tag">Podcast Editing</span>
-          <span class="pillar-tag">Post-Production</span>
-          <span class="pillar-tag">Short Clips</span>
-          <span class="pillar-tag">Cover Artwork</span>
-        </div>
-      </div>
-
-      <div style="margin-top: 32px; text-align: center;">
-        <a href="work.html#contact" class="btn-orange-pill" style="display: inline-flex;">
-          <span>Start a Project with 4—11</span>
-          <span class="btn-arrow-circle">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================================
-       6. "VIEW WORKS" MODAL OVERLAY
-  ======================================================== -->
-  <div class="modal-overlay" id="work-modal">
-    <div class="modal-window">
-      <button class="modal-close-btn">✕</button>
-      <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 8px;">
-        SELECTED WORK // IN GOOD COMPANY
-      </div>
-      <h2 style="font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 700; text-transform: uppercase; margin-bottom: 24px;">
-        Ideas brought to life.
-      </h2>
-
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <!-- Faizan Bhatt -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 4px;">STAND-UP COMEDIAN</div>
-            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700;">Faizan Bhatt</h3>
-            <p style="font-size: 13px; color: var(--white-dim); margin-top: 4px;">Video edits & creative tour poster design.</p>
-          </div>
-          <span class="pillar-tag">Video Editing · Posters</span>
-        </div>
-
-        <!-- Sushmita Mukherjee -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 4px;">ACTRESS & ICON</div>
-            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700;">Sushmita Mukherjee</h3>
-            <p style="font-size: 13px; color: var(--white-dim); margin-top: 4px;">Social media presence, brand collaborations, and event PR.</p>
-          </div>
-          <span class="pillar-tag">Social · Brand Deals · PR</span>
-        </div>
-
-        <!-- Pronto -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 4px;">COMMERCIAL BRAND</div>
-            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700;">Pronto</h3>
-            <p style="font-size: 13px; color: var(--white-dim); margin-top: 4px;">Polished video content and campaign artwork design.</p>
-          </div>
-          <span class="pillar-tag">Video · Artwork Design</span>
-        </div>
-
-        <!-- Nashia Kondia -->
-        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 11px; color: var(--orange); margin-bottom: 4px;">PODCAST PROJECT</div>
-            <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700;">Nashia Kondia</h3>
-            <p style="font-size: 13px; color: var(--white-dim); margin-top: 4px;">Episode post-production and viral short-form clips.</p>
-          </div>
-          <span class="pillar-tag">Podcast · Post-Production</span>
-        </div>
-      </div>
-
-      <div style="margin-top: 32px; text-align: center;">
-        <a href="work.html#work" class="btn-orange-pill" style="display: inline-flex;">
-          <span>Explore All 12 Works</span>
-          <span class="btn-arrow-circle">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/main.js?v=3.9"></script>
+  <!-- GSAP & ScrollTrigger for Native Pinning Stack Animations -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <!-- Homepage Core Interactive Engine (Pop-Art Parallax, Rocket, Drawer, Word Rotator) -->
+  <script src="js/main.js?v=4.1"></script>
+  <!-- Work Page Specialist Engine (Orbit Wheel, Sticky Stack, Modals, FAQ, Physics Badges) -->
+  <script src="js/ba-investor-decks.js?v=5.3"></script>
 </body>
 </html>

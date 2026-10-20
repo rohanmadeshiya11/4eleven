@@ -24,30 +24,138 @@
   <link rel="preconnect" href="https://player.vimeo.com">
   <link rel="preconnect" href="https://f.vimeocdn.com" crossorigin="anonymous">
 
-  <!-- Homepage Core & Indian Desi Theme Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=4.0">
-  <link rel="stylesheet" href="css/ba-investor-decks.css?v=5.2">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=4.2">
+  <link rel="stylesheet" href="css/ba-investor-decks.css?v=5.4">
 </head>
-<body class="work-page subpage">
-
-  <!-- 1. Subtle Film Grain Texture Overlay -->
+<body class="landing-page work-page">
+  <!-- Subtle Grain Overlay -->
   <div class="grain"></div>
 
-  <!-- 2. Traditional Indian Line Artwork Mandala Watermark (Rotating Ambient Background) -->
-  <div class="bg-traditional-mandala-wrap" aria-hidden="true">
+<div class="preloader" id="preloader">
+    <div class="loader-content">
+      
+      <!-- Indian Traditional Line Artwork Mandala Wrap Around Logo -->
+      <div class="loader-mandala-wrap">
+        <svg class="traditional-mandala-svg loader-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <g id="l-petal">
+              <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
+              <path d="M 400,95 C 385,140 380,180 400,205 C 420,180 415,140 400,95 Z" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+              <circle cx="400" cy="50" r="3.5" fill="currentColor"/>
+            </g>
+            <g id="l-arch">
+              <path d="M 368,250 C 378,214 422,214 432,250" stroke="currentColor" stroke-width="1.3"/>
+              <circle cx="400" cy="224" r="2.5" fill="currentColor"/>
+              <line x1="400" y1="248" x2="400" y2="280" stroke="currentColor" stroke-width="0.9"/>
+            </g>
+            <g id="l-inner">
+              <path d="M 400,285 C 388,320 388,340 400,355 C 412,340 412,320 400,285 Z" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="400" cy="320" r="1.8" fill="currentColor"/>
+            </g>
+          </defs>
+          <circle cx="400" cy="400" r="375" stroke="currentColor" stroke-width="1.2" stroke-dasharray="8 6"/>
+          <circle cx="400" cy="400" r="360" stroke="currentColor" stroke-width="0.8"/>
+          <circle cx="400" cy="400" r="340" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="400" cy="400" r="330" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <use href="#l-petal" transform="rotate(0 400 400)"/>
+          <use href="#l-petal" transform="rotate(22.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(45 400 400)"/>
+          <use href="#l-petal" transform="rotate(67.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(90 400 400)"/>
+          <use href="#l-petal" transform="rotate(112.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(135 400 400)"/>
+          <use href="#l-petal" transform="rotate(157.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(180 400 400)"/>
+          <use href="#l-petal" transform="rotate(202.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(225 400 400)"/>
+          <use href="#l-petal" transform="rotate(247.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(270 400 400)"/>
+          <use href="#l-petal" transform="rotate(292.5 400 400)"/>
+          <use href="#l-petal" transform="rotate(315 400 400)"/>
+          <use href="#l-petal" transform="rotate(337.5 400 400)"/>
+          <circle cx="400" cy="400" r="250" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="400" cy="400" r="242" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5"/>
+          <use href="#l-arch" transform="rotate(0 400 400)"/>
+          <use href="#l-arch" transform="rotate(22.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(45 400 400)"/>
+          <use href="#l-arch" transform="rotate(67.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(90 400 400)"/>
+          <use href="#l-arch" transform="rotate(112.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(135 400 400)"/>
+          <use href="#l-arch" transform="rotate(157.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(180 400 400)"/>
+          <use href="#l-arch" transform="rotate(202.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(225 400 400)"/>
+          <use href="#l-arch" transform="rotate(247.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(270 400 400)"/>
+          <use href="#l-arch" transform="rotate(292.5 400 400)"/>
+          <use href="#l-arch" transform="rotate(315 400 400)"/>
+          <use href="#l-arch" transform="rotate(337.5 400 400)"/>
+          <circle cx="400" cy="400" r="150" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="400" cy="400" r="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
+          <use href="#l-inner" transform="rotate(0 400 400)"/>
+          <use href="#l-inner" transform="rotate(22.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(45 400 400)"/>
+          <use href="#l-inner" transform="rotate(67.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(90 400 400)"/>
+          <use href="#l-inner" transform="rotate(112.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(135 400 400)"/>
+          <use href="#l-inner" transform="rotate(157.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(180 400 400)"/>
+          <use href="#l-inner" transform="rotate(202.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(225 400 400)"/>
+          <use href="#l-inner" transform="rotate(247.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(270 400 400)"/>
+          <use href="#l-inner" transform="rotate(292.5 400 400)"/>
+          <use href="#l-inner" transform="rotate(315 400 400)"/>
+          <use href="#l-inner" transform="rotate(337.5 400 400)"/>
+          <circle cx="400" cy="400" r="75" stroke="currentColor" stroke-width="1.4"/>
+          <circle cx="400" cy="400" r="68" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <circle cx="400" cy="400" r="45" stroke="currentColor" stroke-width="1"/>
+          <circle cx="400" cy="400" r="18" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="400" cy="400" r="4" fill="currentColor"/>
+        </svg>
+
+        <div class="loader-logo-wrap">
+          <div class="loader-halo"></div>
+          <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="loader-logo-img">
+        </div>
+      </div>
+
+      <div class="loader-brand">
+        <span>4—11 STUDIO®</span>
+      </div>
+      <div class="loader-tagline">Make It Matter.</div>
+
+      <!-- Counter & Progress Bar -->
+      <div class="loader-counter-row">
+        <div class="loader-progress-bar">
+          <div class="loader-progress-fill" id="loader-progress-fill"></div>
+        </div>
+        <div class="loader-num" id="loader-counter">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       2. INDIAN TRADITIONAL LINE ARTWORK WATERMARK (BACKGROUND)
+  ======================================================== -->
+
+<div class="bg-traditional-mandala-wrap" aria-hidden="true">
     <svg class="traditional-mandala-svg bg-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        <g id="w-petal">
+        <g id="bg-petal">
           <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
           <path d="M 400,95 C 385,140 380,180 400,205 C 420,180 415,140 400,95 Z" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
           <circle cx="400" cy="50" r="3.5" fill="currentColor"/>
         </g>
-        <g id="w-arch">
+        <g id="bg-arch">
           <path d="M 368,250 C 378,214 422,214 432,250" stroke="currentColor" stroke-width="1.3"/>
           <circle cx="400" cy="224" r="2.5" fill="currentColor"/>
           <line x1="400" y1="248" x2="400" y2="280" stroke="currentColor" stroke-width="0.9"/>
         </g>
-        <g id="w-inner">
+        <g id="bg-inner">
           <path d="M 400,285 C 388,320 388,340 400,355 C 412,340 412,320 400,285 Z" stroke="currentColor" stroke-width="1.2"/>
           <circle cx="400" cy="320" r="1.8" fill="currentColor"/>
         </g>
@@ -56,58 +164,58 @@
       <circle cx="400" cy="400" r="360" stroke="currentColor" stroke-width="0.8"/>
       <circle cx="400" cy="400" r="340" stroke="currentColor" stroke-width="1.4"/>
       <circle cx="400" cy="400" r="330" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
-      <use href="#w-petal" transform="rotate(0 400 400)"/>
-      <use href="#w-petal" transform="rotate(22.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(45 400 400)"/>
-      <use href="#w-petal" transform="rotate(67.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(90 400 400)"/>
-      <use href="#w-petal" transform="rotate(112.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(135 400 400)"/>
-      <use href="#w-petal" transform="rotate(157.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(180 400 400)"/>
-      <use href="#w-petal" transform="rotate(202.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(225 400 400)"/>
-      <use href="#w-petal" transform="rotate(247.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(270 400 400)"/>
-      <use href="#w-petal" transform="rotate(292.5 400 400)"/>
-      <use href="#w-petal" transform="rotate(315 400 400)"/>
-      <use href="#w-petal" transform="rotate(337.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(0 400 400)"/>
+      <use href="#bg-petal" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(45 400 400)"/>
+      <use href="#bg-petal" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(90 400 400)"/>
+      <use href="#bg-petal" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(135 400 400)"/>
+      <use href="#bg-petal" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(180 400 400)"/>
+      <use href="#bg-petal" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(225 400 400)"/>
+      <use href="#bg-petal" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(270 400 400)"/>
+      <use href="#bg-petal" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(315 400 400)"/>
+      <use href="#bg-petal" transform="rotate(337.5 400 400)"/>
       <circle cx="400" cy="400" r="250" stroke="currentColor" stroke-width="1.2"/>
       <circle cx="400" cy="400" r="242" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5"/>
-      <use href="#w-arch" transform="rotate(0 400 400)"/>
-      <use href="#w-arch" transform="rotate(22.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(45 400 400)"/>
-      <use href="#w-arch" transform="rotate(67.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(90 400 400)"/>
-      <use href="#w-arch" transform="rotate(112.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(135 400 400)"/>
-      <use href="#w-arch" transform="rotate(157.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(180 400 400)"/>
-      <use href="#w-arch" transform="rotate(202.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(225 400 400)"/>
-      <use href="#w-arch" transform="rotate(247.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(270 400 400)"/>
-      <use href="#w-arch" transform="rotate(292.5 400 400)"/>
-      <use href="#w-arch" transform="rotate(315 400 400)"/>
-      <use href="#w-arch" transform="rotate(337.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(0 400 400)"/>
+      <use href="#bg-arch" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(45 400 400)"/>
+      <use href="#bg-arch" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(90 400 400)"/>
+      <use href="#bg-arch" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(135 400 400)"/>
+      <use href="#bg-arch" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(180 400 400)"/>
+      <use href="#bg-arch" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(225 400 400)"/>
+      <use href="#bg-arch" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(270 400 400)"/>
+      <use href="#bg-arch" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(315 400 400)"/>
+      <use href="#bg-arch" transform="rotate(337.5 400 400)"/>
       <circle cx="400" cy="400" r="150" stroke="currentColor" stroke-width="1.2"/>
       <circle cx="400" cy="400" r="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
-      <use href="#w-inner" transform="rotate(0 400 400)"/>
-      <use href="#w-inner" transform="rotate(22.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(45 400 400)"/>
-      <use href="#w-inner" transform="rotate(67.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(90 400 400)"/>
-      <use href="#w-inner" transform="rotate(112.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(135 400 400)"/>
-      <use href="#w-inner" transform="rotate(157.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(180 400 400)"/>
-      <use href="#w-inner" transform="rotate(202.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(225 400 400)"/>
-      <use href="#w-inner" transform="rotate(247.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(270 400 400)"/>
-      <use href="#w-inner" transform="rotate(292.5 400 400)"/>
-      <use href="#w-inner" transform="rotate(315 400 400)"/>
-      <use href="#w-inner" transform="rotate(337.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(0 400 400)"/>
+      <use href="#bg-inner" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(45 400 400)"/>
+      <use href="#bg-inner" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(90 400 400)"/>
+      <use href="#bg-inner" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(135 400 400)"/>
+      <use href="#bg-inner" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(180 400 400)"/>
+      <use href="#bg-inner" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(225 400 400)"/>
+      <use href="#bg-inner" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(270 400 400)"/>
+      <use href="#bg-inner" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(315 400 400)"/>
+      <use href="#bg-inner" transform="rotate(337.5 400 400)"/>
       <circle cx="400" cy="400" r="75" stroke="currentColor" stroke-width="1.4"/>
       <circle cx="400" cy="400" r="68" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
       <circle cx="400" cy="400" r="45" stroke="currentColor" stroke-width="1"/>
@@ -116,11 +224,14 @@
     </svg>
   </div>
 
-  <!-- 3. FLOATING RETRO HINDI POP-ART CANVAS (INTERACTIVE ELEMENTS YOU CAN CLICK & PLAY WITH!) -->
-  <div class="retro-bg-canvas" id="retro-bg-canvas" aria-hidden="false">
+  <!-- ========================================================
+       3. FLOATING RETRO HINDI POP-ART BACKGROUND CANVAS (9 ELEMENTS)
+  ======================================================== -->
+
+<div class="retro-bg-canvas" id="retro-bg-canvas">
     
     <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
-    <div class="retro-element badge-branding" data-parallax="0.04" title="ब्रांडिंग (Click to play!)">
+    <div class="retro-element badge-branding" data-parallax="0.04">
       <div class="branding-sunburst"></div>
       <div class="branding-tagline">4—11 STUDIO // 01</div>
       <div class="branding-title">ब्रांडिंग</div>
@@ -130,15 +241,15 @@
       </div>
     </div>
 
-    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage -->
-    <div class="retro-element badge-design" data-parallax="0.07" title="डिजाइन (Click to play!)">
+    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage (Direct Reference Match) -->
+    <div class="retro-element badge-design" data-parallax="0.07">
       <div class="design-label-small">CREATIVE ARTWORK // 02</div>
       <div class="design-headline">डिजाइन</div>
       <div class="design-subline">DISTINCTIVE VISUALS</div>
     </div>
 
-    <!-- 3. प्रमोशन (PROMOTION) — Retro Matchbox / Ticket Badge -->
-    <div class="retro-element badge-promotion" data-parallax="0.05" title="प्रमोशन (Click to play!)">
+    <!-- 3. प्रमोशन (PROMOTION) — Retro Ticket Badge -->
+    <div class="retro-element badge-promotion" data-parallax="0.05">
       <div class="promotion-icon-pill">★</div>
       <div class="promotion-texts">
         <span class="promotion-eng">CAMPAIGNS // 03</span>
@@ -147,52 +258,58 @@
     </div>
 
     <!-- 4. एजेंसी (AGENCY) — Vintage Distressed Stamp -->
-    <div class="retro-element badge-agency" data-parallax="0.06" title="एजेंसी (Click to play!)">
+    <div class="retro-element badge-agency" data-parallax="0.06">
       <div class="agency-star">✦ ✦ ✦</div>
       <div class="agency-title">एजेंसी</div>
       <div class="agency-sub">INDEPENDENT</div>
     </div>
 
     <!-- 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag -->
-    <div class="retro-element badge-slogan" data-parallax="0.03" title="मेक इट मैटर (Click to play!)">
+    <div class="retro-element badge-slogan" data-parallax="0.03">
       <div class="slogan-title">मेक इट मैटर</div>
       <div class="slogan-sub">4—11 STUDIO®</div>
     </div>
 
     <!-- 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket -->
-    <div class="retro-element badge-content" data-parallax="0.05" title="कंटेंट (Click to play!)">
+    <div class="retro-element badge-content" data-parallax="0.05">
       <div class="content-num">STORIES // 04</div>
       <div class="content-title">कंटेंट</div>
       <div class="content-eng">WORTH WATCHING</div>
     </div>
 
-    <!-- 7. प्रोडक्शन (PRODUCTION) — Indian Truck-Art Plaque -->
-    <div class="retro-element badge-production" data-parallax="0.06" title="प्रोडक्शन (Click to play!)">
+    <!-- 7. प्रोडक्शन (PRODUCTION) — Truck-Art Plaque -->
+    <div class="retro-element badge-production" data-parallax="0.06">
       <div class="production-dot"></div>
       <div class="production-title">प्रोडक्शन</div>
-      <span class="production-eng">VIDEO &amp; POST</span>
+      <span class="production-eng">VIDEO & POST</span>
     </div>
 
-    <!-- 8. सोशल मीडिया (SOCIAL MEDIA) — Retro Sunburst Badge -->
-    <div class="retro-element badge-social" data-parallax="0.04" title="सोशल (Click to play!)">
+    <!-- 8. सोशल मीडिया (SOCIAL MEDIA) — Sunburst Badge -->
+    <div class="retro-element badge-social" data-parallax="0.04">
       <div class="social-tag">DIGITAL // 06</div>
       <div class="social-title">सोशल</div>
       <div class="social-eng">MAKE EVERY SCROLL COUNT</div>
     </div>
 
     <!-- 9. ४—११ स्टूडियो (4-11 STUDIO) — Starburst Medallion -->
-    <div class="retro-element badge-seal" data-parallax="0.05" title="४—११ स्टूडियो (Click to play!)">
+    <div class="retro-element badge-seal" data-parallax="0.05">
       <span class="seal-star">✦</span>
       <div class="seal-title">४—११</div>
       <span class="seal-eng">STUDIO® MUMBAI</span>
     </div>
 
-    <!-- 10. 4—11 ROCKET SHIP VOYAGER (FLYING ACROSS THE SCREEN // CLICK FOR TURBO BOOST!) -->
-    <div class="rocket-voyager" id="rocket-411" title="4—11 Space Voyager (Click for Turbo Boost!)">
+    <!-- 10. 4—11 ROCKET SHIP VOYAGER (FLYING EVERYWHERE RANDOMLY WITH SIDE FLAMES) -->
+    <div class="rocket-voyager" id="rocket-411" title="4—11 Space Rocket (Click for Turbo Boost!)">
       <div class="rocket-container">
-        <!-- Exhaust Plumes -->
+        
+        <!-- Side & Rear Thruster Exhaust Flames -->
         <div class="rocket-thrusters-group">
-          <div class="thruster-side thruster-side-top"><div class="flame-jet"></div></div>
+          <!-- Top Side Flame -->
+          <div class="thruster-side thruster-side-top">
+            <div class="flame-jet"></div>
+          </div>
+
+          <!-- Main Core Flame -->
           <div class="thruster-main">
             <div class="flame-plume flame-plume-outer"></div>
             <div class="flame-plume flame-plume-mid"></div>
@@ -200,37 +317,52 @@
             <div class="flame-spark spark-1"></div>
             <div class="flame-spark spark-2"></div>
           </div>
-          <div class="thruster-side thruster-side-bottom"><div class="flame-jet"></div></div>
+
+          <!-- Bottom Side Flame -->
+          <div class="thruster-side thruster-side-bottom">
+            <div class="flame-jet"></div>
+          </div>
         </div>
-        <!-- Fuselage with Official 4-11 Logo -->
+
+        <!-- Rocket Body Fuselage -->
         <div class="rocket-fuselage">
+          <!-- Top Fin -->
           <div class="rocket-fin rocket-fin-top"></div>
+
+          <!-- Fuselage Core with Official 4-11 Logo Only (Clean & Fully Visible) -->
           <div class="rocket-core">
             <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="rocket-logo-img">
           </div>
+
+          <!-- Bottom Fin -->
           <div class="rocket-fin rocket-fin-bottom"></div>
+
+          <!-- Aerodynamic Nose Cone -->
+          <div class="rocket-nose"></div>
         </div>
-        <div class="rocket-nose"></div>
+
       </div>
     </div>
 
   </div>
 
-  <!-- Top Header (Homepage Exact Design System + Clean Desktop Nav) -->
+  <!-- Top Header (Fixed Single-Page Navigation) -->
   <header class="top-header" id="siteHeader">
     <div class="top-header-inner">
-      <!-- Official 4-11 Logo + Badge (Homepage Design) -->
-      <a href="index.html" class="brand-block" title="4—11 Studio Homepage">
+      <!-- Official 4-11 Logo + Badge -->
+      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
         <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
       </a>
 
       <!-- Clean Horizontal Top Navigation (Desktop Single-Page Anchors) -->
       <nav class="desktop_nav_links" aria-label="Main Navigation">
-        <a href="index.html" class="nav_text_link">Home</a>
+        <a href="#hero" class="nav_text_link active">Home</a>
+        <a href="#partnership" class="nav_text_link">Partnerships</a>
+        <a href="#capabilities" class="nav_text_link">Capabilities</a>
         <a href="#about" class="nav_text_link">About</a>
-        <a href="#services" class="nav_text_link">Services</a>
-        <a href="#work" class="nav_text_link active">Work</a>
+        <a href="#work" class="nav_text_link">Work</a>
+        <a href="#services" class="nav_text_link">Process</a>
         <a href="#trusted-by" class="nav_text_link">Reviews</a>
         <a href="#faq" class="nav_text_link">FAQ</a>
         <a href="#contact" class="nav_text_link">Contact</a>
@@ -239,7 +371,7 @@
       <!-- Right Header Actions: CTA Pill + Hamburger Button -->
       <div class="header_right_group">
         <a class="btn-orange-pill header-cta-pill" href="#contact">
-          <span>BOOK A CALL</span>
+          <span>START A PROJECT</span>
           <span class="btn-arrow-circle">↗</span>
         </a>
 
@@ -252,54 +384,206 @@
     </div>
   </header>
 
+  <!-- ========================================================
+       1. HERO VIEWPORT CONTAINER (PRESERVED ORIGINAL HOMEPAGE DESIGN)
+  ======================================================== -->
+  <div class="hero-wrapper" id="hero">
+    
+    <!-- Left Rail: Vertical Label -->
+    <div class="left-rail">
+      <div class="vertical-label">4—11 STUDIO // 2026</div>
+    </div>
+
+    <!-- Center Hero Content -->
+    <div class="hero-content">
+      <!-- Tagline Badge -->
+      <div class="tagline-badge">
+        <span class="pulse-dot"></span>
+        <span>MAKE IT MATTER.</span>
+      </div>
+
+      <!-- Main Headline: Strictly 3 Lines Only with Dynamic Rotating Indian Typography -->
+      <h1 class="hero-headline">
+        <span class="headline-line headline-line-1">We <span class="highlight-word">Make</span> Brands</span>
+        <span class="headline-line headline-line-2">Impossible to</span>
+        <span class="headline-line headline-line-3"><span class="dynamic-word-wrap"><span class="dynamic-word style-bollywood" id="dynamic-ignore">Ignore</span></span></span>
+      </h1>
+      
+      <!-- Sub-description -->
+      <p class="hero-subtext">
+        We create compelling content, design distinctive visuals, and build digital presence for brands, businesses, and personalities. Thoughtfully created. Intentionally different.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-cta-row">
+        <a href="#services" class="btn-orange-pill" id="what-we-do-btn">
+          <span>WHAT WE DO</span>
+          <span class="btn-arrow-circle">↓</span>
+        </a>
+
+        <a href="#work" class="btn-ghost-pill" id="view-works-btn">
+          <span>VIEW WORKS</span>
+          <span class="btn-ghost-arrow">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Right: Circular Rotating Badge -->
+    <div class="bottom-right-badge">
+      <a href="#partnership" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
+        <svg class="badge-svg" viewBox="0 0 120 120">
+          <path id="textCircle" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
+          <text fill="rgba(255, 255, 255, 0.75)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
+            <textPath href="#textCircle" startOffset="0%">
+              • MAKE IT MATTER • 4—11 STUDIO •
+            </textPath>
+          </text>
+        </svg>
+        <div class="badge-center-btn">↓</div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ========================================================
+       2. EDITORIAL MARQUEE & KEY METRIC STRIP
+  ======================================================== -->
+  <div class="editorial-marquee-wrap">
+    <div class="editorial-marquee-track">
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Key Metric Strip Bar -->
+  <div class="metric-strip-wrap">
+    <div class="metric-strip-inner">
+      <div class="metric-item">
+        <span class="metric-val">28+</span>
+        <span class="metric-lbl">Brands Transformed</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">₹120Cr+</span>
+        <span class="metric-lbl">Valuation Created</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val">4.9★</span>
+        <span class="metric-lbl">Client Rating</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">100%</span>
+        <span class="metric-lbl">On-Time Delivery</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Main Landing Page Content Container -->
   <main class="page">
-    
-    <!-- SECTION 1: HERO (55fr / 45fr SPLIT LAYOUT) -->
-    <section class="service_hero" id="top">
-      <div class="service_hero_content">
-        <div class="tagline-badge" style="margin: 0 0 20px 0; align-self: flex-start;">
-          <span class="pulse-dot"></span>
-          <span>PORTFOLIO PROJECTS &amp; CLIENT WORK // पोर्टफोलियो</span>
-        </div>
-        <h1 data-text-reveal="" class="service_hero_title">
-          Good People.<br/>
-          <span class="text-saffron">Great Ideas.</span><br/>
-          Creative <span class="dynamic-word-wrap"><span class="dynamic-word style-truck-art" id="dynamic-work">कृतियाँ</span></span>
-        </h1>
-        <p class="service_hero_text">
-          We collaborate with artists, brands, and creative projects to create engaging content, build strong digital identities, and strengthen their online presence.
-        </p>
-        <div class="hero-cta-row" style="margin-top:1.8em; justify-content: flex-start; gap: 16px;">
-          <a class="btn-orange-pill" href="contact.html">
-            <span>START A COLLABORATION</span>
-            <span class="btn-arrow-circle">→</span>
-          </a>
-          <a class="btn-ghost-pill" href="#featured-projects">
-            <span>EXPLORE 12 WORKS</span>
-            <span class="btn-ghost-arrow">↓</span>
-          </a>
-        </div>
-      </div>
-      <div class="service_hero_visual">
-        <img alt="4—11 Studio Creative Work" decoding="async" class="u-cover" sizes="(max-width: 767px) 100vw, 45vw" src="assets/projects/rock-paper-rum.jpg"/>
-        <div class="hero-rotating-badge-wrap">
-          <a href="#featured-projects" class="spinning-badge-wrap" title="Explore Selected Works">
-            <svg class="badge-svg" viewBox="0 0 120 120">
-              <path id="textCircleWork" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
-              <text fill="rgba(255, 255, 255, 0.85)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
-                <textPath href="#textCircleWork" startOffset="0%">
-                  • MAKE IT MATTER • 4—11 STUDIO •
-                </textPath>
-              </text>
-            </svg>
-            <div class="badge-center-btn">↓</div>
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <!-- SECTION 2: INTRO (EDITORIAL 2-COLUMN GRID) -->
+  <!-- ========================================================
+       SECTION 3: CREATIVE PARTNERSHIPS SHOWCASE (ELEVATED & UNCLUTTERED)
+  ======================================================== -->
+  <section class="partnership_showcase_section" id="partnership">
+    <div class="partnership_container">
+      <div class="partnership_header_row">
+        <div class="tagline-badge" style="margin-bottom: 14px;">
+          <span class="pulse-dot"></span>
+          <span>CREATIVE PARTNERSHIPS // रचनात्मक सहयोग</span>
+        </div>
+        <div class="partnership_lead_wrap">
+          <h2 class="partnership_main_title">
+            Good People. <span class="text-saffron">Great Ideas.</span><br/>
+            Creative <span class="dynamic-word-wrap"><span class="dynamic-word style-truck-art" id="dynamic-work">Partnerships</span></span>
+          </h2>
+          <p class="partnership_lead_subtext">
+            We collaborate with artists, visionary brands, and creative leaders to create engaging visual systems, distinctive digital flagships, and stories that demand attention.
+          </p>
+        </div>
+      </div>
+
+      <!-- Editorial 2-Column Grid: Left Value Pillars + Right Framed Showcase -->
+      <div class="partnership_layout_grid">
+        <!-- Left: 3 Pillars with Clean Micro-Cards -->
+        <div class="partnership_pillars_column">
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">01</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">Direct Founder &amp; Artist Access</h3>
+              <p class="partnership_pillar_desc">No agency bureaucracy or middle layers. You collaborate directly with principal creatives who execute every detail.</p>
+            </div>
+          </div>
+
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">02</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">End-to-End Visual Precision</h3>
+              <p class="partnership_pillar_desc">From radical brand architecture and 35mm film direction to high-converting WebGL web experiences and viral social cuts.</p>
+            </div>
+          </div>
+
+          <div class="partnership_pillar_card">
+            <div class="partnership_pillar_num">03</div>
+            <div class="partnership_pillar_info">
+              <h3 class="partnership_pillar_title">Culture-First Desi Aesthetic</h3>
+              <p class="partnership_pillar_desc">We blend authentic Indian cultural storytelling with contemporary global design benchmarks to make work that stands apart.</p>
+            </div>
+          </div>
+
+          <div class="partnership_action_row">
+            <a class="btn-orange-pill" href="#contact">
+              <span>START A PARTNERSHIP</span>
+              <span class="btn-arrow-circle">→</span>
+            </a>
+            <a class="btn-ghost-pill" href="#work">
+              <span>EXPLORE 12 WORKS</span>
+              <span class="btn-ghost-arrow">↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Framed Flagship Partnership Card (Rock Paper Rum) -->
+        <div class="partnership_visual_frame">
+          <div class="partnership_visual_card">
+            <div class="partnership_visual_img_wrap">
+              <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Creative Partnership" class="partnership_visual_img" />
+              <div class="partnership_visual_overlay"></div>
+            </div>
+            <div class="partnership_visual_badge_top">
+              <span class="pulse-dot"></span>
+              <span>FLAGSHIP SHOWCASE // 2026</span>
+            </div>
+            <div class="partnership_visual_caption">
+              <div class="partnership_visual_tag">CRAFT SPIRITS · BRAND IDENTITY · 3D PACKAGING</div>
+              <h4 class="partnership_visual_name">Rock Paper Rum</h4>
+              <p class="partnership_visual_meta">Full visual brand identity, bespoke bottle packaging, and launch campaign film that drove 3.4x category engagement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SECTION 2: INTRO (EDITORIAL 2-COLUMN GRID) -->
     <section class="service_intro">
       <div class="desi-sub-tag">कला, कहानी और पहचान का संगम // WHERE CULTURE MEETS PRECISION</div>
       <h2 data-text-reveal="" class="service_h2">
@@ -315,7 +599,7 @@
             From high-retention video editing and clickable thumbnail engineering to complete social media management, brand PR, and promotional poster design—we build visual systems that demand attention and sustain real engagement.
           </p>
           <div class="service_intro_ctas" style="display:flex; gap:16px; align-items:center; flex-wrap:wrap; margin-top:24px;">
-            <a class="btn-orange-pill" href="contact.html">
+            <a class="btn-orange-pill" href="#contact">
               <span>START A PROJECT</span>
               <span class="btn-arrow-circle">→</span>
             </a>
@@ -473,7 +757,7 @@
     </section>
 
     <!-- SECTION 5: BENTO GRID (CORE SERVICE PILLARS) -->
-    <section data-color="" class="service_bento">
+    <section data-color="" class="service_bento" id="capabilities">
       <p class="service_bento_eyebrow">CREATIVE CAPABILITIES &amp; EXECUTION // कारीगरी और सेवाएं</p>
       <h2 data-text-reveal="" class="service_bento_title">
         <span class="service_bento_title_dim">What our creative studio </span>delivers
@@ -1225,7 +1509,7 @@
               <div class="founder_fanned_card is-taupe">
                 <div class="fanned_card_top">
                   <div class="rating_stars">★★★★★</div>
-                  <a href="contact.html" class="contact_sales_pill">
+                  <a href="#contact" class="contact_sales_pill">
                     <span>CONTACT SALES</span>
                     <span class="phone_icon_bubble">📞</span>
                   </a>
@@ -1252,7 +1536,7 @@
               <div class="founder_fanned_card is-light">
                 <div class="fanned_card_top">
                   <div class="rating_stars">★★★★★</div>
-                  <a href="contact.html" class="contact_sales_pill">
+                  <a href="#contact" class="contact_sales_pill">
                     <span>CONTACT SALES</span>
                     <span class="phone_icon_bubble">📞</span>
                   </a>
@@ -1279,7 +1563,7 @@
               <div class="founder_fanned_card is-taupe">
                 <div class="fanned_card_top">
                   <div class="rating_stars">★★★★★</div>
-                  <a href="contact.html" class="contact_sales_pill">
+                  <a href="#contact" class="contact_sales_pill">
                     <span>CONTACT SALES</span>
                     <span class="phone_icon_bubble">📞</span>
                   </a>
@@ -1306,7 +1590,7 @@
               <div class="founder_fanned_card is-light">
                 <div class="fanned_card_top">
                   <div class="rating_stars">★★★★★</div>
-                  <a href="contact.html" class="contact_sales_pill">
+                  <a href="#contact" class="contact_sales_pill">
                     <span>CONTACT SALES</span>
                     <span class="phone_icon_bubble">📞</span>
                   </a>
@@ -1624,7 +1908,7 @@
         <div class="footer_col">
           <p class="footer_col_title">Navigation</p>
           <ul class="footer_col_list">
-            <li><a class="footer_link" href="#top">Home</a></li>
+            <li><a class="footer_link" href="#hero">Home</a></li>
             <li><a class="footer_link" href="#about">About &amp; Ethos</a></li>
             <li><a class="footer_link" href="#services">Our Process</a></li>
             <li><a class="footer_link" href="#work">Selected Works</a></li>
@@ -1724,7 +2008,7 @@
   ======================================================== -->
   <div class="side-drawer" id="menu-drawer">
     <div class="drawer-header">
-      <a href="#top" class="brand-block" title="4—11 Studio Homepage">
+      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
         <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="brand-logo-img">
         <span class="brand-sub-badge">STUDIO®</span>
       </a>
@@ -1732,7 +2016,7 @@
     </div>
 
     <div class="drawer-nav-list">
-      <a href="#top" class="drawer-nav-item active">
+      <a href="#hero" class="drawer-nav-item active">
         <span class="drawer-nav-num">01</span>
         <span>Home</span>
       </a>

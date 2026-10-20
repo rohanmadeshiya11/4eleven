@@ -225,10 +225,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (whatWeDoBtn) {
     whatWeDoBtn.addEventListener('click', (e) => {
       const href = whatWeDoBtn.getAttribute('href');
-      if (href && href.includes('.html')) {
-        return; // Allow standard page navigation
+      if (href && href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
       }
-      const targetSec = document.getElementById('what-we-ship') || document.getElementById('capabilities');
+      const targetSec = document.getElementById('services') || document.getElementById('capabilities') || document.getElementById('what-we-ship');
       if (targetSec) {
         e.preventDefault();
         targetSec.scrollIntoView({ behavior: 'smooth' });
@@ -242,10 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (viewWorksBtn) {
     viewWorksBtn.addEventListener('click', (e) => {
       const href = viewWorksBtn.getAttribute('href');
-      if (href && href.includes('.html')) {
-        return; // Allow standard page navigation
+      if (href && href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
       }
-      const targetSec = document.getElementById('selected-work');
+      const targetSec = document.getElementById('work') || document.getElementById('selected-work');
       if (targetSec) {
         e.preventDefault();
         targetSec.scrollIntoView({ behavior: 'smooth' });
@@ -259,10 +269,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (scrollBadgeBtn) {
     scrollBadgeBtn.addEventListener('click', (e) => {
       const href = scrollBadgeBtn.getAttribute('href');
-      if (href && href.includes('.html')) {
-        return; // Allow standard page navigation
+      if (href && href.startsWith('#')) {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth' });
+          return;
+        }
       }
-      const targetSec = document.getElementById('what-we-ship');
+      const targetSec = document.getElementById('partnership') || document.getElementById('services') || document.getElementById('what-we-ship');
       if (targetSec) {
         e.preventDefault();
         targetSec.scrollIntoView({ behavior: 'smooth' });
@@ -389,11 +404,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Work Page Rotator
   setupWordRotator('dynamic-work', [
-    { text: "कृतियाँ", styleClass: "style-truck-art" },
-    { text: "Impossible", styleClass: "style-street-neon" },
-    { text: "रचनाएं", styleClass: "style-royal-saffron" },
-    { text: "Cinema", styleClass: "style-bollywood" },
-    { text: "कलाकृति", styleClass: "style-matchbox-pop" }
+    { text: "Partnerships", styleClass: "style-truck-art" },
+    { text: "साझेदारियाँ", styleClass: "style-bollywood" },
+    { text: "कृतियाँ", styleClass: "style-royal-saffron" },
+    { text: "Collaborations", styleClass: "style-street-neon" },
+    { text: "रचनाएं", styleClass: "style-matchbox-pop" }
   ]);
 
   // Contact Page Rotator
