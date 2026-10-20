@@ -845,20 +845,13 @@
           <p class="services_intro_text">How we create high-impact work : from initial creative spark to final master export.</p>
         </div>
 
-        <!-- Quick Navigation Pills for the Stack -->
-        <div class="ship-deck-nav">
-          <button class="ship-nav-btn active" data-deck-index="0"><span>(01)</span> Branding &amp; Identity</button>
-          <button class="ship-nav-btn" data-deck-index="1"><span>(02)</span> Product Experience</button>
-          <button class="ship-nav-btn" data-deck-index="2"><span>(03)</span> Web Design</button>
-          <button class="ship-nav-btn" data-deck-index="3"><span>(04)</span> Investor Decks</button>
-        </div>
+        <!-- The Stacked Card Deck Container (Scroll-Linked Sticky Pinning Track) -->
+        <div class="c-tiles-stack" id="tiles-stack-container">
+          <div class="tiles_stack_wrapper" id="tiles-stack-wrapper">
+            <div class="tiles_stack_list" id="tiles-stack-list">
 
-        <!-- The Stacked Card Deck Container -->
-        <div class="c-tiles-stack-container" id="tiles-stack-container">
-          <div class="tiles_stack_list" id="tiles-stack-list">
-
-            <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
-            <div class="tiles_stack_item active" data-card-idx="0" style="background-color: #242bc6; z-index: 10;">
+              <!-- CARD 01: BRANDING (Indigo / Royal Cobalt) -->
+              <div class="tiles_stack_item" data-card-idx="0" style="background-color: #242bc6; z-index: 4;">
               <div class="service-card" style="background-color: #242bc6;">
                 <div class="service-card-header">
                   <div class="service-card-title-group">
@@ -924,12 +917,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="bottom-tab-badge"><span>(01) Branding &amp; Identity</span></div>
               </div>
             </div>
 
             <!-- CARD 02: PRODUCT EXPERIENCE (Vibrant Warm Orange) -->
-            <div class="tiles_stack_item under-1" data-card-idx="1" style="background-color: #ff5c26; z-index: 8;">
+            <div class="tiles_stack_item" data-card-idx="1" style="background-color: #ff5c26; z-index: 3;">
               <div class="service-card" style="background-color: #ff5c26;">
                 <div class="service-card-header">
                   <div class="service-card-title-group">
@@ -983,12 +975,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="bottom-tab-badge"><span>(02) Product Experience</span></div>
               </div>
             </div>
 
             <!-- CARD 03: WEB DESIGN (Rich Crimson Red) -->
-            <div class="tiles_stack_item under-2" data-card-idx="2" style="background-color: #ea3834; z-index: 6;">
+            <div class="tiles_stack_item" data-card-idx="2" style="background-color: #ea3834; z-index: 2;">
               <div class="service-card" style="background-color: #ea3834;">
                 <div class="service-card-header">
                   <div class="service-card-title-group">
@@ -1038,12 +1029,11 @@
                     </div>
                   </div>
                 </div>
-                <div class="bottom-tab-badge"><span>(03) Web Design</span></div>
               </div>
             </div>
 
             <!-- CARD 04: INVESTOR DECKS (Warm Bronze Brown) -->
-            <div class="tiles_stack_item under-3" data-card-idx="3" style="background-color: #6b5a45; z-index: 4;">
+            <div class="tiles_stack_item" data-card-idx="3" style="background-color: #6b5a45; z-index: 1;">
               <div class="service-card" style="background-color: #6b5a45;">
                 <div class="service-card-header">
                   <div class="service-card-title-group">
@@ -1093,14 +1083,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="bottom-tab-badge"><span>(04) Investor Decks</span></div>
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
-    </section>
+          </div> <!-- tiles_stack_list -->
+        </div> <!-- tiles_stack_wrapper -->
+      </div> <!-- c-tiles-stack -->
+    </div> <!-- container -->
+  </section>
 
 
     <!-- SECTION 9: CASE STUDIES PILL TAGS (12 CLIENT PROJECTS) -->
@@ -1124,71 +1114,142 @@
       </div>
     </section>
 
-    <!-- SECTION 10: FOUNDER & CLIENT TESTIMONIALS -->
-    <section class="founders u-section">
+    <!-- SECTION 10: FOUNDER & CLIENT TESTIMONIALS (FANNED 5-CARD DECK MATCHING VIDEO REF) -->
+    <section class="founders u-section" id="trusted-by">
       <div class="container">
         <div class="founders_headline headline">
           <div class="desi-sub-tag" style="justify-content:center; display:flex;">भरोसा और परिणाम // CLIENT TESTIMONIALS</div>
-          <h2 data-text-reveal="" class="h2">Trusted by<br/><span class="text-saffron">creators &amp; brands</span></h2>
+          <h2 data-text-reveal="" class="h2">Trusted by<br/><span class="text-grey">+40 founders</span></h2>
         </div>
-        <div class="cards_stack_wrapper">
-          <div class="cards_stack_list">
+        <div class="founders_fanned_wrapper">
+          <div class="founders_fanned_track">
             
-            <div class="cards_stack_item">
-              <div class="founder_card">
-                <div class="founder_card_top">
-                  <div class="rating">
-                    <span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span>
-                  </div>
-                  <a class="link" href="contact.html">
-                    <span class="link-title text-youth">Work With Us ↗</span>
-                  </a>
+            <!-- CARD 1: David Katz (Light Cream, -8deg) -->
+            <div class="fanned_card_col card_fan_1">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
                 </div>
-                <div class="founder_card_btm">
-                  <blockquote class="block-quote">“4—11 Studio's video editing turned our raw content into high-retention stories that resonated immediately with our audience. The speed and creative instincts are unmatched.”</blockquote>
-                  <div class="author">
-                    <div class="author_pic"><img alt="" loading="lazy" width="44" height="44" src="assets/ba/avatar-david.avif"/></div>
-                    <div><span class="author_name">Stand-Up Creator</span><br/><span class="author_job">Comedy &amp; Live Performance</span></div>
-                  </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “Notez-Nous chose Brand Appart to lead its complete rebranding process, including a full digital platform redesign. The boost in credibility has significantly improved our ability to close deals.”
+                  </blockquote>
                 </div>
-              </div>
-            </div>
-
-            <div class="cards_stack_item">
-              <div class="founder_card">
-                <div class="founder_card_top">
-                  <div class="rating">
-                    <span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-david.avif" alt="David Katz" width="44" height="44">
                   </div>
-                  <a class="link" href="contact.html">
-                    <span class="link-title text-youth">Work With Us ↗</span>
-                  </a>
-                </div>
-                <div class="founder_card_btm">
-                  <blockquote class="block-quote">“From promotional posters to full social media management, 4—11 took our public presence to another tier. Genuine partners who care deeply about the craft.”</blockquote>
-                  <div class="author">
-                    <div class="author_pic"><img alt="" loading="lazy" width="44" height="44" src="assets/ba/avatar-sebastien.jpg"/></div>
-                    <div><span class="author_name">Media Partner</span><br/><span class="author_job">Film &amp; Digital PR</span></div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">David Katz</span>
+                    <span class="fanned_author_role">CEO &amp; Founder @Notez-Nous</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="cards_stack_item">
-              <div class="founder_card">
-                <div class="founder_card_top">
-                  <div class="rating">
-                    <span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span><span class="rating_star">★</span>
-                  </div>
-                  <a class="link" href="contact.html">
-                    <span class="link-title text-youth">Work With Us ↗</span>
+            <!-- CARD 2: Sébastien Tomi (Warm Taupe, -4deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_2">
+              <div class="founder_fanned_card is-taupe">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="contact.html" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
                   </a>
                 </div>
-                <div class="founder_card_btm">
-                  <blockquote class="block-quote">“The thumbnail designs and YouTube video edits delivered a measurable leap in watch time and subscriber growth. They understand the digital algorithm without compromising brand quality.”</blockquote>
-                  <div class="author">
-                    <div class="author_pic"><img alt="" loading="lazy" width="44" height="44" src="assets/ba/avatar-yoann.jpg"/></div>
-                    <div><span class="author_name">Health &amp; Science Channel</span><br/><span class="author_job">Digital Content Lead</span></div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We'd seen other agencies lock everything down two rounds of feedback, then pay more. With Brand Appart, the flexibility was real. That's why we chose them. The quality of the work speaks for itself. The rebranding landed exactly where we wanted it to, and...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-sebastien.jpg" alt="Sébastien Tomi" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Sébastien Tomi</span>
+                    <span class="fanned_author_role">CO-Founder &amp; CEO @Mysunbed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 3: Yoann Ros (Light Cream, 0deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_3">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="contact.html" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We knew Brand Appart's work before reaching out: the creativity was obvious. And the final result delivered exactly that. The team adapted to how we work: fast, informal, no unnecessary calls. That made the whole collaboration genuinely...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-yoann.jpg" alt="Yoann Ros" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Yoann Ros</span>
+                    <span class="fanned_author_role">CMO @Bricks</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 4: Alexis Benoit (Warm Taupe, +4deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_4">
+              <div class="founder_fanned_card is-taupe">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="contact.html" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “I've worked with Brand Appart on branding and website design. The landing pages, 3D visual assets, and PowerPoint investor presentations were top tier: flexible, fast, and remarkably professional. That speed and quality is exactly what we needed.”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-alexis.avif" alt="Alexis Benoit" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Alexis Benoit</span>
+                    <span class="fanned_author_role">Managing Director @Meka Design</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CARD 5: Mathilde Ferrari (Light Cream, +8deg, Contact Sales) -->
+            <div class="fanned_card_col card_fan_5">
+              <div class="founder_fanned_card is-light">
+                <div class="fanned_card_top">
+                  <div class="rating_stars">★★★★★</div>
+                  <a href="contact.html" class="contact_sales_pill">
+                    <span>CONTACT SALES</span>
+                    <span class="phone_icon_bubble">📞</span>
+                  </a>
+                </div>
+                <div class="fanned_card_mid">
+                  <blockquote class="fanned_quote">
+                    “We had a family brand that hadn't evolved since 2013. Handing it over to an external agency was a real leap of faith. What struck me most is that the team held their ground without ever steamrolling mine. I pushed back on certain directions early on. They...”
+                  </blockquote>
+                </div>
+                <div class="fanned_card_author">
+                  <div class="fanned_author_avatar">
+                    <img src="assets/ba/avatar-mathilde.jpg" alt="Mathilde Ferrari" width="44" height="44">
+                  </div>
+                  <div class="fanned_author_info">
+                    <span class="fanned_author_name">Mathilde Ferrari</span>
+                    <span class="fanned_author_role">Co-Founder &amp; CEO @Nomador</span>
                   </div>
                 </div>
               </div>
@@ -1494,9 +1555,12 @@
     </div>
   </div>
 
+  <!-- GSAP & ScrollTrigger for Native Pinning Stack Animations -->
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
   <!-- Homepage Core Interactive Engine (Pop-Art Parallax, Rocket, Drawer, Word Rotator) -->
-  <script src="js/main.js?v=4.0"></script>
+  <script src="js/main.js?v=4.1"></script>
   <!-- Work Page Specialist Engine (Orbit Wheel, Sticky Stack, Modals, FAQ, Physics Badges) -->
-  <script src="js/ba-investor-decks.js?v=5.2"></script>
+  <script src="js/ba-investor-decks.js?v=5.3"></script>
 </body>
 </html>

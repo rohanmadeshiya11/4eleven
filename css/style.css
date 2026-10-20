@@ -2353,57 +2353,9 @@ body.subpage {
   margin-bottom: 32px;
 }
 
-/* Quick Navigation Pills for the Stack */
-.ship-deck-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  padding: 8px;
-  border-radius: 99px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-}
-
-.ship-nav-btn {
-  background: transparent;
-  border: none;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--white-dim);
-  padding: 8px 18px;
-  border-radius: 99px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ship-nav-btn span {
-  opacity: 0.6;
-}
-
-.ship-nav-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.ship-nav-btn.active {
-  background: #ffffff;
-  color: #080809;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-}
-
-.ship-nav-btn.active span {
-  opacity: 0.9;
-  color: var(--orange);
-}
-
 /* Stack Container */
-.c-tiles-stack-container {
+.c-tiles-stack-container,
+.c-tiles-stack {
   position: relative;
   width: 100%;
   max-width: 1320px;
@@ -2527,29 +2479,6 @@ body.subpage {
   opacity: 0;
   z-index: 1 !important;
   pointer-events: none;
-}
-
-/* Bottom Tab Badge on Exposed Stepped Strip */
-.bottom-tab-badge {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  opacity: 0.95;
-  pointer-events: none;
-  z-index: 5;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  white-space: nowrap;
-}
-
-.tiles_stack_item.active .bottom-tab-badge {
-  display: none;
 }
 
 /* Service Card Layout */

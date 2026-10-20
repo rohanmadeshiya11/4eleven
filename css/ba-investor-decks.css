@@ -1862,68 +1862,29 @@ button {
   overflow: visible;
 }
 
-.ship-deck-nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 32px auto 44px;
-  max-width: 900px;
-}
-
-.ship-nav-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  color: rgba(255, 255, 255, 0.7);
-  padding: 10px 18px;
-  border-radius: 99px;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.ship-nav-btn span {
-  opacity: 0.6;
-}
-
-.ship-nav-btn:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.ship-nav-btn.active {
-  background: #ffffff;
-  color: #080809;
-  border-color: #ffffff;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
-}
-
-.ship-nav-btn.active span {
-  opacity: 1;
-  color: var(--orange);
-}
-
-.c-tiles-stack-container {
+/* ========================================================
+   BRAND APPART AUTHENTIC STACKED DECK (SCROLL-LINKED)
+   ======================================================== */
+.c-tiles-stack {
   position: relative;
   width: 100%;
   max-width: 1240px;
-  margin: 0 auto;
-  perspective: 1200px;
+  margin: 32px auto 0;
+}
+
+.tiles_stack_wrapper {
+  position: relative;
+  width: 100%;
+  height: 340vh;
 }
 
 .tiles_stack_list {
-  position: relative;
+  position: sticky;
+  top: 80px;
   width: 100%;
-  min-height: 670px;
-  height: 670px;
-  margin-bottom: 40px;
+  height: 570px;
+  perspective: 1200px;
+  transform-style: preserve-3d;
 }
 
 .tiles_stack_item {
@@ -1931,97 +1892,61 @@ button {
   top: 0;
   left: 0;
   width: 100%;
-  height: 550px;
+  height: 560px;
   border-radius: 28px;
   overflow: hidden;
   transform-origin: center top;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.45s ease,
-              box-shadow 0.6s ease;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
   will-change: transform, opacity;
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
-/* Card in front */
-.tiles_stack_item.active {
+.tiles_stack_item:first-child {
+  position: relative;
+}
+
+.tiles_stack_item:hover {
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.85);
+}
+
+/* Default stepped layered styling for initial load / non-JS fallback */
+.tiles_stack_item[data-card-idx="0"] {
   transform: translateY(0) scale(1);
-  opacity: 1;
-  z-index: 10 !important;
-  pointer-events: auto;
-  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 0, 0, 0.4);
+  z-index: 4;
+}
+.tiles_stack_item[data-card-idx="1"] {
+  transform: translateY(30px) scale(0.985);
+  z-index: 3;
+}
+.tiles_stack_item[data-card-idx="2"] {
+  transform: translateY(58px) scale(0.97);
+  z-index: 2;
+}
+.tiles_stack_item[data-card-idx="3"] {
+  transform: translateY(86px) scale(0.955);
+  z-index: 1;
 }
 
-/* Layer 1 peeking underneath (Orange in Card 01) */
-.tiles_stack_item.under-1 {
-  transform: translateY(38px) scale(0.975);
-  opacity: 1;
-  z-index: 8 !important;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
-}
-
-.tiles_stack_item.under-1:hover {
-  transform: translateY(32px) scale(0.978);
-}
-
-/* Layer 2 peeking underneath (Red in Card 01) */
-.tiles_stack_item.under-2 {
-  transform: translateY(68px) scale(0.95);
-  opacity: 1;
-  z-index: 6 !important;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-.tiles_stack_item.under-2:hover {
-  transform: translateY(62px) scale(0.953);
-}
-
-/* Layer 3 peeking underneath (Brown in Card 01) */
-.tiles_stack_item.under-3 {
-  transform: translateY(98px) scale(0.925);
-  opacity: 1;
-  z-index: 4 !important;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-.tiles_stack_item.under-3:hover {
-  transform: translateY(92px) scale(0.928);
-}
-
-/* Cards that have passed */
-.tiles_stack_item.passed {
-  transform: translateY(-40px) scale(0.92);
-  opacity: 0;
-  z-index: 1 !important;
-  pointer-events: none;
-}
-
-/* Bottom Tab Badge on Exposed Stepped Strip */
-.bottom-tab-badge {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #ffffff;
-  opacity: 0.95;
-  pointer-events: none;
-  z-index: 5;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  white-space: nowrap;
-}
-
-.tiles_stack_item.active .bottom-tab-badge {
-  display: none;
+@media (max-width: 768px) {
+  .tiles_stack_wrapper {
+    height: auto !important;
+  }
+  .tiles_stack_list {
+    position: relative !important;
+    top: auto !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+  }
+  .tiles_stack_item {
+    position: relative !important;
+    height: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5) !important;
+  }
 }
 
 /* Base Service Card Styling */
@@ -2508,12 +2433,12 @@ button {
 }
 
 /* -------------------------------------------------------------
-   15. SECTION 10: FOUNDERS TESTIMONIALS (.founders)
+   15. SECTION 10: FOUNDERS TESTIMONIALS (FANNED 5-CARD DECK)
 ------------------------------------------------------------- */
 .founders.u-section {
   padding: 8em 0;
   background-color: var(--bg);
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   z-index: 2;
   border-bottom: 1px solid var(--border-subtle);
@@ -2531,93 +2456,274 @@ button {
   letter-spacing: -0.04em;
   text-align: center;
   color: var(--base);
-  margin-bottom: 2em;
-}
-.cards_stack_wrapper {
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 2em 1.5em;
-  width: 100%;
-}
-.cards_stack_wrapper::-webkit-scrollbar {
-  display: none;
-}
-.cards_stack_list {
-  display: flex;
-  gap: 1.5em;
-  width: max-content;
-}
-.cards_stack_item {
-  width: 26em;
-  max-width: 85vw;
-  flex-shrink: 0;
-}
-.founder_card {
-  background: #121218;
-  border: 1px solid var(--border-subtle);
-  color: var(--base);
-  border-radius: var(--border-radius);
-  padding: 2.25em 2em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  min-height: 22em;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.founder_card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(251, 191, 36, 0.35);
-}
-.founder_card_top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 1.5em;
 }
-.rating {
+
+.founders_fanned_wrapper {
+  width: 100%;
+  padding: 3rem 0 5rem;
   display: flex;
-  gap: 4px;
-  color: var(--retro-gold);
-  font-size: 16px;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  position: relative;
 }
-.founder_card_btm {
+
+.founders_fanned_track {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+  max-width: 1240px;
+  width: 100%;
+  perspective: 1200px;
+}
+
+.fanned_card_col {
+  flex: 0 0 310px;
+  width: 310px;
+  margin: 0 -28px; /* overlapping fanned cards */
+  position: relative;
+  transform-origin: bottom center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease,
+              z-index 0s;
+  cursor: pointer;
+}
+
+/* Resting Arch Rotations and Elevations matching Reference Video */
+.fanned_card_col.card_fan_1 {
+  transform: rotate(-8deg) translateY(16px);
+  z-index: 1;
+}
+.fanned_card_col.card_fan_2 {
+  transform: rotate(-4deg) translateY(0px);
+  z-index: 2;
+}
+.fanned_card_col.card_fan_3 {
+  transform: rotate(0deg) translateY(-14px);
+  z-index: 3;
+}
+.fanned_card_col.card_fan_4 {
+  transform: rotate(4deg) translateY(0px);
+  z-index: 2;
+}
+.fanned_card_col.card_fan_5 {
+  transform: rotate(8deg) translateY(16px);
+  z-index: 1;
+}
+
+/* Hover Lift Effect: pops up, straightens, scales slightly, and comes to front */
+.fanned_card_col:hover {
+  transform: rotate(0deg) translateY(-36px) scale(1.05) !important;
+  z-index: 25 !important;
+}
+
+.founder_fanned_card {
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem 2.2rem;
+  min-height: 440px;
+  height: 440px;
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.4s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-.block-quote {
-  font-size: 1.05em;
-  line-height: 1.5;
-  color: #d4d4d8;
+
+.fanned_card_col:hover .founder_fanned_card {
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.7), 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Light Cream Variant (Cards 1, 3, 5) */
+.founder_fanned_card.is-light {
+  background-color: #fbf8f3;
+  color: #18181b;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.founder_fanned_card.is-light .fanned_quote {
+  color: #27272a;
+}
+.founder_fanned_card.is-light .fanned_author_name {
+  color: #09090b;
+}
+.founder_fanned_card.is-light .fanned_author_role {
+  color: #71717a;
+}
+
+/* Card Warm Taupe Variant (Cards 2, 4) */
+.founder_fanned_card.is-taupe {
+  background-color: #7d756d;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.founder_fanned_card.is-taupe .fanned_quote {
+  color: #f4f4f5;
+}
+.founder_fanned_card.is-taupe .fanned_author_name {
+  color: #ffffff;
+}
+.founder_fanned_card.is-taupe .fanned_author_role {
+  color: #e4e4e7;
+}
+
+/* Top Row: Stars + Optional Contact Sales Pill */
+.fanned_card_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.rating_stars {
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+.founder_fanned_card.is-light .rating_stars {
+  color: #ff5c26; /* Brand Appart Orange */
+}
+.founder_fanned_card.is-taupe .rating_stars {
+  color: #f59e0b; /* Golden Amber */
+}
+
+/* Contact Sales Pill */
+.contact_sales_pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.founder_fanned_card.is-light .contact_sales_pill {
+  background: #18181b;
+  color: #ffffff;
+}
+.founder_fanned_card.is-light .contact_sales_pill:hover {
+  background: #000000;
+  transform: scale(1.04);
+}
+
+.founder_fanned_card.is-taupe .contact_sales_pill {
+  background: #ffffff;
+  color: #18181b;
+}
+.founder_fanned_card.is-taupe .contact_sales_pill:hover {
+  background: #f4f4f5;
+  transform: scale(1.04);
+}
+
+.phone_icon_bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 9px;
+}
+.founder_fanned_card.is-light .phone_icon_bubble {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+.founder_fanned_card.is-taupe .phone_icon_bubble {
+  background: rgba(0, 0, 0, 0.1);
+  color: #18181b;
+}
+
+/* Quote */
+.fanned_card_mid {
+  margin: 1.25rem 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.fanned_quote {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+  font-weight: 500;
   margin: 0;
 }
-.author {
+
+/* Author Row */
+.fanned_card_author {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-top: 10px;
 }
-.author_pic {
+
+.fanned_author_avatar {
   width: 44px;
   height: 44px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  border: 2px solid rgba(0, 0, 0, 0.08);
 }
-.author_pic img {
+.founder_fanned_card.is-taupe .fanned_author_avatar {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.fanned_author_avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
-.author_name {
+
+.fanned_author_info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fanned_author_name {
+  font-family: var(--font-display);
+  font-size: 14px;
   font-weight: 700;
-  font-size: 0.95em;
-  color: #ffffff;
+  line-height: 1.2;
 }
-.author_job {
-  font-size: 0.8em;
-  color: var(--retro-gold);
+
+.fanned_author_role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 900px) {
+  .founders_fanned_wrapper {
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 2rem 1.5rem 3rem;
+  }
+  .founders_fanned_track {
+    width: max-content;
+    gap: 16px;
+  }
+  .fanned_card_col {
+    margin: 0;
+    transform: none !important;
+  }
+  .fanned_card_col:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+  }
 }
 
 /* -------------------------------------------------------------

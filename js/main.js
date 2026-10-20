@@ -701,166 +701,102 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 9. WORK PAGE: BRAND APPART STACKED CARDS CONTROLLER (VIDEO REF)
+  // 9. WORK PAGE: BRAND APPART STACKED CARDS CONTROLLER (SCROLL-LINKED)
   // ========================================================
-  const stackContainer = document.getElementById('tiles-stack-container');
-  const stackItems = document.querySelectorAll('.tiles_stack_item');
-  const shipNavBtns = document.querySelectorAll('.ship-nav-btn');
-  const bottomTabsWrap = document.getElementById('bottom-stack-tabs');
-  const magneticCursor = document.getElementById('magnetic-case-cursor');
+  const stackWrapper = document.getElementById('tiles-stack-wrapper');
+  const stackList = document.getElementById('tiles-stack-list');
+  const stackItems = Array.from(document.querySelectorAll('.tiles_stack_item'));
 
-  if (stackContainer && stackItems.length) {
-    const cardDefs = [
-      { idx: 0, title: '(01) Branding & Identity', color: '#242bc6' },
-      { idx: 1, title: '(02) Product Experience', color: '#ff5c26' },
-      { idx: 2, title: '(03) Web Design', color: '#ea3834' },
-      { idx: 3, title: '(04) Investor Decks', color: '#6b5a45' }
-    ];
+  if (stackWrapper && stackList && stackItems.length > 1) {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
 
-    let currentActiveIdx = 0;
-
-    function renderBottomTabs(activeIdx) {
-      if (!bottomTabsWrap) return;
-      bottomTabsWrap.innerHTML = '';
-      
-      // Collect cards that are underneath in the stack (only those after activeIdx)
-      const underCards = [];
-      for (let i = activeIdx + 1; i < cardDefs.length; i++) {
-        underCards.push(cardDefs[i]);
-      }
-
-      underCards.forEach((card, order) => {
-        const tab = document.createElement('div');
-        tab.className = `stack-tab-layer layer-${order + 1}`;
-        tab.style.backgroundColor = card.color;
-        tab.setAttribute('data-target-idx', card.idx);
-        tab.title = `Switch to ${card.title}`;
-
-        const label = document.createElement('span');
-        label.className = 'tab-pill-label';
-        label.textContent = card.title;
-        tab.appendChild(label);
-
-        tab.addEventListener('click', (e) => {
-          e.stopPropagation();
-          activateStackCard(card.idx);
+      // 1. Initial resting stepped layer setup
+      stackItems.forEach((item, i) => {
+        gsap.set(item, {
+          y: i * 30,
+          scale: 1 - i * 0.015,
+          z: -30 * i,
+          transformOrigin: 'top center',
+          zIndex: stackItems.length - i,
+          opacity: 1
         });
-
-        bottomTabsWrap.appendChild(tab);
       });
-    }
 
-    function activateStackCard(targetIdx) {
-      currentActiveIdx = targetIdx;
-
-      // Update Nav buttons
-      shipNavBtns.forEach((btn, idx) => {
-        if (idx === targetIdx) {
-          btn.classList.add('active');
-        } else {
-          btn.classList.remove('active');
+      // 2. Scrubbed Timeline driven purely by native window scroll
+      const deckTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: stackWrapper,
+          start: 'top top+=80',
+          end: 'bottom bottom',
+          scrub: 0.5,
+          invalidateOnRefresh: true
         }
       });
 
-      // Update Stack items
-      stackItems.forEach((item, idx) => {
-        item.classList.remove('active', 'under-1', 'under-2', 'under-3', 'passed');
+      // Animate each active card sliding up and away to reveal the next
+      for (let i = 0; i < stackItems.length - 1; i++) {
+        const currentCard = stackItems[i];
+        const stepTime = i * 1.1;
 
-        if (idx === targetIdx) {
-          item.classList.add('active');
-          item.style.zIndex = '10';
-        } else if (idx < targetIdx) {
-          // Cards that have passed / slid away
-          item.classList.add('passed');
-          item.style.zIndex = `${1 + idx}`;
-        } else {
-          // Cards peeking underneath
-          const diff = idx - targetIdx;
-          if (diff === 1) {
-            item.classList.add('under-1');
-            item.style.zIndex = '8';
-          } else if (diff === 2) {
-            item.classList.add('under-2');
-            item.style.zIndex = '6';
-          } else {
-            item.classList.add('under-3');
-            item.style.zIndex = '4';
-          }
-        }
-      });
+        // Active card flies up into perspective
+        deckTimeline.to(currentCard, {
+          y: -window.innerHeight * 0.85,
+          rotateX: 14,
+          scale: 0.92,
+          opacity: 0,
+          duration: 1,
+          ease: 'power2.inOut'
+        }, stepTime);
 
-      renderBottomTabs(targetIdx);
-    }
-
-    // Nav button event listeners
-    shipNavBtns.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const idx = parseInt(btn.getAttribute('data-deck-index'), 10);
-        activateStackCard(idx);
-      });
-    });
-
-    // Direct click on any stacked card that is peeking
-    stackItems.forEach((item, idx) => {
-      item.addEventListener('click', (e) => {
-        if (idx !== currentActiveIdx) {
-          e.stopPropagation();
-          activateStackCard(idx);
-        }
-      });
-    });
-
-    // Mousewheel scroll cycling inside services section
-    let isScrollingCards = false;
-    const servicesSection = document.getElementById('services');
-    if (servicesSection) {
-      servicesSection.addEventListener('wheel', (e) => {
-        if (Math.abs(e.deltaY) > 35 && !isScrollingCards) {
-          if (e.deltaY > 0 && currentActiveIdx < stackItems.length - 1) {
-            e.preventDefault();
-            isScrollingCards = true;
-            activateStackCard(currentActiveIdx + 1);
-            setTimeout(() => { isScrollingCards = false; }, 550);
-          } else if (e.deltaY < 0 && currentActiveIdx > 0) {
-            e.preventDefault();
-            isScrollingCards = true;
-            activateStackCard(currentActiveIdx - 1);
-            setTimeout(() => { isScrollingCards = false; }, 550);
-          }
-        }
-      }, { passive: false });
-    }
-
-    // Touch swipe support on mobile
-    let touchStartY = 0;
-    stackContainer.addEventListener('touchstart', (e) => {
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-
-    stackContainer.addEventListener('touchend', (e) => {
-      const deltaY = touchStartY - e.changedTouches[0].clientY;
-      if (Math.abs(deltaY) > 40) {
-        if (deltaY > 0 && currentActiveIdx < stackItems.length - 1) {
-          activateStackCard(currentActiveIdx + 1);
-        } else if (deltaY < 0 && currentActiveIdx > 0) {
-          activateStackCard(currentActiveIdx - 1);
+        // Subsequent cards shift up to take the main stage
+        for (let j = i + 1; j < stackItems.length; j++) {
+          const stepOffset = j - (i + 1);
+          deckTimeline.to(stackItems[j], {
+            y: stepOffset * 30,
+            scale: 1 - stepOffset * 0.015,
+            z: -30 * stepOffset,
+            duration: 1,
+            ease: 'power2.inOut'
+          }, stepTime);
         }
       }
-    }, { passive: true });
 
-    // Initialize initial state
-    activateStackCard(0);
-
-    // Magnetic Cursor Badge
-    if (magneticCursor) {
-      stackContainer.addEventListener('mousemove', (e) => {
-        const rect = stackContainer.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        magneticCursor.style.left = `${x}px`;
-        magneticCursor.style.top = `${y}px`;
+      // 3. Direct click on any peeking card scrolls page to bring it to top
+      stackItems.forEach((item, idx) => {
+        item.addEventListener('click', (e) => {
+          if (e.target.closest('.service-gallery-tile') || e.target.closest('a')) return;
+          const st = deckTimeline.scrollTrigger;
+          if (!st) return;
+          const progress = idx / (stackItems.length - 1);
+          const targetScroll = st.start + progress * (st.end - st.start);
+          window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+          });
+        });
       });
+    } else {
+      // Fallback: smooth scroll listener if GSAP is unavailable
+      window.addEventListener('scroll', () => {
+        const rect = stackWrapper.getBoundingClientRect();
+        const total = stackWrapper.offsetHeight - window.innerHeight;
+        if (total <= 0) return;
+        const scrolled = Math.max(0, Math.min(total, -rect.top + 80));
+        const progress = scrolled / total;
+        const activeIdx = Math.min(stackItems.length - 1, Math.floor(progress * stackItems.length));
+        stackItems.forEach((item, i) => {
+          if (i < activeIdx) {
+            item.style.transform = `translateY(-100%) scale(0.92)`;
+            item.style.opacity = '0';
+          } else {
+            const diff = i - activeIdx;
+            item.style.transform = `translateY(${diff * 30}px) scale(${1 - diff * 0.015})`;
+            item.style.opacity = '1';
+            item.style.zIndex = `${stackItems.length - diff}`;
+          }
+        });
+      }, { passive: true });
     }
 
     // Clicking individual visual tiles opens the case study modal
@@ -918,9 +854,6 @@ document.addEventListener('DOMContentLoaded', () => {
         wrap.scrollLeft = scrollLeft - walk;
       });
     });
-
-    // Initialize bottom tabs on load
-    renderBottomTabs(0);
   }
 
 });
