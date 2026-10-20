@@ -1870,12 +1870,14 @@ button {
   width: 100%;
   max-width: 1240px;
   margin: 32px auto 0;
+  perspective: none !important;
+  transform: none !important;
 }
 
 .tiles_stack_wrapper {
   position: relative;
   width: 100%;
-  height: 380vh;
+  height: auto;
 }
 
 .tiles_stack_list {
@@ -2484,13 +2486,13 @@ button {
   margin: 0 -28px; /* overlapping fanned cards */
   position: relative;
   transform-origin: bottom center;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s ease,
-              z-index 0s;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease;
   cursor: pointer;
 }
 
 /* Resting Arch Rotations and Elevations matching Reference Video */
+/* Left-to-right ascending cascade: Card 1 at back, Card 5 at front */
 .fanned_card_col.card_fan_1 {
   transform: rotate(-8deg) translateY(16px);
   z-index: 1;
@@ -2505,32 +2507,34 @@ button {
 }
 .fanned_card_col.card_fan_4 {
   transform: rotate(4deg) translateY(0px);
-  z-index: 2;
+  z-index: 4;
 }
 .fanned_card_col.card_fan_5 {
   transform: rotate(8deg) translateY(16px);
-  z-index: 1;
+  z-index: 5;
 }
 
 /* Hover Lift Effect: pops up, straightens, scales slightly, and comes to front */
 .fanned_card_col:hover {
   transform: rotate(0deg) translateY(-32px) scale(1.04) !important;
-  z-index: 30 !important;
+  z-index: 50 !important;
   box-shadow: 0 32px 70px rgba(0, 0, 0, 0.7) !important;
 }
 
-/* "Right one going": when any card is hovered, all cards to its RIGHT shift to the right */
-.fanned_card_col:hover ~ .fanned_card_col.card_fan_2 {
-  transform: translateX(54px) rotate(-2deg) translateY(4px);
-}
-.fanned_card_col:hover ~ .fanned_card_col.card_fan_3 {
-  transform: translateX(58px) rotate(0deg) translateY(-8px);
-}
-.fanned_card_col:hover ~ .fanned_card_col.card_fan_4 {
-  transform: translateX(62px) rotate(4deg) translateY(4px);
-}
-.fanned_card_col:hover ~ .fanned_card_col.card_fan_5 {
-  transform: translateX(66px) rotate(8deg) translateY(18px);
+@media (min-width: 901px) {
+  /* "Right one going": when any card is hovered, all cards to its RIGHT shift to the right */
+  .fanned_card_col:hover ~ .fanned_card_col.card_fan_2 {
+    transform: translateX(110px) rotate(-2deg) translateY(2px);
+  }
+  .fanned_card_col:hover ~ .fanned_card_col.card_fan_3 {
+    transform: translateX(110px) rotate(0deg) translateY(-10px);
+  }
+  .fanned_card_col:hover ~ .fanned_card_col.card_fan_4 {
+    transform: translateX(110px) rotate(4deg) translateY(2px);
+  }
+  .fanned_card_col:hover ~ .fanned_card_col.card_fan_5 {
+    transform: translateX(110px) rotate(8deg) translateY(16px);
+  }
 }
 
 .founder_fanned_card {

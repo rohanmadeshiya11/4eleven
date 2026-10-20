@@ -711,115 +711,130 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Initial resting stepped layer setup
-      // Card 0 at front, Cards 1, 2, 3 stepped behind peeking at bottom
-      stackItems.forEach((item, i) => {
-        gsap.set(item, {
-          y: i * 28,
-          scale: 1 - i * 0.016,
-          z: -30 * i,
-          transformOrigin: 'center top',
-          zIndex: stackItems.length - i,
-          opacity: 1
-        });
-      });
-
-      // 2. Scrubbed Timeline with GSAP Pinning
-      // Locks the stack in viewport so each card is experienced one by one
-      const isMobile = window.innerWidth <= 768;
-
-      const deckTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: stackWrapper,
-          pin: stackList,
-          start: () => isMobile ? 'top top+=80' : 'top top+=75',
-          end: 'bottom bottom',
-          scrub: 1,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-          pinSpacing: false
-        }
-      });
-
-      // 3. One-by-one transitions for the cards:
-      // Card 0: Branding (Indigo)
-      // Card 1: Product (Orange)
-      // Card 2: Web Design (Crimson)
-      // Card 3: Investor Decks (Bronze Taupe)
-      // Each transition has:
-      // - Resting dwell period so the card is completely still & readable
-      // - 3D lift animation where active card flies up into perspective
-      // - Subsequent cards step up to take primary position
-      const numTransitions = stackItems.length - 1; // 3 transitions
-      
-      for (let i = 0; i < numTransitions; i++) {
-        const currentCard = stackItems[i];
-        // Time slot allocation:
-        // Slot i starts at i * 2.2
-        // Dwell pause from (i * 2.2) to (i * 2.2 + 0.6)
-        // Transition from (i * 2.2 + 0.6) to (i * 2.2 + 2.0)
-        const tStart = i * 2.2 + 0.6;
-        const liftDuration = 1.4;
-
-        // Active card tilts, scales slightly down, and lifts out of screen
-        deckTimeline.to(currentCard, {
-          y: -window.innerHeight * 0.95,
-          rotateX: 16,
-          scale: 0.92,
-          opacity: 0,
-          duration: liftDuration,
-          ease: 'power2.inOut'
-        }, tStart);
-
-        // Content elements inside active card tilt slightly like Brand Appart
-        const cardContent = currentCard.querySelector('.service-card-content');
-        const cardHeader = currentCard.querySelector('.service-card-header');
-        if (cardContent) {
-          deckTimeline.to(cardContent, {
-            y: -50,
-            rotateX: 25,
-            duration: liftDuration,
-            ease: 'power2.inOut'
-          }, tStart);
-        }
-        if (cardHeader) {
-          deckTimeline.to(cardHeader, {
-            y: -70,
-            rotateX: 25,
-            duration: liftDuration,
-            ease: 'power2.inOut'
-          }, tStart);
-        }
-
-        // All subsequent cards step up one tier
-        for (let j = i + 1; j < stackItems.length; j++) {
-          const stepOffset = j - (i + 1);
-          deckTimeline.to(stackItems[j], {
-            y: stepOffset * 28,
-            scale: 1 - stepOffset * 0.016,
-            z: -30 * stepOffset,
-            duration: liftDuration,
-            ease: 'power2.inOut'
-          }, tStart);
-        }
-      }
-
-      // Add a trailing pause so Card 3 (Investor Decks) rests cleanly before section unpins
-      deckTimeline.to({}, { duration: 0.8 });
-
-      // 4. Direct click on any peeking card scrolls page to bring it to front
-      stackItems.forEach((item, idx) => {
-        item.addEventListener('click', (e) => {
-          if (e.target.closest('.service-gallery-tile') || e.target.closest('a')) return;
-          const st = deckTimeline.scrollTrigger;
-          if (!st) return;
-          const progress = idx / (stackItems.length - 1);
-          const targetScroll = st.start + progress * (st.end - st.start);
-          window.scrollTo({
-            top: targetScroll,
-            behavior: 'smooth'
+      ScrollTrigger.matchMedia({
+        // DESKTOP: Authentic Brand Appart 3D scrubbed stacked deck
+        "(min-width: 769px)": function() {
+          // 1. Initial resting stepped layer setup
+          // Card 0 at front, Cards 1, 2, 3 stepped behind peeking at bottom
+          stackItems.forEach((item, i) => {
+            gsap.set(item, {
+              y: i * 28,
+              scale: 1 - i * 0.016,
+              z: -30 * i,
+              rotateX: 0,
+              transformOrigin: 'center top',
+              zIndex: stackItems.length - i,
+              opacity: 1
+            });
           });
-        });
+
+          // Pin the stack list with pinSpacing: true so it holds its position in viewport
+          // Start when cards reach comfortable vertical center
+          const calcStart = () => {
+            const pad = Math.max(80, Math.round((window.innerHeight - stackList.offsetHeight) * 0.5));
+            return 'top top+=' + pad;
+          };
+
+          const deckTimeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: stackList,
+              pin: true,
+              pinSpacing: true,
+              start: calcStart,
+              end: '+=2400',
+              scrub: 1,
+              anticipatePin: 1,
+              invalidateOnRefresh: true
+            }
+          });
+
+          // 2. One-by-one transitions for the cards:
+          // Card 0: Branding (Indigo)
+          // Card 1: Product (Orange)
+          // Card 2: Web Design (Crimson)
+          // Card 3: Investor Decks (Bronze Taupe)
+          const numTransitions = stackItems.length - 1; // 3 transitions
+          
+          for (let i = 0; i < numTransitions; i++) {
+            const currentCard = stackItems[i];
+            const tStart = i * 2.2 + 0.6;
+            const liftDuration = 1.4;
+
+            // Active card tilts, scales slightly down, and lifts out of screen into 3D perspective
+            deckTimeline.to(currentCard, {
+              y: -window.innerHeight * 0.95,
+              rotateX: 16,
+              scale: 0.92,
+              opacity: 0,
+              duration: liftDuration,
+              ease: 'power2.inOut'
+            }, tStart);
+
+            // Content inside active card tilts slightly
+            const cardContent = currentCard.querySelector('.service-card-content');
+            const cardHeader = currentCard.querySelector('.service-card-header');
+            if (cardContent) {
+              deckTimeline.to(cardContent, {
+                y: -50,
+                rotateX: 25,
+                duration: liftDuration,
+                ease: 'power2.inOut'
+              }, tStart);
+            }
+            if (cardHeader) {
+              deckTimeline.to(cardHeader, {
+                y: -70,
+                rotateX: 25,
+                duration: liftDuration,
+                ease: 'power2.inOut'
+              }, tStart);
+            }
+
+            // All subsequent cards step up one tier
+            for (let j = i + 1; j < stackItems.length; j++) {
+              const stepOffset = j - (i + 1);
+              deckTimeline.to(stackItems[j], {
+                y: stepOffset * 28,
+                scale: 1 - stepOffset * 0.016,
+                z: -30 * stepOffset,
+                duration: liftDuration,
+                ease: 'power2.inOut'
+              }, tStart);
+            }
+          }
+
+          // Trailing pause so Card 3 rests cleanly before unpinning
+          deckTimeline.to({}, { duration: 0.8 });
+
+          // Direct click on any peeking card scrolls to its position
+          const clickHandlers = [];
+          stackItems.forEach((item, idx) => {
+            const handler = (e) => {
+              if (e.target.closest('.service-gallery-tile') || e.target.closest('a')) return;
+              const st = deckTimeline.scrollTrigger;
+              if (!st) return;
+              const progress = idx / (stackItems.length - 1);
+              const targetScroll = st.start + progress * (st.end - st.start);
+              window.scrollTo({
+                top: targetScroll,
+                behavior: 'smooth'
+              });
+            };
+            item.addEventListener('click', handler);
+            clickHandlers.push({ el: item, fn: handler });
+          });
+
+          return () => {
+            clickHandlers.forEach(h => h.el.removeEventListener('click', h.fn));
+          };
+        },
+
+        // MOBILE: Clean vertical stack, clear all GSAP inline transforms
+        "(max-width: 768px)": function() {
+          gsap.set(stackItems, { clearProps: 'all' });
+          const contents = document.querySelectorAll('.service-card-content, .service-card-header');
+          gsap.set(contents, { clearProps: 'all' });
+        }
       });
     } else {
       // Fallback: smooth scroll listener if GSAP is unavailable
