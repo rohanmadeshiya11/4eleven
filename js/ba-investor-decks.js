@@ -655,11 +655,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========================================================
-  // 12. LIVE MUMBAI IST CLOCK
+  // 12. LIVE MUMBAI IST CLOCK (SYNCHRONIZED ACROSS STUDIO)
   // ========================================================
-  const clockEl = document.getElementById('mumbaiClockWork');
+  const clockElements = document.querySelectorAll('#mumbaiClockWork, #mumbaiClockHero, #about-ist-clock, #live-ist-time');
   function updateWorkClock() {
-    if (!clockEl) return;
+    if (clockElements.length === 0) return;
     const now = new Date();
     const options = {
       timeZone: 'Asia/Kolkata',
@@ -669,13 +669,74 @@ document.addEventListener('DOMContentLoaded', () => {
       hour12: false
     };
     const formatter = new Intl.DateTimeFormat('en-GB', options);
-    clockEl.textContent = `MUMBAI, IN ${formatter.format(now)} IST`;
+    const timeStr = formatter.format(now);
+    clockElements.forEach(el => {
+      if (el.id === 'about-ist-clock') {
+        el.textContent = `${timeStr} IST`;
+      } else {
+        el.textContent = `MUMBAI, IN ${timeStr} IST`;
+      }
+    });
   }
   updateWorkClock();
   setInterval(updateWorkClock, 1000);
 
   // ========================================================
-  // 13. KEYBOARD (ESC) LISTENER FOR MODAL & DRAWER
+  // 13. DRAWER AUTO-CLOSE & MODAL INQUIRE NAVIGATION
+  // ========================================================
+  const drawerLinks = document.querySelectorAll('#menu-drawer .drawer-nav-item');
+  drawerLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const menuDrawer = document.getElementById('menu-drawer');
+      if (menuDrawer) menuDrawer.classList.remove('open');
+    });
+  });
+
+  const modalInquireBtn = document.getElementById('modal-inquire-btn');
+  if (modalInquireBtn) {
+    modalInquireBtn.addEventListener('click', () => {
+      if (projectModal) {
+        projectModal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // ========================================================
+  // 14. SINGLE-PAGE SCROLLSPY (ACTIVE NAV LINK HIGHLIGHT)
+  // ========================================================
+  const navSections = document.querySelectorAll('section[id], div[id="top"]');
+  const navLinks = document.querySelectorAll('.desktop_nav_links .nav_text_link');
+
+  function updateActiveNavLink() {
+    let currentId = '';
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+
+    navSections.forEach(section => {
+      const sectionTop = section.offsetTop - 140;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentId = section.getAttribute('id');
+      }
+    });
+
+    if (currentId) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}` || (currentId === 'top' && href === '#top')) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+  updateActiveNavLink();
+
+  // ========================================================
+  // 15. KEYBOARD (ESC) LISTENER FOR MODAL & DRAWER
   // ========================================================
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
