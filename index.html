@@ -1,104 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>4Eleven Studio | Creative Studio &amp; Venture Engine</title>
-  <meta name="description" content="Design &amp; marketing partners for ambitious founders and business leaders. Reimagining brand identities, digital platforms, and venture narratives.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4—11 STUDIO® — We Make Brands Impossible to Ignore. Make It Matter.</title>
+  <meta name="description" content="4—11 Studio is an independent creative agency based in Mumbai. We build visual worlds, launch cultural drops, and produce high-impact video, brand systems, and digital campaigns.">
+  <meta name="theme-color" content="#080809">
+  
   <link rel="icon" type="image/png" href="assets/logo-411-mark.png">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="4Eleven Studio | Creative Studio &amp; Venture Engine">
-  <meta property="og:description" content="Design &amp; marketing partners for ambitious leaders and business builders.">
-  <meta property="og:image" content="assets/logo-411.png">
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Yatra+One&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/redo-theme.css">
+  <link rel="stylesheet" href="css/style.css?v=5.1">
+  <link rel="stylesheet" href="css/ba-investor-decks.css?v=6.1">
+  <link rel="stylesheet" href="css/redo-theme.css?v=3.1">
 </head>
-<body>
+<body class="landing-page">
+  <!-- Subtle Grain Overlay -->
+  <div class="grain"></div>
+
+  <!-- Traditional Rotating Mandala Watermark in Hero Background -->
+  <div class="bg-traditional-mandala-wrap" aria-hidden="true">
+    <svg class="traditional-mandala-svg bg-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g id="bg-petal">
+          <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M 400,95 C 385,140 380,180 400,205 C 420,180 415,140 400,95 Z" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <circle cx="400" cy="50" r="3.5" fill="currentColor"/>
+        </g>
+        <g id="bg-arch">
+          <path d="M 368,250 C 378,214 422,214 432,250" stroke="currentColor" stroke-width="1.3"/>
+          <circle cx="400" cy="224" r="2.5" fill="currentColor"/>
+          <line x1="400" y1="248" x2="400" y2="280" stroke="currentColor" stroke-width="0.9"/>
+        </g>
+        <g id="bg-inner">
+          <path d="M 400,285 C 388,320 388,340 400,355 C 412,340 412,320 400,285 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="400" cy="320" r="1.8" fill="currentColor"/>
+        </g>
+      </defs>
+      <circle cx="400" cy="400" r="375" stroke="currentColor" stroke-width="1.2" stroke-dasharray="8 6"/>
+      <circle cx="400" cy="400" r="360" stroke="currentColor" stroke-width="0.8"/>
+      <circle cx="400" cy="400" r="340" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="400" cy="400" r="330" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+      <use href="#bg-petal" transform="rotate(0 400 400)"/>
+      <use href="#bg-petal" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(45 400 400)"/>
+      <use href="#bg-petal" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(90 400 400)"/>
+      <use href="#bg-petal" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(135 400 400)"/>
+      <use href="#bg-petal" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(180 400 400)"/>
+      <use href="#bg-petal" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(225 400 400)"/>
+      <use href="#bg-petal" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(270 400 400)"/>
+      <use href="#bg-petal" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-petal" transform="rotate(315 400 400)"/>
+      <use href="#bg-petal" transform="rotate(337.5 400 400)"/>
+      <circle cx="400" cy="400" r="250" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="400" cy="400" r="242" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5"/>
+      <use href="#bg-arch" transform="rotate(0 400 400)"/>
+      <use href="#bg-arch" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(45 400 400)"/>
+      <use href="#bg-arch" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(90 400 400)"/>
+      <use href="#bg-arch" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(135 400 400)"/>
+      <use href="#bg-arch" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(180 400 400)"/>
+      <use href="#bg-arch" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(225 400 400)"/>
+      <use href="#bg-arch" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(270 400 400)"/>
+      <use href="#bg-arch" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-arch" transform="rotate(315 400 400)"/>
+      <use href="#bg-arch" transform="rotate(337.5 400 400)"/>
+      <circle cx="400" cy="400" r="150" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="400" cy="400" r="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
+      <use href="#bg-inner" transform="rotate(0 400 400)"/>
+      <use href="#bg-inner" transform="rotate(22.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(45 400 400)"/>
+      <use href="#bg-inner" transform="rotate(67.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(90 400 400)"/>
+      <use href="#bg-inner" transform="rotate(112.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(135 400 400)"/>
+      <use href="#bg-inner" transform="rotate(157.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(180 400 400)"/>
+      <use href="#bg-inner" transform="rotate(202.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(225 400 400)"/>
+      <use href="#bg-inner" transform="rotate(247.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(270 400 400)"/>
+      <use href="#bg-inner" transform="rotate(292.5 400 400)"/>
+      <use href="#bg-inner" transform="rotate(315 400 400)"/>
+      <use href="#bg-inner" transform="rotate(337.5 400 400)"/>
+      <circle cx="400" cy="400" r="75" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="400" cy="400" r="68" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+      <circle cx="400" cy="400" r="45" stroke="currentColor" stroke-width="1"/>
+      <circle cx="400" cy="400" r="18" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="400" cy="400" r="4" fill="currentColor"/>
+    </svg>
+  </div>
 
   <!-- ==========================================================================
-       FLOATING PILL NAVIGATION HEADER
+       SECTION 01: FLOATING RETRO HINDI POP-ART CANVAS (9 AUTHENTIC BADGES)
        ========================================================================== -->
-  <header class="redo-nav-wrapper">
-    <nav class="redo-nav-pill">
-      <!-- Left Logo -->
-      <a href="#hero" class="redo-logo">
-        4eleven<span class="logo-dot">.</span>
+  <div class="retro-bg-canvas" id="retro-bg-canvas">
+    
+    <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
+    <div class="retro-element badge-branding" id="hero-badge-04" data-parallax="0.04">
+      <div class="branding-sunburst"></div>
+      <div class="branding-tagline">4—11 STUDIO // 01</div>
+      <div class="branding-title">ब्रांडिंग</div>
+      <div class="branding-footer">
+        <span>BRAND IDENTITY</span>
+        <span class="branding-stamp">★</span>
+      </div>
+    </div>
+
+    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage -->
+    <div class="retro-element badge-design" id="hero-badge-06" data-parallax="0.07">
+      <div class="design-label-small">CREATIVE ARTWORK // 02</div>
+      <div class="design-headline">डिजाइन</div>
+      <div class="design-subline">DISTINCTIVE VISUALS</div>
+    </div>
+
+    <!-- 3. प्रमोशन (PROMOTION) — Retro Ticket Badge -->
+    <div class="retro-element badge-promotion" id="hero-badge-08" data-parallax="0.05">
+      <div class="promotion-icon-pill">★</div>
+      <div class="promotion-texts">
+        <span class="promotion-eng">CAMPAIGNS // 03</span>
+        <span class="promotion-title">प्रमोशन</span>
+      </div>
+    </div>
+
+    <!-- 4. एजेंसी (AGENCY) — Vintage Distressed Stamp -->
+    <div class="retro-element badge-agency" id="hero-badge-01" data-parallax="0.06">
+      <div class="agency-star">✦ ✦ ✦</div>
+      <div class="agency-title">एजेंसी</div>
+      <div class="agency-sub">INDEPENDENT</div>
+    </div>
+
+    <!-- 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag -->
+    <div class="retro-element badge-slogan" id="hero-badge-07" data-parallax="0.03">
+      <div class="slogan-title">मेक इट मैटर</div>
+      <div class="slogan-sub">4—11 STUDIO®</div>
+    </div>
+
+    <!-- 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket -->
+    <div class="retro-element badge-content" id="hero-badge-05" data-parallax="0.05">
+      <div class="content-num">STORIES // 04</div>
+      <div class="content-title">कंटेंट</div>
+      <div class="content-eng">WORTH WATCHING</div>
+    </div>
+
+    <!-- 7. प्रोडक्शन (PRODUCTION) — Truck-Art Plaque -->
+    <div class="retro-element badge-production" id="hero-badge-02" data-parallax="0.06">
+      <div class="production-dot"></div>
+      <div class="production-title">प्रोडक्शन</div>
+      <span class="production-eng">VIDEO & POST</span>
+    </div>
+
+    <!-- 8. सोशल मीडिया (SOCIAL MEDIA) — Sunburst Badge -->
+    <div class="retro-element badge-social" id="hero-badge-09" data-parallax="0.04">
+      <div class="social-tag">DIGITAL // 06</div>
+      <div class="social-title">सोशल</div>
+      <div class="social-eng">MAKE EVERY SCROLL COUNT</div>
+    </div>
+
+    <!-- 9. ४—११ स्टूडियो (4-11 STUDIO) — Starburst Medallion -->
+    <div class="retro-element badge-seal" id="hero-badge-seal" data-parallax="0.05">
+      <span class="seal-star">✦</span>
+      <div class="seal-title">४—११</div>
+      <span class="seal-eng">STUDIO® MUMBAI</span>
+    </div>
+
+    <!-- 10. Autonomous 4-11 Rocket Ship Voyager -->
+    <div class="retro-element rocket-voyager" id="rocket-411" title="4—11 Space Rocket (Click for Turbo Boost!)">
+      <div class="rocket-container">
+        <!-- Side & Rear Thruster Exhaust Flames -->
+        <div class="rocket-thrusters-group">
+          <div class="thruster-side thruster-side-top"><div class="flame-jet"></div></div>
+          <div class="thruster-main">
+            <div class="flame-plume flame-plume-outer"></div>
+            <div class="flame-plume flame-plume-mid"></div>
+            <div class="flame-plume flame-plume-core"></div>
+            <div class="flame-spark spark-1"></div>
+            <div class="flame-spark spark-2"></div>
+          </div>
+          <div class="thruster-side thruster-side-bottom"><div class="flame-jet"></div></div>
+        </div>
+
+        <!-- Rocket Body Fuselage -->
+        <div class="rocket-fuselage">
+          <div class="rocket-fin rocket-fin-top"></div>
+          <div class="rocket-core">
+            <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="rocket-logo-img">
+          </div>
+          <div class="rocket-fin rocket-fin-bottom"></div>
+          <div class="rocket-nose"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Top Header (Authentic 4-11 Studio Header) -->
+  <header class="top-header" id="siteHeader">
+    <div class="top-header-inner">
+      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
+        <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
+        <span class="brand-sub-badge">STUDIO®</span>
       </a>
 
-      <!-- Center Links -->
+      <!-- Clean Horizontal Top Navigation (Desktop Single-Page Anchors) -->
+      <nav class="desktop_nav_links" aria-label="Main Navigation">
+        <a href="#hero" class="nav_text_link active">Home</a>
+        <a href="#journey" class="nav_text_link">Journey</a>
+        <a href="#services" class="nav_text_link">Services</a>
+        <a href="#work" class="nav_text_link">Work</a>
+        <a href="#reviews" class="nav_text_link">Reviews</a>
+        <a href="#about" class="nav_text_link">About</a>
+        <a href="#contact" class="nav_text_link open-redo-contact">Contact</a>
+      </nav>
+
+      <div class="header_right_group">
+        <a class="btn-orange-pill header-cta-pill open-redo-contact" href="#contact">
+          <span>START A PROJECT</span>
+          <span class="btn-arrow-circle">↗</span>
+        </a>
+
+        <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+          <span class="menu-line menu-line-1"></span>
+          <span class="menu-line menu-line-2"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 01: AUTHENTIC HERO CONTAINER (MATCHING USER REFERENCE IMAGE)
+       ========================================================================== -->
+  <div class="hero-wrapper" id="hero">
+    
+    <!-- Left Rail: Vertical Label -->
+    <div class="left-rail">
+      <div class="vertical-label">4—11 STUDIO // 2026</div>
+    </div>
+
+    <!-- Center Hero Content -->
+    <div class="hero-content">
+      <!-- Tagline Badge -->
+      <div class="tagline-badge" id="hero-badge-tagline">
+        <span class="pulse-dot"></span>
+        <span>MAKE IT MATTER.</span>
+      </div>
+
+      <!-- Main Headline: 3 Lines with Dynamic Hindi/English Rotating Word -->
+      <h1 class="hero-headline">
+        <span class="headline-line headline-line-1">We <span class="highlight-word">Make</span> Brands</span>
+        <span class="headline-line headline-line-2">Impossible to</span>
+        <span class="headline-line headline-line-3"><span class="dynamic-word-wrap"><span class="dynamic-word style-bollywood" id="dynamic-ignore">नज़रअंदाज़</span></span></span>
+      </h1>
+      
+      <!-- Sub-description -->
+      <p class="hero-subtext">
+        We create compelling content, design distinctive visuals, and build digital presence for brands, businesses, and personalities. Thoughtfully created. Intentionally different.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-cta-row">
+        <a href="#journey" class="btn-orange-pill" id="what-we-do-btn">
+          <span>WHAT WE DO</span>
+          <span class="btn-arrow-circle">↓</span>
+        </a>
+
+        <a href="#work" class="btn-ghost-pill" id="view-works-btn">
+          <span>VIEW WORKS</span>
+          <span class="btn-ghost-arrow">↓</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Right: Circular Rotating Badge -->
+    <div class="bottom-right-badge">
+      <a href="#scrub-section" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore 4—11 Studio">
+        <svg class="badge-svg" viewBox="0 0 120 120">
+          <path id="textCircle" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
+          <text fill="rgba(255, 255, 255, 0.75)" font-family="JetBrains Mono, monospace" font-size="9" font-weight="600" letter-spacing="2.2">
+            <textPath href="#textCircle" startOffset="0%">
+              • MAKE IT MATTER • 4—11 STUDIO •
+            </textPath>
+          </text>
+        </svg>
+        <div class="badge-center-btn">↓</div>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Editorial Marquee Strip -->
+  <div class="editorial-marquee-wrap">
+    <div class="editorial-marquee-track">
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+      <span>
+        ✦ 4—11 STUDIO® <span class="marquee-dot">//</span> 
+        WE MAKE BRANDS IMPOSSIBLE TO IGNORE <span class="marquee-dot">//</span> 
+        COMMERCIAL FILM &amp; 35MM MOTION <span class="marquee-dot">//</span> 
+        RADICAL BRAND ARCHITECTURE <span class="marquee-dot">//</span> 
+        IMMERSIVE WEBGL DIGITAL FLAGSHIPS <span class="marquee-dot">//</span> 
+        CULTURAL CAMPAIGNS <span class="marquee-dot">//</span> 
+        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
+        CRAFT OVER NOISE <span class="marquee-dot">//</span> 
+        EST. 2026 <span class="marquee-dot">//</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Key Metric Strip Bar -->
+  <div class="metric-strip-wrap">
+    <div class="metric-strip-inner">
+      <div class="metric-item">
+        <span class="metric-val">28+</span>
+        <span class="metric-lbl">Brands Transformed</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">₹120Cr+</span>
+        <span class="metric-lbl">Valuation Created</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val">4.9★</span>
+        <span class="metric-lbl">Client Rating</span>
+      </div>
+      <div class="metric-item">
+        <span class="metric-val text-saffron">100%</span>
+        <span class="metric-lbl">On-Time Delivery</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FLOATING STICKY PILL NAVBAR (Docks smoothly after scrolling past Hero)
+       ========================================================================== -->
+  <aside class="redo-nav-wrapper" aria-label="Quick Navigation">
+    <nav class="redo-nav-pill">
+      <a href="#hero" class="redo-logo">
+        4—11<span class="logo-dot">.</span>
+      </a>
+
       <ul class="redo-nav-links">
+        <li><a href="#journey" class="redo-nav-link">Journey</a></li>
         <li><a href="#services" class="redo-nav-link">Services</a></li>
-        <li><a href="#work" class="redo-nav-link">Featured Work</a></li>
+        <li><a href="#work" class="redo-nav-link">Work</a></li>
         <li><a href="#reviews" class="redo-nav-link">Reviews</a></li>
         <li><a href="#about" class="redo-nav-link">About</a></li>
       </ul>
 
-      <!-- Right CTA -->
       <a href="#contact" class="redo-nav-cta open-redo-contact">Get In Touch</a>
     </nav>
-  </header>
+  </aside>
 
   <!-- ==========================================================================
-       SECTION 01: HERO SECTION (FRAMED BEZEL)
-       ========================================================================== -->
-  <div class="redo-frame-container" id="hero">
-    <section class="redo-hero">
-      <!-- Red Atmospheric Aura Gradient -->
-      <div class="redo-hero-aura"></div>
-
-      <!-- Sacred Geometry Mandala Orbit Watermark -->
-      <svg class="redo-hero-mandala" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="300" cy="300" r="280" stroke="rgba(255, 255, 255, 0.4)" stroke-width="1" stroke-dasharray="4 6"/>
-        <circle cx="300" cy="300" r="240" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1"/>
-        <circle cx="300" cy="300" r="190" stroke="rgba(255, 255, 255, 0.35)" stroke-width="1" stroke-dasharray="2 4"/>
-        <circle cx="300" cy="300" r="140" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1"/>
-        <circle cx="300" cy="300" r="90" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
-        <line x1="300" y1="20" x2="300" y2="580" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
-        <line x1="20" y1="300" x2="580" y2="300" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"/>
-        <line x1="102" y1="102" x2="498" y2="498" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-        <line x1="102" y1="498" x2="498" y2="102" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" stroke-dasharray="3 3"/>
-      </svg>
-
-      <!-- Floating Hands Art (Top-Left & Bottom-Right) -->
-      <img src="assets/redo/upper-hand.png" alt="Upper Hand Art" class="redo-hero-hand redo-hero-hand-upper">
-      <img src="assets/redo/lower-hand.png" alt="Lower Hand Art" class="redo-hero-hand redo-hero-hand-lower">
-
-      <!-- Center Headline Narrative -->
-      <div class="redo-hero-content">
-        <h1 class="redo-hero-headline">
-          Imagine a space<br>
-          between vision &amp; impact
-        </h1>
-        <p class="redo-hero-subtitle">that's where we thrive.</p>
-      </div>
-
-      <!-- Hero Bottom Bar -->
-      <div class="redo-hero-bottom-bar">
-        <div class="redo-bottom-left">
-          <span class="redo-pulse-dot"></span>
-          <span id="hero-live-clock">10:30:00 PM</span> IST
-        </div>
-        <div class="redo-bottom-center">
-          <a href="#scrub-section" class="redo-scroll-explore">
-            <span>Scroll to Explore</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M7 10l5 5 5-5z" fill="currentColor"/>
-            </svg>
-          </a>
-        </div>
-        <div class="redo-bottom-right">
-          <span>BOM / PNQ, IND</span>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ==========================================================================
-       SECTION 02: SCROLL-SCRUB TEXT REVEAL & LOGO MARQUEE
+       SECTION 02: SCROLL-SCRUB TEXT REVEAL & LOGO MARQUEE (REDO MEDIA STYLE)
        ========================================================================== -->
   <section class="redo-scrub-section" id="scrub-section">
     <div class="redo-scrub-container">
@@ -107,7 +385,8 @@
         <span class="redo-scrub-word">craft</span> 
         <span class="redo-scrub-word">brand</span> 
         <span class="redo-scrub-word">identities,</span> 
-        <span class="redo-scrub-word">narratives,</span> 
+        <span class="redo-scrub-word">distinctive</span> 
+        <span class="redo-scrub-word">visuals,</span> 
         <span class="redo-scrub-word">and</span> 
         <span class="redo-scrub-word">digital</span> 
         <span class="redo-scrub-word">experiences</span> 
@@ -136,7 +415,7 @@
       </h2>
     </div>
 
-    <!-- Laurel Wreath Badge -->
+    <!-- Laurel Wreath Strip -->
     <div class="redo-laurel-wrap">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-4h2v4z"/></svg>
       <span>Trusted by 60+ Organizations &amp; Visionary Startups</span>
@@ -176,42 +455,131 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 03: WHERE ARE YOU IN YOUR JOURNEY? (3-CARD TRANSFORM)
+       SECTION 03: WHERE ARE YOU IN YOUR JOURNEY? (3D FLIPPING CARDS)
        ========================================================================== -->
   <section class="redo-journey-section" id="journey">
     <h2 class="redo-section-title"><em>Where</em> are you in your journey?</h2>
-    <p class="redo-section-subtitle">Whether you're breaking into a new market or scaling globally, we adapt to your exact growth trajectory.</p>
+    <p class="redo-section-subtitle">Whether you're breaking into a new market or scaling globally, we adapt to your exact growth trajectory. Hover or tap to flip each card.</p>
 
     <div class="redo-journey-cards-wrap">
-      <!-- Card 1: Left (Silver / Ivory) -->
-      <div class="redo-journey-card redo-card-left">
-        <div class="redo-card-top">
-          <div class="redo-card-icon">↗</div>
-          <div class="redo-card-tag">Going</div>
-          <h3 class="redo-card-title">Zero to One</h3>
+      
+      <!-- Card 1: Left 3D Flip Card (Zero to One) -->
+      <div class="redo-flip-card redo-flip-card-left redo-card-left">
+        <div class="redo-flip-card-inner">
+          
+          <!-- Front Face -->
+          <div class="redo-card-front">
+            <div class="redo-card-top">
+              <div class="redo-card-icon">↗</div>
+              <div class="redo-card-tag">Going // 01</div>
+              <h3 class="redo-card-title">Zero to One</h3>
+              <p class="redo-card-desc">If you’re navigating a new venture, crafting your first identity, or breaking into modern Indian &amp; global markets.</p>
+            </div>
+            <div class="redo-flip-hint">
+              <span>↻ Hover / Tap to Flip Card</span>
+            </div>
+          </div>
+
+          <!-- Back Face (Revealed on 3D Flip) -->
+          <div class="redo-card-back">
+            <div class="redo-card-back-header">
+              <span class="redo-card-back-tag">Track 01 // Deliverables</span>
+              <h4 class="redo-card-back-title">Early Stage Engine</h4>
+            </div>
+            <ul class="redo-deliverables-list">
+              <li class="redo-deliverable-item">Cultural Positioning &amp; Semiotics</li>
+              <li class="redo-deliverable-item">Logo, Typographic System &amp; Guidelines</li>
+              <li class="redo-deliverable-item">Packaging &amp; Physical Merchandise</li>
+              <li class="redo-deliverable-item">High-Conversion WebGL Digital Flagship</li>
+              <li class="redo-deliverable-item">Founders Launch Video &amp; Social Assets</li>
+            </ul>
+            <div class="redo-card-back-footer">
+              <span class="redo-track-timeline">3–5 Weeks Sprint</span>
+              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
+            </div>
+          </div>
+
         </div>
-        <p class="redo-card-desc">If you’re navigating a new venture, crafting your first identity, or breaking into modern Indian &amp; global markets.</p>
       </div>
 
-      <!-- Card 2: Center (Crimson Saffron) -->
-      <div class="redo-journey-card redo-card-center">
-        <div class="redo-card-top">
-          <div class="redo-card-icon">☵</div>
-          <div class="redo-card-tag">Scaling</div>
-          <h3 class="redo-card-title">One to N</h3>
+      <!-- Card 2: Center 3D Flip Card (One to N) -->
+      <div class="redo-flip-card redo-flip-card-center redo-card-center">
+        <div class="redo-flip-card-inner">
+          
+          <!-- Front Face -->
+          <div class="redo-card-front">
+            <div class="redo-card-top">
+              <div class="redo-card-icon">☵</div>
+              <div class="redo-card-tag">Scaling // 02</div>
+              <h3 class="redo-card-title">One to N</h3>
+              <p class="redo-card-desc">If you’ve achieved Product/Service Market Fit, and are looking to scale your business, investor decks, and digital ecosystem to new heights.</p>
+            </div>
+            <div class="redo-flip-hint">
+              <span>↻ Hover / Tap to Flip Card</span>
+            </div>
+          </div>
+
+          <!-- Back Face (Revealed on 3D Flip) -->
+          <div class="redo-card-back">
+            <div class="redo-card-back-header">
+              <span class="redo-card-back-tag">Track 02 // Deliverables</span>
+              <h4 class="redo-card-back-title">Venture Scale Suite</h4>
+            </div>
+            <ul class="redo-deliverables-list">
+              <li class="redo-deliverable-item">Full-Stack Digital Web &amp; App Revamp</li>
+              <li class="redo-deliverable-item">Institutional Seed to Series B Pitch Decks</li>
+              <li class="redo-deliverable-item">Performance Growth Funnels &amp; UI Systems</li>
+              <li class="redo-deliverable-item">Omnichannel Brand &amp; Influencer Drops</li>
+              <li class="redo-deliverable-item">Continuous Creative Direction Retainer</li>
+            </ul>
+            <div class="redo-card-back-footer">
+              <span class="redo-track-timeline">Venture Retainer</span>
+              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
+            </div>
+          </div>
+
         </div>
-        <p class="redo-card-desc">If you’ve achieved Product/Service Market Fit, and are looking to scale your business, investor decks, and digital ecosystem to new heights.</p>
       </div>
 
-      <!-- Card 3: Right (Dark Obsidian Charcoal) -->
-      <div class="redo-journey-card redo-card-right">
-        <div class="redo-card-top">
-          <div class="redo-card-icon">✦</div>
-          <div class="redo-card-tag">Sprint</div>
-          <h3 class="redo-card-title">Need Quick Solutions</h3>
+      <!-- Card 3: Right 3D Flip Card (Need Quick Solutions) -->
+      <div class="redo-flip-card redo-flip-card-right redo-card-right">
+        <div class="redo-flip-card-inner">
+          
+          <!-- Front Face -->
+          <div class="redo-card-front">
+            <div class="redo-card-top">
+              <div class="redo-card-icon">✦</div>
+              <div class="redo-card-tag">Sprint // 03</div>
+              <h3 class="redo-card-title">Need Quick Solutions</h3>
+              <p class="redo-card-desc">If you know exactly what you want and need a senior, nimble team that can step in and quickly build with precision.</p>
+            </div>
+            <div class="redo-flip-hint">
+              <span>↻ Hover / Tap to Flip Card</span>
+            </div>
+          </div>
+
+          <!-- Back Face (Revealed on 3D Flip) -->
+          <div class="redo-card-back">
+            <div class="redo-card-back-header">
+              <span class="redo-card-back-tag">Track 03 // Deliverables</span>
+              <h4 class="redo-card-back-title">High-Velocity Sprint</h4>
+            </div>
+            <ul class="redo-deliverables-list">
+              <li class="redo-deliverable-item">Rapid 48-Hour Pitch Deck Polish</li>
+              <li class="redo-deliverable-item">High-Impact Motion Graphics &amp; Reels</li>
+              <li class="redo-deliverable-item">Landing Page Conversion Overhaul</li>
+              <li class="redo-deliverable-item">Product UX Audit &amp; Design Sprint</li>
+              <li class="redo-deliverable-item">Drop Campaign Identity &amp; Key Art</li>
+            </ul>
+            <div class="redo-card-back-footer">
+              <span class="redo-track-timeline">7–14 Days Execution</span>
+              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
+            </div>
+          </div>
+
         </div>
-        <p class="redo-card-desc">If you know exactly what you want and need a senior, nimble team that can step in and quickly help you build with precision.</p>
       </div>
+
     </div>
   </section>
 
@@ -223,11 +591,11 @@
     <p class="redo-section-subtitle">We help you achieve more at every stage of business growth</p>
 
     <div class="redo-services-list">
-      <!-- Service 01 -->
+      <!-- Service 01: ब्रांडिंग -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(01)</span>
-          <h3 class="redo-service-title">Brand Strategy</h3>
+          <h3 class="redo-service-title">ब्रांडिंग // Brand Strategy</h3>
         </div>
         <div class="redo-service-tags">
           <span class="redo-service-tag">Brand Positioning</span>
@@ -242,15 +610,15 @@
         </div>
       </div>
 
-      <!-- Service 02 -->
+      <!-- Service 02: डिज़ाइन -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(02)</span>
-          <h3 class="redo-service-title">Websites</h3>
+          <h3 class="redo-service-title">डिज़ाइन // Websites &amp; UI</h3>
         </div>
         <div class="redo-service-tags">
-          <span class="redo-service-tag">Website Design &amp; Development</span>
-          <span class="redo-service-tag">Web Apps &amp; Platforms</span>
+          <span class="redo-service-tag">High-Conversion Web Design</span>
+          <span class="redo-service-tag">Next.js &amp; Webflow</span>
           <span class="redo-service-tag">Web Revamps</span>
           <span class="redo-service-tag">Conversion Rate Optimization</span>
           <span class="redo-service-tag">SEO Architecture</span>
@@ -260,29 +628,29 @@
         </div>
       </div>
 
-      <!-- Service 03 -->
+      <!-- Service 03: प्रोडक्ट डिज़ाइन -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(03)</span>
-          <h3 class="redo-service-title">Product Design</h3>
+          <h3 class="redo-service-title">प्रोडक्ट // Product Design</h3>
         </div>
         <div class="redo-service-tags">
           <span class="redo-service-tag">User Research &amp; Analysis</span>
           <span class="redo-service-tag">UX Audits</span>
           <span class="redo-service-tag">MVP Planning &amp; Design</span>
           <span class="redo-service-tag">UI Design &amp; Prototyping</span>
-          <span class="redo-service-tag">Product Management</span>
+          <span class="redo-service-tag">Design Systems</span>
         </div>
         <div class="redo-service-preview-thumb">
           <img src="assets/services/bento-campaign.jpg" alt="Product Design Preview">
         </div>
       </div>
 
-      <!-- Service 04 -->
+      <!-- Service 04: AI-Powered Solutions -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(04)</span>
-          <h3 class="redo-service-title">AI-Powered Solutions</h3>
+          <h3 class="redo-service-title">एआई // AI Solutions</h3>
         </div>
         <div class="redo-service-tags">
           <span class="redo-service-tag">AI Applications</span>
@@ -296,35 +664,34 @@
         </div>
       </div>
 
-      <!-- Service 05 -->
+      <!-- Service 05: कंटेंट & मोशन -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(05)</span>
-          <h3 class="redo-service-title">Motion Design</h3>
+          <h3 class="redo-service-title">कंटेंट // Motion Design</h3>
         </div>
         <div class="redo-service-tags">
-          <span class="redo-service-tag">Motion Graphics</span>
-          <span class="redo-service-tag">Explainer Videos</span>
-          <span class="redo-service-tag">Brand Launch Videos</span>
-          <span class="redo-service-tag">Interactive Presentations</span>
+          <span class="redo-service-tag">3D Motion Graphics</span>
+          <span class="redo-service-tag">Commercial Video &amp; Post</span>
+          <span class="redo-service-tag">Brand Launch Drops</span>
+          <span class="redo-service-tag">Interactive Keynotes</span>
         </div>
         <div class="redo-service-preview-thumb">
           <img src="assets/services/card-green-silk.jpg" alt="Motion Design Preview">
         </div>
       </div>
 
-      <!-- Service 06 -->
+      <!-- Service 06: प्रमोशन & सोशल -->
       <div class="redo-service-row">
         <div class="redo-service-title-wrap">
           <span class="redo-service-num">(06)</span>
-          <h3 class="redo-service-title">Full-stack Marketing</h3>
+          <h3 class="redo-service-title">प्रमोशन // Full-stack Marketing</h3>
         </div>
         <div class="redo-service-tags">
-          <span class="redo-service-tag">Marketing &amp; Growth Strategy</span>
-          <span class="redo-service-tag">Emails &amp; Newsletters</span>
-          <span class="redo-service-tag">Copywriting</span>
-          <span class="redo-service-tag">Technical Content</span>
-          <span class="redo-service-tag">Campaigns</span>
+          <span class="redo-service-tag">Omnichannel Strategy</span>
+          <span class="redo-service-tag">Cultural Brand Campaigns</span>
+          <span class="redo-service-tag">Creator Collaborations</span>
+          <span class="redo-service-tag">High-Impact Copywriting</span>
           <span class="redo-service-tag">Social Growth</span>
         </div>
         <div class="redo-service-preview-thumb">
@@ -339,18 +706,16 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 05: FEATURED WORK (3D CAROUSEL)
+       SECTION 05: FEATURED WORK (3D PERSPECTIVE CAROUSEL)
        ========================================================================== -->
   <section class="redo-work-section" id="work">
     <h2 class="redo-section-title">Featured Work</h2>
-    <p class="redo-section-subtitle">We’ve transformed bold ideas into tangible realities</p>
+    <p class="redo-section-subtitle">We’ve transformed bold Indian ideas into tangible realities</p>
 
     <div class="redo-carousel-container">
-      <!-- Arrow Controls -->
       <button class="redo-carousel-btn redo-carousel-btn-prev" aria-label="Previous Project">‹</button>
       <button class="redo-carousel-btn redo-carousel-btn-next" aria-label="Next Project">›</button>
 
-      <!-- Carousel Viewport -->
       <div class="redo-carousel-viewport">
         <!-- Slide 1: mCaffeine -->
         <div class="redo-carousel-slide active" data-index="0">
@@ -361,7 +726,7 @@
             <h3 class="redo-slide-title">Brand revamp to empower mCaffeine's global expansion</h3>
             <div class="redo-slide-tags">
               <span class="redo-slide-tag">Brand Identity</span>
-              <span class="redo-slide-tag">E-Commerce</span>
+              <span class="redo-slide-tag">E-Commerce Flagship</span>
             </div>
           </div>
         </div>
@@ -375,7 +740,7 @@
             <h3 class="redo-slide-title">Digital platform architecture for 25M+ cultural audience</h3>
             <div class="redo-slide-tags">
               <span class="redo-slide-tag">Platform</span>
-              <span class="redo-slide-tag">Culture</span>
+              <span class="redo-slide-tag">Cultural Heritage</span>
             </div>
           </div>
         </div>
@@ -568,24 +933,21 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 08: GRAND FINALE FOOTER (FRAMED BEZEL)
+       SECTION 08: STUDIO FOOTER (FRAMED BEZEL)
        ========================================================================== -->
-  <div class="redo-frame-container" id="footer">
+  <div class="redo-footer-frame-container" id="footer">
     <footer class="redo-footer">
-      <!-- Red Atmospheric Backdrop with Classical Statue Artwork -->
       <div class="redo-footer-backdrop">
         <img src="assets/redo/footer-statue.jpg" alt="Classical Sculpture Heritage Backdrop">
       </div>
       <div class="redo-footer-aura"></div>
 
-      <!-- Center Display Content -->
       <div class="redo-footer-content">
         <span class="redo-footer-kicker">That’s our story</span>
-        <h2 class="redo-footer-headline">Let’s <em>reimagine</em> yours</h2>
+        <h2 class="redo-footer-headline">Let’s make yours <em>impossible to ignore</em></h2>
         <a href="#contact" class="redo-footer-cta open-redo-contact">Get In Touch</a>
       </div>
 
-      <!-- Footer Bottom Strip -->
       <div class="redo-footer-bottom-bar">
         <div>© 2026 4Eleven Studio | All Rights Reserved.</div>
 
@@ -602,8 +964,9 @@
         </div>
 
         <div class="redo-footer-links">
+          <a href="#journey" class="redo-footer-link">Journey</a>
           <a href="#services" class="redo-footer-link">Services</a>
-          <a href="#work" class="redo-footer-link">Featured Work</a>
+          <a href="#work" class="redo-footer-link">Work</a>
           <a href="#reviews" class="redo-footer-link">Testimonials</a>
         </div>
       </div>
@@ -631,11 +994,12 @@
         <div class="redo-form-group">
           <label class="redo-form-label" for="intake-service">Primary Focus</label>
           <select id="intake-service" class="redo-form-select">
-            <option value="brand">Brand Strategy &amp; Identity</option>
+            <option value="brand">Brand Strategy &amp; Cultural Positioning</option>
             <option value="website">High-Conversion Web Experience</option>
             <option value="product">Product Design &amp; UI/UX</option>
             <option value="ai">AI Solutions &amp; Automation</option>
-            <option value="pitch">Investor Pitch Deck &amp; Motion</option>
+            <option value="motion">Video Production &amp; 3D Motion</option>
+            <option value="pitch">Institutional Investor Pitch Deck</option>
           </select>
         </div>
         <div class="redo-form-group">
@@ -648,6 +1012,10 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/redo-theme.js"></script>
+  <script src="js/gsap.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
+  <script src="js/main.js?v=5.1"></script>
+  <script src="js/ba-investor-decks.js?v=6.1"></script>
+  <script src="js/redo-theme.js?v=3.1"></script>
 </body>
 </html>

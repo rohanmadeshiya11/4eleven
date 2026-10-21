@@ -2,21 +2,21 @@
    4ELEVEN STUDIO × REDO MEDIA THEME STYLESHEET
    Aesthetic: Framer Minimalist Dark Luxury with Indian Heritage Warmth
    Typography: STIX Two Text (Editorial Serif) + Geist (Modern UI Sans)
-   Palette: Pitch Black, Crimson Aura (#D32F2F / #FF3B30), Royal Saffron (#F5A623),
+   Palette: Pitch Black, Crimson Aura (#D32F2F / #FF493B), Royal Saffron (#F5A623),
             Luminous Ivory (#F5F2EB), Frosted Glass
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 :root {
-  --redo-black: #060505;
+  --redo-black: #080809;
   --redo-surface: #0e0c0c;
   --redo-surface-subtle: #141212;
   --redo-border: rgba(255, 255, 255, 0.08);
   --redo-border-hover: rgba(255, 255, 255, 0.18);
   --redo-crimson: #d32f2f;
-  --redo-crimson-bright: #ff3b30;
-  --redo-crimson-glow: rgba(211, 47, 47, 0.55);
+  --redo-crimson-bright: #ff493b;
+  --redo-crimson-glow: rgba(255, 73, 59, 0.45);
   --redo-saffron: #f5a623;
   --redo-saffron-glow: rgba(245, 166, 35, 0.4);
   --redo-ivory: #f5f2eb;
@@ -28,48 +28,31 @@
   --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-/* Base resets & typography */
-html {
-  background: var(--redo-black) !important;
-  color: var(--redo-ivory) !important;
-  font-family: var(--font-sans) !important;
-  overflow-x: hidden !important;
-  overflow-y: auto !important;
-  scroll-behavior: smooth !important;
-  margin: 0;
-  padding: 0;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  background: var(--redo-black) !important;
-  color: var(--redo-ivory) !important;
-  font-family: var(--font-sans) !important;
-  overflow-x: hidden !important;
-  overflow-y: visible !important;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-}
-
-::selection {
-  background: var(--redo-crimson);
-  color: #ffffff;
+/* Top header handover transition with Redo pill navbar */
+.top-header {
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 /* ==========================================================================
-   FLOATING PILL NAVIGATION HEADER
+   FLOATING PILL NAVIGATION (Docks on Scroll past Hero)
    ========================================================================== */
 .redo-nav-wrapper {
   position: fixed;
-  top: 20px;
+  top: 18px;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   z-index: 1000;
   pointer-events: none;
+  opacity: 0;
+  transform: translateY(-20px);
   transition: transform 0.35s var(--ease-out-expo), opacity 0.35s ease;
+}
+
+.redo-nav-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .redo-nav-pill {
@@ -78,31 +61,30 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  padding: 8px 10px 8px 24px;
-  background: rgba(16, 14, 14, 0.78);
+  padding: 8px 10px 8px 22px;
+  background: rgba(14, 12, 12, 0.82);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   max-width: 860px;
   width: calc(100% - 32px);
   transition: all 0.3s var(--ease-out-expo);
 }
 
 .redo-nav-pill:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(211, 47, 47, 0.15);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.75), 0 0 25px rgba(255, 73, 59, 0.2);
 }
 
 .redo-logo {
   display: flex;
   align-items: baseline;
   text-decoration: none;
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: 24px;
-  font-weight: 500;
+  font-family: var(--font-display, var(--font-sans));
+  font-size: 20px;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.02em;
 }
@@ -111,13 +93,13 @@ body {
   color: var(--redo-crimson-bright);
   font-style: normal;
   display: inline-block;
-  margin-left: 1px;
+  margin-left: 2px;
 }
 
 .redo-nav-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 22px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -127,15 +109,14 @@ body {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 13.5px;
-  font-weight: 450;
+  font-weight: 500;
   letter-spacing: -0.01em;
   transition: color 0.2s ease, text-shadow 0.2s ease;
-  position: relative;
 }
 
 .redo-nav-link:hover {
   color: #ffffff;
-  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.45);
 }
 
 .redo-nav-cta {
@@ -151,205 +132,14 @@ body {
   padding: 9px 20px;
   border-radius: 9999px;
   transition: all 0.25s var(--ease-out-expo);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .redo-nav-cta:hover {
   transform: translateY(-1px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.35);
   background: #ffffff;
   color: #000000;
-}
-
-/* ==========================================================================
-   FRAMED BEZEL WRAPPER (HERO & FOOTER)
-   ========================================================================== */
-.redo-frame-container {
-  margin: 14px 14px 0 14px;
-  border-radius: 28px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  overflow: hidden;
-  position: relative;
-  background: var(--redo-surface);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-}
-
-/* ==========================================================================
-   SECTION 01: HERO SECTION
-   ========================================================================== */
-.redo-hero {
-  min-height: calc(100vh - 28px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 90px 24px 60px 24px;
-  text-align: center;
-}
-
-/* Atmospheric Red Glow */
-.redo-hero-aura {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, 
-    rgba(215, 38, 38, 0.88) 0%, 
-    rgba(170, 20, 20, 0.58) 32%, 
-    rgba(120, 10, 10, 0.3) 55%, 
-    rgba(10, 8, 8, 0.98) 82%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Subtle sacred geometric mandala rings behind text */
-.redo-hero-mandala {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: min(750px, 85vw);
-  height: min(750px, 85vw);
-  pointer-events: none;
-  opacity: 0.18;
-  z-index: 2;
-  animation: mandalaSpin 180s linear infinite;
-}
-
-@keyframes mandalaSpin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Hero Floating Hands */
-.redo-hero-hand {
-  position: absolute;
-  pointer-events: none;
-  z-index: 3;
-  user-select: none;
-}
-
-.redo-hero-hand-upper {
-  top: -40px;
-  left: -20px;
-  width: clamp(260px, 36vw, 540px);
-  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.7));
-  animation: floatUpper 7s ease-in-out infinite alternate;
-}
-
-.redo-hero-hand-lower {
-  bottom: 0px;
-  right: -20px;
-  width: clamp(260px, 36vw, 540px);
-  filter: drop-shadow(0 -25px 45px rgba(0, 0, 0, 0.7));
-  animation: floatLower 7s ease-in-out infinite alternate;
-}
-
-@keyframes floatUpper {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(-10px, 14px) rotate(-1.5deg); }
-}
-
-@keyframes floatLower {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(10px, -14px) rotate(1.5deg); }
-}
-
-/* Center Hero Typography */
-.redo-hero-content {
-  position: relative;
-  z-index: 5;
-  max-width: 960px;
-  margin: auto 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.redo-hero-headline {
-  font-family: var(--font-serif);
-  font-size: clamp(40px, 5.6vw, 82px);
-  font-weight: 400;
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  color: #ffffff;
-  text-shadow: 0 0 45px rgba(255, 210, 210, 0.5), 0 0 100px rgba(255, 100, 100, 0.25);
-  margin: 0;
-}
-
-.redo-hero-subtitle {
-  font-family: var(--font-sans);
-  font-size: clamp(16px, 1.4vw, 21px);
-  font-weight: 400;
-  color: rgba(255, 226, 226, 0.88);
-  margin-top: 18px;
-  letter-spacing: -0.01em;
-  text-shadow: 0 0 20px rgba(255, 150, 150, 0.3);
-}
-
-/* Hero Bottom Bar */
-.redo-hero-bottom-bar {
-  position: absolute;
-  bottom: 22px;
-  left: 0;
-  width: 100%;
-  padding: 0 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.65);
-  font-weight: 450;
-  letter-spacing: -0.01em;
-}
-
-.redo-bottom-left, .redo-bottom-right {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.redo-pulse-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 10px #22c55e;
-  display: inline-block;
-  animation: pulseGreen 2s infinite;
-}
-
-@keyframes pulseGreen {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-
-.redo-scroll-explore {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  font-size: 13px;
-  transition: color 0.2s ease;
-}
-
-.redo-scroll-explore:hover {
-  color: #ffffff;
-}
-
-.redo-scroll-explore svg {
-  animation: bounceDown 1.8s infinite ease-in-out;
-}
-
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
 }
 
 /* ==========================================================================
@@ -360,7 +150,7 @@ body {
   background-color: var(--redo-black);
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
   background-size: 28px 28px;
-  padding: 130px 24px 90px 24px;
+  padding: 120px 24px 80px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -369,36 +159,36 @@ body {
 }
 
 .redo-scrub-container {
-  max-width: 1060px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
 .redo-scrub-text {
   font-family: var(--font-serif);
-  font-size: clamp(30px, 4.4vw, 58px);
+  font-size: clamp(30px, 4.4vw, 56px);
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: -0.025em;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.18);
   margin: 0;
   transition: color 0.15s ease;
 }
 
 .redo-scrub-word {
   display: inline-block;
-  color: rgba(255, 255, 255, 0.2);
-  transition: color 0.3s ease, text-shadow 0.3s ease;
+  color: rgba(255, 255, 255, 0.18);
+  transition: color 0.25s ease, text-shadow 0.25s ease;
   white-space: pre-wrap;
 }
 
 .redo-scrub-word.active {
   color: #ffffff;
-  text-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 73, 59, 0.2);
 }
 
 /* Laurel Wreath Strip */
 .redo-laurel-wrap {
-  margin-top: 80px;
+  margin-top: 75px;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -417,7 +207,7 @@ body {
 
 /* Marquee strip */
 .redo-marquee-strip {
-  margin-top: 40px;
+  margin-top: 36px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -428,7 +218,7 @@ body {
 .redo-marquee-track {
   display: flex;
   align-items: center;
-  gap: 60px;
+  gap: 55px;
   width: max-content;
   animation: marqueeRoll 32s linear infinite;
 }
@@ -444,10 +234,10 @@ body {
 
 .redo-marquee-logo {
   font-family: var(--font-sans);
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.45);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -460,14 +250,14 @@ body {
 }
 
 /* ==========================================================================
-   SECTION 03: "WHERE ARE YOU IN YOUR JOURNEY?" (3-CARD TRANSFORM)
+   SECTION 03: "WHERE ARE YOU IN YOUR JOURNEY?" (3D FLIPPING CARDS)
    ========================================================================== */
 .redo-journey-section {
   position: relative;
   background-color: var(--redo-black);
   background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
   background-size: 28px 28px;
-  padding: 100px 24px 120px 24px;
+  padding: 110px 24px 120px 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -504,113 +294,149 @@ body {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  gap: 24px;
-  max-width: 1140px;
+  gap: 28px;
+  max-width: 1180px;
   width: 100%;
-  margin-top: 60px;
-  perspective: 1400px;
+  margin-top: 65px;
+  perspective: 1600px;
 }
 
-.redo-journey-card {
+/* 3D FLIP CARD CONTAINER */
+.redo-flip-card {
   flex: 1;
-  min-height: 480px;
+  min-height: 510px;
+  perspective: 1600px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+/* Initial Fanned Orientations */
+.redo-flip-card-left {
+  transform: rotate(-3.5deg) translateY(10px);
+}
+
+.redo-flip-card-center {
+  transform: translateY(-8px) scale(1.02);
+  z-index: 2;
+}
+
+.redo-flip-card-right {
+  transform: rotate(3.5deg) translateY(10px);
+}
+
+.redo-flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.85s var(--ease-out-expo), box-shadow 0.4s ease;
+  transform-style: preserve-3d;
   border-radius: 24px;
-  padding: 38px 32px;
+}
+
+/* Trigger 3D Flip on Hover or Toggle */
+.redo-flip-card:hover .redo-flip-card-inner,
+.redo-flip-card.is-flipped .redo-flip-card-inner {
+  transform: rotateY(180deg) translateY(-8px);
+}
+
+.redo-flip-card:hover {
+  transform: translateY(-12px) rotate(0deg) scale(1.03) !important;
+  z-index: 15 !important;
+}
+
+/* Front & Back Faces */
+.redo-card-front,
+.redo-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 24px;
+  padding: 38px 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
-  transition: all 0.5s var(--ease-out-expo);
-  cursor: pointer;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* Left Card: Silver / Ivory */
-.redo-card-left {
+/* FRONT FACES */
+.redo-card-left .redo-card-front {
   background: linear-gradient(155deg, #e4e7ec 0%, #cbd1dc 100%);
   color: #0d0f12;
-  transform: rotate(-3.5deg) translateY(8px);
 }
 
-.redo-card-left .redo-card-icon {
+.redo-card-left .redo-card-front .redo-card-icon {
   color: #0d0f12;
   border-color: rgba(0, 0, 0, 0.15);
 }
 
-.redo-card-left .redo-card-tag {
+.redo-card-left .redo-card-front .redo-card-tag {
   color: rgba(13, 15, 18, 0.6);
 }
 
-.redo-card-left .redo-card-title {
+.redo-card-left .redo-card-front .redo-card-title {
   color: #0d0f12;
 }
 
-.redo-card-left .redo-card-desc {
+.redo-card-left .redo-card-front .redo-card-desc {
   color: rgba(13, 15, 18, 0.72);
 }
 
-/* Center Card: Fiery Crimson Vermillion */
-.redo-card-center {
-  background: linear-gradient(155deg, #d32f2f 0%, #8e0000 100%);
-  color: #ffffff;
-  transform: translateY(-8px) scale(1.02);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 24px 60px rgba(211, 47, 47, 0.35);
-  z-index: 2;
-}
-
-.redo-card-center .redo-card-icon {
+.redo-card-center .redo-card-front {
+  background: linear-gradient(155deg, #ff493b 0%, #b91c1c 100%);
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.25);
-  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 24px 60px rgba(255, 73, 59, 0.35);
 }
 
-.redo-card-center .redo-card-tag {
-  color: rgba(255, 255, 255, 0.75);
+.redo-card-center .redo-card-front .redo-card-icon {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.redo-card-center .redo-card-title {
+.redo-card-center .redo-card-front .redo-card-tag {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.redo-card-center .redo-card-front .redo-card-title {
   color: #ffffff;
 }
 
-.redo-card-center .redo-card-desc {
-  color: rgba(255, 255, 255, 0.88);
+.redo-card-center .redo-card-front .redo-card-desc {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* Right Card: Dark Obsidian Charcoal */
-.redo-card-right {
+.redo-card-right .redo-card-front {
   background: linear-gradient(155deg, #181616 0%, #0d0c0c 100%);
   color: #ffffff;
-  transform: rotate(3.5deg) translateY(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.redo-card-right .redo-card-icon {
+.redo-card-right .redo-card-front .redo-card-icon {
   color: #ffffff;
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.05);
 }
 
-.redo-card-right .redo-card-tag {
+.redo-card-right .redo-card-front .redo-card-tag {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.redo-card-right .redo-card-title {
+.redo-card-right .redo-card-front .redo-card-title {
   color: #ffffff;
 }
 
-.redo-card-right .redo-card-desc {
+.redo-card-right .redo-card-front .redo-card-desc {
   color: rgba(255, 255, 255, 0.65);
 }
 
-/* Card Hover Elevation */
-.redo-journey-card:hover {
-  transform: translateY(-16px) scale(1.04) rotate(0deg) !important;
-  z-index: 10 !important;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(211, 47, 47, 0.25);
-}
-
+/* Card Icons & Headers */
 .redo-card-icon {
   width: 44px;
   height: 44px;
@@ -620,11 +446,12 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
 .redo-card-tag {
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 8px;
@@ -646,8 +473,102 @@ body {
   margin: 0;
 }
 
+.redo-flip-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  opacity: 0.75;
+  margin-top: 24px;
+}
+
+/* BACK FACES */
+.redo-card-back {
+  transform: rotateY(180deg);
+  background: #110f0f;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 35px rgba(255, 73, 59, 0.25);
+}
+
+.redo-card-back-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+}
+
+.redo-card-back-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--redo-crimson-bright);
+  font-weight: 600;
+}
+
+.redo-card-back-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 4px 0 0 0;
+  letter-spacing: -0.02em;
+}
+
+.redo-deliverables-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.redo-deliverable-item {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.redo-deliverable-item::before {
+  content: '✦';
+  color: var(--redo-crimson-bright);
+  font-size: 10px;
+}
+
+.redo-card-back-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 16px;
+}
+
+.redo-track-timeline {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.redo-track-btn {
+  background: #ffffff;
+  color: #0c0a09;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.redo-track-btn:hover {
+  background: var(--redo-crimson-bright);
+  color: #ffffff;
+}
+
 /* ==========================================================================
-   SECTION 04: "WITH OUR SERVICES"
+   SECTION 04: WITH OUR SERVICES
    ========================================================================== */
 .redo-services-section {
   position: relative;
@@ -668,7 +589,7 @@ body {
 
 .redo-service-row {
   display: grid;
-  grid-template-columns: 280px 1fr 220px;
+  grid-template-columns: 310px 1fr 220px;
   align-items: center;
   gap: 36px;
   padding: 36px 0;
@@ -705,7 +626,7 @@ body {
 
 .redo-service-title {
   font-family: var(--font-sans);
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -732,7 +653,7 @@ body {
 }
 
 .redo-service-row:hover .redo-service-tag {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .redo-service-preview-thumb {
@@ -816,7 +737,7 @@ body {
   opacity: 1;
   z-index: 5;
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(211, 47, 47, 0.2);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(255, 73, 59, 0.2);
 }
 
 .redo-carousel-slide.prev {
@@ -889,7 +810,6 @@ body {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Carousel Arrow Controls */
 .redo-carousel-btn {
   position: absolute;
   top: 50%;
@@ -931,7 +851,6 @@ body {
   align-items: center;
 }
 
-/* 24-Logo Grid */
 .redo-clients-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -964,7 +883,6 @@ body {
   color: #ffffff;
 }
 
-/* Testimonial Card */
 .redo-testimonial-wrapper {
   max-width: 960px;
   width: 100%;
@@ -1091,7 +1009,6 @@ body {
   align-items: center;
 }
 
-/* Left: 2 Tilted Founder Cards */
 .redo-founder-cards-pair {
   display: flex;
   align-items: center;
@@ -1126,7 +1043,7 @@ body {
   transform: translateY(-10px) rotate(0deg) scale(1.04);
   z-index: 5;
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(211, 47, 47, 0.2);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 73, 59, 0.25);
 }
 
 .redo-founder-avatar-circle {
@@ -1137,7 +1054,7 @@ body {
   overflow: hidden;
   margin-bottom: 20px;
   border: 2px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 25px rgba(211, 47, 47, 0.45);
+  box-shadow: 0 0 25px rgba(255, 73, 59, 0.45);
 }
 
 .redo-founder-avatar-circle img {
@@ -1184,7 +1101,6 @@ body {
   color: #ffffff;
 }
 
-/* Right: Stats Column */
 .redo-stats-column {
   display: flex;
   flex-direction: column;
@@ -1231,10 +1147,20 @@ body {
 }
 
 /* ==========================================================================
-   SECTION 08: GRAND FINALE FOOTER
+   SECTION 08: STUDIO FOOTER (FRAMED BEZEL)
    ========================================================================== */
+.redo-footer-frame-container {
+  margin: 14px 14px 14px 14px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+  background: var(--redo-surface);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
 .redo-footer {
-  min-height: 540px;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1243,10 +1169,8 @@ body {
   overflow: hidden;
   padding: 80px 32px 32px 32px;
   text-align: center;
-  margin-bottom: 14px;
 }
 
-/* Red Atmospheric Backdrop */
 .redo-footer-backdrop {
   position: absolute;
   top: 0;
@@ -1261,7 +1185,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.45;
+  opacity: 0.35;
   mix-blend-mode: luminosity;
 }
 
@@ -1290,9 +1214,9 @@ body {
 }
 
 .redo-footer-kicker {
-  font-size: 17px;
+  font-size: 16px;
   color: rgba(255, 220, 220, 0.85);
-  font-weight: 450;
+  font-weight: 500;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
@@ -1335,7 +1259,6 @@ body {
   color: #000000;
 }
 
-/* Footer Bottom Strip */
 .redo-footer-bottom-bar {
   position: relative;
   z-index: 5;
@@ -1442,7 +1365,7 @@ body {
   max-width: 580px;
   padding: 40px;
   position: relative;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(211, 47, 47, 0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 73, 59, 0.25);
   transform: scale(0.94);
   transition: transform 0.35s var(--ease-out-expo);
 }
@@ -1522,7 +1445,7 @@ body {
 .redo-form-input:focus, .redo-form-textarea:focus, .redo-form-select:focus {
   border-color: var(--redo-crimson-bright);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 15px rgba(211, 47, 47, 0.3);
+  box-shadow: 0 0 15px rgba(255, 73, 59, 0.3);
 }
 
 .redo-form-submit {
@@ -1557,30 +1480,12 @@ body {
   .redo-nav-links {
     display: none;
   }
-  .redo-frame-container {
-    margin: 8px 8px 0 8px;
-    border-radius: 20px;
-  }
-  .redo-hero {
-    min-height: calc(100vh - 16px);
-    padding: 80px 16px 50px 16px;
-  }
-  .redo-hero-hand-upper {
-    width: 220px;
-    top: -20px;
-    left: -20px;
-  }
-  .redo-hero-hand-lower {
-    width: 220px;
-    bottom: -10px;
-    right: -20px;
-  }
   .redo-journey-cards-wrap {
     flex-direction: column;
     gap: 20px;
   }
-  .redo-journey-card {
-    min-height: auto;
+  .redo-flip-card {
+    min-height: 480px;
     transform: none !important;
   }
   .redo-service-row {

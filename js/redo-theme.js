@@ -1,16 +1,15 @@
 /* ==========================================================================
    4ELEVEN STUDIO × REDO MEDIA THEME JAVASCRIPT
-   Interactions: Live IST Clock, Scroll-Scrub Text Reveal, 3D Carousel,
-                 Fanned Cards, Testimonials Slider, Copy Email Toast, Modal Form
+   Interactions: 3D Flipping Cards, Scroll-Scrub Text Reveal, 3D Carousel,
+                 Fanned Testimonials Slider, Copy Email Toast, Modal Form
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Live Indian Standard Time (IST) Clock
-  const clockEl = document.getElementById('hero-live-clock');
+  const clockEl = document.getElementById('studio-live-clock');
   function updateClock() {
     if (!clockEl) return;
     const now = new Date();
-    // Indian Standard Time is UTC + 5:30
     const options = {
       timeZone: 'Asia/Kolkata',
       hour: 'numeric',
@@ -23,7 +22,15 @@ document.addEventListener('DOMContentLoaded', () => {
   updateClock();
   setInterval(updateClock, 1000);
 
-  // 2. Scroll-Scrub Word Illumination (Section 02)
+  // 2. 3D Flipping Cards Interaction (Click & Hover)
+  const flipCards = document.querySelectorAll('.redo-flip-card');
+  flipCards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('is-flipped');
+    });
+  });
+
+  // 3. Scroll-Scrub Word Illumination (Section 02)
   const scrubSection = document.getElementById('scrub-section');
   const scrubWords = document.querySelectorAll('.redo-scrub-word');
   
@@ -32,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const rect = scrubSection.getBoundingClientRect();
     const windowH = window.innerHeight;
     
-    // Calculate progress as section travels through viewport
     const startY = windowH * 0.85;
     const endY = -rect.height * 0.2;
     const currentY = rect.top;
@@ -48,24 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         word.classList.remove('active');
       }
     });
-  }
-
-  // 3. Journey Cards 3D Fan on Scroll
-  const journeySection = document.getElementById('journey');
-  const journeyCards = document.querySelectorAll('.redo-journey-card');
-  let journeyFanned = false;
-
-  function handleJourneyScroll() {
-    if (!journeySection || !journeyCards.length) return;
-    const rect = journeySection.getBoundingClientRect();
-    if (rect.top < window.innerHeight * 0.75 && !journeyFanned) {
-      journeyFanned = true;
-      journeyCards.forEach((card, idx) => {
-        setTimeout(() => {
-          card.classList.add('fanned');
-        }, idx * 120);
-      });
-    }
   }
 
   // 4. Featured Work 3D Carousel
@@ -128,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
       avatar: "assets/ba/avatar-yoann.jpg"
     },
     {
-      quote: "Working with the team on our website and digital revamp was one of the best decisions we've made. The final product gives our brand undeniable authority.",
+      quote: "Working with 4Eleven on our website and digital revamp was one of the best decisions we've made. The final product gives our brand undeniable authority.",
       name: "Fateh Singh",
       role: "Marketing Manager, Clearbridge",
       brand: "CLEARBRIDGE",
@@ -178,7 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
       quoteEl.style.opacity = '1';
     }, 180);
 
-    // Update dots
     if (dotsEl) {
       dotsEl.innerHTML = '';
       testimonials.forEach((_, i) => {
@@ -213,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Modal Intake Form (Get In Touch)
   const modal = document.getElementById('redo-contact-modal');
-  const openBtns = document.querySelectorAll('.open-redo-contact');
+  const openBtns = document.querySelectorAll('.open-redo-contact, a[href="#contact"]');
   const closeBtn = document.getElementById('redo-modal-close');
   const contactForm = document.getElementById('redo-intake-form');
 
@@ -270,28 +257,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 8. Sticky Nav Docking / Reveal on Scroll
+  // 8. Sticky Nav Docking / Reveal on Scroll & Hero Header Handover
   const navWrapper = document.querySelector('.redo-nav-wrapper');
+  const siteHeader = document.getElementById('siteHeader');
   let lastScrollY = window.scrollY;
 
   window.addEventListener('scroll', () => {
     handleScrollScrub();
-    handleJourneyScroll();
 
     const currentScrollY = window.scrollY;
     if (navWrapper) {
-      if (currentScrollY > 120 && currentScrollY > lastScrollY) {
-        // Scrolling down: subtle slide up
-        navWrapper.style.transform = 'translateY(-10px)';
+      if (currentScrollY > 280) {
+        navWrapper.classList.add('visible');
+        if (siteHeader) {
+          siteHeader.style.opacity = '0';
+          siteHeader.style.pointerEvents = 'none';
+          siteHeader.style.transform = 'translateY(-20px)';
+        }
       } else {
-        // Scrolling up: dock cleanly
-        navWrapper.style.transform = 'translateY(0)';
+        navWrapper.classList.remove('visible');
+        if (siteHeader) {
+          siteHeader.style.opacity = '1';
+          siteHeader.style.pointerEvents = 'auto';
+          siteHeader.style.transform = 'translateY(0)';
+        }
       }
     }
     lastScrollY = currentScrollY;
   }, { passive: true });
 
-  // Initial triggers
   handleScrollScrub();
-  handleJourneyScroll();
 });
