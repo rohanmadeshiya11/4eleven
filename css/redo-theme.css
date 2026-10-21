@@ -1,0 +1,1615 @@
+/* ==========================================================================
+   4ELEVEN STUDIO × REDO MEDIA THEME STYLESHEET
+   Aesthetic: Framer Minimalist Dark Luxury with Indian Heritage Warmth
+   Typography: STIX Two Text (Editorial Serif) + Geist (Modern UI Sans)
+   Palette: Pitch Black, Crimson Aura (#D32F2F / #FF3B30), Royal Saffron (#F5A623),
+            Luminous Ivory (#F5F2EB), Frosted Glass
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+:root {
+  --redo-black: #060505;
+  --redo-surface: #0e0c0c;
+  --redo-surface-subtle: #141212;
+  --redo-border: rgba(255, 255, 255, 0.08);
+  --redo-border-hover: rgba(255, 255, 255, 0.18);
+  --redo-crimson: #d32f2f;
+  --redo-crimson-bright: #ff3b30;
+  --redo-crimson-glow: rgba(211, 47, 47, 0.55);
+  --redo-saffron: #f5a623;
+  --redo-saffron-glow: rgba(245, 166, 35, 0.4);
+  --redo-ivory: #f5f2eb;
+  --redo-dim: rgba(255, 255, 255, 0.65);
+  --redo-faint: rgba(255, 255, 255, 0.25);
+  --font-serif: 'STIX Two Text', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Base resets & typography */
+html {
+  background: var(--redo-black) !important;
+  color: var(--redo-ivory) !important;
+  font-family: var(--font-sans) !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scroll-behavior: smooth !important;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--redo-black) !important;
+  color: var(--redo-ivory) !important;
+  font-family: var(--font-sans) !important;
+  overflow-x: hidden !important;
+  overflow-y: visible !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--redo-crimson);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   FLOATING PILL NAVIGATION HEADER
+   ========================================================================== */
+.redo-nav-wrapper {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  transition: transform 0.35s var(--ease-out-expo), opacity 0.35s ease;
+}
+
+.redo-nav-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 8px 10px 8px 24px;
+  background: rgba(16, 14, 14, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  max-width: 860px;
+  width: calc(100% - 32px);
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.redo-nav-pill:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(211, 47, 47, 0.15);
+}
+
+.redo-logo {
+  display: flex;
+  align-items: baseline;
+  text-decoration: none;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.redo-logo .logo-dot {
+  color: var(--redo-crimson-bright);
+  font-style: normal;
+  display: inline-block;
+  margin-left: 1px;
+}
+
+.redo-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.redo-nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+  position: relative;
+}
+
+.redo-nav-link:hover {
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+.redo-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0c0a09;
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 9px 20px;
+  border-radius: 9999px;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.redo-nav-cta:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+  background: #ffffff;
+  color: #000000;
+}
+
+/* ==========================================================================
+   FRAMED BEZEL WRAPPER (HERO & FOOTER)
+   ========================================================================== */
+.redo-frame-container {
+  margin: 14px 14px 0 14px;
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+  background: var(--redo-surface);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+}
+
+/* ==========================================================================
+   SECTION 01: HERO SECTION
+   ========================================================================== */
+.redo-hero {
+  min-height: calc(100vh - 28px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 90px 24px 60px 24px;
+  text-align: center;
+}
+
+/* Atmospheric Red Glow */
+.redo-hero-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, 
+    rgba(215, 38, 38, 0.88) 0%, 
+    rgba(170, 20, 20, 0.58) 32%, 
+    rgba(120, 10, 10, 0.3) 55%, 
+    rgba(10, 8, 8, 0.98) 82%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle sacred geometric mandala rings behind text */
+.redo-hero-mandala {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(750px, 85vw);
+  height: min(750px, 85vw);
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 2;
+  animation: mandalaSpin 180s linear infinite;
+}
+
+@keyframes mandalaSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Hero Floating Hands */
+.redo-hero-hand {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+  user-select: none;
+}
+
+.redo-hero-hand-upper {
+  top: -40px;
+  left: -20px;
+  width: clamp(260px, 36vw, 540px);
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.7));
+  animation: floatUpper 7s ease-in-out infinite alternate;
+}
+
+.redo-hero-hand-lower {
+  bottom: 0px;
+  right: -20px;
+  width: clamp(260px, 36vw, 540px);
+  filter: drop-shadow(0 -25px 45px rgba(0, 0, 0, 0.7));
+  animation: floatLower 7s ease-in-out infinite alternate;
+}
+
+@keyframes floatUpper {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-10px, 14px) rotate(-1.5deg); }
+}
+
+@keyframes floatLower {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(10px, -14px) rotate(1.5deg); }
+}
+
+/* Center Hero Typography */
+.redo-hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 960px;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-hero-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.6vw, 82px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  text-shadow: 0 0 45px rgba(255, 210, 210, 0.5), 0 0 100px rgba(255, 100, 100, 0.25);
+  margin: 0;
+}
+
+.redo-hero-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.4vw, 21px);
+  font-weight: 400;
+  color: rgba(255, 226, 226, 0.88);
+  margin-top: 18px;
+  letter-spacing: -0.01em;
+  text-shadow: 0 0 20px rgba(255, 150, 150, 0.3);
+}
+
+/* Hero Bottom Bar */
+.redo-hero-bottom-bar {
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  width: 100%;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 450;
+  letter-spacing: -0.01em;
+}
+
+.redo-bottom-left, .redo-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.redo-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e;
+  display: inline-block;
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.redo-scroll-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.redo-scroll-explore:hover {
+  color: #ffffff;
+}
+
+.redo-scroll-explore svg {
+  animation: bounceDown 1.8s infinite ease-in-out;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ==========================================================================
+   SECTION 02: SCROLL-SCRUB TEXT REVEAL & MARQUEE
+   ========================================================================== */
+.redo-scrub-section {
+  position: relative;
+  background-color: var(--redo-black);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  padding: 130px 24px 90px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.redo-scrub-container {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.redo-scrub-text {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4.4vw, 58px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: rgba(255, 255, 255, 0.2);
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.redo-scrub-word {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  white-space: pre-wrap;
+}
+
+.redo-scrub-word.active {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.45);
+}
+
+/* Laurel Wreath Strip */
+.redo-laurel-wrap {
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.redo-laurel-wrap svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  opacity: 0.85;
+}
+
+/* Marquee strip */
+.redo-marquee-strip {
+  margin-top: 40px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.redo-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  animation: marqueeRoll 32s linear infinite;
+}
+
+.redo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeRoll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.redo-marquee-logo {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.redo-marquee-logo:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   SECTION 03: "WHERE ARE YOU IN YOUR JOURNEY?" (3-CARD TRANSFORM)
+   ========================================================================== */
+.redo-journey-section {
+  position: relative;
+  background-color: var(--redo-black);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.08) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+  padding: 100px 24px 120px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 4.6vw, 62px);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  text-align: center;
+  margin: 0;
+}
+
+.redo-section-title em {
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 0 0 35px rgba(255, 210, 210, 0.6);
+}
+
+.redo-section-subtitle {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.2vw, 18px);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-top: 12px;
+  max-width: 650px;
+  letter-spacing: -0.01em;
+}
+
+/* 3-Card Fanning Container */
+.redo-journey-cards-wrap {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 24px;
+  max-width: 1140px;
+  width: 100%;
+  margin-top: 60px;
+  perspective: 1400px;
+}
+
+.redo-journey-card {
+  flex: 1;
+  min-height: 480px;
+  border-radius: 24px;
+  padding: 38px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s var(--ease-out-expo);
+  cursor: pointer;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Left Card: Silver / Ivory */
+.redo-card-left {
+  background: linear-gradient(155deg, #e4e7ec 0%, #cbd1dc 100%);
+  color: #0d0f12;
+  transform: rotate(-3.5deg) translateY(8px);
+}
+
+.redo-card-left .redo-card-icon {
+  color: #0d0f12;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.redo-card-left .redo-card-tag {
+  color: rgba(13, 15, 18, 0.6);
+}
+
+.redo-card-left .redo-card-title {
+  color: #0d0f12;
+}
+
+.redo-card-left .redo-card-desc {
+  color: rgba(13, 15, 18, 0.72);
+}
+
+/* Center Card: Fiery Crimson Vermillion */
+.redo-card-center {
+  background: linear-gradient(155deg, #d32f2f 0%, #8e0000 100%);
+  color: #ffffff;
+  transform: translateY(-8px) scale(1.02);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 24px 60px rgba(211, 47, 47, 0.35);
+  z-index: 2;
+}
+
+.redo-card-center .redo-card-icon {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.redo-card-center .redo-card-tag {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.redo-card-center .redo-card-title {
+  color: #ffffff;
+}
+
+.redo-card-center .redo-card-desc {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Right Card: Dark Obsidian Charcoal */
+.redo-card-right {
+  background: linear-gradient(155deg, #181616 0%, #0d0c0c 100%);
+  color: #ffffff;
+  transform: rotate(3.5deg) translateY(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.redo-card-right .redo-card-icon {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.redo-card-right .redo-card-tag {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.redo-card-right .redo-card-title {
+  color: #ffffff;
+}
+
+.redo-card-right .redo-card-desc {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Card Hover Elevation */
+.redo-journey-card:hover {
+  transform: translateY(-16px) scale(1.04) rotate(0deg) !important;
+  z-index: 10 !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(211, 47, 47, 0.25);
+}
+
+.redo-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+
+.redo-card-tag {
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.redo-card-title {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px 0;
+  line-height: 1.15;
+}
+
+.redo-card-desc {
+  font-size: 14.5px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 04: "WITH OUR SERVICES"
+   ========================================================================== */
+.redo-services-section {
+  position: relative;
+  background-color: var(--redo-black);
+  padding: 110px 24px 100px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-services-list {
+  max-width: 1160px;
+  width: 100%;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.redo-service-row {
+  display: grid;
+  grid-template-columns: 280px 1fr 220px;
+  align-items: center;
+  gap: 36px;
+  padding: 36px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.redo-service-row:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.redo-service-row:hover {
+  background: rgba(255, 255, 255, 0.02);
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 16px;
+}
+
+.redo-service-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.redo-service-num {
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.redo-service-title {
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0;
+  transition: text-shadow 0.25s ease, color 0.25s ease;
+}
+
+.redo-service-row:hover .redo-service-title {
+  color: #ffffff;
+  text-shadow: 0 0 24px rgba(255, 255, 255, 0.6);
+}
+
+.redo-service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.redo-service-tag {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease;
+}
+
+.redo-service-row:hover .redo-service-tag {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.redo-service-preview-thumb {
+  width: 100%;
+  height: 110px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  background: #151313;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+.redo-service-preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.redo-service-row:hover .redo-service-preview-thumb {
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  transform: scale(1.04);
+}
+
+.redo-service-row:hover .redo-service-preview-thumb img {
+  transform: scale(1.08);
+}
+
+.redo-services-cta-wrap {
+  margin-top: 60px;
+}
+
+/* ==========================================================================
+   SECTION 05: FEATURED WORK (3D CAROUSEL)
+   ========================================================================== */
+.redo-work-section {
+  position: relative;
+  background: var(--redo-black);
+  padding: 100px 24px 120px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.redo-carousel-container {
+  width: 100%;
+  max-width: 1280px;
+  margin-top: 60px;
+  position: relative;
+  perspective: 1600px;
+}
+
+.redo-carousel-viewport {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.redo-carousel-slide {
+  position: absolute;
+  width: min(680px, 85vw);
+  height: 480px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #141212;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  transition: all 0.6s var(--ease-out-expo);
+  cursor: pointer;
+  user-select: none;
+}
+
+.redo-carousel-slide.active {
+  transform: translateX(0) scale(1) translateZ(0);
+  opacity: 1;
+  z-index: 5;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(211, 47, 47, 0.2);
+}
+
+.redo-carousel-slide.prev {
+  transform: translateX(-55%) scale(0.85) rotateY(18deg);
+  opacity: 0.45;
+  z-index: 2;
+  filter: blur(1px);
+}
+
+.redo-carousel-slide.next {
+  transform: translateX(55%) scale(0.85) rotateY(-18deg);
+  opacity: 0.45;
+  z-index: 2;
+  filter: blur(1px);
+}
+
+.redo-carousel-slide.hidden-slide {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.65);
+}
+
+.redo-slide-image-wrap {
+  width: 100%;
+  height: 72%;
+  overflow: hidden;
+  position: relative;
+}
+
+.redo-slide-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.redo-carousel-slide:hover .redo-slide-image-wrap img {
+  transform: scale(1.04);
+}
+
+.redo-slide-details {
+  height: 28%;
+  padding: 16px 24px;
+  background: #110f0f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.redo-slide-title {
+  font-family: var(--font-sans);
+  font-size: 19px;
+  font-weight: 550;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.02em;
+}
+
+.redo-slide-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.redo-slide-tag {
+  font-size: 12px;
+  padding: 3px 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Carousel Arrow Controls */
+.redo-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(24, 22, 22, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.redo-carousel-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.redo-carousel-btn-prev { left: 40px; }
+.redo-carousel-btn-next { right: 40px; }
+
+/* ==========================================================================
+   SECTION 06: CLIENT LOGOS GRID & TESTIMONIALS SLIDER
+   ========================================================================== */
+.redo-reviews-section {
+  position: relative;
+  background: var(--redo-black);
+  padding: 100px 24px 110px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 24-Logo Grid */
+.redo-clients-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  max-width: 1140px;
+  width: 100%;
+  margin-bottom: 90px;
+}
+
+.redo-client-cell {
+  background: rgba(18, 16, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 20px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: 550;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: -0.01em;
+  min-height: 72px;
+  transition: all 0.25s ease;
+}
+
+.redo-client-cell:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+}
+
+/* Testimonial Card */
+.redo-testimonial-wrapper {
+  max-width: 960px;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.redo-testimonial-card {
+  background: #110f0f;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 44px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.4s ease;
+}
+
+.redo-testimonial-avatar {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.redo-testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.redo-testimonial-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.redo-testimonial-quote {
+  font-family: var(--font-sans);
+  font-size: clamp(16px, 1.4vw, 21px);
+  line-height: 1.5;
+  color: rgba(255, 235, 235, 0.9);
+  letter-spacing: -0.015em;
+  margin: 0 0 28px 0;
+}
+
+.redo-testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.redo-testimonial-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.redo-testimonial-role {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.redo-testimonial-brand {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+}
+
+.redo-dots-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.redo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.redo-dot.active {
+  background: #ffffff;
+  width: 24px;
+  border-radius: 9999px;
+}
+
+/* ==========================================================================
+   SECTION 07: FOUNDERS & IMPACT STATS
+   ========================================================================== */
+.redo-founders-section {
+  position: relative;
+  background: var(--redo-black);
+  padding: 100px 24px 120px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-founders-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1140px;
+  width: 100%;
+  margin-top: 60px;
+  align-items: center;
+}
+
+/* Left: 2 Tilted Founder Cards */
+.redo-founder-cards-pair {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.redo-founder-card {
+  width: 240px;
+  background: #141212;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 30px 20px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: all 0.4s var(--ease-out-expo);
+  cursor: pointer;
+}
+
+.redo-founder-card-1 {
+  transform: rotate(-3.5deg) translateY(10px);
+}
+
+.redo-founder-card-2 {
+  transform: rotate(3.5deg) translateY(-10px);
+}
+
+.redo-founder-card:hover {
+  transform: translateY(-10px) rotate(0deg) scale(1.04);
+  z-index: 5;
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(211, 47, 47, 0.2);
+}
+
+.redo-founder-avatar-circle {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(211, 47, 47, 0.45);
+}
+
+.redo-founder-avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.redo-founder-name {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+.redo-founder-title {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 6px;
+  letter-spacing: -0.01em;
+}
+
+.redo-founder-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  justify-content: center;
+}
+
+.redo-founder-socials a {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.redo-founder-socials a:hover {
+  color: #ffffff;
+}
+
+/* Right: Stats Column */
+.redo-stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.redo-stat-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 28px;
+}
+
+.redo-stat-item:last-child {
+  border-bottom: none;
+}
+
+.redo-stat-number {
+  font-family: var(--font-serif);
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 1;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+}
+
+.redo-stat-content h4 {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.015em;
+}
+
+.redo-stat-content p {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   SECTION 08: GRAND FINALE FOOTER
+   ========================================================================== */
+.redo-footer {
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 32px 32px 32px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+/* Red Atmospheric Backdrop */
+.redo-footer-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.redo-footer-backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  mix-blend-mode: luminosity;
+}
+
+.redo-footer-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, 
+    rgba(215, 38, 38, 0.85) 0%, 
+    rgba(160, 20, 20, 0.6) 38%, 
+    rgba(10, 8, 8, 0.95) 80%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.redo-footer-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto 0;
+}
+
+.redo-footer-kicker {
+  font-size: 17px;
+  color: rgba(255, 220, 220, 0.85);
+  font-weight: 450;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.redo-footer-headline {
+  font-family: var(--font-serif);
+  font-size: clamp(38px, 5.2vw, 76px);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.025em;
+  margin: 0 0 28px 0;
+}
+
+.redo-footer-headline em {
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 0 0 40px rgba(255, 210, 210, 0.7);
+}
+
+.redo-footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #0c0a09;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.redo-footer-cta:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.35);
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Footer Bottom Strip */
+.redo-footer-bottom-bar {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding-top: 24px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.redo-copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: inherit;
+  font-size: 13.5px;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.redo-copy-email-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.redo-copied-toast {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s var(--ease-out-expo);
+  white-space: nowrap;
+}
+
+.redo-copied-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.redo-footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.redo-footer-link {
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.redo-footer-link:hover {
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   MODAL INTAKE FORM (GET IN TOUCH)
+   ========================================================================== */
+.redo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.redo-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.redo-modal-card {
+  background: #141212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 580px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 50px rgba(211, 47, 47, 0.25);
+  transform: scale(0.94);
+  transition: transform 0.35s var(--ease-out-expo);
+}
+
+.redo-modal-overlay.active .redo-modal-card {
+  transform: scale(1);
+}
+
+.redo-modal-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.redo-modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+.redo-modal-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 6px 0;
+}
+
+.redo-modal-title em {
+  font-style: italic;
+  text-shadow: 0 0 20px rgba(255, 200, 200, 0.5);
+}
+
+.redo-modal-sub {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 28px 0;
+}
+
+.redo-form-group {
+  margin-bottom: 20px;
+}
+
+.redo-form-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.redo-form-input, .redo-form-textarea, .redo-form-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.redo-form-input:focus, .redo-form-textarea:focus, .redo-form-select:focus {
+  border-color: var(--redo-crimson-bright);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 15px rgba(211, 47, 47, 0.3);
+}
+
+.redo-form-submit {
+  width: 100%;
+  background: #ffffff;
+  color: #0c0a09;
+  border: none;
+  border-radius: 9999px;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-out-expo);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  margin-top: 10px;
+}
+
+.redo-form-submit:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.35);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .redo-nav-pill {
+    padding: 6px 8px 6px 18px;
+    gap: 16px;
+  }
+  .redo-nav-links {
+    display: none;
+  }
+  .redo-frame-container {
+    margin: 8px 8px 0 8px;
+    border-radius: 20px;
+  }
+  .redo-hero {
+    min-height: calc(100vh - 16px);
+    padding: 80px 16px 50px 16px;
+  }
+  .redo-hero-hand-upper {
+    width: 220px;
+    top: -20px;
+    left: -20px;
+  }
+  .redo-hero-hand-lower {
+    width: 220px;
+    bottom: -10px;
+    right: -20px;
+  }
+  .redo-journey-cards-wrap {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .redo-journey-card {
+    min-height: auto;
+    transform: none !important;
+  }
+  .redo-service-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .redo-service-preview-thumb {
+    display: none;
+  }
+  .redo-carousel-slide.prev, .redo-carousel-slide.next {
+    display: none;
+  }
+  .redo-clients-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .redo-testimonial-card {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .redo-testimonial-avatar {
+    width: 120px;
+    margin: 0 auto;
+  }
+  .redo-founders-grid {
+    grid-template-columns: 1fr;
+  }
+  .redo-footer-bottom-bar {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
