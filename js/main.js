@@ -9,26 +9,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const counterEl = document.getElementById('loader-counter');
   const progressFill = document.getElementById('loader-progress-fill');
 
-  let count = 0;
-  const counterInterval = setInterval(() => {
-    const increment = Math.floor(Math.random() * 8) + 4;
-    count = Math.min(count + increment, 100);
-    
-    if (counterEl) counterEl.textContent = `${count}%`;
-    if (progressFill) progressFill.style.width = `${count}%`;
+  // If deep-linking to an anchor hash, dismiss preloader immediately
+  if (window.location.hash && window.location.hash !== '#hero' && preloader) {
+    preloader.style.display = 'none';
+  } else {
+    let count = 0;
+    const counterInterval = setInterval(() => {
+      const increment = Math.floor(Math.random() * 12) + 6;
+      count = Math.min(count + increment, 100);
+      
+      if (counterEl) counterEl.textContent = `${count}%`;
+      if (progressFill) progressFill.style.width = `${count}%`;
 
-    if (count >= 100) {
-      clearInterval(counterInterval);
-      setTimeout(() => {
+      if (count >= 100) {
+        clearInterval(counterInterval);
         if (preloader) {
+          preloader.style.pointerEvents = 'none';
           preloader.classList.add('loaded');
           setTimeout(() => {
             preloader.style.display = 'none';
-          }, 1100);
+          }, 300);
         }
-      }, 350);
-    }
-  }, 35);
+      }
+    }, 25);
+  }
 
   // ========================================================
   // 2. RETRO HINDI POP-ART ELEMENTS PARALLAX & SCATTER PHYSICS
@@ -98,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Protected text zone so text stays legible
     const isMobile = screenW <= 768;
-    const heroContent = document.querySelector('.service_hero_content');
+    const heroContent = document.querySelector('.hero-content') || document.querySelector('.service_hero_content');
     let centerMinX, centerMaxX, centerMinY, centerMaxY;
     if (heroContent) {
       const hRect = heroContent.getBoundingClientRect();
@@ -229,14 +233,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 75;
+          const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
           return;
         }
       }
-      const targetSec = document.getElementById('services') || document.getElementById('capabilities') || document.getElementById('what-we-ship');
+      const targetSec = document.getElementById('capabilities') || document.getElementById('services');
       if (targetSec) {
         e.preventDefault();
-        targetSec.scrollIntoView({ behavior: 'smooth' });
+        const headerOffset = 75;
+        const offsetPosition = targetSec.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
       } else if (servicesModal) {
         e.preventDefault();
         openModal(servicesModal);
@@ -251,14 +259,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 75;
+          const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
           return;
         }
       }
       const targetSec = document.getElementById('work') || document.getElementById('selected-work');
       if (targetSec) {
         e.preventDefault();
-        targetSec.scrollIntoView({ behavior: 'smooth' });
+        const headerOffset = 75;
+        const offsetPosition = targetSec.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
       } else if (workModal) {
         e.preventDefault();
         openModal(workModal);
@@ -273,14 +285,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const target = document.querySelector(href);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          const headerOffset = 75;
+          const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+          window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
           return;
         }
       }
-      const targetSec = document.getElementById('partnership') || document.getElementById('services') || document.getElementById('what-we-ship');
+      const targetSec = document.getElementById('partnership') || document.getElementById('capabilities');
       if (targetSec) {
         e.preventDefault();
-        targetSec.scrollIntoView({ behavior: 'smooth' });
+        const headerOffset = 75;
+        const offsetPosition = targetSec.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+        window.scrollTo({ top: Math.max(0, offsetPosition), behavior: 'smooth' });
       } else if (servicesModal) {
         e.preventDefault();
         openModal(servicesModal);

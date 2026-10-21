@@ -64,6 +64,7 @@ body.homepage-locked-screen {
 }
 
 /* 2. SUBPAGES & WORK LANDING PAGE: 100% fluid, naturally scrolling landing page */
+body.landing-page,
 body.work-page,
 body.subpage {
   width: 100% !important;
@@ -1969,14 +1970,15 @@ body.subpage {
 
 /* 2. Full-Bleed Editorial Marquee Ribbon */
 .editorial-marquee-wrap {
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
+  width: 100%;
+  max-width: 100%;
+  margin-left: 0;
   overflow: hidden;
   background: #000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 16px 0;
-  margin-bottom: 80px;
+  margin-bottom: 0;
   position: relative;
   z-index: 10;
 }

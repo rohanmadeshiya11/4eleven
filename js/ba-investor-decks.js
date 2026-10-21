@@ -215,13 +215,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   const header = document.querySelector('.top-header') || document.querySelector('.header');
   if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
+    const checkHeaderScroll = () => {
+      const scrollThreshold = Math.min(window.innerHeight * 0.45, 320);
+      if (window.scrollY > scrollThreshold) {
         header.classList.add('is-scrolled');
       } else {
         header.classList.remove('is-scrolled');
       }
-    }, { passive: true });
+    };
+    window.addEventListener('scroll', checkHeaderScroll, { passive: true });
+    checkHeaderScroll();
   }
 
   // ========================================================
@@ -705,7 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ========================================================
   // 14. SINGLE-PAGE SCROLLSPY (ACTIVE NAV LINK HIGHLIGHT)
   // ========================================================
-  const navSections = document.querySelectorAll('section[id], div[id="top"]');
+  const navSections = document.querySelectorAll('div[id="hero"], section[id], div[id="top"]');
   const navLinks = document.querySelectorAll('.desktop_nav_links .nav_text_link');
 
   function updateActiveNavLink() {
@@ -750,5 +753,65 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // ========================================================
+  // 16. GLOBAL SMOOTH IN-PAGE ANCHOR NAVIGATION & HASH LISTENER
+  // ========================================================
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId === '#!') return;
+      
+      const targetElem = document.querySelector(targetId);
+      if (targetElem) {
+        e.preventDefault();
+        
+        // Close menu drawer if open
+        const menuDrawer = document.getElementById('menu-drawer');
+        if (menuDrawer) menuDrawer.classList.remove('open');
+        
+        const headerOffset = 75;
+        const elemPosition = targetElem.getBoundingClientRect().top;
+        const offsetPosition = elemPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+
+        if (history.pushState) {
+          history.pushState(null, null, targetId);
+        }
+      }
+    });
+  });
+
+  // Handle initial hash on page load
+  if (window.location.hash && window.location.hash !== '#' && window.location.hash !== '#hero') {
+    const handleHashJump = () => {
+      try {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+          const headerOffset = 75;
+          const elemPosition = target.getBoundingClientRect().top;
+          const offsetPosition = elemPosition + (window.pageYOffset || document.documentElement.scrollTop || 0) - headerOffset;
+          const finalTop = Math.max(0, offsetPosition);
+          
+          const prevBehavior = document.documentElement.style.scrollBehavior;
+          document.documentElement.style.scrollBehavior = 'auto';
+          window.scrollTo(0, finalTop);
+          if (document.scrollingElement) {
+            document.scrollingElement.scrollTop = finalTop;
+          }
+          setTimeout(() => {
+            document.documentElement.style.scrollBehavior = prevBehavior;
+          }, 60);
+        }
+      } catch (err) {}
+    };
+    handleHashJump();
+    setTimeout(handleHashJump, 50);
+    window.addEventListener('load', handleHashJump);
+  }
 
 });
