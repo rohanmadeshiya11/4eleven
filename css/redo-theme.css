@@ -80,20 +80,51 @@
 
 .redo-logo {
   display: flex;
-  align-items: baseline;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
-  font-family: var(--font-display, var(--font-sans));
-  font-size: 20px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  transition: transform 0.25s var(--ease-out-expo), opacity 0.25s ease;
 }
 
-.redo-logo .logo-dot {
-  color: var(--redo-crimson-bright);
-  font-style: normal;
+.redo-logo:hover {
+  transform: translateY(-1px) scale(1.03);
+}
+
+.redo-logo-img {
+  height: 24px;
+  width: auto;
+  max-width: 58px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px rgba(255, 73, 59, 0.6)) drop-shadow(0 0 1px #ffffff);
+  transition: filter 0.25s ease;
+}
+
+.redo-logo:hover .redo-logo-img {
+  filter: drop-shadow(0 0 14px var(--orange)) drop-shadow(0 0 2px #ffffff);
+}
+
+.redo-logo-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  border: 1px solid rgba(255, 73, 59, 0.45);
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: rgba(255, 73, 59, 0.12);
+  box-shadow: 0 0 10px rgba(255, 73, 59, 0.2);
   display: inline-block;
-  margin-left: 2px;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .redo-logo-badge {
+    display: none;
+  }
 }
 
 .redo-nav-links {
