@@ -24,7 +24,7 @@ export const ContactSection = () => {
         `Message:\n${formData.message}`
     );
 
-    window.open(`mailto:hello@4-11.studio?subject=${subject}&body=${body}`, "_blank");
+    window.open(`mailto:ssup@4eleven.in?subject=${subject}&body=${body}`, "_blank");
     setSubmitted(true);
   };
 
@@ -65,10 +65,10 @@ export const ContactSection = () => {
                     DIRECT INQUIRIES
                   </div>
                   <a
-                    href="mailto:hello@4-11.studio"
+                    href="mailto:ssup@4eleven.in"
                     className="font-mono text-base sm:text-lg text-white hover:text-[#ff493b] font-semibold transition-colors"
                   >
-                    hello@4-11.studio
+                    ssup@4eleven.in
                   </a>
                 </div>
               </div>
@@ -146,7 +146,7 @@ export const ContactSection = () => {
                 {submitted && (
                   <div className="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-xs font-mono flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>Inquiry prepared! Opening email client for hello@4-11.studio.</span>
+                    <span>Inquiry prepared! Opening email client for ssup@4eleven.in.</span>
                   </div>
                 )}
               </form>

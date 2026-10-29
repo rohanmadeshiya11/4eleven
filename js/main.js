@@ -720,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
       );
 
       // Open email client
-      window.open(`mailto:hello@4-11.studio?subject=${subject}&body=${body}`, '_blank');
+      window.open(`mailto:ssup@4eleven.in?subject=${subject}&body=${body}`, '_blank');
 
       // Display visual confirmation
       if (formSuccessCard) {

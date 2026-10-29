@@ -50,7 +50,7 @@ export const ProjectCta = () => {
 
             <div className="mt-8 flex lg:justify-end">
               <a
-                href="mailto:studio@4eleven.in"
+                href="mailto:ssup@4eleven.in"
                 className="inline-flex items-center gap-3 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white px-8 py-4 rounded-full font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-[0_15px_40px_rgba(255,255,255,0.15)] group"
               >
                 <span>Start a Project</span>

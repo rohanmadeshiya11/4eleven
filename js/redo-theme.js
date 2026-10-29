@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const copyToast = document.getElementById('redo-copy-toast');
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      const email = 'founders@4eleven.in';
+      const email = 'ssup@4eleven.in';
       navigator.clipboard.writeText(email).then(() => {
         if (copyToast) {
           copyToast.classList.add('show');

@@ -246,7 +246,7 @@ const ComingSoon = () => {
             Instagram
           </a>
           <a
-            href="mailto:studio@4eleven.in"
+            href="mailto:ssup@4eleven.in"
             className="hover:text-[#FF3B00] transition-colors duration-300"
             data-testid="social-email"
           >

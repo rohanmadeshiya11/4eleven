@@ -67,7 +67,7 @@ export const ProjectPlanner = () => {
     );
 
     window.open(
-      `mailto:studio@4eleven.in?subject=${subject}&body=${body}`,
+      `mailto:ssup@4eleven.in?subject=${subject}&body=${body}`,
       "_blank"
     );
     setSubmitted(true);
@@ -246,10 +246,10 @@ export const ProjectPlanner = () => {
               <div className="font-mono text-xs text-white/50">
                 Direct route:{" "}
                 <a
-                  href="mailto:studio@4eleven.in"
+                  href="mailto:ssup@4eleven.in"
                   className="text-white hover:text-[#ff493b] underline"
                 >
-                  studio@4eleven.in
+                  ssup@4eleven.in
                 </a>
               </div>
 
@@ -266,7 +266,7 @@ export const ProjectPlanner = () => {
               <div className="p-4 bg-emerald-500/10 border border-emerald-500/30 rounded-xl text-emerald-400 text-xs font-mono flex items-center gap-3">
                 <CheckCircle2 className="w-4 h-4" />
                 <span>
-                  Thank you! Your brief has been prepared for studio@4eleven.in. We'll be in touch shortly.
+                  Thank you! Your brief has been prepared for ssup@4eleven.in. We'll be in touch shortly.
                 </span>
               </div>
             )}

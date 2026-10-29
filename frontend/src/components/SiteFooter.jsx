@@ -54,10 +54,10 @@ export const SiteFooter = () => {
               CONTACT
             </div>
             <a
-              href="mailto:hello@4-11.studio"
+              href="mailto:ssup@4eleven.in"
               className="font-mono text-sm sm:text-base text-[#ff493b] hover:underline font-semibold block mb-4"
             >
-              hello@4-11.studio
+              ssup@4eleven.in
             </a>
             <div className="text-xs text-white/50 font-mono mb-4">
               Mumbai, India
@@ -72,7 +72,7 @@ export const SiteFooter = () => {
                 Instagram <ArrowUpRight className="w-3 h-3" />
               </a>
               <a
-                href="mailto:hello@4-11.studio"
+                href="mailto:ssup@4eleven.in"
                 className="hover:text-white flex items-center gap-0.5"
               >
                 Email <ArrowUpRight className="w-3 h-3" />
