@@ -16,9 +16,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Yatra+One&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=5.1">
-  <link rel="stylesheet" href="css/ba-investor-decks.css?v=6.1">
-  <link rel="stylesheet" href="css/redo-theme.css?v=3.1">
+  <link rel="stylesheet" href="css/style.css?v=7.2">
+  <link rel="stylesheet" href="css/ba-investor-decks.css?v=7.2">
+  <link rel="stylesheet" href="css/redo-theme.css?v=7.2">
 </head>
 <body class="landing-page">
   <!-- Subtle Grain Overlay -->
@@ -373,6 +373,12 @@
       </ul>
 
       <a href="#contact" class="redo-nav-cta open-redo-contact">Get In Touch</a>
+
+      <!-- Mobile Hamburger Toggle when pill is docked -->
+      <button class="redo-mobile-nav-toggle" id="redo-mobile-nav-toggle" aria-label="Open Navigation Menu">
+        <span></span>
+        <span></span>
+      </button>
     </nav>
   </aside>
 
@@ -1012,11 +1018,61 @@
     </div>
   </div>
 
+  <!-- ==========================================================================
+       SIDE-OUT MENU DRAWER (MOBILE & QUICK NAV)
+       ========================================================================== -->
+  <aside class="side-drawer" id="menu-drawer" aria-hidden="true" role="dialog" aria-label="Site Navigation">
+    <div class="drawer-header">
+      <a href="#hero" class="drawer-logo" aria-label="4-11 Studio Home">
+        <img src="assets/logo-411-mark.png" alt="4—11 Studio" style="height: 38px; width: auto;">
+      </a>
+      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Menu">✕</button>
+    </div>
+    <nav class="drawer-nav-list">
+      <a href="#journey" class="drawer-nav-item">
+        <span class="drawer-nav-num">01</span>
+        <span>Journey</span>
+      </a>
+      <a href="#services" class="drawer-nav-item">
+        <span class="drawer-nav-num">02</span>
+        <span>Services</span>
+      </a>
+      <a href="#work" class="drawer-nav-item">
+        <span class="drawer-nav-num">03</span>
+        <span>Work</span>
+      </a>
+      <a href="#reviews" class="drawer-nav-item">
+        <span class="drawer-nav-num">04</span>
+        <span>Reviews</span>
+      </a>
+      <a href="#about" class="drawer-nav-item">
+        <span class="drawer-nav-num">05</span>
+        <span>About</span>
+      </a>
+      <a href="#contact" class="drawer-nav-item open-redo-contact">
+        <span class="drawer-nav-num">06</span>
+        <span>Contact</span>
+      </a>
+    </nav>
+    <div class="drawer-footer">
+      <div>
+        <div class="drawer-contact-title">Direct Inquiries</div>
+        <a href="mailto:founders@4eleven.in" class="drawer-email">founders@4eleven.in</a>
+      </div>
+      <div>
+        <a href="#contact" class="btn-orange-pill open-redo-contact" style="padding: 12px 24px; font-size: 13px;">
+          <span>Start A Project</span>
+          <span class="btn-arrow-circle">↗</span>
+        </a>
+      </div>
+    </div>
+  </aside>
+
   <!-- Scripts -->
   <script src="js/gsap.min.js"></script>
   <script src="js/ScrollTrigger.min.js"></script>
-  <script src="js/main.js?v=5.1"></script>
-  <script src="js/ba-investor-decks.js?v=6.1"></script>
-  <script src="js/redo-theme.js?v=3.1"></script>
+  <script src="js/main.js?v=7.2"></script>
+  <script src="js/ba-investor-decks.js?v=7.2"></script>
+  <script src="js/redo-theme.js?v=7.2"></script>
 </body>
 </html>

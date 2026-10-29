@@ -286,5 +286,16 @@ document.addEventListener('DOMContentLoaded', () => {
     lastScrollY = currentScrollY;
   }, { passive: true });
 
+  // 9. Mobile Docked Nav Drawer Toggle
+  const mobileNavToggle = document.getElementById('redo-mobile-nav-toggle');
+  const menuDrawer = document.getElementById('menu-drawer');
+  if (mobileNavToggle && menuDrawer) {
+    mobileNavToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      menuDrawer.classList.toggle('open');
+      menuDrawer.setAttribute('aria-hidden', menuDrawer.classList.contains('open') ? 'false' : 'true');
+    });
+  }
+
   handleScrollScrub();
 });

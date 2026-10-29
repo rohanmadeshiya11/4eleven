@@ -1162,6 +1162,11 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
   .hero-wrapper {
     padding: 20px 16px;
   }
+  body.landing-page .hero-wrapper {
+    min-height: 100svh;
+    height: auto;
+    padding: 85px 16px 36px;
+  }
   
   /* Prominent & Bold Header Brand Block on Mobile */
   .top-header {
@@ -1193,6 +1198,13 @@ button { font: inherit; cursor: pointer; border: none; background: none; }
     font-size: clamp(28px, 7.6vw, 42px);
     margin-bottom: 16px;
     line-height: 1.14;
+  }
+  /* Crisp Hindi Glyph Typography on Mobile */
+  .dynamic-word.style-bollywood,
+  .dynamic-word.style-truck-art {
+    -webkit-text-stroke: 0.5px #ffe066;
+    text-shadow: 2px 2px 0 #7f1d1d, 3px 3px 0 #000000;
+    letter-spacing: 0.02em;
   }
   .hero-subtext {
     font-size: 14px;

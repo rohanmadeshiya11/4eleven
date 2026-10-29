@@ -173,6 +173,10 @@
   color: #000000;
 }
 
+.redo-mobile-nav-toggle {
+  display: none;
+}
+
 /* ==========================================================================
    SECTION 02: SCROLL-SCRUB TEXT REVEAL & MARQUEE
    ========================================================================== */
@@ -1505,19 +1509,79 @@
    ========================================================================== */
 @media (max-width: 900px) {
   .redo-nav-pill {
-    padding: 6px 8px 6px 18px;
-    gap: 16px;
+    padding: 6px 12px 6px 18px;
+    gap: 12px;
+    justify-content: space-between;
+    width: auto;
+    max-width: calc(100vw - 32px);
   }
   .redo-nav-links {
     display: none;
   }
-  .redo-journey-cards-wrap {
+  .redo-mobile-nav-toggle {
+    display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .redo-mobile-nav-toggle:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .redo-mobile-nav-toggle span {
+    display: block;
+    width: 14px;
+    height: 1.5px;
+    background: #ffffff;
+    border-radius: 1px;
+  }
+  .redo-journey-cards-wrap {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 28px !important;
+    perspective: 1200px !important;
+    margin-top: 36px !important;
+    width: 100% !important;
   }
   .redo-flip-card {
-    min-height: 480px;
+    width: 100% !important;
+    max-width: 380px !important;
+    min-height: 510px !important;
+    height: 510px !important;
     transform: none !important;
+    margin: 0 auto !important;
+    perspective: 1200px !important;
+  }
+  .redo-flip-card-inner {
+    position: relative !important;
+    width: 100% !important;
+    height: 510px !important;
+    min-height: 510px !important;
+    transform-style: preserve-3d !important;
+    -webkit-transform-style: preserve-3d !important;
+  }
+  .redo-card-front,
+  .redo-card-back {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    min-height: 510px !important;
+    height: 510px !important;
+    padding: 32px 24px !important;
+    box-sizing: border-box !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
   }
   .redo-service-row {
     grid-template-columns: 1fr;
