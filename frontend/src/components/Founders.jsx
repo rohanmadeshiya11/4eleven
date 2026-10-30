@@ -42,9 +42,9 @@ const Founders = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground"
+            className="font-mono text-xs uppercase tracking-[0.3em] text-[#ff493b] font-semibold"
           >
-            [ Founded by ]
+            [ Leadership & Creative Direction ]
           </motion.p>
 
           <motion.h2
@@ -53,48 +53,49 @@ const Founders = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={1}
-            className="mt-4 font-display font-semibold text-5xl sm:text-7xl uppercase tracking-tight leading-[0.9]"
+            className="mt-4 font-display font-semibold text-4xl sm:text-6xl uppercase tracking-tight leading-[0.95]"
           >
             Rohan
             <br />
-            <span className="text-accent">&</span> Rubal
+            <span className="text-[#ff493b]">Matheshiya</span>
           </motion.h2>
 
-          <div className="mt-10 space-y-8">
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={2}
-              className="border-l-2 border-accent pl-5"
-            >
-              <p className="font-display text-xl uppercase tracking-tight">
-                Rohan <span className="text-muted-foreground text-sm">— Director</span>
-              </p>
-              <p className="mt-2 font-body text-muted-foreground max-w-md">
-                &ldquo;We&rsquo;re building a space where every frame tells a
-                story worth remembering.&rdquo;
-              </p>
-            </motion.div>
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={2}
+            className="mt-4 font-mono text-sm tracking-wide text-white/90 font-medium"
+          >
+            Founder &amp; Creative Director — Four Eleven Studio
+          </motion.div>
 
-            <motion.div
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={3}
-              className="border-l-2 border-accent pl-5"
-            >
-              <p className="font-display text-xl uppercase tracking-tight">
-                Rubal <span className="text-muted-foreground text-sm">— Creative</span>
-              </p>
-              <p className="mt-2 font-body text-muted-foreground max-w-md">
-                &ldquo;Photography, films and design — one language, one
-                unforgettable experience.&rdquo;
-              </p>
-            </motion.div>
-          </div>
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={3}
+            className="mt-6 font-body text-muted-foreground text-base sm:text-lg leading-relaxed max-w-lg"
+          >
+            A creative professional passionate about visual storytelling, filmmaking, digital media and brand communication. Rohan brings together creativity, technology and strategy to transform ideas into compelling visual experiences.
+          </motion.p>
+
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            custom={4}
+            className="mt-8 flex flex-wrap gap-2 font-mono text-xs text-white/70"
+          >
+            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">Visual Storytelling</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">Filmmaking</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">Digital Media</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">Brand Communication</span>
+            <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-md">Creative Strategy</span>
+          </motion.div>
         </div>
       </div>
     </section>
