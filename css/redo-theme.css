@@ -875,6 +875,203 @@
 .redo-carousel-btn-next { right: 40px; }
 
 /* ==========================================================================
+   PORTFOLIO SHOWCASE MASONRY GRID (CLIENT & CREATOR WORK)
+   ========================================================================== */
+.redo-portfolio-grid-wrap {
+  width: 100%;
+  max-width: 1240px;
+  margin-top: 70px;
+  position: relative;
+  z-index: 2;
+}
+
+.redo-portfolio-grid-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 0 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 20px;
+}
+
+.redo-portfolio-grid-title-block h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.2vw, 30px);
+  color: #ffffff;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.01em;
+}
+
+.redo-portfolio-grid-title-block p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0;
+}
+
+.redo-portfolio-links-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.redo-portfolio-ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.redo-portfolio-ext-link:hover {
+  background: rgba(255, 73, 59, 0.14);
+  border-color: rgba(255, 73, 59, 0.45);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.redo-portfolio-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.redo-project-item {
+  background: #110f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  text-decoration: none;
+}
+
+.redo-project-item:hover {
+  border-color: rgba(255, 73, 59, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 73, 59, 0.12);
+}
+
+.redo-project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  background: #080809;
+}
+
+.redo-project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.redo-project-item:hover .redo-project-thumb img {
+  transform: scale(1.06);
+}
+
+.redo-project-category-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.redo-project-info {
+  padding: 20px 20px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.redo-project-client {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--redo-crimson-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.redo-project-name {
+  font-family: var(--font-serif);
+  font-size: 18.5px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.redo-project-desc {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.68);
+  margin: 0 0 16px 0;
+  flex: 1;
+}
+
+.redo-project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.redo-project-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1100px) {
+  .redo-portfolio-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .redo-portfolio-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .redo-portfolio-grid-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
    SECTION 06: CLIENT LOGOS GRID & TESTIMONIALS SLIDER
    ========================================================================== */
 .redo-reviews-section {
