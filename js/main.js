@@ -400,13 +400,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Home Page Rotator
+  // Home Page Rotator (Headline: We Turn Ideas Into Impact.)
+  setupWordRotator('dynamic-impact', [
+    { text: "Impact.", styleClass: "style-bollywood" },
+    { text: "प्रभाव", styleClass: "style-truck-art" },
+    { text: "इम्पैक्ट", styleClass: "style-royal-saffron" },
+    { text: "IMPACT.", styleClass: "style-street-neon" }
+  ]);
+
   setupWordRotator('dynamic-ignore', [
-    { text: "Ignore", styleClass: "style-bollywood" },
-    { text: "नज़रअंदाज़", styleClass: "style-truck-art" },
-    { text: "अनदेखा", styleClass: "style-royal-saffron" },
-    { text: "इग्नोर", styleClass: "style-matchbox-pop" },
-    { text: "IGNORE", styleClass: "style-street-neon" }
+    { text: "Impact.", styleClass: "style-bollywood" },
+    { text: "प्रभाव", styleClass: "style-truck-art" },
+    { text: "इम्पैक्ट", styleClass: "style-royal-saffron" },
+    { text: "IMPACT.", styleClass: "style-street-neon" }
   ]);
 
   // About Page Rotator

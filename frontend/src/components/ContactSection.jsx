@@ -37,39 +37,43 @@ export const ContactSection = () => {
             <div className="lg:col-span-6">
               <div className="font-mono text-xs text-[#ff493b] tracking-[0.25em] uppercase mb-4 font-semibold flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />
-                LET'S WORK TOGETHER
+                CONTACT US
               </div>
 
               <div className="text-xl sm:text-2xl text-white/70 font-display uppercase tracking-tight mb-2">
-                Got something good in mind?
+                Have an Idea?
               </div>
 
               <h2 className="font-display font-black text-4xl sm:text-6xl lg:text-7xl tracking-[-0.03em] uppercase leading-[0.92]">
                 LET'S MAKE
                 <br />
-                <span className="text-[#ff493b]">IT MATTER.</span>
+                <span className="text-[#ff493b]">IT HAPPEN.</span>
               </h2>
 
               <p className="text-white/75 text-base sm:text-lg mt-8 leading-relaxed max-w-lg">
-                Have a brand to build, a story to tell, a personality to grow,
-                or a project that needs the right creative team? Tell us what
-                you're working on. Let's create something worth remembering.
+                Looking to build your brand, create engaging content or take your digital presence to the next level? Let's talk about what we can create together.
               </p>
 
-              <div className="mt-10 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-[#ff493b]">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="font-mono text-[11px] text-white/40 uppercase tracking-wider">
-                    DIRECT INQUIRIES
+              <div className="mt-10 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/15 flex items-center justify-center text-[#ff493b]">
+                    <Mail className="w-5 h-5" />
                   </div>
-                  <a
-                    href="mailto:ssup@4eleven.in"
-                    className="font-mono text-base sm:text-lg text-white hover:text-[#ff493b] font-semibold transition-colors"
-                  >
-                    ssup@4eleven.in
-                  </a>
+                  <div>
+                    <div className="font-mono text-[11px] text-white/40 uppercase tracking-wider">
+                      EMAIL
+                    </div>
+                    <a
+                      href="mailto:ssup@4eleven.in"
+                      className="font-mono text-base sm:text-lg text-white hover:text-[#ff493b] font-semibold transition-colors"
+                    >
+                      ssup@4eleven.in
+                    </a>
+                  </div>
+                </div>
+
+                <div className="font-mono text-xs text-white/60">
+                  Website: <a href="https://www.4eleven.in" className="text-white hover:text-[#ff493b] underline">www.4eleven.in</a>
                 </div>
               </div>
             </div>

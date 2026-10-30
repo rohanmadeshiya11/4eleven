@@ -1505,6 +1505,330 @@
 }
 
 /* ==========================================================================
+   ABOUT US SECTION (CREATIVITY MEETS STRATEGY)
+   ========================================================================== */
+.redo-about-section {
+  position: relative;
+  background: var(--redo-black);
+  padding: 100px 24px 110px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-about-card {
+  max-width: 1080px;
+  width: 100%;
+  background: #110f0f;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 28px;
+  padding: 56px 48px;
+  margin-top: 50px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+.redo-about-card::before {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 73, 59, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.redo-about-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.4vw, 32px);
+  color: #ffffff;
+  line-height: 1.45;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.redo-about-body {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.15vw, 17.5px);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+  max-width: 920px;
+}
+
+.redo-about-highlight-box {
+  background: rgba(255, 255, 255, 0.035);
+  border-left: 3px solid var(--redo-crimson-bright);
+  padding: 20px 28px;
+  border-radius: 0 16px 16px 0;
+  margin-top: 32px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.35vw, 22px);
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   OUR APPROACH SECTION (FROM IDEAS TO EXECUTION)
+   ========================================================================== */
+.redo-approach-section {
+  position: relative;
+  background: var(--redo-surface);
+  padding: 100px 24px 110px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1180px;
+  width: 100%;
+  margin-top: 55px;
+}
+
+.redo-approach-card {
+  background: #110f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 34px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px;
+  transition: all 0.35s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.redo-approach-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 73, 59, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(255, 73, 59, 0.18);
+}
+
+.redo-approach-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.redo-approach-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--redo-crimson-bright);
+  letter-spacing: 0.1em;
+}
+
+.redo-approach-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.redo-approach-title {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.02em;
+}
+
+.redo-approach-desc {
+  font-family: var(--font-sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0;
+}
+
+/* ==========================================================================
+   WHY CHOOSE US? SECTION (MORE THAN JUST A CREATIVE STUDIO)
+   ========================================================================== */
+.redo-why-section {
+  position: relative;
+  background: var(--redo-black);
+  padding: 100px 24px 110px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1180px;
+  width: 100%;
+  margin-top: 55px;
+}
+
+.redo-why-card {
+  background: #110f0f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px 26px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.redo-why-card:hover {
+  background: #161313;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+}
+
+.redo-why-check {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 73, 59, 0.15);
+  border: 1px solid rgba(255, 73, 59, 0.35);
+  color: var(--redo-crimson-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.redo-why-content h4 {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.redo-why-banner {
+  max-width: 1180px;
+  width: 100%;
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(255, 73, 59, 0.12) 0%, rgba(245, 166, 35, 0.08) 100%);
+  border: 1px solid rgba(255, 73, 59, 0.25);
+  border-radius: 20px;
+  padding: 28px 36px;
+  text-align: center;
+}
+
+.redo-why-banner p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(18px, 1.5vw, 24px);
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* ==========================================================================
+   CONTACT SECTION (HAVE AN IDEA? LET'S MAKE IT HAPPEN)
+   ========================================================================== */
+.redo-contact-section {
+  position: relative;
+  background: var(--redo-surface);
+  padding: 100px 24px 110px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-contact-card {
+  max-width: 960px;
+  width: 100%;
+  background: #110f0f;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 56px 44px;
+  margin-top: 45px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redo-contact-sub {
+  font-size: clamp(16px, 1.25vw, 19px);
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 650px;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.redo-contact-prompt {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(20px, 1.6vw, 26px);
+  color: #ffffff;
+  margin-bottom: 36px;
+}
+
+.redo-contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.redo-contact-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.redo-contact-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.redo-contact-meta-item a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.redo-contact-meta-item a:hover {
+  color: var(--redo-crimson-bright);
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (TABLETS & MOBILE)
    ========================================================================== */
 @media (max-width: 900px) {
@@ -1607,9 +1931,36 @@
   .redo-founders-grid {
     grid-template-columns: 1fr;
   }
+  .redo-approach-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .redo-why-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .redo-about-card, .redo-contact-card {
+    padding: 36px 24px !important;
+  }
   .redo-footer-bottom-bar {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .redo-approach-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .redo-why-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .redo-contact-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .redo-contact-actions .btn-orange-pill,
+  .redo-contact-actions .redo-copy-email-btn {
+    width: 100% !important;
+    justify-content: center !important;
   }
 }

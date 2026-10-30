@@ -40,19 +40,19 @@ export const Hero = () => {
       {/* Main Headline */}
       <div className="relative z-10 max-w-[1440px] mx-auto w-full my-auto py-10">
         <div className="font-mono text-xs sm:text-sm text-[#ff493b] tracking-[0.25em] uppercase mb-4 font-semibold">
-          [ 4—11 STUDIO® — MAKE IT MATTER ]
+          [ FOUR ELEVEN STUDIO — WE TURN IDEAS INTO IMPACT ]
         </div>
 
         <h1 className="font-display font-black text-white text-[12.5vw] sm:text-[9.5vw] lg:text-[7.6vw] leading-[0.9] tracking-[-0.04em] uppercase select-none">
           <span className="block drop-shadow-[0_10px_35px_rgba(0,0,0,0.85)]">
-            WE MAKE BRANDS
+            WE TURN IDEAS
           </span>
           <span className="inline-flex items-center flex-wrap gap-x-3 sm:gap-x-5 lg:gap-x-6 drop-shadow-[0_10px_35px_rgba(0,0,0,0.85)]">
-            <span>IMPOSSIBLE</span>
+            <span className="text-[#ff493b]">INTO</span>
             <span className="inline-block align-middle transform hover:rotate-45 transition-transform duration-500 cursor-pointer">
               <CloverIcon className="w-[0.9em] h-[0.9em] inline-block drop-shadow-[0_0_24px_rgba(255,73,59,0.7)]" />
             </span>
-            <span className="text-white/90">TO IGNORE.</span>
+            <span className="text-white/90">IMPACT.</span>
           </span>
         </h1>
 
@@ -60,12 +60,10 @@ export const Hero = () => {
         <div className="mt-8 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="max-w-xl space-y-3">
             <p className="text-white/85 text-base sm:text-lg font-medium leading-relaxed drop-shadow-md">
-              We create compelling content, design distinctive visuals, and build
-              digital presence for brands, businesses, and personalities.
+              We are a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution.
             </p>
             <p className="text-white/60 text-xs sm:text-sm leading-relaxed">
-              From video production and social media to celebrity collaborations,
-              we bring creative ideas to life.
+              From content creation to brand communication, we make ideas work.
             </p>
           </div>
 
@@ -78,18 +76,18 @@ export const Hero = () => {
               <ArrowDownRight className="w-4 h-4 text-white" />
             </a>
             <a
-              href="#work"
-              className="inline-flex items-center gap-2 bg-white text-[#080809] hover:bg-[#ff493b] hover:text-white px-6 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-xl"
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-[#ff493b] text-white hover:bg-white hover:text-[#080809] px-6 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300 shadow-xl"
             >
-              <span>Explore Our Work</span>
+              <span>Let's Work Together</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
             <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-[#ff493b] text-white border border-white/20 hover:border-[#ff493b] px-6 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300"
+              href="#work"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 px-6 py-3.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all duration-300"
             >
-              <span>Let's Talk</span>
-              <span>↗</span>
+              <span>Explore Our Work</span>
+              <span>↓</span>
             </a>
           </div>
         </div>

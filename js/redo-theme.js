@@ -184,18 +184,31 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. 1-Click Copy Email to Clipboard
   const copyBtn = document.getElementById('redo-copy-email');
   const copyToast = document.getElementById('redo-copy-toast');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
-      const email = 'ssup@4eleven.in';
-      navigator.clipboard.writeText(email).then(() => {
-        if (copyToast) {
-          copyToast.classList.add('show');
-          setTimeout(() => {
-            copyToast.classList.remove('show');
-          }, 2400);
-        }
-      });
+  const contactCopyBtn = document.getElementById('redo-contact-copy-email');
+
+  function copyAction(toastEl, btnEl) {
+    const email = 'ssup@4eleven.in';
+    navigator.clipboard.writeText(email).then(() => {
+      if (toastEl) {
+        toastEl.classList.add('show');
+        setTimeout(() => toastEl.classList.remove('show'), 2400);
+      }
+      if (btnEl) {
+        const origSpan = btnEl.querySelector('span');
+        const origHtml = origSpan ? origSpan.innerText : '';
+        if (origSpan) origSpan.innerText = '✓ Copied!';
+        setTimeout(() => {
+          if (origSpan) origSpan.innerText = origHtml;
+        }, 2200);
+      }
     });
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => copyAction(copyToast, null));
+  }
+  if (contactCopyBtn) {
+    contactCopyBtn.addEventListener('click', () => copyAction(null, contactCopyBtn));
   }
 
   // 7. Modal Intake Form (Get In Touch)

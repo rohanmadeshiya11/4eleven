@@ -4,30 +4,30 @@ import { Search, Sparkles, Sliders, CheckCircle } from "lucide-react";
 const steps = [
   {
     step: "01",
-    title: "Understand",
+    title: "Discover",
     description:
-      "We learn about your goals, your audience, and what makes your project different.",
+      "We understand your brand, audience, goals and vision.",
     icon: Search,
   },
   {
     step: "02",
-    title: "Create",
+    title: "Strategise",
     description:
-      "We develop the creative direction and bring the idea to life through design, editing, and storytelling.",
+      "We develop creative ideas and a clear strategy aligned with your objectives.",
     icon: Sparkles,
   },
   {
     step: "03",
-    title: "Refine",
+    title: "Create",
     description:
-      "We focus on the details, incorporate feedback, and polish the final output.",
+      "Our team brings concepts to life through content, design and production.",
     icon: Sliders,
   },
   {
     step: "04",
     title: "Deliver",
     description:
-      "We deliver the agreed creative assets, ready for their intended platforms and use.",
+      "We execute, publish and evaluate the work to create meaningful results.",
     icon: CheckCircle,
   },
 ];

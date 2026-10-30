@@ -11,16 +11,14 @@ export const SiteFooter = () => {
             <div className="flex items-center gap-3 mb-3">
               <CloverIcon className="w-8 h-8" />
               <span className="font-display font-black text-2xl sm:text-3xl tracking-tight uppercase">
-                4—11 STUDIO®
+                FOUR ELEVEN STUDIO
               </span>
             </div>
             <div className="font-mono text-sm text-[#ff493b] font-semibold tracking-wider uppercase mb-4">
-              Make It Matter.
+              Creative Thinking. Strategic Execution.
             </div>
             <p className="text-white/60 text-xs sm:text-sm leading-relaxed max-w-md font-normal">
-              An independent creative agency working across video production,
-              creative design, social media management, celebrity collaborations,
-              and podcast content.
+              We create ideas, stories and digital experiences that move brands forward.
             </p>
           </div>
 
@@ -30,28 +28,28 @@ export const SiteFooter = () => {
               EXPLORE
             </div>
             <div className="flex flex-col gap-2.5 text-sm font-medium text-white/70">
-              <a href="/" className="hover:text-white transition-colors">
+              <a href="#hero" className="hover:text-white transition-colors">
                 Home
               </a>
-              <a href="/about" className="hover:text-white transition-colors">
+              <a href="#about" className="hover:text-white transition-colors">
                 About
               </a>
-              <a href="/services" className="hover:text-white transition-colors">
+              <a href="#services" className="hover:text-white transition-colors">
                 Services
               </a>
-              <a href="/work" className="hover:text-white transition-colors">
+              <a href="#work" className="hover:text-white transition-colors">
                 Work
               </a>
-              <a href="/contact" className="hover:text-white transition-colors">
+              <a href="#contact" className="hover:text-white transition-colors">
                 Contact
               </a>
             </div>
           </div>
 
-          {/* Contact (3 cols) */}
+          {/* Contact & Socials (3 cols) */}
           <div className="md:col-span-3 md:text-right">
             <div className="font-mono text-xs text-white/50 tracking-widest uppercase mb-4 font-semibold">
-              CONTACT
+              CONNECT
             </div>
             <a
               href="mailto:ssup@4eleven.in"
@@ -59,12 +57,9 @@ export const SiteFooter = () => {
             >
               ssup@4eleven.in
             </a>
-            <div className="text-xs text-white/50 font-mono mb-4">
-              Mumbai, India
-            </div>
             <div className="flex items-center md:justify-end gap-4 text-xs font-mono text-white/70">
               <a
-                href="https://www.instagram.com/4eleven.in/"
+                href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white flex items-center gap-0.5"
@@ -72,10 +67,20 @@ export const SiteFooter = () => {
                 Instagram <ArrowUpRight className="w-3 h-3" />
               </a>
               <a
-                href="mailto:ssup@4eleven.in"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noreferrer"
                 className="hover:text-white flex items-center gap-0.5"
               >
-                Email <ArrowUpRight className="w-3 h-3" />
+                LinkedIn <ArrowUpRight className="w-3 h-3" />
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                rel="noreferrer"
+                className="hover:text-white flex items-center gap-0.5"
+              >
+                YouTube <ArrowUpRight className="w-3 h-3" />
               </a>
             </div>
           </div>
@@ -84,10 +89,10 @@ export const SiteFooter = () => {
         {/* Lower Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-mono">
           <div>
-            © 2026 4—11 Studio. All rights reserved.
+            © 2026 Four Eleven Studio. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
-            <span>Make It Matter.</span>
+            <span>Creative Thinking. Strategic Execution.</span>
             <span>•</span>
             <span>Mumbai, IN</span>
           </div>

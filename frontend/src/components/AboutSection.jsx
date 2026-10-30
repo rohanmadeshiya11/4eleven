@@ -15,25 +15,23 @@ export const AboutSection = () => {
             </div>
 
             <h2 className="font-display font-bold text-4xl sm:text-6xl lg:text-7xl tracking-[-0.03em] uppercase leading-[0.96]">
-              CREATIVITY WITH A
+              CREATIVITY MEETS
               <br />
-              <span className="text-[#ff493b]">POINT OF VIEW.</span>
+              <span className="text-[#ff493b]">STRATEGY.</span>
             </h2>
 
             <div className="mt-8 space-y-6 text-white/80 text-base sm:text-lg leading-relaxed font-normal">
               <p>
-                <strong className="text-white">4—11 Studio</strong> is an independent
-                creative agency working across content production, visual design,
-                social media, and talent collaborations.
+                <strong className="text-white">At Four Eleven Studio</strong>, we believe every brand has a story worth telling.
               </p>
               <p className="text-white/70 text-sm sm:text-base leading-relaxed">
-                We work with brands, artists, and public personalities to create
-                engaging content, build stronger digital identities, and communicate
-                their stories through thoughtful creative work.
+                We are a creative studio bringing together strategy, design, content and digital media to help businesses stand out in an ever-evolving digital world.
+              </p>
+              <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                Whether it's building a brand identity, creating engaging content, producing compelling videos or managing digital platforms, we focus on creating work that connects with people and delivers value.
               </p>
               <blockquote className="border-l-2 border-[#ff493b] pl-5 py-2 my-6 text-white font-medium text-base sm:text-lg italic bg-white/[0.02] rounded-r-xl">
-                “We believe great work isn't just about looking good. It's about
-                making people stop, pay attention, and remember.”
+                “We don't just create content. We create meaningful brand experiences.”
               </blockquote>
             </div>
 
