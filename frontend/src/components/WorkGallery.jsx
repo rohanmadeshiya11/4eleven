@@ -90,7 +90,7 @@ const allProjects = [
     client: "Kibo Healthcare",
     year: "2026",
     deliverables: ["Medical Aesthetic Video", "Patient Journeys", "Editing"],
-    image: "/assets/projects/kibo-hair-science-hd.png",
+    image: "/assets/projects/kibo-hair-science-hd.jpg",
     hasVideoIcon: true,
   },
   {
