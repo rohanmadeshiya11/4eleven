@@ -328,9 +328,6 @@
         padding: 6px 16px;
       }
     }
-      text-transform: uppercase;
-      color: #ff9187;
-    }
 
     .kicker-hindi {
       font-family: var(--font-yatra);
@@ -341,13 +338,22 @@
 
     .portfolio-main-title {
       font-family: var(--font-display);
-      font-size: clamp(36px, 6.5vw, 84px);
+      font-size: clamp(22px, 5.4vw, 84px);
       font-weight: 700;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
       text-transform: uppercase;
       color: #ffffff;
       max-width: 1040px;
+    }
+
+    .portfolio-main-title .hi-title-word {
+      font-family: var(--font-rozha);
+      color: var(--marigold);
+      text-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 2px 2px 0 #b91c1c;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: none;
     }
 
     .portfolio-main-title .serif-flair {
@@ -586,6 +592,13 @@
     .card-category-badge span.dot {
       color: var(--crimson);
       margin-right: 4px;
+    }
+
+    .card-category-badge .badge-hi {
+      font-family: var(--font-yatra);
+      color: var(--marigold);
+      margin-right: 3px;
+      font-size: 11px;
     }
 
     /* Card Details */
@@ -1069,7 +1082,7 @@
       </div>
 
       <h1 class="portfolio-main-title">
-        Selected <span class="serif-flair">Work</span> &amp; <span class="gradient-word">Impact.</span>
+        <span class="hi-title-word">चुनिंदा</span> <span class="serif-flair">Work</span> &amp; <span class="gradient-word">Impact.</span>
       </h1>
 
       <div class="portfolio-sub-hindi">
@@ -1088,10 +1101,6 @@
           <span>Instagram @4eleven.in</span>
           <span class="arrow">↗</span>
         </a>
-        <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer" class="portfolio-ext-pill">
-          <span>rohanmatheshiya.myportfolio.com</span>
-          <span class="arrow">↗</span>
-        </a>
         <a href="mailto:ssup@4eleven.in" class="portfolio-ext-pill">
           <span>Direct Inquiries: ssup@4eleven.in</span>
           <span class="arrow">✉</span>
@@ -1099,27 +1108,27 @@
       </div>
     </section>
 
-    <!-- Filter Tabs -->
+    <!-- Filter Tabs (Hindi First, English Second) -->
     <div class="filter-tabs-wrap" role="tablist">
       <div class="filter-tab active" data-filter="all">
-        <span>All Works</span>
         <span class="tab-hi">सब</span>
+        <span>Works</span>
       </div>
       <div class="filter-tab" data-filter="video">
-        <span>Video Production</span>
         <span class="tab-hi">वीडियो</span>
+        <span>Production</span>
       </div>
       <div class="filter-tab" data-filter="branding">
-        <span>Branding &amp; Design</span>
         <span class="tab-hi">ब्रांडिंग</span>
+        <span>&amp; Design</span>
       </div>
       <div class="filter-tab" data-filter="creator">
-        <span>Creator Packaging</span>
         <span class="tab-hi">कंटेंट</span>
+        <span>&amp; Packaging</span>
       </div>
       <div class="filter-tab" data-filter="tour">
-        <span>Tour &amp; Events</span>
         <span class="tab-hi">टूअर</span>
+        <span>&amp; Events</span>
       </div>
     </div>
 
@@ -1129,8 +1138,8 @@
       <!-- Project 1: Amit Tandon Halwa Tour -->
       <article class="project-card featured-card" data-category="tour branding">
         <div class="card-thumb-wrap">
-          <img src="assets/projects/halwa-tour-hd.jpg" alt="Amit Tandon Halwa World Tour Poster">
-          <span class="card-category-badge"><span class="dot">●</span> Tour Branding</span>
+          <img src="assets/projects/halwa-tour.jpg" alt="Amit Tandon Halwa World Tour Poster">
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">टूअर</span> Branding</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Amit Tandon // Stand-Up Comedy</span>
@@ -1148,7 +1157,7 @@
       <article class="project-card" data-category="tour branding">
         <div class="card-thumb-wrap">
           <img src="assets/instagram/ig_post_oct2026.jpg" alt="Faizan Bhat Live Stand-Up Tour Poster">
-          <span class="card-category-badge"><span class="dot">●</span> Live Tour Visuals</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">लाइव</span> Tour Visuals</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Faizan Bhat // BookMyShow</span>
@@ -1166,7 +1175,7 @@
       <article class="project-card" data-category="video">
         <div class="card-thumb-wrap">
           <img src="assets/projects/kibo-hair-science-hd.jpg" alt="Kibo Hair Science Medical Video Production" style="object-position: center bottom;">
-          <span class="card-category-badge"><span class="dot">●</span> Video Production</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">वीडियो</span> Production</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Kibo Hair Science // Healthcare</span>
@@ -1183,8 +1192,8 @@
       <!-- Project 4: Dr. Pal Manickam -->
       <article class="project-card featured-card" data-category="creator video">
         <div class="card-thumb-wrap">
-          <img src="assets/projects/dr-pal-hd.jpg" alt="Dr. Pal Manickam Creator Packaging">
-          <span class="card-category-badge"><span class="dot">●</span> Creator Packaging</span>
+          <img src="assets/projects/dr-pal.webp" alt="Dr. Pal Manickam Creator Packaging">
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">क्रिएटर</span> Packaging</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Dr. Pal // YouTube &amp; Podcasts</span>
@@ -1202,7 +1211,7 @@
       <article class="project-card" data-category="creator branding">
         <div class="card-thumb-wrap">
           <img src="assets/projects/youtube-thumbnails-hd.jpg" alt="YouTube Viral Thumbnail Packaging" style="object-position: center 20%;">
-          <span class="card-category-badge"><span class="dot">●</span> Creator Suite</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">क्रिएटर</span> Suite</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Top Creators // YouTube Ecosystem</span>
@@ -1220,7 +1229,7 @@
       <article class="project-card" data-category="tour branding">
         <div class="card-thumb-wrap">
           <img src="assets/instagram/ig_post_july29.jpg" alt="Dr. Kumar Vishwas Kavi Sammelan Phoenix Marketcity Poster">
-          <span class="card-category-badge"><span class="dot">●</span> Concert Visuals</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">कॉन्सर्ट</span> Visuals</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Dr. Kumar Vishwas // Live Performance</span>
@@ -1237,8 +1246,8 @@
       <!-- Project 7: mCaffeine -->
       <article class="project-card featured-card" data-category="video branding">
         <div class="card-thumb-wrap">
-          <img src="assets/projects/mcaffeine-hd.jpg" alt="mCaffeine D2C Brand Video Campaign">
-          <span class="card-category-badge"><span class="dot">●</span> Brand Film</span>
+          <img src="assets/projects/mcaffeine.jpg" alt="mCaffeine D2C Brand Video Campaign">
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">ब्रांड</span> Film</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">mCaffeine // D2C Personal Care</span>
@@ -1255,8 +1264,8 @@
       <!-- Project 8: Himeya Luxury -->
       <article class="project-card" data-category="video branding">
         <div class="card-thumb-wrap">
-          <img src="assets/projects/himeya-hd.jpg" alt="Himeya Sustainable Luxury Films">
-          <span class="card-category-badge"><span class="dot">●</span> Luxury Storytelling</span>
+          <img src="assets/projects/himeya.jpg" alt="Himeya Sustainable Luxury Films">
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">लक्ज़री</span> Storytelling</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Himeya // Sustainable Living</span>
@@ -1274,7 +1283,7 @@
       <article class="project-card" data-category="branding creator">
         <div class="card-thumb-wrap">
           <img src="assets/instagram/ig_post_july27.jpg" alt="Aakara x Susmita Celebrity Brand Campaign">
-          <span class="card-category-badge"><span class="dot">●</span> Celebrity Collab</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">सेलिब्रिटी</span> Collab</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Aakara // Sushmita Mukherjee</span>
@@ -1292,7 +1301,7 @@
       <article class="project-card featured-card" data-category="video">
         <div class="card-thumb-wrap">
           <img src="assets/projects/traya-health-hd.jpeg" alt="Traya Health D2C Video Ads">
-          <span class="card-category-badge"><span class="dot">●</span> Performance Ads</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">परफ़ॉर्मेंस</span> Ads</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Traya Health // Healthtech</span>
@@ -1310,7 +1319,7 @@
       <article class="project-card" data-category="creator video">
         <div class="card-thumb-wrap">
           <img src="assets/instagram/ig_post_july28.jpg" alt="Agatsu Foundation Podcast Edit">
-          <span class="card-category-badge"><span class="dot">●</span> Podcast Production</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">पॉडकास्ट</span> Production</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Agatsu Foundation // Mental Health</span>
@@ -1327,8 +1336,8 @@
       <!-- Project 12: Rock Paper Rum -->
       <article class="project-card" data-category="branding">
         <div class="card-thumb-wrap">
-          <img src="assets/projects/rock-paper-rum-hd.jpg" alt="Rock Paper Rum Premium Spirits Packaging">
-          <span class="card-category-badge"><span class="dot">●</span> Spirits Branding</span>
+          <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Premium Spirits Packaging">
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">ब्रांडिंग</span> &amp; Packaging</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Rock Paper Rum // Craft Spirits</span>
@@ -1346,7 +1355,7 @@
       <article class="project-card" data-category="video branding">
         <div class="card-thumb-wrap">
           <img src="assets/instagram/ig_post_june18_b.jpg" alt="Pronto x Haqdarshak Brand Workshop">
-          <span class="card-category-badge"><span class="dot">●</span> Social Impact</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">सोशल</span> Impact</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Pronto &times; Haqdarshak // Grassroots</span>
@@ -1364,7 +1373,7 @@
       <article class="project-card" data-category="creator branding">
         <div class="card-thumb-wrap">
           <img src="assets/projects/nashia-kondia.jpg" alt="Nashia Kondia Creator Branding">
-          <span class="card-category-badge"><span class="dot">●</span> Creator Visuals</span>
+          <span class="card-category-badge"><span class="dot">●</span> <span class="badge-hi">क्रिएटर</span> Visuals</span>
         </div>
         <div class="card-content">
           <span class="card-client-tag">Nashia Kondia // Fashion &amp; Lifestyle</span>
@@ -1414,13 +1423,13 @@
         Rohan brings together creativity, technology and strategy to transform ideas into compelling visual experiences.
       </p>
       <div class="founder-links-row">
-        <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer" class="founder-btn">
-          <span>rohanmatheshiya.myportfolio.com</span>
-          <span>↗</span>
-        </a>
         <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="founder-btn">
           <span>Instagram @4eleven.in</span>
           <span>↗</span>
+        </a>
+        <a href="mailto:ssup@4eleven.in?subject=Direct%20Inquiry%20%E2%80%94%20Rohan%20Matheshiya" class="founder-btn">
+          <span>Direct: ssup@4eleven.in</span>
+          <span>✉</span>
         </a>
       </div>
     </section>
@@ -1455,7 +1464,6 @@
       </div>
       <div class="footer-links">
         <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
         <a href="/">Launch Page</a>
         <a href="mailto:ssup@4eleven.in">Contact</a>
       </div>
