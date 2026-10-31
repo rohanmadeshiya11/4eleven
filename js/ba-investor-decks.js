@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (!window.__MAIN_ENGINE_ACTIVE__ && rocket) {
     let screenW = window.innerWidth;
+    let screenH = window.innerHeight;
     const isWorkPage = document.body.classList.contains('work-page');
     let minBoundX = (isWorkPage && screenW > 900) ? screenW * 0.56 : 30;
 

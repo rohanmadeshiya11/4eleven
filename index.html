@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Four Eleven Studio – Launching Soon | आधिकारिक शुरुआत</title>
+  <title>Four Eleven Studio – Launching Soon | विचार से प्रभाव तक</title>
   <meta name="description" content="Four Eleven Studio is a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution.">
   <meta property="og:title" content="Four Eleven Studio – Launching Soon">
-  <meta property="og:description" content="We Turn Ideas Into Impact. Creative Thinking. Strategic Execution.">
+  <meta property="og:description" content="We Turn Ideas Into Impact. विचार से प्रभाव तक • Four Eleven Studio">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://4eleven.in/">
   <meta property="og:image" content="https://4eleven.in/assets/logo-411.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Four Eleven Studio – Launching Soon">
-  <meta name="twitter:description" content="We Turn Ideas Into Impact. Creative Thinking. Strategic Execution.">
+  <meta name="twitter:description" content="We Turn Ideas Into Impact. विचार से प्रभाव तक • Four Eleven Studio">
   <meta name="theme-color" content="#080809">
   
   <link rel="icon" type="image/png" href="assets/logo-411-mark.png">
@@ -21,225 +21,286 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Yatra+One&display=swap" rel="stylesheet">
-
-  <!-- Core Theme Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=8.0">
-  <link rel="stylesheet" href="css/ba-investor-decks.css?v=8.0">
-  <link rel="stylesheet" href="css/redo-theme.css?v=8.0">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Rozha+One&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&family=Yatra+One&display=swap" rel="stylesheet">
 
   <style>
     /* ==========================================================================
-       INDIAN STYLE RETRO LAUNCHING SOON CUSTOM STYLES
+       INDIAN RETRO EDITORIAL THEME — CLEAN, SPACIOUS, PLAYFUL TYPOGRAPHY
        ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     :root {
-      --retro-bg: #080809;
-      --retro-card-bg: rgba(14, 13, 13, 0.82);
-      --retro-border: rgba(255, 255, 255, 0.1);
-      --retro-gold: #f59e0b;
-      --retro-marigold: #fbbf24;
-      --retro-crimson: #ff493b;
-      --retro-orange: #ff3b00;
-      --font-hindi-retro: 'Rozha One', 'Yatra One', serif;
-      --font-hindi-accent: 'Yatra One', cursive;
+      --bg: #080809;
+      --card-bg: rgba(16, 15, 17, 0.78);
+      --border: rgba(255, 255, 255, 0.08);
+      --gold: #f59e0b;
+      --marigold: #fbbf24;
+      --crimson: #ff493b;
+      --orange: #ff3b00;
+      --font-display: 'Clash Display', sans-serif;
+      --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-rozha: 'Rozha One', serif;
+      --font-yatra: 'Yatra One', cursive;
+      --font-serif: 'STIX Two Text', Georgia, serif;
     }
 
-    body.launch-retro-page {
-      background-color: var(--retro-bg);
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--bg);
       color: #f5f5f7;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      position: relative;
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      line-height: 1.5;
     }
 
-    /* Fixed ambient backdrop */
-    .retro-ambient-glow {
+    /* Ambient Atmosphere */
+    .retro-ambient {
       position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 1;
       background:
-        radial-gradient(circle at 50% 6%, rgba(255, 73, 59, 0.18) 0%, transparent 55%),
-        radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 15% 75%, rgba(255, 59, 0, 0.07) 0%, transparent 45%),
-        var(--retro-bg);
+        radial-gradient(circle at 50% 0%, rgba(255, 73, 59, 0.16) 0%, transparent 60%),
+        radial-gradient(circle at 85% 90%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 15% 85%, rgba(255, 59, 0, 0.06) 0%, transparent 45%),
+        var(--bg);
     }
 
-    /* Traditional Mandala Positioning */
-    .bg-traditional-mandala-wrap {
+    /* Traditional Indian Rotating Mandala Watermark */
+    .mandala-wrap {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: min(85vw, 780px);
-      height: min(85vw, 780px);
+      width: min(88vw, 840px);
+      height: min(88vw, 840px);
       pointer-events: none;
       z-index: 2;
-      opacity: 0.13;
+      opacity: 0.11;
     }
 
-    .bg-mandala {
+    .mandala-svg {
       width: 100%;
       height: 100%;
       color: #ff6b5e;
-      animation: rotateSlowMandala 160s linear infinite;
+      animation: rotateMandala 180s linear infinite;
     }
 
-    @keyframes rotateSlowMandala {
+    @keyframes rotateMandala {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
 
-    /* Perimeter Framing for Retro Badges on Launch Page */
-    body.launch-retro-page .retro-bg-canvas {
-      position: fixed !important;
-      inset: 0 !important;
-      pointer-events: none !important;
-      z-index: 3 !important;
-      overflow: hidden !important;
+    /* Film Grain */
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 3;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    body.launch-retro-page .retro-element {
+    /* ==========================================================================
+       AUTONOMOUS 4—11 ROCKET SHIP VOYAGER (GLIDES EVERYWHERE)
+       ========================================================================== */
+    .rocket-canvas-wrap {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 5;
+      overflow: hidden;
+    }
+
+    .rocket-ship {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 110px;
+      height: 48px;
+      cursor: pointer;
       pointer-events: auto;
-      opacity: 0.88;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      user-select: none;
+      will-change: transform;
+      transform-origin: center center;
+      transition: filter 0.3s ease;
+      filter: drop-shadow(0 0 15px rgba(255, 73, 59, 0.4));
     }
 
-    body.launch-retro-page .retro-element:hover {
-      opacity: 1;
-      filter: brightness(1.25) drop-shadow(0 0 25px rgba(255, 73, 59, 0.4));
+    .rocket-ship:hover {
+      filter: brightness(1.25) drop-shadow(0 0 25px rgba(255, 73, 59, 0.7));
     }
 
-    /* Desktop Perimeter Placement: Frames the screen cleanly without overlapping center content */
-    body.launch-retro-page .badge-agency {
-      top: 14% !important;
-      left: 2.5% !important;
-      transform: scale(0.88) rotate(-6deg) !important;
+    .rocket-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
-    body.launch-retro-page .badge-content {
-      top: 48% !important;
-      left: 2% !important;
-      transform: scale(0.85) rotate(3deg) !important;
+    .rocket-fuselage {
+      position: relative;
+      width: 72px;
+      height: 34px;
+      background: linear-gradient(135deg, #1f1b1c 0%, #0d0c0c 100%);
+      border: 1.5px solid rgba(255, 73, 59, 0.6);
+      border-radius: 8px 24px 24px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(255, 73, 59, 0.3);
+      margin-left: 20px;
     }
 
-    body.launch-retro-page .badge-slogan {
-      bottom: 8% !important;
-      left: 2.5% !important;
-      transform: scale(0.88) rotate(-4deg) !important;
+    .rocket-logo-img {
+      height: 18px;
+      width: auto;
+      filter: brightness(1.1);
     }
 
-    body.launch-retro-page .badge-branding {
-      top: 14% !important;
-      right: 2.5% !important;
-      transform: scale(0.88) rotate(5deg) !important;
+    /* Fins & Nose */
+    .rocket-fin-top {
+      position: absolute;
+      top: -8px;
+      left: 4px;
+      width: 14px;
+      height: 8px;
+      background: var(--crimson);
+      clip-path: polygon(0 100%, 100% 100%, 70% 0, 30% 0);
     }
 
-    body.launch-retro-page .badge-design {
-      top: 48% !important;
-      right: 2% !important;
-      transform: scale(0.85) rotate(-3deg) !important;
+    .rocket-fin-bottom {
+      position: absolute;
+      bottom: -8px;
+      left: 4px;
+      width: 14px;
+      height: 8px;
+      background: var(--crimson);
+      clip-path: polygon(30% 100%, 70% 100%, 100% 0, 0 0);
     }
 
-    body.launch-retro-page .badge-social {
-      bottom: 8% !important;
-      right: 2.5% !important;
-      transform: scale(0.85) rotate(4deg) !important;
+    .rocket-nose {
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid var(--crimson);
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
     }
 
-    /* Hide center-conflicting badges on launch page */
-    body.launch-retro-page .badge-production,
-    body.launch-retro-page .badge-promotion,
-    body.launch-retro-page .badge-seal {
-      display: none !important;
+    /* Thruster Exhaust Flame */
+    .rocket-thruster {
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
     }
 
-    /* Autonomous Rocket is still active! */
-    body.launch-retro-page .rocket-voyager {
-      display: block !important;
-      z-index: 4 !important;
+    .flame-plume {
+      width: 22px;
+      height: 12px;
+      background: radial-gradient(ellipse at right, #ffffff 10%, #fbbf24 45%, #ff493b 80%, transparent 100%);
+      border-radius: 50% 0 0 50%;
+      filter: blur(0.8px);
+      animation: flameFlicker 0.15s infinite alternate ease-in-out;
     }
 
-    /* Mobile Protection (under 900px): Clean background without badge overlap */
-    @media (max-width: 900px) {
-      body.launch-retro-page .retro-bg-canvas {
-        display: none !important;
-      }
-      .bg-traditional-mandala-wrap {
-        opacity: 0.16;
-      }
+    @keyframes flameFlicker {
+      0% { transform: scaleX(0.85) scaleY(0.9); opacity: 0.85; }
+      100% { transform: scaleX(1.25) scaleY(1.15); opacity: 1; }
     }
 
-    /* Page Layout Container */
-    .launch-wrapper {
+    .rocket-turbo .flame-plume {
+      width: 42px;
+      height: 18px;
+      background: radial-gradient(ellipse at right, #ffffff 20%, #38bdf8 40%, #fbbf24 70%, #ff493b 100%);
+      filter: blur(1.5px) drop-shadow(0 0 15px #ff493b);
+    }
+
+    /* ==========================================================================
+       MAIN PAGE CONTAINER
+       ========================================================================== */
+    .page-wrap {
       position: relative;
       z-index: 10;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 18px 14px;
-      max-width: 1220px;
+      padding: 20px 16px;
+      max-width: 1240px;
       margin: 0 auto;
       width: 100%;
-      box-sizing: border-box;
     }
 
     @media (min-width: 768px) {
-      .launch-wrapper {
-        padding: 28px 44px;
+      .page-wrap {
+        padding: 32px 48px;
       }
     }
 
     /* ==========================================================================
-       HEADER (RETRO INDIAN TOP BAR)
+       HEADER
        ========================================================================== */
-    .launch-header {
+    header {
+      position: relative;
+      z-index: 12;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       width: 100%;
-      z-index: 20;
     }
 
-    .launch-brand {
+    .brand-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       color: inherit;
     }
 
-    .launch-brand-mark {
-      height: 26px;
+    .brand-mark {
+      height: 28px;
       width: auto;
       filter: drop-shadow(0 0 10px rgba(255, 73, 59, 0.3));
       transition: transform 0.3s ease;
     }
 
     @media (min-width: 768px) {
-      .launch-brand-mark {
-        height: 32px;
+      .brand-mark {
+        height: 34px;
       }
     }
 
-    .launch-brand:hover .launch-brand-mark {
-      transform: scale(1.06);
+    .brand-group:hover .brand-mark {
+      transform: scale(1.05);
     }
 
-    .launch-brand-text {
+    .brand-titles {
       display: flex;
       flex-direction: column;
     }
 
-    .launch-brand-en {
-      font-family: var(--font-display, 'Clash Display');
+    .brand-en {
+      font-family: var(--font-display);
       font-weight: 700;
-      font-size: 13px;
-      letter-spacing: 0.16em;
+      font-size: 13.5px;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #ffffff;
       line-height: 1.1;
@@ -247,94 +308,86 @@
     }
 
     @media (min-width: 768px) {
-      .launch-brand-en {
+      .brand-en {
         font-size: 15px;
       }
     }
 
-    .launch-brand-hi {
-      font-family: var(--font-hindi-accent);
-      font-size: 10.5px;
-      color: var(--retro-marigold);
+    .brand-hi {
+      font-family: var(--font-yatra);
+      font-size: 11px;
+      color: var(--marigold);
       letter-spacing: 0.08em;
       line-height: 1;
       margin-top: 2px;
     }
 
-    .launch-header-right {
+    .header-actions {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
-    /* Live IST Clock Badge */
-    .launch-clock-badge {
+    /* Live IST Clock */
+    .ist-clock-pill {
       display: flex;
       align-items: center;
       gap: 7px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.7);
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--retro-border);
-      padding: 5px 11px;
+      border: 1px solid var(--border);
+      padding: 6px 13px;
       border-radius: 9999px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       white-space: nowrap;
     }
 
-    @media (min-width: 768px) {
-      .launch-clock-badge {
-        font-size: 10.5px;
-        padding: 6px 13px;
-        gap: 8px;
-      }
-    }
-
-    .launch-live-dot {
+    .live-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background-color: var(--retro-crimson);
-      box-shadow: 0 0 10px var(--retro-crimson);
-      animation: pulseGlowDot 2s infinite ease-in-out;
+      background-color: var(--crimson);
+      box-shadow: 0 0 10px var(--crimson);
+      animation: pulseDot 2s infinite ease-in-out;
       flex-shrink: 0;
     }
 
-    @keyframes pulseGlowDot {
+    @keyframes pulseDot {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    /* Header Preview Pill (Desktop only to prevent mobile crowding) */
-    .btn-preview-pill {
+    /* Header Preview Button */
+    .preview-header-btn {
       display: none;
     }
 
     @media (min-width: 640px) {
-      .btn-preview-pill {
+      .preview-header-btn {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-family: 'JetBrains Mono', monospace;
+        font-family: var(--font-mono);
         font-size: 10.5px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
-        color: var(--retro-marigold);
+        color: var(--marigold);
         background: rgba(245, 158, 11, 0.08);
         border: 1px solid rgba(245, 158, 11, 0.3);
-        padding: 5px 13px;
+        padding: 6px 14px;
         border-radius: 9999px;
         text-decoration: none;
         transition: all 0.25s ease;
         white-space: nowrap;
       }
-      .btn-preview-pill:hover {
+      .preview-header-btn:hover {
         background: rgba(245, 158, 11, 0.18);
-        border-color: var(--retro-marigold);
+        border-color: var(--marigold);
         color: #ffffff;
         transform: translateY(-1px);
         box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
@@ -342,170 +395,255 @@
     }
 
     /* ==========================================================================
-       MAIN HERO SECTION (INDIAN RETRO EDITORIAL)
+       HERO CONTENT — PLAYFUL HINDI & ENGLISH TYPOGRAPHY
        ========================================================================== */
-    .launch-main {
+    main {
+      position: relative;
+      z-index: 12;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 24px 0 18px 0;
+      padding: 36px 0 24px 0;
       width: 100%;
-      z-index: 15;
     }
 
     @media (min-width: 768px) {
-      .launch-main {
-        padding: 36px 0 24px 0;
+      main {
+        padding: 44px 0 32px 0;
       }
     }
 
-    /* Status Pill: Indian Retro Border */
-    .retro-status-pill {
+    /* Vintage Hindi Kicker / Eyebrow */
+    .kicker-capsule {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 73, 59, 0.09);
-      border: 1px solid rgba(255, 73, 59, 0.32);
+      background: rgba(255, 73, 59, 0.08);
+      border: 1px solid rgba(255, 73, 59, 0.3);
       border-radius: 9999px;
       padding: 5px 14px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #ff9187;
       margin-bottom: 16px;
-      box-shadow: 0 0 20px rgba(255, 73, 59, 0.15);
+      box-shadow: 0 0 25px rgba(255, 73, 59, 0.15);
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    @media (min-width: 768px) {
-      .retro-status-pill {
-        font-size: 11px;
-        padding: 6px 16px;
+    @media (min-width: 640px) {
+      .kicker-capsule {
+        padding: 6px 18px;
+        gap: 10px;
         margin-bottom: 20px;
       }
     }
 
-    .retro-status-hindi {
-      font-family: var(--font-hindi-accent);
-      color: var(--retro-marigold);
+    .kicker-hi {
+      font-family: var(--font-yatra);
+      color: var(--marigold);
       font-size: 11.5px;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
-    /* Headline with Bollywood / Indian Street typography */
-    .retro-hero-title {
-      font-family: var(--font-display, 'Clash Display');
-      font-size: clamp(34px, 7.2vw, 88px);
-      font-weight: 700;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      text-transform: uppercase;
-      color: #ffffff;
-      max-width: 1020px;
-      margin: 0 auto;
-    }
-
-    .retro-hero-title .serif-accent {
-      font-family: 'Rozha One', 'STIX Two Text', serif;
-      font-weight: 400;
-      text-transform: none;
-      letter-spacing: -0.01em;
-      color: #ffffff;
-      text-shadow: 0 0 35px rgba(255, 255, 255, 0.3);
-    }
-
-    .retro-hero-title .bollywood-gradient {
-      background: linear-gradient(135deg, #ffffff 15%, #ffbe3b 55%, #ff493b 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-      text-shadow: 0 0 45px rgba(255, 73, 59, 0.4);
-    }
-
-    /* Description */
-    .retro-hero-desc {
-      font-size: clamp(14px, 1.25vw, 18px);
-      line-height: 1.55;
-      color: rgba(245, 245, 247, 0.68);
-      max-width: 660px;
-      margin: 16px auto 0 auto;
-      letter-spacing: -0.01em;
-      font-weight: 400;
-      padding: 0 8px;
-    }
-
-    @media (min-width: 768px) {
-      .retro-hero-desc {
-        margin: 20px auto 0 auto;
+    @media (min-width: 640px) {
+      .kicker-hi {
+        font-size: 13px;
+        letter-spacing: 0.08em;
       }
     }
 
-    .retro-hero-desc strong {
+    .kicker-sep {
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 10px;
+    }
+
+    .kicker-en {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ff938a;
+    }
+
+    @media (min-width: 640px) {
+      .kicker-en {
+        font-size: 10.5px;
+        letter-spacing: 0.12em;
+      }
+    }
+
+    /* Playful Retro Typography Headline */
+    .hero-title-composition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    /* Top Row: WE TURN [Ideas] */
+    .title-row-1 {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .txt-we-turn {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 7.8vw, 92px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .txt-ideas-serif {
+      font-family: var(--font-rozha);
+      font-size: clamp(42px, 8.4vw, 98px);
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 0.95;
+      font-style: italic;
+      text-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
+    }
+
+    /* Bottom Row: INTO [प्रभाव] IMPACT. */
+    .title-row-2 {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .txt-into {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 7.8vw, 92px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    /* Playful Hindi Highlight Word */
+    .txt-hindi-impact {
+      font-family: var(--font-rozha);
+      font-size: clamp(38px, 8vw, 96px);
+      font-weight: 400;
+      line-height: 0.95;
+      color: var(--marigold);
+      text-shadow: 
+        0 0 20px rgba(251, 191, 36, 0.5),
+        2px 2px 0 rgba(220, 38, 38, 0.8);
+      position: relative;
+      letter-spacing: 0.02em;
+    }
+
+    /* English Gradient Word */
+    .txt-impact-grad {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 7.8vw, 92px);
+      font-weight: 700;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #ffffff 15%, #ffbe3b 55%, #ff493b 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 45px rgba(255, 73, 59, 0.4);
+    }
+
+    /* Poetic Hindi Tagline Pill */
+    .poetic-hindi-banner {
+      margin-top: 18px;
+      font-family: var(--font-yatra);
+      font-size: clamp(14px, 1.4vw, 17px);
+      color: var(--marigold);
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    /* Lead Paragraph */
+    .hero-desc {
+      font-size: clamp(14.5px, 1.3vw, 18.5px);
+      line-height: 1.6;
+      color: rgba(245, 245, 247, 0.68);
+      max-width: 680px;
+      margin: 16px auto 0 auto;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      padding: 0 10px;
+    }
+
+    .hero-desc strong {
       color: #ffffff;
       font-weight: 600;
     }
 
     /* ==========================================================================
-       INDIAN RETRO MATCHBOX COUNTDOWN CARD
+       RETRO INDIAN MATCHBOX TIMEPIECE (COUNTDOWN)
        ========================================================================== */
-    .retro-countdown-card {
-      margin-top: 24px;
+    .countdown-matchbox {
+      margin-top: 30px;
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--retro-card-bg);
+      background: var(--card-bg);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 18px;
-      padding: 14px 22px;
+      border-radius: 20px;
+      padding: 16px 24px;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       box-shadow: 
         0 20px 50px rgba(0, 0, 0, 0.6), 
-        0 0 25px rgba(255, 73, 59, 0.12),
+        0 0 30px rgba(255, 73, 59, 0.12),
         inset 0 1px 0 rgba(255, 255, 255, 0.12);
       position: relative;
     }
 
     @media (min-width: 640px) {
-      .retro-countdown-card {
-        gap: 20px;
-        padding: 20px 34px;
-        margin-top: 32px;
+      .countdown-matchbox {
+        gap: 22px;
+        padding: 22px 38px;
+        margin-top: 36px;
       }
     }
 
-    /* Decorative Corner Brass Rivets */
-    .retro-countdown-card::before,
-    .retro-countdown-card::after {
+    .countdown-matchbox::before,
+    .countdown-matchbox::after {
       content: '✦';
       position: absolute;
       font-size: 8px;
-      color: var(--retro-marigold);
+      color: var(--marigold);
       opacity: 0.6;
     }
-    .retro-countdown-card::before { top: 6px; left: 8px; }
-    .retro-countdown-card::after { bottom: 6px; right: 8px; }
+    .countdown-matchbox::before { top: 7px; left: 9px; }
+    .countdown-matchbox::after { bottom: 7px; right: 9px; }
 
-    .retro-timer-unit {
+    .timer-col {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 42px;
+      min-width: 44px;
     }
 
     @media (min-width: 640px) {
-      .retro-timer-unit {
-        min-width: 58px;
+      .timer-col {
+        min-width: 64px;
       }
     }
 
-    .retro-timer-val {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(24px, 4.2vw, 42px);
+    .timer-num {
+      font-family: var(--font-mono);
+      font-size: clamp(26px, 4.4vw, 44px);
       font-weight: 600;
       color: #ffffff;
       line-height: 1;
@@ -513,100 +651,100 @@
       font-variant-numeric: tabular-nums;
     }
 
-    .retro-timer-label {
-      font-family: 'JetBrains Mono', monospace;
+    .timer-en {
+      font-family: var(--font-mono);
       font-size: 8.5px;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.22em;
       color: rgba(255, 255, 255, 0.45);
-      margin-top: 5px;
+      margin-top: 6px;
     }
 
-    .retro-timer-hi {
-      font-family: var(--font-hindi-accent);
-      font-size: 9px;
-      color: var(--retro-marigold);
+    .timer-hi {
+      font-family: var(--font-yatra);
+      font-size: 10px;
+      color: var(--marigold);
       margin-top: 1px;
       letter-spacing: 0.05em;
     }
 
-    .retro-timer-sep {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: clamp(16px, 2.8vw, 30px);
-      color: var(--retro-crimson);
+    .timer-sep {
+      font-family: var(--font-mono);
+      font-size: clamp(18px, 3vw, 32px);
+      color: var(--crimson);
       opacity: 0.8;
       margin-top: -14px;
       font-weight: 300;
     }
 
     /* ==========================================================================
-       HINDI × ENGLISH RETRO CAPABILITIES TICKER
+       BILINGUAL CORE SERVICES TICKER
        ========================================================================== */
-    .retro-services-strip {
-      margin-top: 22px;
+    .services-strip {
+      margin-top: 26px;
       width: 100%;
-      max-width: 820px;
+      max-width: 860px;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 7px;
-      padding: 0 6px;
+      gap: 8px;
+      padding: 0 8px;
     }
 
     @media (min-width: 768px) {
-      .retro-services-strip {
-        gap: 9px;
-        margin-top: 28px;
+      .services-strip {
+        gap: 10px;
+        margin-top: 32px;
       }
     }
 
-    .retro-service-pill {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+    .service-pill {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
       letter-spacing: 0.04em;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.8);
       background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--retro-border);
+      border: 1px solid var(--border);
       border-radius: 9999px;
-      padding: 5px 11px;
+      padding: 6px 14px;
       transition: all 0.25s ease;
       white-space: nowrap;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
     }
 
     @media (min-width: 768px) {
-      .retro-service-pill {
+      .service-pill {
         font-size: 11px;
-        padding: 6px 14px;
+        padding: 6px 16px;
       }
     }
 
-    .retro-service-pill:hover {
+    .service-pill:hover {
       background: rgba(255, 73, 59, 0.12);
       border-color: rgba(255, 73, 59, 0.4);
       color: #ffffff;
       transform: translateY(-1px);
     }
 
-    .retro-service-pill .pill-num {
-      color: var(--retro-crimson);
+    .service-pill .pill-num {
+      color: var(--crimson);
       font-weight: 600;
     }
 
-    .retro-service-pill .pill-hi {
-      font-family: var(--font-hindi-accent);
-      color: var(--retro-marigold);
-      font-size: 10.5px;
+    .service-pill .pill-hi {
+      font-family: var(--font-yatra);
+      color: var(--marigold);
+      font-size: 11.5px;
     }
 
     /* ==========================================================================
-       CALL TO ACTIONS & FOUNDER SECTION
+       ACTIONS & INQUIRIES
        ========================================================================== */
-    .retro-action-group {
-      margin-top: 24px;
+    .actions-wrap {
+      margin-top: 28px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -615,32 +753,31 @@
     }
 
     @media (min-width: 768px) {
-      .retro-action-group {
-        margin-top: 30px;
+      .actions-wrap {
+        margin-top: 34px;
         gap: 14px;
       }
     }
 
-    .retro-btn-row {
+    .btn-row {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 12px;
       flex-wrap: wrap;
     }
 
-    /* Start Project Button */
-    .btn-retro-primary {
+    .btn-primary {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: #ffffff;
       color: #080809;
       font-family: var(--font-sans);
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 600;
       letter-spacing: -0.01em;
-      padding: 11px 24px;
+      padding: 12px 26px;
       border-radius: 9999px;
       text-decoration: none;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -648,32 +785,31 @@
     }
 
     @media (min-width: 768px) {
-      .btn-retro-primary {
+      .btn-primary {
         font-size: 14px;
-        padding: 12px 28px;
+        padding: 13px 30px;
       }
     }
 
-    .btn-retro-primary:hover {
-      background: var(--retro-crimson);
+    .btn-primary:hover {
+      background: var(--crimson);
       color: #ffffff;
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(255, 73, 59, 0.4);
     }
 
-    /* Email Copy Pill */
-    .btn-retro-secondary {
+    .btn-copy {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: rgba(255, 255, 255, 0.04);
       color: #f5f5f7;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
       letter-spacing: 0.04em;
-      padding: 11px 18px;
+      padding: 12px 20px;
       border-radius: 9999px;
-      border: 1px solid var(--retro-border);
+      border: 1px solid var(--border);
       cursor: pointer;
       text-decoration: none;
       transition: all 0.25s ease;
@@ -682,13 +818,13 @@
     }
 
     @media (min-width: 768px) {
-      .btn-retro-secondary {
-        font-size: 11.5px;
-        padding: 12px 20px;
+      .btn-copy {
+        font-size: 12px;
+        padding: 13px 22px;
       }
     }
 
-    .btn-retro-secondary:hover {
+    .btn-copy:hover {
       background: rgba(255, 255, 255, 0.09);
       border-color: rgba(255, 255, 255, 0.28);
       color: #ffffff;
@@ -696,124 +832,125 @@
     }
 
     /* Founder Credit */
-    .retro-founder-credit {
-      margin-top: 4px;
-      font-size: 11.5px;
+    .founder-note {
+      margin-top: 6px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.45);
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
     }
 
     @media (min-width: 768px) {
-      .retro-founder-credit {
-        font-size: 12.5px;
-        margin-top: 6px;
+      .founder-note {
+        font-size: 13px;
+        margin-top: 8px;
       }
     }
 
-    .retro-founder-credit a {
+    .founder-note a {
       color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       border-bottom: 1px dotted rgba(255, 255, 255, 0.35);
       transition: all 0.2s ease;
     }
 
-    .retro-founder-credit a:hover {
-      color: var(--retro-marigold);
-      border-bottom-color: var(--retro-marigold);
+    .founder-note a:hover {
+      color: var(--marigold);
+      border-bottom-color: var(--marigold);
     }
 
-    /* Side Preview Banner on Launch Page */
-    .side-preview-banner {
+    /* Side Preview Banner */
+    .preview-route-pill {
       margin-top: 10px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10.5px;
-      color: rgba(255, 255, 255, 0.65);
-      background: rgba(245, 158, 11, 0.08);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(245, 158, 11, 0.07);
       border: 1px dashed rgba(245, 158, 11, 0.35);
-      padding: 6px 16px;
+      padding: 7px 18px;
       border-radius: 9999px;
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
-    .side-preview-banner:hover {
+    .preview-route-pill:hover {
       background: rgba(245, 158, 11, 0.16);
-      border-color: var(--retro-marigold);
+      border-color: var(--marigold);
       color: #ffffff;
       transform: translateY(-1px);
     }
 
-    .side-preview-banner span.preview-spark {
-      color: var(--retro-marigold);
+    .sparkle {
+      color: var(--marigold);
     }
 
     /* ==========================================================================
        FOOTER
        ========================================================================== */
-    .launch-footer {
+    footer {
+      position: relative;
+      z-index: 12;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       width: 100%;
-      padding-top: 18px;
-      border-top: 1px solid var(--retro-border);
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.4);
       text-align: center;
-      z-index: 20;
     }
 
     @media (min-width: 768px) {
-      .launch-footer {
+      footer {
         flex-direction: row;
-        padding-top: 22px;
-        font-size: 10.5px;
+        padding-top: 24px;
+        font-size: 11px;
         letter-spacing: 0.1em;
         text-align: left;
       }
     }
 
-    .launch-footer-left {
+    .footer-left {
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .launch-footer-links {
+    .footer-links {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
     }
 
     @media (min-width: 768px) {
-      .launch-footer-links {
-        gap: 18px;
+      .footer-links {
+        gap: 20px;
       }
     }
 
-    .launch-footer-links a {
+    .footer-links a {
       color: rgba(255, 255, 255, 0.65);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
-    .launch-footer-links a:hover {
-      color: var(--retro-crimson);
+    .footer-links a:hover {
+      color: var(--crimson);
     }
 
-    /* Floating Toast */
+    /* Toast */
     .copy-toast {
       position: fixed;
       bottom: 24px;
@@ -822,7 +959,7 @@
       background: #18181c;
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      font-family: 'JetBrains Mono', monospace;
+      font-family: var(--font-mono);
       font-size: 12px;
       letter-spacing: 0.05em;
       padding: 10px 20px;
@@ -842,7 +979,7 @@
       opacity: 1;
     }
 
-    .copy-toast-dot {
+    .toast-dot {
       width: 6px;
       height: 6px;
       border-radius: 50%;
@@ -850,17 +987,15 @@
     }
   </style>
 </head>
-<body class="launch-retro-page landing-page">
+<body>
 
-  <!-- Subtle Film Grain Overlay -->
-  <div class="grain"></div>
-
-  <!-- Ambient Glow -->
-  <div class="retro-ambient-glow" aria-hidden="true"></div>
+  <!-- Atmosphere -->
+  <div class="retro-ambient" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Traditional Rotating Mandala Watermark in Hero Background -->
-  <div class="bg-traditional-mandala-wrap" aria-hidden="true">
-    <svg class="traditional-mandala-svg bg-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="mandala-wrap" aria-hidden="true">
+    <svg class="mandala-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <g id="bg-petal">
           <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
@@ -910,191 +1045,145 @@
   </div>
 
   <!-- ==========================================================================
-       AUTHENTIC FLOATING RETRO HINDI POP-ART CANVAS
+       AUTONOMOUS 4—11 ROCKET SHIP VOYAGER (GLIDES EVERYWHERE)
        ========================================================================== -->
-  <div class="retro-bg-canvas" id="retro-bg-canvas" aria-hidden="true">
-    
-    <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
-    <div class="retro-element badge-branding" id="hero-badge-04" data-parallax="0.04">
-      <div class="branding-sunburst"></div>
-      <div class="branding-tagline">4—11 STUDIO // 01</div>
-      <div class="branding-title">ब्रांडिंग</div>
-      <div class="branding-footer">
-        <span>BRAND IDENTITY</span>
-        <span class="branding-stamp">★</span>
-      </div>
-    </div>
-
-    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage -->
-    <div class="retro-element badge-design" id="hero-badge-06" data-parallax="0.07">
-      <div class="design-label-small">CREATIVE ARTWORK // 02</div>
-      <div class="design-headline">डिजाइन</div>
-      <div class="design-subline">DISTINCTIVE VISUALS</div>
-    </div>
-
-    <!-- 4. एजेंसी (AGENCY) — Vintage Distressed Stamp -->
-    <div class="retro-element badge-agency" id="hero-badge-01" data-parallax="0.06">
-      <div class="agency-star">✦ ✦ ✦</div>
-      <div class="agency-title">एजेंसी</div>
-      <div class="agency-sub">INDEPENDENT</div>
-    </div>
-
-    <!-- 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag -->
-    <div class="retro-element badge-slogan" id="hero-badge-07" data-parallax="0.03">
-      <div class="slogan-title">मेक इट मैटर</div>
-      <div class="slogan-sub">4—11 STUDIO®</div>
-    </div>
-
-    <!-- 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket -->
-    <div class="retro-element badge-content" id="hero-badge-05" data-parallax="0.05">
-      <div class="content-num">STORIES // 04</div>
-      <div class="content-title">कंटेंट</div>
-      <div class="content-eng">WORTH WATCHING</div>
-    </div>
-
-    <!-- 8. सोशल मीडिया (SOCIAL MEDIA) — Sunburst Badge -->
-    <div class="retro-element badge-social" id="hero-badge-09" data-parallax="0.04">
-      <div class="social-tag">DIGITAL // 06</div>
-      <div class="social-title">सोशल</div>
-      <div class="social-eng">MAKE EVERY SCROLL COUNT</div>
-    </div>
-
-    <!-- 10. Autonomous 4-11 Rocket Ship Voyager -->
-    <div class="retro-element rocket-voyager" id="rocket-411" title="4—11 Space Rocket (Click for Turbo Boost!)">
+  <div class="rocket-canvas-wrap" aria-hidden="true">
+    <div class="rocket-ship" id="rocket-411" title="4—11 Rocket Ship (Click for Turbo Boost!)">
       <div class="rocket-container">
-        <div class="rocket-thrusters-group">
-          <div class="thruster-side thruster-side-top"><div class="flame-jet"></div></div>
-          <div class="thruster-main">
-            <div class="flame-plume flame-plume-outer"></div>
-            <div class="flame-plume flame-plume-mid"></div>
-            <div class="flame-plume flame-plume-core"></div>
-            <div class="flame-spark spark-1"></div>
-            <div class="flame-spark spark-2"></div>
-          </div>
-          <div class="thruster-side thruster-side-bottom"><div class="flame-jet"></div></div>
+        <div class="rocket-thruster">
+          <div class="flame-plume"></div>
         </div>
         <div class="rocket-fuselage">
-          <div class="rocket-fin rocket-fin-top"></div>
-          <div class="rocket-core">
-            <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="rocket-logo-img">
-          </div>
-          <div class="rocket-fin rocket-fin-bottom"></div>
+          <div class="rocket-fin-top"></div>
+          <img src="assets/logo-411-mark.png" alt="4-11" class="rocket-logo-img">
+          <div class="rocket-fin-bottom"></div>
           <div class="rocket-nose"></div>
         </div>
       </div>
     </div>
-
   </div>
 
   <!-- ==========================================================================
        PAGE STRUCTURE
        ========================================================================== -->
-  <div class="launch-wrapper">
+  <div class="page-wrap">
     
-    <!-- Top Header -->
-    <header class="launch-header">
-      <a href="/" class="launch-brand" aria-label="Four Eleven Studio">
-        <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="launch-brand-mark">
-        <div class="launch-brand-text">
-          <span class="launch-brand-en">FOUR ELEVEN STUDIO</span>
-          <span class="launch-brand-hi">४—११ स्टूडियो • मुंबई</span>
+    <!-- Top Bar -->
+    <header>
+      <a href="/" class="brand-group" aria-label="Four Eleven Studio">
+        <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="brand-mark">
+        <div class="brand-titles">
+          <span class="brand-en">FOUR ELEVEN STUDIO</span>
+          <span class="brand-hi">४—११ स्टूडियो • मुंबई</span>
         </div>
       </a>
 
-      <div class="launch-header-right">
+      <div class="header-actions">
         <!-- IST Clock -->
-        <div class="launch-clock-badge">
-          <span class="launch-live-dot"></span>
-          <span>Mumbai • <span id="retro-ist-clock">--:--:-- IST</span></span>
+        <div class="ist-clock-pill">
+          <span class="live-dot"></span>
+          <span>Mumbai • <span id="ist-clock">--:--:-- IST</span></span>
         </div>
 
         <!-- Full Website Preview Pill (Desktop) -->
-        <a href="preview.html" class="btn-preview-pill" title="Preview Full 10-Section Website">
+        <a href="preview.html" class="preview-header-btn" title="Preview Full 10-Section Website">
           <span>Preview Full Site</span>
           <span>↗</span>
         </a>
       </div>
     </header>
 
-    <!-- Main Hero -->
-    <main class="launch-main">
+    <!-- Center Hero -->
+    <main>
       
-      <!-- Status Badge -->
-      <div class="retro-status-pill">
-        <span class="launch-live-dot"></span>
-        <span>LAUNCHING SOON</span>
-        <span style="opacity:0.3;">//</span>
-        <span class="retro-status-hindi">आधिकारिक शुरुआत</span>
+      <!-- Hindi × English Kicker Capsule -->
+      <div class="kicker-capsule">
+        <span class="live-dot"></span>
+        <span class="kicker-hi">॥ विचार से प्रभाव तक ॥</span>
+        <span class="kicker-sep">•</span>
+        <span class="kicker-en">LAUNCHING SOON // आधिकारिक शुरुआत</span>
       </div>
 
-      <!-- Main Headline (Indian Retro Style) -->
-      <h1 class="retro-hero-title">
-        We Turn <span class="serif-accent">Ideas</span><br>
-        Into <span class="bollywood-gradient">Impact.</span>
-      </h1>
+      <!-- Playful Typographic Headline Composition -->
+      <div class="hero-title-composition">
+        <div class="title-row-1">
+          <span class="txt-we-turn">WE TURN</span>
+          <span class="txt-ideas-serif">Ideas</span>
+        </div>
+        <div class="title-row-2">
+          <span class="txt-into">INTO</span>
+          <span class="txt-hindi-impact">प्रभाव</span>
+          <span class="txt-impact-grad">IMPACT.</span>
+        </div>
+      </div>
 
-      <!-- Description -->
-      <p class="retro-hero-desc">
+      <!-- Poetic Hindi Sub-motto -->
+      <div class="poetic-hindi-banner">
+        <span>कहानियाँ • रचना • डिजिटल अनुभव</span>
+      </div>
+
+      <!-- Studio Description -->
+      <p class="hero-desc">
         We are a creative and digital media studio helping brands build meaningful connections through 
         <strong>powerful storytelling</strong>, <strong>strategic thinking</strong>, and <strong>creative execution</strong>. 
         From content creation to brand communication, we make ideas work.
       </p>
 
       <!-- Retro Indian Matchbox Countdown -->
-      <div class="retro-countdown-card" id="retro-countdown-wrap" role="timer" aria-label="Launch Countdown">
-        <div class="retro-timer-unit">
-          <span class="retro-timer-val" id="cnt-days">00</span>
-          <span class="retro-timer-label">Days</span>
-          <span class="retro-timer-hi">दिन</span>
+      <div class="countdown-matchbox" id="countdown-wrap" role="timer" aria-label="Launch Countdown">
+        <div class="timer-col">
+          <span class="timer-num" id="cnt-days">00</span>
+          <span class="timer-en">Days</span>
+          <span class="timer-hi">दिन</span>
         </div>
-        <span class="retro-timer-sep">:</span>
-        <div class="retro-timer-unit">
-          <span class="retro-timer-val" id="cnt-hours">00</span>
-          <span class="retro-timer-label">Hours</span>
-          <span class="retro-timer-hi">घंटे</span>
+        <span class="timer-sep">:</span>
+        <div class="timer-col">
+          <span class="timer-num" id="cnt-hours">00</span>
+          <span class="timer-en">Hours</span>
+          <span class="timer-hi">घंटे</span>
         </div>
-        <span class="retro-timer-sep">:</span>
-        <div class="retro-timer-unit">
-          <span class="retro-timer-val" id="cnt-mins">00</span>
-          <span class="retro-timer-label">Mins</span>
-          <span class="retro-timer-hi">मिनट</span>
+        <span class="timer-sep">:</span>
+        <div class="timer-col">
+          <span class="timer-num" id="cnt-mins">00</span>
+          <span class="timer-en">Mins</span>
+          <span class="timer-hi">मिनट</span>
         </div>
-        <span class="retro-timer-sep">:</span>
-        <div class="retro-timer-unit">
-          <span class="retro-timer-val" id="cnt-secs">00</span>
-          <span class="retro-timer-label">Secs</span>
-          <span class="retro-timer-hi">सेकंड</span>
+        <span class="timer-sep">:</span>
+        <div class="timer-col">
+          <span class="timer-num" id="cnt-secs">00</span>
+          <span class="timer-en">Secs</span>
+          <span class="timer-hi">सेकंड</span>
         </div>
       </div>
 
-      <!-- Core Capabilities Ticker (Bilingual Retro) -->
-      <div class="retro-services-strip">
-        <div class="retro-service-pill">
+      <!-- Bilingual Core Capabilities Ticker -->
+      <div class="services-strip">
+        <div class="service-pill">
           <span class="pill-num">01</span>
           <span class="pill-hi">सोशल</span>
           <span>Social Media Management</span>
         </div>
-        <div class="retro-service-pill">
+        <div class="service-pill">
           <span class="pill-num">02</span>
           <span class="pill-hi">कंटेंट</span>
           <span>Content Creation &amp; Production</span>
         </div>
-        <div class="retro-service-pill">
+        <div class="service-pill">
           <span class="pill-num">03</span>
           <span class="pill-hi">ब्रांडिंग</span>
           <span>Branding &amp; Creative Design</span>
         </div>
-        <div class="retro-service-pill">
+        <div class="service-pill">
           <span class="pill-num">04</span>
-          <span class="pill-hi">प्रोडक्शन</span>
+          <span class="pill-hi">वीडियो</span>
           <span>Video Production</span>
         </div>
-        <div class="retro-service-pill">
+        <div class="service-pill">
           <span class="pill-num">05</span>
           <span class="pill-hi">मार्केटिंग</span>
           <span>Digital Marketing</span>
         </div>
-        <div class="retro-service-pill">
+        <div class="service-pill">
           <span class="pill-num">06</span>
           <span class="pill-hi">कोलैब</span>
           <span>Influencer Collaborations</span>
@@ -1102,12 +1191,12 @@
       </div>
 
       <!-- Actions & Contacts -->
-      <div class="retro-action-group">
-        <div class="retro-btn-row">
-          <a href="mailto:ssup@4eleven.in?subject=Project%20Inquiry%20%E2%80%94%20Four%20Eleven%20Studio" class="btn-retro-primary">
+      <div class="actions-wrap">
+        <div class="btn-row">
+          <a href="mailto:ssup@4eleven.in?subject=Project%20Inquiry%20%E2%80%94%20Four%20Eleven%20Studio" class="btn-primary">
             Start a Project →
           </a>
-          <button class="btn-retro-secondary" id="retro-copy-email-btn" type="button" aria-label="Copy email address">
+          <button class="btn-copy" id="copy-email-btn" type="button" aria-label="Copy email address">
             <span>✉ ssup@4eleven.in</span>
             <span style="opacity:0.4;">|</span>
             <span style="font-size:10px;">Copy</span>
@@ -1115,15 +1204,15 @@
         </div>
 
         <!-- Founder Credit -->
-        <div class="retro-founder-credit">
+        <div class="founder-note">
           <span>Direction &amp; Curation by <strong>Rohan Matheshiya</strong></span>
           <span>•</span>
           <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">View Portfolio ↗</a>
         </div>
 
         <!-- Side Preview Link -->
-        <a href="preview.html" class="side-preview-banner">
-          <span class="preview-spark">✦</span>
+        <a href="preview.html" class="preview-route-pill">
+          <span class="sparkle">✦</span>
           <span>Preview Full 10-Section Website Architecture</span>
           <span>→</span>
         </a>
@@ -1132,14 +1221,14 @@
     </main>
 
     <!-- Bottom Footer -->
-    <footer class="launch-footer">
-      <div class="launch-footer-left">
+    <footer>
+      <div class="footer-left">
         <span>© 2026 Four Eleven Studio. All Rights Reserved. Mumbai, IN.</span>
       </div>
-      <div class="launch-footer-center">
+      <div class="footer-center">
         <span>Creative Thinking. Strategic Execution.</span>
       </div>
-      <div class="launch-footer-links">
+      <div class="footer-links">
         <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
         <a href="preview.html">Preview Site</a>
@@ -1150,17 +1239,100 @@
   </div>
 
   <!-- Toast for Email Copy -->
-  <div class="copy-toast" id="retro-copy-toast">
-    <span class="copy-toast-dot"></span>
+  <div class="copy-toast" id="copy-toast">
+    <span class="toast-dot"></span>
     <span>Copied ssup@4eleven.in to clipboard!</span>
   </div>
 
-  <!-- Interactive Scripts (Clock, Countdown, Copy Email, Rocket & Badges) -->
-  <script src="js/gsap.min.js"></script>
-  <script src="js/ba-investor-decks.js?v=8.0"></script>
+  <!-- ==========================================================================
+       SCRIPTS: ROCKET GLIDING EVERYWHERE + CLOCK + COUNTDOWN + COPY
+       ========================================================================== -->
   <script>
-    // 1. Live IST Clock
-    const clockEl = document.getElementById('retro-ist-clock');
+    // =========================================================================
+    // 1. AUTONOMOUS ROCKET VOYAGER FLIGHT ENGINE (MOVES EVERYWHERE)
+    // =========================================================================
+    (function initRocketEngine() {
+      const rocket = document.getElementById('rocket-411');
+      if (!rocket) return;
+
+      let screenW = window.innerWidth;
+      let screenH = window.innerHeight;
+      
+      // Start in upper left region
+      let posX = Math.random() * (screenW * 0.3) + 40;
+      let posY = Math.random() * (screenH * 0.3) + 60;
+      let targetX = screenW * 0.75;
+      let targetY = screenH * 0.65;
+      let currentAngle = 0;
+      let baseSpeed = 2.8;
+      let isBoosting = false;
+
+      window.addEventListener('resize', () => {
+        screenW = window.innerWidth;
+        screenH = window.innerHeight;
+      }, { passive: true });
+
+      function pickNewWaypoint() {
+        const margin = 80;
+        // Freely choose targets anywhere across the full screen
+        targetX = margin + Math.random() * (screenW - margin * 2);
+        targetY = margin + Math.random() * (screenH - margin * 2);
+      }
+      pickNewWaypoint();
+
+      function flightLoop() {
+        const dx = targetX - posX;
+        const dy = targetY - posY;
+        const dist = Math.hypot(dx, dy);
+
+        // Desired angle towards target
+        const desiredAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+        let diffAngle = (desiredAngle - currentAngle + 180) % 360 - 180;
+        
+        // Smooth banking turn
+        currentAngle += diffAngle * 0.048;
+
+        const rad = currentAngle * (Math.PI / 180);
+        const currentSpeed = isBoosting ? baseSpeed * 3.2 : baseSpeed;
+        
+        posX += Math.cos(rad) * currentSpeed;
+        posY += Math.sin(rad) * currentSpeed;
+
+        // When close to waypoint, pick another one
+        if (dist < 110) {
+          pickNewWaypoint();
+        }
+
+        // Screen edge bounds & rebound
+        const pad = 40;
+        if (posX < pad) { posX = pad; pickNewWaypoint(); }
+        if (posX > screenW - pad) { posX = screenW - pad; pickNewWaypoint(); }
+        if (posY < pad) { posY = pad; pickNewWaypoint(); }
+        if (posY > screenH - pad) { posY = screenH - pad; pickNewWaypoint(); }
+
+        rocket.style.transform = `translate3d(${posX.toFixed(1)}px, ${posY.toFixed(1)}px, 0) rotate(${currentAngle.toFixed(1)}deg)`;
+        requestAnimationFrame(flightLoop);
+      }
+      requestAnimationFrame(flightLoop);
+
+      // Click to boost
+      rocket.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isBoosting = true;
+        rocket.classList.add('rocket-turbo');
+        pickNewWaypoint();
+
+        setTimeout(() => {
+          isBoosting = false;
+          rocket.classList.remove('rocket-turbo');
+        }, 1800);
+      });
+    })();
+
+    // =========================================================================
+    // 2. LIVE IST CLOCK
+    // =========================================================================
+    const clockEl = document.getElementById('ist-clock');
     function updateClock() {
       if (!clockEl) return;
       try {
@@ -1181,7 +1353,9 @@
     updateClock();
     setInterval(updateClock, 1000);
 
-    // 2. Countdown Timer
+    // =========================================================================
+    // 3. COUNTDOWN TIMER
+    // =========================================================================
     const targetDate = new Date('2026-11-15T00:00:00+05:30').getTime();
     const daysEl = document.getElementById('cnt-days');
     const hoursEl = document.getElementById('cnt-hours');
@@ -1208,9 +1382,11 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 3. Email Copy Interaction
-    const copyBtn = document.getElementById('retro-copy-email-btn');
-    const copyToast = document.getElementById('retro-copy-toast');
+    // =========================================================================
+    // 4. COPY EMAIL INTERACTION
+    // =========================================================================
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyToast = document.getElementById('copy-toast');
     let toastTimeout;
 
     if (copyBtn && copyToast) {
