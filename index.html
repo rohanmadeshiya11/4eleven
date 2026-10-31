@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Four Eleven Studio – Creative &amp; Digital Media Agency</title>
-  <meta name="description" content="Four Eleven Studio is a creative and digital media studio specialising in social media management, content production, video production, branding and digital marketing.">
-  <meta property="og:title" content="Four Eleven Studio – Creative &amp; Digital Media Agency">
-  <meta property="og:description" content="Four Eleven Studio is a creative and digital media studio specialising in social media management, content production, video production, branding and digital marketing.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Four Eleven Studio – Launching Soon</title>
+  <meta name="description" content="Four Eleven Studio is a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution.">
+  <meta property="og:title" content="Four Eleven Studio – Launching Soon">
+  <meta property="og:description" content="We Turn Ideas Into Impact. Creative Thinking. Strategic Execution.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://4eleven.in/">
+  <meta property="og:image" content="https://4eleven.in/assets/logo-411-mark.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Four Eleven Studio – Creative &amp; Digital Media Agency">
-  <meta name="twitter:description" content="Four Eleven Studio is a creative and digital media studio specialising in social media management, content production, video production, branding and digital marketing.">
+  <meta name="twitter:title" content="Four Eleven Studio – Launching Soon">
+  <meta name="twitter:description" content="We Turn Ideas Into Impact. Creative Thinking. Strategic Execution.">
   <meta name="theme-color" content="#080809">
   
   <link rel="icon" type="image/png" href="assets/logo-411-mark.png">
@@ -19,1406 +20,860 @@
   <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=Rozha+One&family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Yatra+One&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css?v=7.9">
-  <link rel="stylesheet" href="css/ba-investor-decks.css?v=7.9">
-  <link rel="stylesheet" href="css/redo-theme.css?v=7.9">
+  <style>
+    /* ==========================================================================
+       RESET & ROOT VARIABLES
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #080809;
+      --bg-card: rgba(18, 18, 22, 0.75);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.22);
+      --crimson: #ff493b;
+      --crimson-glow: rgba(255, 73, 59, 0.35);
+      --text-main: #f5f5f7;
+      --text-muted: rgba(245, 245, 247, 0.65);
+      --text-faint: rgba(245, 245, 247, 0.4);
+      --font-display: 'Clash Display', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-serif: 'STIX Two Text', Georgia, serif;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Ambient Atmosphere */
+    .ambient-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(255, 73, 59, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 90% 90%, rgba(255, 73, 59, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 40%),
+        var(--bg);
+    }
+
+    /* Subtle Grid Lattice */
+    .grid-lattice {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 52px 52px;
+      mask-image: radial-gradient(circle at 50% 45%, black 25%, transparent 80%);
+      -webkit-mask-image: radial-gradient(circle at 50% 45%, black 25%, transparent 80%);
+    }
+
+    /* Page Container */
+    .page-wrap {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 20px 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .page-wrap {
+        padding: 36px 44px;
+      }
+    }
+
+    /* ==========================================================================
+       HEADER
+       ========================================================================== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-mark {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+      transition: transform 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .brand-mark {
+        height: 30px;
+      }
+    }
+
+    .brand-group:hover .brand-mark {
+      transform: scale(1.05);
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .brand-name {
+        font-size: 15px;
+      }
+    }
+
+    .header-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 9999px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .header-badge {
+        font-size: 11px;
+        padding: 6px 14px;
+        gap: 8px;
+      }
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--crimson);
+      box-shadow: 0 0 10px var(--crimson);
+      animation: pulseGlow 2s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    /* ==========================================================================
+       MAIN CONTENT HERO
+       ========================================================================== */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 32px 0 24px 0;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      main {
+        padding: 44px 0 32px 0;
+      }
+    }
+
+    /* Status Pill */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 73, 59, 0.08);
+      border: 1px solid rgba(255, 73, 59, 0.28);
+      border-radius: 9999px;
+      padding: 6px 15px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ff857a;
+      margin-bottom: 22px;
+      box-shadow: 0 0 20px rgba(255, 73, 59, 0.12);
+    }
+
+    @media (min-width: 768px) {
+      .status-pill {
+        font-size: 11.5px;
+        padding: 7px 18px;
+        gap: 10px;
+        margin-bottom: 26px;
+      }
+    }
+
+    .status-ping {
+      position: relative;
+      width: 8px;
+      height: 8px;
+    }
+
+    .status-ping-core {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background-color: var(--crimson);
+    }
+
+    .status-ping-wave {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid var(--crimson);
+      animation: pingWave 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes pingWave {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    /* Main Headline */
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 7.2vw, 88px);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: #ffffff;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .hero-title .serif-italic {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      text-shadow: 0 0 35px rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-title .crimson-gradient {
+      background: linear-gradient(135deg, #ffffff 10%, #ff6b5e 70%, #ff493b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Lead Paragraph */
+    .hero-desc {
+      font-size: clamp(14px, 1.25vw, 18px);
+      line-height: 1.55;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 20px auto 0 auto;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      padding: 0 10px;
+    }
+
+    .hero-desc strong {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       COUNTDOWN TIMER
+       ========================================================================== */
+    .countdown-card {
+      margin-top: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 22px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    @media (min-width: 640px) {
+      .countdown-card {
+        gap: 20px;
+        padding: 20px 32px;
+        margin-top: 36px;
+      }
+    }
+
+    .timer-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 44px;
+    }
+
+    @media (min-width: 640px) {
+      .timer-unit {
+        min-width: 60px;
+      }
+    }
+
+    .timer-val {
+      font-family: var(--font-mono);
+      font-size: clamp(24px, 4.2vw, 42px);
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .timer-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--text-faint);
+      margin-top: 6px;
+    }
+
+    @media (min-width: 640px) {
+      .timer-label {
+        font-size: 9.5px;
+        margin-top: 8px;
+      }
+    }
+
+    .timer-sep {
+      font-family: var(--font-mono);
+      font-size: clamp(18px, 3vw, 30px);
+      color: var(--crimson);
+      opacity: 0.7;
+      margin-top: -14px;
+      font-weight: 300;
+    }
+
+    /* ==========================================================================
+       SERVICES TICKER (PILLS)
+       ========================================================================== */
+    .services-strip {
+      margin-top: 26px;
+      width: 100%;
+      max-width: 820px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 8px;
+    }
+
+    @media (min-width: 768px) {
+      .services-strip {
+        gap: 10px;
+        margin-top: 32px;
+      }
+    }
+
+    .service-pill {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 9999px;
+      padding: 5px 12px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    @media (min-width: 768px) {
+      .service-pill {
+        font-size: 11px;
+        padding: 6px 14px;
+      }
+    }
+
+    .service-pill:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .service-pill span {
+      color: var(--crimson);
+      margin-right: 4px;
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       FOUNDER & CALL TO ACTION
+       ========================================================================== */
+    .action-group {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .action-group {
+        margin-top: 36px;
+        gap: 16px;
+      }
+    }
+
+    .btn-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ffffff;
+      color: #080809;
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+    }
+
+    @media (min-width: 768px) {
+      .btn-primary {
+        font-size: 14px;
+        padding: 13px 28px;
+      }
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 73, 59, 0.4);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 768px) {
+      .btn-secondary {
+        font-size: 12px;
+        padding: 13px 22px;
+      }
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Founder Note */
+    .founder-credit {
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-faint);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .founder-credit {
+        font-size: 13px;
+        margin-top: 12px;
+      }
+    }
+
+    .founder-credit a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(255, 255, 255, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .founder-credit a:hover {
+      color: #ffffff;
+      border-bottom-color: var(--crimson);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    footer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      footer {
+        flex-direction: row;
+        padding-top: 26px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-align: left;
+      }
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-links {
+        gap: 20px;
+      }
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--crimson);
+    }
+
+    /* Toast Notification */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(30px);
+      background: #18181c;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .copy-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .copy-toast-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+  </style>
 </head>
-<body class="landing-page">
-  <!-- Subtle Grain Overlay -->
-  <div class="grain"></div>
+<body>
 
-  <!-- Traditional Rotating Mandala Watermark in Hero Background -->
-  <div class="bg-traditional-mandala-wrap" aria-hidden="true">
-    <svg class="traditional-mandala-svg bg-mandala" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <g id="bg-petal">
-          <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
-          <path d="M 400,95 C 385,140 380,180 400,205 C 420,180 415,140 400,95 Z" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
-          <circle cx="400" cy="50" r="3.5" fill="currentColor"/>
-        </g>
-        <g id="bg-arch">
-          <path d="M 368,250 C 378,214 422,214 432,250" stroke="currentColor" stroke-width="1.3"/>
-          <circle cx="400" cy="224" r="2.5" fill="currentColor"/>
-          <line x1="400" y1="248" x2="400" y2="280" stroke="currentColor" stroke-width="0.9"/>
-        </g>
-        <g id="bg-inner">
-          <path d="M 400,285 C 388,320 388,340 400,355 C 412,340 412,320 400,285 Z" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="400" cy="320" r="1.8" fill="currentColor"/>
-        </g>
-      </defs>
-      <circle cx="400" cy="400" r="375" stroke="currentColor" stroke-width="1.2" stroke-dasharray="8 6"/>
-      <circle cx="400" cy="400" r="360" stroke="currentColor" stroke-width="0.8"/>
-      <circle cx="400" cy="400" r="340" stroke="currentColor" stroke-width="1.4"/>
-      <circle cx="400" cy="400" r="330" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
-      <use href="#bg-petal" transform="rotate(0 400 400)"/>
-      <use href="#bg-petal" transform="rotate(22.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(45 400 400)"/>
-      <use href="#bg-petal" transform="rotate(67.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(90 400 400)"/>
-      <use href="#bg-petal" transform="rotate(112.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(135 400 400)"/>
-      <use href="#bg-petal" transform="rotate(157.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(180 400 400)"/>
-      <use href="#bg-petal" transform="rotate(202.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(225 400 400)"/>
-      <use href="#bg-petal" transform="rotate(247.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(270 400 400)"/>
-      <use href="#bg-petal" transform="rotate(292.5 400 400)"/>
-      <use href="#bg-petal" transform="rotate(315 400 400)"/>
-      <use href="#bg-petal" transform="rotate(337.5 400 400)"/>
-      <circle cx="400" cy="400" r="250" stroke="currentColor" stroke-width="1.2"/>
-      <circle cx="400" cy="400" r="242" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 5"/>
-      <use href="#bg-arch" transform="rotate(0 400 400)"/>
-      <use href="#bg-arch" transform="rotate(22.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(45 400 400)"/>
-      <use href="#bg-arch" transform="rotate(67.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(90 400 400)"/>
-      <use href="#bg-arch" transform="rotate(112.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(135 400 400)"/>
-      <use href="#bg-arch" transform="rotate(157.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(180 400 400)"/>
-      <use href="#bg-arch" transform="rotate(202.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(225 400 400)"/>
-      <use href="#bg-arch" transform="rotate(247.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(270 400 400)"/>
-      <use href="#bg-arch" transform="rotate(292.5 400 400)"/>
-      <use href="#bg-arch" transform="rotate(315 400 400)"/>
-      <use href="#bg-arch" transform="rotate(337.5 400 400)"/>
-      <circle cx="400" cy="400" r="150" stroke="currentColor" stroke-width="1.2"/>
-      <circle cx="400" cy="400" r="142" stroke="currentColor" stroke-width="0.8" stroke-dasharray="3 3"/>
-      <use href="#bg-inner" transform="rotate(0 400 400)"/>
-      <use href="#bg-inner" transform="rotate(22.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(45 400 400)"/>
-      <use href="#bg-inner" transform="rotate(67.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(90 400 400)"/>
-      <use href="#bg-inner" transform="rotate(112.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(135 400 400)"/>
-      <use href="#bg-inner" transform="rotate(157.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(180 400 400)"/>
-      <use href="#bg-inner" transform="rotate(202.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(225 400 400)"/>
-      <use href="#bg-inner" transform="rotate(247.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(270 400 400)"/>
-      <use href="#bg-inner" transform="rotate(292.5 400 400)"/>
-      <use href="#bg-inner" transform="rotate(315 400 400)"/>
-      <use href="#bg-inner" transform="rotate(337.5 400 400)"/>
-      <circle cx="400" cy="400" r="75" stroke="currentColor" stroke-width="1.4"/>
-      <circle cx="400" cy="400" r="68" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
-      <circle cx="400" cy="400" r="45" stroke="currentColor" stroke-width="1"/>
-      <circle cx="400" cy="400" r="18" stroke="currentColor" stroke-width="1.2"/>
-      <circle cx="400" cy="400" r="4" fill="currentColor"/>
-    </svg>
-  </div>
+  <!-- Atmosphere -->
+  <div class="ambient-bg" aria-hidden="true"></div>
+  <div class="grid-lattice" aria-hidden="true"></div>
 
-  <!-- ==========================================================================
-       SECTION 01: FLOATING RETRO HINDI POP-ART CANVAS (9 AUTHENTIC BADGES)
-       ========================================================================== -->
-  <div class="retro-bg-canvas" id="retro-bg-canvas">
+  <!-- Page Structure -->
+  <div class="page-wrap">
     
-    <!-- 1. ब्रांडिंग (BRANDING) — Retro Matchbox Badge -->
-    <div class="retro-element badge-branding" id="hero-badge-04" data-parallax="0.04">
-      <div class="branding-sunburst"></div>
-      <div class="branding-tagline">4—11 STUDIO // 01</div>
-      <div class="branding-title">ब्रांडिंग</div>
-      <div class="branding-footer">
-        <span>BRAND IDENTITY</span>
-        <span class="branding-stamp">★</span>
-      </div>
-    </div>
-
-    <!-- 2. डिजाइन (DESIGN) — 3D Painted Wall-Art Signage -->
-    <div class="retro-element badge-design" id="hero-badge-06" data-parallax="0.07">
-      <div class="design-label-small">CREATIVE ARTWORK // 02</div>
-      <div class="design-headline">डिजाइन</div>
-      <div class="design-subline">DISTINCTIVE VISUALS</div>
-    </div>
-
-    <!-- 3. प्रमोशन (PROMOTION) — Retro Ticket Badge -->
-    <div class="retro-element badge-promotion" id="hero-badge-08" data-parallax="0.05">
-      <div class="promotion-icon-pill">★</div>
-      <div class="promotion-texts">
-        <span class="promotion-eng">CAMPAIGNS // 03</span>
-        <span class="promotion-title">प्रमोशन</span>
-      </div>
-    </div>
-
-    <!-- 4. एजेंसी (AGENCY) — Vintage Distressed Stamp -->
-    <div class="retro-element badge-agency" id="hero-badge-01" data-parallax="0.06">
-      <div class="agency-star">✦ ✦ ✦</div>
-      <div class="agency-title">एजेंसी</div>
-      <div class="agency-sub">INDEPENDENT</div>
-    </div>
-
-    <!-- 5. मेक इट मैटर (MAKE IT MATTER) — Street Slogan Tag -->
-    <div class="retro-element badge-slogan" id="hero-badge-07" data-parallax="0.03">
-      <div class="slogan-title">मेक इट मैटर</div>
-      <div class="slogan-sub">4—11 STUDIO®</div>
-    </div>
-
-    <!-- 6. कंटेंट (CONTENT) — Bollywood Cinema Ticket -->
-    <div class="retro-element badge-content" id="hero-badge-05" data-parallax="0.05">
-      <div class="content-num">STORIES // 04</div>
-      <div class="content-title">कंटेंट</div>
-      <div class="content-eng">WORTH WATCHING</div>
-    </div>
-
-    <!-- 7. प्रोडक्शन (PRODUCTION) — Truck-Art Plaque -->
-    <div class="retro-element badge-production" id="hero-badge-02" data-parallax="0.06">
-      <div class="production-dot"></div>
-      <div class="production-title">प्रोडक्शन</div>
-      <span class="production-eng">VIDEO & POST</span>
-    </div>
-
-    <!-- 8. सोशल मीडिया (SOCIAL MEDIA) — Sunburst Badge -->
-    <div class="retro-element badge-social" id="hero-badge-09" data-parallax="0.04">
-      <div class="social-tag">DIGITAL // 06</div>
-      <div class="social-title">सोशल</div>
-      <div class="social-eng">MAKE EVERY SCROLL COUNT</div>
-    </div>
-
-    <!-- 9. ४—११ स्टूडियो (4-11 STUDIO) — Starburst Medallion -->
-    <div class="retro-element badge-seal" id="hero-badge-seal" data-parallax="0.05">
-      <span class="seal-star">✦</span>
-      <div class="seal-title">४—११</div>
-      <span class="seal-eng">STUDIO® MUMBAI</span>
-    </div>
-
-    <!-- 10. Autonomous 4-11 Rocket Ship Voyager -->
-    <div class="retro-element rocket-voyager" id="rocket-411" title="4—11 Space Rocket (Click for Turbo Boost!)">
-      <div class="rocket-container">
-        <!-- Side & Rear Thruster Exhaust Flames -->
-        <div class="rocket-thrusters-group">
-          <div class="thruster-side thruster-side-top"><div class="flame-jet"></div></div>
-          <div class="thruster-main">
-            <div class="flame-plume flame-plume-outer"></div>
-            <div class="flame-plume flame-plume-mid"></div>
-            <div class="flame-plume flame-plume-core"></div>
-            <div class="flame-spark spark-1"></div>
-            <div class="flame-spark spark-2"></div>
-          </div>
-          <div class="thruster-side thruster-side-bottom"><div class="flame-jet"></div></div>
-        </div>
-
-        <!-- Rocket Body Fuselage -->
-        <div class="rocket-fuselage">
-          <div class="rocket-fin rocket-fin-top"></div>
-          <div class="rocket-core">
-            <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="rocket-logo-img">
-          </div>
-          <div class="rocket-fin rocket-fin-bottom"></div>
-          <div class="rocket-nose"></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Top Header (Authentic 4-11 Studio Header) -->
-  <header class="top-header" id="siteHeader">
-    <div class="top-header-inner">
-      <a href="#hero" class="brand-block" title="4—11 Studio Homepage">
-        <img src="assets/logo-411-mark.png" alt="4-11 Studio Logo" class="brand-logo-img">
-        <span class="brand-sub-badge">STUDIO®</span>
+    <!-- Top Bar -->
+    <header>
+      <a href="/" class="brand-group" aria-label="Four Eleven Studio">
+        <img src="assets/logo-411-mark.png" alt="4-11 Mark" class="brand-mark">
+        <span class="brand-name">FOUR ELEVEN STUDIO</span>
       </a>
 
-      <!-- Clean Horizontal Top Navigation (Desktop Single-Page Anchors) -->
-      <nav class="desktop_nav_links" aria-label="Main Navigation">
-        <a href="#hero" class="nav_text_link active">Home</a>
-        <a href="#about" class="nav_text_link">About</a>
-        <a href="#services" class="nav_text_link">Services</a>
-        <a href="#approach" class="nav_text_link">Approach</a>
-        <a href="#why-us" class="nav_text_link">Why Us</a>
-        <a href="#work" class="nav_text_link">Work</a>
-        <a href="#contact" class="nav_text_link open-redo-contact">Contact</a>
-      </nav>
-
-      <div class="header_right_group">
-        <a class="btn-orange-pill header-cta-pill open-redo-contact" href="#contact">
-          <span>LET'S WORK TOGETHER</span>
-          <span class="btn-arrow-circle">↗</span>
-        </a>
-
-        <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
-          <span class="menu-line menu-line-1"></span>
-          <span class="menu-line menu-line-2"></span>
-        </button>
+      <div class="header-badge">
+        <span class="live-dot"></span>
+        <span>Mumbai • <span id="ist-clock">--:--:-- IST</span></span>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!-- ==========================================================================
-       SECTION 01: AUTHENTIC HERO CONTAINER (MATCHING USER REFERENCE IMAGE)
-       ========================================================================== -->
-  <div class="hero-wrapper" id="hero">
-    
-    <!-- Left Rail: Vertical Label -->
-    <div class="left-rail">
-      <div class="vertical-label">FOUR ELEVEN STUDIO // 2026</div>
-    </div>
-
-    <!-- Center Hero Content -->
-    <div class="hero-content">
-      <!-- Tagline Badge -->
-      <div class="tagline-badge" id="hero-badge-tagline">
-        <span class="pulse-dot"></span>
-        <span>FOUR ELEVEN STUDIO</span>
-      </div>
-
-      <!-- Main Headline: We Turn Ideas Into Impact. -->
-      <h1 class="hero-headline">
-        <span class="headline-line headline-line-1">We Turn</span>
-        <span class="headline-line headline-line-2">Ideas Into</span>
-        <span class="headline-line headline-line-3"><span class="highlight-word dynamic-word-wrap"><span class="dynamic-word style-bollywood" id="dynamic-impact">Impact.</span></span></span>
-      </h1>
+    <!-- Center Hero -->
+    <main>
       
-      <!-- Sub-description -->
-      <p class="hero-subtext">
-        We are a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution. From content creation to brand communication, we make ideas work.
+      <!-- Status Badge -->
+      <div class="status-pill">
+        <div class="status-ping">
+          <div class="status-ping-core"></div>
+          <div class="status-ping-wave"></div>
+        </div>
+        <span>Launching Soon // In Development</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-title">
+        We Turn <span class="serif-italic">Ideas</span><br>
+        Into <span class="crimson-gradient">Impact.</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="hero-desc">
+        We are a creative and digital media studio helping brands build meaningful connections through 
+        <strong>powerful storytelling</strong>, <strong>strategic thinking</strong>, and <strong>creative execution</strong>. 
+        From content creation to brand communication, we make ideas work.
       </p>
 
-      <!-- Action Buttons -->
-      <div class="hero-cta-row">
-        <a href="#contact" class="btn-orange-pill open-redo-contact" id="what-we-do-btn">
-          <span>LET'S WORK TOGETHER</span>
-          <span class="btn-arrow-circle">↗</span>
-        </a>
-
-        <a href="#work" class="btn-ghost-pill" id="view-works-btn">
-          <span>EXPLORE OUR WORK</span>
-          <span class="btn-ghost-arrow">↓</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Bottom Right: Circular Rotating Badge -->
-    <div class="bottom-right-badge">
-      <a href="#scrub-section" class="spinning-badge-wrap" id="scroll-badge-btn" title="Explore Four Eleven Studio">
-        <svg class="badge-svg" viewBox="0 0 120 120">
-          <path id="textCircle" d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0" fill="none"/>
-          <text fill="rgba(255, 255, 255, 0.75)" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="600" letter-spacing="2">
-            <textPath href="#textCircle" startOffset="0%">
-              • WE TURN IDEAS INTO IMPACT • FOUR ELEVEN STUDIO •
-            </textPath>
-          </text>
-        </svg>
-        <div class="badge-center-btn">↓</div>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- Editorial Marquee Strip -->
-  <div class="editorial-marquee-wrap">
-    <div class="editorial-marquee-track">
-      <span>
-        ✦ FOUR ELEVEN STUDIO <span class="marquee-dot">//</span> 
-        WE TURN IDEAS INTO IMPACT <span class="marquee-dot">//</span> 
-        CREATIVE &amp; DIGITAL MEDIA STUDIO <span class="marquee-dot">//</span> 
-        POWERFUL STORYTELLING <span class="marquee-dot">//</span> 
-        STRATEGIC THINKING &amp; CREATIVE EXECUTION <span class="marquee-dot">//</span> 
-        FROM CONTENT CREATION TO BRAND COMMUNICATION <span class="marquee-dot">//</span> 
-        WE MAKE IDEAS WORK <span class="marquee-dot">//</span> 
-        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
-        EST. 2026 <span class="marquee-dot">//</span>
-      </span>
-      <span>
-        ✦ FOUR ELEVEN STUDIO <span class="marquee-dot">//</span> 
-        WE TURN IDEAS INTO IMPACT <span class="marquee-dot">//</span> 
-        CREATIVE &amp; DIGITAL MEDIA STUDIO <span class="marquee-dot">//</span> 
-        POWERFUL STORYTELLING <span class="marquee-dot">//</span> 
-        STRATEGIC THINKING &amp; CREATIVE EXECUTION <span class="marquee-dot">//</span> 
-        FROM CONTENT CREATION TO BRAND COMMUNICATION <span class="marquee-dot">//</span> 
-        WE MAKE IDEAS WORK <span class="marquee-dot">//</span> 
-        MUMBAI • WORLDWIDE <span class="marquee-dot">//</span> 
-        EST. 2026 <span class="marquee-dot">//</span>
-      </span>
-    </div>
-  </div>
-
-  <!-- Key Metric Strip Bar -->
-  <div class="metric-strip-wrap">
-    <div class="metric-strip-inner">
-      <div class="metric-item">
-        <span class="metric-val">28+</span>
-        <span class="metric-lbl">Brands Transformed</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val text-saffron">₹120Cr+</span>
-        <span class="metric-lbl">Valuation Created</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val">4.9★</span>
-        <span class="metric-lbl">Client Rating</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-val text-saffron">100%</span>
-        <span class="metric-lbl">On-Time Delivery</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       FLOATING STICKY PILL NAVBAR (Docks smoothly after scrolling past Hero)
-       ========================================================================== -->
-  <aside class="redo-nav-wrapper" aria-label="Quick Navigation">
-    <nav class="redo-nav-pill">
-      <a href="#hero" class="redo-logo" title="4—11 Studio Homepage">
-        <img src="assets/logo-411-mark.png" alt="4—11 Studio Logo" class="redo-logo-img">
-        <span class="redo-logo-badge">STUDIO®</span>
-      </a>
-
-      <ul class="redo-nav-links">
-        <li><a href="#about" class="redo-nav-link">About</a></li>
-        <li><a href="#services" class="redo-nav-link">Services</a></li>
-        <li><a href="#approach" class="redo-nav-link">Approach</a></li>
-        <li><a href="#why-us" class="redo-nav-link">Why Us</a></li>
-        <li><a href="#work" class="redo-nav-link">Work</a></li>
-      </ul>
-
-      <a href="#contact" class="redo-nav-cta open-redo-contact">Let's Work Together</a>
-
-      <!-- Mobile Hamburger Toggle when pill is docked -->
-      <button class="redo-mobile-nav-toggle" id="redo-mobile-nav-toggle" aria-label="Open Navigation Menu">
-        <span></span>
-        <span></span>
-      </button>
-    </nav>
-  </aside>
-
-  <!-- ==========================================================================
-       SECTION 02: SCROLL-SCRUB TEXT REVEAL & LOGO MARQUEE (REDO MEDIA STYLE)
-       ========================================================================== -->
-  <section class="redo-scrub-section" id="scrub-section">
-    <div class="redo-scrub-container">
-      <h2 class="redo-scrub-text">
-        <span class="redo-scrub-word">At</span> 
-        <span class="redo-scrub-word">Four</span> 
-        <span class="redo-scrub-word">Eleven</span> 
-        <span class="redo-scrub-word">Studio,</span> 
-        <span class="redo-scrub-word">we</span> 
-        <span class="redo-scrub-word">believe</span> 
-        <span class="redo-scrub-word">every</span> 
-        <span class="redo-scrub-word">brand</span> 
-        <span class="redo-scrub-word">has</span> 
-        <span class="redo-scrub-word">a</span> 
-        <span class="redo-scrub-word">story</span> 
-        <span class="redo-scrub-word">worth</span> 
-        <span class="redo-scrub-word">telling.</span> 
-        <span class="redo-scrub-word">We</span> 
-        <span class="redo-scrub-word">bring</span> 
-        <span class="redo-scrub-word">together</span> 
-        <span class="redo-scrub-word">strategy,</span> 
-        <span class="redo-scrub-word">design,</span> 
-        <span class="redo-scrub-word">content</span> 
-        <span class="redo-scrub-word">and</span> 
-        <span class="redo-scrub-word">digital</span> 
-        <span class="redo-scrub-word">media</span> 
-        <span class="redo-scrub-word">to</span> 
-        <span class="redo-scrub-word">help</span> 
-        <span class="redo-scrub-word">businesses</span> 
-        <span class="redo-scrub-word">stand</span> 
-        <span class="redo-scrub-word">out.</span> 
-        <span class="redo-scrub-word">We</span> 
-        <span class="redo-scrub-word">don't</span> 
-        <span class="redo-scrub-word">just</span> 
-        <span class="redo-scrub-word">create</span> 
-        <span class="redo-scrub-word">content.</span> 
-        <span class="redo-scrub-word">We</span> 
-        <span class="redo-scrub-word">create</span> 
-        <span class="redo-scrub-word">meaningful</span> 
-        <span class="redo-scrub-word">brand</span> 
-        <span class="redo-scrub-word">experiences.</span>
-      </h2>
-    </div>
-
-    <!-- Laurel Wreath Strip -->
-    <div class="redo-laurel-wrap">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-4h2v4z"/></svg>
-      <span>Creative Thinking. Strategic Execution.</span>
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2v-4h2v4z"/></svg>
-    </div>
-
-    <!-- Infinite Marquee Ticker -->
-    <div class="redo-marquee-strip">
-      <div class="redo-marquee-track">
-        <div class="redo-marquee-logo">FLIPKART COMMERCE</div>
-        <div class="redo-marquee-logo">SCHBANG</div>
-        <div class="redo-marquee-logo">ISKCON</div>
-        <div class="redo-marquee-logo">THE MOMS CO.</div>
-        <div class="redo-marquee-logo">mCAFFEINE</div>
-        <div class="redo-marquee-logo">TRAYA HEALTH</div>
-        <div class="redo-marquee-logo">ROCK PAPER RUM</div>
-        <div class="redo-marquee-logo">HIMEYA</div>
-        <div class="redo-marquee-logo">CONVERTIAS</div>
-        <div class="redo-marquee-logo">GREETER</div>
-        <div class="redo-marquee-logo">SUMA</div>
-        <div class="redo-marquee-logo">BRAINYACT</div>
-        <!-- Duplicated for continuous loop -->
-        <div class="redo-marquee-logo">FLIPKART COMMERCE</div>
-        <div class="redo-marquee-logo">SCHBANG</div>
-        <div class="redo-marquee-logo">ISKCON</div>
-        <div class="redo-marquee-logo">THE MOMS CO.</div>
-        <div class="redo-marquee-logo">mCAFFEINE</div>
-        <div class="redo-marquee-logo">TRAYA HEALTH</div>
-        <div class="redo-marquee-logo">ROCK PAPER RUM</div>
-        <div class="redo-marquee-logo">HIMEYA</div>
-        <div class="redo-marquee-logo">CONVERTIAS</div>
-        <div class="redo-marquee-logo">GREETER</div>
-        <div class="redo-marquee-logo">SUMA</div>
-        <div class="redo-marquee-logo">BRAINYACT</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 02: ABOUT US (CREATIVITY MEETS STRATEGY)
-       ========================================================================== -->
-  <section class="redo-about-section" id="about">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ ABOUT US ]</div>
-    <h2 class="redo-section-title"><em>Creativity</em> Meets Strategy.</h2>
-    <p class="redo-section-subtitle">We believe every brand has a story worth telling</p>
-
-    <div class="redo-about-card">
-      <h3 class="redo-about-lead">At Four Eleven Studio, we believe every brand has a story worth telling.</h3>
-      <p class="redo-about-body">We are a creative studio bringing together strategy, design, content and digital media to help businesses stand out in an ever-evolving digital world.</p>
-      <p class="redo-about-body">Whether it's building a brand identity, creating engaging content, producing compelling videos or managing digital platforms, we focus on creating work that connects with people and delivers value.</p>
-      <div class="redo-about-highlight-box">
-        "We don't just create content. We create meaningful brand experiences."
-      </div>
-    </div>
-
-    <!-- Founder & Creative Director Profile: Rohan Matheshiya -->
-    <div class="redo-founder-profile-card" id="founder">
-      <div class="redo-founder-inner">
-        <div class="redo-founder-visual">
-          <div class="redo-founder-avatar-frame">
-            <div class="redo-founder-monogram">RM</div>
-          </div>
-          <div class="redo-founder-meta-badge">
-            <span class="redo-founder-status-dot"></span>
-            <span>MUMBAI &bull; 4&mdash;11&reg;</span>
-          </div>
+      <!-- Live Countdown -->
+      <div class="countdown-card" id="countdown-wrap" role="timer" aria-label="Launch Countdown">
+        <div class="timer-unit">
+          <span class="timer-val" id="cnt-days">00</span>
+          <span class="timer-label">Days</span>
         </div>
-
-        <div class="redo-founder-content">
-          <div class="redo-founder-role-eyebrow">
-            <span class="redo-founder-accent-dash"></span>
-            <span>LEADERSHIP // CREATIVE DIRECTION</span>
-          </div>
-          <h3 class="redo-founder-name">Rohan Matheshiya</h3>
-          <div class="redo-founder-title-badge">Founder &amp; Creative Director &mdash; Four Eleven Studio</div>
-          <p class="redo-founder-bio">
-            A creative professional passionate about visual storytelling, filmmaking, digital media and brand communication. Rohan brings together creativity, technology and strategy to transform ideas into compelling visual experiences.
-          </p>
-          <div class="redo-founder-pillars">
-            <span class="redo-founder-pillar-tag">Visual Storytelling</span>
-            <span class="redo-founder-pillar-tag">Filmmaking</span>
-            <span class="redo-founder-pillar-tag">Digital Media</span>
-            <span class="redo-founder-pillar-tag">Brand Communication</span>
-            <span class="redo-founder-pillar-tag">Creative Strategy</span>
-          </div>
+        <span class="timer-sep">:</span>
+        <div class="timer-unit">
+          <span class="timer-val" id="cnt-hours">00</span>
+          <span class="timer-label">Hours</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 03: WHAT WE DO – OUR SERVICES
-       ========================================================================== -->
-  <section class="redo-services-section" id="services">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ WHAT WE DO ]</div>
-    <h2 class="redo-section-title"><em>Our</em> Services</h2>
-    <p class="redo-section-subtitle">Creative, Branding &amp; Digital Marketing Services</p>
-
-    <div class="redo-services-list">
-      <!-- Service 01: Social Media Management -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(01)</span>
-          <h3 class="redo-service-title">Social Media Management</h3>
+        <span class="timer-sep">:</span>
+        <div class="timer-unit">
+          <span class="timer-val" id="cnt-mins">00</span>
+          <span class="timer-label">Mins</span>
         </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">Building and managing digital communities through strategic content planning, creative storytelling and consistent brand communication.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Content Planning</span>
-          <span class="redo-service-tag">Storytelling</span>
-          <span class="redo-service-tag">Community Management</span>
-          <span class="redo-service-tag">Brand Communication</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/card-creator-sky.jpg" alt="Social Media Management">
+        <span class="timer-sep">:</span>
+        <div class="timer-unit">
+          <span class="timer-val" id="cnt-secs">00</span>
+          <span class="timer-label">Secs</span>
         </div>
       </div>
 
-      <!-- Service 02: Content Creation & Production -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(02)</span>
-          <h3 class="redo-service-title">Content Creation &amp; Production</h3>
-        </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">From Instagram Reels to YouTube videos, we produce engaging visual content that captures attention and communicates your brand's story.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Instagram Reels</span>
-          <span class="redo-service-tag">YouTube Videos</span>
-          <span class="redo-service-tag">Visual Content</span>
-          <span class="redo-service-tag">Post-Production</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/card-green-silk.jpg" alt="Content Creation & Production">
-        </div>
+      <!-- Core Capabilities Ticker -->
+      <div class="services-strip">
+        <div class="service-pill"><span>01</span> Social Media Management</div>
+        <div class="service-pill"><span>02</span> Content Creation &amp; Production</div>
+        <div class="service-pill"><span>03</span> Branding &amp; Creative Design</div>
+        <div class="service-pill"><span>04</span> Video Production</div>
+        <div class="service-pill"><span>05</span> Digital Marketing</div>
+        <div class="service-pill"><span>06</span> Influencer Collaborations</div>
       </div>
 
-      <!-- Service 03: Branding & Creative Design -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(03)</span>
-          <h3 class="redo-service-title">Branding &amp; Creative Design</h3>
-        </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">Creating memorable brand identities through thoughtful design, visual communication and creative direction.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Brand Identity</span>
-          <span class="redo-service-tag">Thoughtful Design</span>
-          <span class="redo-service-tag">Visual Communication</span>
-          <span class="redo-service-tag">Creative Direction</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/card-amber.png" alt="Branding & Creative Design">
-        </div>
-      </div>
-
-      <!-- Service 04: Video Production -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(04)</span>
-          <h3 class="redo-service-title">Video Production</h3>
-        </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">Bringing stories to life through brand films, promotional videos, interviews, documentaries and digital campaigns.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Brand Films</span>
-          <span class="redo-service-tag">Promotional Videos</span>
-          <span class="redo-service-tag">Interviews</span>
-          <span class="redo-service-tag">Documentaries</span>
-          <span class="redo-service-tag">Digital Campaigns</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/card-runner-sky.jpg" alt="Video Production">
-        </div>
-      </div>
-
-      <!-- Service 05: Digital Marketing -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(05)</span>
-          <h3 class="redo-service-title">Digital Marketing</h3>
-        </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">Connecting brands with the right audience through digital campaigns, content strategies and creative marketing solutions.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Digital Campaigns</span>
-          <span class="redo-service-tag">Content Strategies</span>
-          <span class="redo-service-tag">Creative Marketing</span>
-          <span class="redo-service-tag">Growth Solutions</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/bento-collab.jpg" alt="Digital Marketing">
-        </div>
-      </div>
-
-      <!-- Service 06: Influencer Marketing & Collaborations -->
-      <div class="redo-service-row">
-        <div class="redo-service-title-wrap">
-          <span class="redo-service-num">(06)</span>
-          <h3 class="redo-service-title">Influencer Marketing &amp; Collaborations</h3>
-        </div>
-        <p class="redo-service-copy" style="color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.6; max-width: 520px; margin: 0;">Connecting brands with creators to build authentic partnerships, increase visibility and create impactful campaigns.</p>
-        <div class="redo-service-tags">
-          <span class="redo-service-tag">Creator Partnerships</span>
-          <span class="redo-service-tag">Authentic Collaborations</span>
-          <span class="redo-service-tag">Brand Visibility</span>
-          <span class="redo-service-tag">Impactful Campaigns</span>
-        </div>
-        <div class="redo-service-preview-thumb">
-          <img src="assets/services/bento-campaign.jpg" alt="Influencer Marketing & Collaborations">
-        </div>
-      </div>
-    </div>
-
-    <div class="redo-services-cta-wrap">
-      <a href="#contact" class="redo-nav-cta open-redo-contact">Let's Work Together →</a>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 04: OUR APPROACH (FROM IDEAS TO EXECUTION)
-       ========================================================================= -->
-  <section class="redo-approach-section" id="approach">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ OUR APPROACH ]</div>
-    <h2 class="redo-section-title">From Ideas to <em>Execution</em>.</h2>
-    <p class="redo-section-subtitle">A clear, collaborative four-step process designed to create meaningful results</p>
-
-    <div class="redo-approach-grid">
-      <!-- Step 01: Discover -->
-      <div class="redo-approach-card">
-        <div>
-          <div class="redo-approach-card-header">
-            <span class="redo-approach-num">01 — DISCOVER</span>
-            <div class="redo-approach-icon">🔍</div>
-          </div>
-          <h3 class="redo-approach-title">Discover</h3>
-        </div>
-        <p class="redo-approach-desc">We understand your brand, audience, goals and vision.</p>
-      </div>
-
-      <!-- Step 02: Strategise -->
-      <div class="redo-approach-card">
-        <div>
-          <div class="redo-approach-card-header">
-            <span class="redo-approach-num">02 — STRATEGISE</span>
-            <div class="redo-approach-icon">⚡</div>
-          </div>
-          <h3 class="redo-approach-title">Strategise</h3>
-        </div>
-        <p class="redo-approach-desc">We develop creative ideas and a clear strategy aligned with your objectives.</p>
-      </div>
-
-      <!-- Step 03: Create -->
-      <div class="redo-approach-card">
-        <div>
-          <div class="redo-approach-card-header">
-            <span class="redo-approach-num">03 — CREATE</span>
-            <div class="redo-approach-icon">✦</div>
-          </div>
-          <h3 class="redo-approach-title">Create</h3>
-        </div>
-        <p class="redo-approach-desc">Our team brings concepts to life through content, design and production.</p>
-      </div>
-
-      <!-- Step 04: Deliver -->
-      <div class="redo-approach-card">
-        <div>
-          <div class="redo-approach-card-header">
-            <span class="redo-approach-num">04 — DELIVER</span>
-            <div class="redo-approach-icon">✓</div>
-          </div>
-          <h3 class="redo-approach-title">Deliver</h3>
-        </div>
-        <p class="redo-approach-desc">We execute, publish and evaluate the work to create meaningful results.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 04B: WHERE ARE YOU IN YOUR JOURNEY? (3D FLIPPING CARDS)
-       ========================================================================== -->
-  <section class="redo-journey-section" id="journey">
-    <h2 class="redo-section-title"><em>Where</em> are you in your journey?</h2>
-    <p class="redo-section-subtitle">Whether you're breaking into a new market or scaling globally, we adapt to your exact growth trajectory. Hover or tap to flip each card.</p>
-
-    <div class="redo-journey-cards-wrap">
-      
-      <!-- Card 1: Left 3D Flip Card (Zero to One) -->
-      <div class="redo-flip-card redo-flip-card-left redo-card-left">
-        <div class="redo-flip-card-inner">
-          
-          <!-- Front Face -->
-          <div class="redo-card-front">
-            <div class="redo-card-top">
-              <div class="redo-card-icon">↗</div>
-              <div class="redo-card-tag">Going // 01</div>
-              <h3 class="redo-card-title">Zero to One</h3>
-              <p class="redo-card-desc">If you’re navigating a new venture, crafting your first identity, or breaking into modern digital markets.</p>
-            </div>
-            <div class="redo-flip-hint">
-              <span>↻ Hover / Tap to Flip Card</span>
-            </div>
-          </div>
-
-          <!-- Back Face (Revealed on 3D Flip) -->
-          <div class="redo-card-back">
-            <div class="redo-card-back-header">
-              <span class="redo-card-back-tag">Track 01 // Deliverables</span>
-              <h4 class="redo-card-back-title">Early Stage Engine</h4>
-            </div>
-            <ul class="redo-deliverables-list">
-              <li class="redo-deliverable-item">Branding &amp; Creative Design</li>
-              <li class="redo-deliverable-item">Content Creation &amp; Production</li>
-              <li class="redo-deliverable-item">Brand Films &amp; Launch Assets</li>
-              <li class="redo-deliverable-item">Social Media Management Strategy</li>
-              <li class="redo-deliverable-item">High-Conversion Digital Flagship</li>
-            </ul>
-            <div class="redo-card-back-footer">
-              <span class="redo-track-timeline">3–5 Weeks Sprint</span>
-              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Card 2: Center 3D Flip Card (One to N) -->
-      <div class="redo-flip-card redo-flip-card-center redo-card-center">
-        <div class="redo-flip-card-inner">
-          
-          <!-- Front Face -->
-          <div class="redo-card-front">
-            <div class="redo-card-top">
-              <div class="redo-card-icon">☵</div>
-              <div class="redo-card-tag">Scaling // 02</div>
-              <h3 class="redo-card-title">One to N</h3>
-              <p class="redo-card-desc">If you’ve achieved Market Fit and are looking to scale your business, content production, and digital presence to new heights.</p>
-            </div>
-            <div class="redo-flip-hint">
-              <span>↻ Hover / Tap to Flip Card</span>
-            </div>
-          </div>
-
-          <!-- Back Face (Revealed on 3D Flip) -->
-          <div class="redo-card-back">
-            <div class="redo-card-back-header">
-              <span class="redo-card-back-tag">Track 02 // Deliverables</span>
-              <h4 class="redo-card-back-title">Growth &amp; Scale Suite</h4>
-            </div>
-            <ul class="redo-deliverables-list">
-              <li class="redo-deliverable-item">End-to-End Social Media Management</li>
-              <li class="redo-deliverable-item">Ongoing Video Production &amp; Reels</li>
-              <li class="redo-deliverable-item">Influencer Marketing &amp; Collaborations</li>
-              <li class="redo-deliverable-item">Digital Marketing Campaigns</li>
-              <li class="redo-deliverable-item">Continuous Creative Direction</li>
-            </ul>
-            <div class="redo-card-back-footer">
-              <span class="redo-track-timeline">Monthly Retainer</span>
-              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Card 3: Right 3D Flip Card (Need Quick Solutions) -->
-      <div class="redo-flip-card redo-flip-card-right redo-card-right">
-        <div class="redo-flip-card-inner">
-          
-          <!-- Front Face -->
-          <div class="redo-card-front">
-            <div class="redo-card-top">
-              <div class="redo-card-icon">✦</div>
-              <div class="redo-card-tag">Sprint // 03</div>
-              <h3 class="redo-card-title">Need Quick Solutions</h3>
-              <p class="redo-card-desc">If you know exactly what you want and need a senior, nimble team that can step in and quickly build with precision.</p>
-            </div>
-            <div class="redo-flip-hint">
-              <span>↻ Hover / Tap to Flip Card</span>
-            </div>
-          </div>
-
-          <!-- Back Face (Revealed on 3D Flip) -->
-          <div class="redo-card-back">
-            <div class="redo-card-back-header">
-              <span class="redo-card-back-tag">Track 03 // Deliverables</span>
-              <h4 class="redo-card-back-title">High-Velocity Sprint</h4>
-            </div>
-            <ul class="redo-deliverables-list">
-              <li class="redo-deliverable-item">High-Impact Motion Graphics &amp; Reels</li>
-              <li class="redo-deliverable-item">Brand Video &amp; Interview Post-Production</li>
-              <li class="redo-deliverable-item">Rapid Creative Design Sprints</li>
-              <li class="redo-deliverable-item">Digital Campaign Asset Polish</li>
-              <li class="redo-deliverable-item">Brand Communication &amp; Copy Overhaul</li>
-            </ul>
-            <div class="redo-card-back-footer">
-              <span class="redo-track-timeline">7–14 Days Execution</span>
-              <a href="#contact" class="redo-track-btn open-redo-contact">Select Track →</a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 05: WHY CHOOSE US? (MORE THAN JUST A CREATIVE STUDIO)
-       ========================================================================== -->
-  <section class="redo-why-section" id="why-us">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ WHY CHOOSE US? ]</div>
-    <h2 class="redo-section-title">More Than Just a <em>Creative Studio</em>.</h2>
-    <p class="redo-section-subtitle">We combine creativity with a practical understanding of digital platforms and audience behaviour</p>
-
-    <div class="redo-why-grid">
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>Creative-first thinking</h4>
-        </div>
-      </div>
-
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>Strategy-driven execution</h4>
-        </div>
-      </div>
-
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>Strong visual storytelling</h4>
-        </div>
-      </div>
-
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>End-to-end content production</h4>
-        </div>
-      </div>
-
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>Platform-focused communication</h4>
-        </div>
-      </div>
-
-      <div class="redo-why-card">
-        <div class="redo-why-check">✓</div>
-        <div class="redo-why-content">
-          <h4>A collaborative approach</h4>
-        </div>
-      </div>
-    </div>
-
-    <div class="redo-why-banner">
-      <p>"We believe good work starts with good ideas and becomes great through execution."</p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 06: PORTFOLIO SECTION (SELECTED WORK)
-       ========================================================================== -->
-  <section class="redo-work-section" id="work">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ PORTFOLIO SECTION ]</div>
-    <h2 class="redo-section-title">Selected <em>Work</em></h2>
-    <p class="redo-section-subtitle">Ideas, stories and collaborations brought to life.</p>
-    <p style="text-align: center; color: rgba(255, 255, 255, 0.65); font-size: 14.5px; max-width: 720px; margin: 12px auto 0 auto; line-height: 1.6;">Explore our creative projects across brand campaigns, digital content, video production, social media and visual storytelling.</p>
-
-    <div class="redo-carousel-container">
-      <button class="redo-carousel-btn redo-carousel-btn-prev" aria-label="Previous Project">‹</button>
-      <button class="redo-carousel-btn redo-carousel-btn-next" aria-label="Next Project">›</button>
-
-      <div class="redo-carousel-viewport">
-        <!-- Slide 1: Brand Campaigns (mCaffeine) -->
-        <div class="redo-carousel-slide active" data-index="0">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/mcaffeine-hd.jpg" alt="mCaffeine Brand Campaigns &amp; Creative Direction">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Brand campaigns and creative direction empowering global market expansion</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Brand Campaigns</span>
-              <span class="redo-slide-tag">Visual Storytelling</span>
-              <span class="redo-slide-tag">mCaffeine</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2: Digital Content & Video Production (Dr. Kumar Vishwas) -->
-        <div class="redo-carousel-slide next" data-index="1">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/dr-kumar-vishwas.jpg" alt="Dr. Kumar Vishwas Video Production">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Long-form video production and digital media for 25M+ cultural audience</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Video Production</span>
-              <span class="redo-slide-tag">Digital Content</span>
-              <span class="redo-slide-tag">Dr. Kumar Vishwas</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3: Digital Marketing & Performance Creatives (Traya Health) -->
-        <div class="redo-carousel-slide hidden-slide" data-index="2">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/traya-health-hd.jpeg" alt="Traya Health Performance Marketing">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Digital marketing campaigns and content strategies driving high-intent growth</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Digital Marketing</span>
-              <span class="redo-slide-tag">Performance Creatives</span>
-              <span class="redo-slide-tag">Traya Health</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4: Branding & Creative Design (Rock Paper Rum) -->
-        <div class="redo-carousel-slide hidden-slide" data-index="3">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/rock-paper-rum-hd.jpg" alt="Rock Paper Rum Artisan Packaging">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Memorable brand identity, bottle packaging, and distinctive visual communication</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Branding</span>
-              <span class="redo-slide-tag">Packaging Design</span>
-              <span class="redo-slide-tag">Rock Paper Rum</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 5: Video Production & Brand Films (Himeya) -->
-        <div class="redo-carousel-slide hidden-slide" data-index="4">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/himeya-hd.jpg" alt="Himeya Sustainable Luxury Films">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Cinematic brand films and visual storytelling for conscious lifestyle</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Brand Films</span>
-              <span class="redo-slide-tag">Visual Storytelling</span>
-              <span class="redo-slide-tag">Himeya</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 6: Creator Packaging & Healthcare Podcasts (Dr. Pal) -->
-        <div class="redo-carousel-slide prev" data-index="5">
-          <div class="redo-slide-image-wrap">
-            <img src="assets/projects/dr-pal-hd.jpg" alt="Dr. Pal Manickam Creator Packaging">
-          </div>
-          <div class="redo-slide-details">
-            <h3 class="redo-slide-title">Podcast video production, high-CTR thumbnails, and social storytelling</h3>
-            <div class="redo-slide-tags">
-              <span class="redo-slide-tag">Podcast Production</span>
-              <span class="redo-slide-tag">Creator Packaging</span>
-              <span class="redo-slide-tag">Dr. Pal</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Client & Creator Work Masonry Grid (From myportfolio.com & Instagram @4eleven.in) -->
-    <div class="redo-portfolio-grid-wrap">
-      <div class="redo-portfolio-grid-header">
-        <div class="redo-portfolio-grid-title-block">
-          <h3>Featured Client &amp; Creator Projects</h3>
-          <p>Curated from our studio archives &bull; @4eleven.in &bull; Rohan Matheshiya Portfolio</p>
-        </div>
-        <div class="redo-portfolio-links-row">
-          <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="redo-portfolio-ext-link">
-            <span>Instagram @4eleven.in</span>
-            <span>↗</span>
+      <!-- Actions & Inquiries -->
+      <div class="action-group">
+        <div class="btn-row">
+          <a href="mailto:ssup@4eleven.in?subject=Project%20Inquiry%20%E2%80%94%20Four%20Eleven%20Studio" class="btn-primary">
+            Start a Project →
           </a>
-          <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer" class="redo-portfolio-ext-link">
-            <span>rohanmatheshiya.myportfolio.com</span>
-            <span>↗</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="redo-portfolio-cards-grid">
-        <!-- Project 1: Amit Tandon Halwa Tour -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/projects/halwa-tour-hd.jpg" alt="Amit Tandon Halwa World Tour Poster">
-            <span class="redo-project-category-badge">Tour Branding</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Amit Tandon // Stand-Up Comedy</span>
-            <h4 class="redo-project-name">Halwa World Tour</h4>
-            <p class="redo-project-desc">Key visual identity, international show posters, and high-impact digital promotional campaign for celebrated comedian Amit Tandon's worldwide tour.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Poster Art</span>
-              <span class="redo-project-tag">Key Visuals</span>
-              <span class="redo-project-tag">Tour Campaign</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2: Faizan Bhat Live -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/instagram/ig_post_oct2026.jpg" alt="Faizan Bhat Live Stand-Up Tour Poster">
-            <span class="redo-project-category-badge">Live Tour Visuals</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Faizan Bhat // BookMyShow</span>
-            <h4 class="redo-project-name">Faizan Bhat Live</h4>
-            <p class="redo-project-desc">Edgy typography and distressed crime-tape aesthetic poster campaign for national stand-up shows across Delhi, Gurgaon, Mohali and Jammu.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Tour Poster</span>
-              <span class="redo-project-tag">BookMyShow</span>
-              <span class="redo-project-tag">Social Teasers</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3: Kibo Hair Science -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/projects/kibo-hair-science-hd.jpg" alt="Kibo Hair Science Medical Video Production" style="object-position: center bottom;">
-            <span class="redo-project-category-badge">Video Production</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Kibo Hair Science // Healthcare</span>
-            <h4 class="redo-project-name">Hair Transplant Films</h4>
-            <p class="redo-project-desc">High-trust medical aesthetic video production, patient transformation storytelling, and technical procedural explainers creating market authority.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Video Production</span>
-              <span class="redo-project-tag">Editing</span>
-              <span class="redo-project-tag">Brand Film</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4: YouTube Viral Packaging -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/projects/youtube-thumbnails-hd.jpg" alt="YouTube Viral Thumbnail Packaging" style="object-position: center 20%;">
-            <span class="redo-project-category-badge">Creator Packaging</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Top Creators // YouTube</span>
-            <h4 class="redo-project-name">Viral Thumbnail Suite</h4>
-            <p class="redo-project-desc">High-CTR thumbnail architecture, expressive facial lighting, dynamic color grading, and psychological visual hooks engineered for millions of clicks.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">High-CTR Art</span>
-              <span class="redo-project-tag">Thumbnail Design</span>
-              <span class="redo-project-tag">Title Hooks</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 5: Dr. Kumar Vishwas Live -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/instagram/ig_post_july29.jpg" alt="Dr. Kumar Vishwas Kavi Sammelan Phoenix Marketcity Poster">
-            <span class="redo-project-category-badge">Concert Visuals</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Dr. Kumar Vishwas // Phoenix Marketcity</span>
-            <h4 class="redo-project-name">Kavi Sammelan Bangalore</h4>
-            <p class="redo-project-desc">Retro sunburst event poster art and digital announcement campaign for legendary Hindi poet Dr. Kumar Vishwas's grand live performance.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Event Poster</span>
-              <span class="redo-project-tag">Dr. Kumar Vishwas</span>
-              <span class="redo-project-tag">Social Art</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 6: Aakara x Sushmita Mukherjee -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/instagram/ig_post_july27.jpg" alt="Aakara x Susmita Celebrity Brand Campaign">
-            <span class="redo-project-category-badge">Celebrity Collab</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Aakara // Sushmita Mukherjee</span>
-            <h4 class="redo-project-name">Aakara &times; Susmita</h4>
-            <p class="redo-project-desc">Editorial campaign and celebrity brand collaboration celebrating authentic Indian heritage, artisanal textiles, and soulful portrait storytelling.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Celebrity Collab</span>
-              <span class="redo-project-tag">Editorial Lookbook</span>
-              <span class="redo-project-tag">Visual Identity</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 7: Agatsu Foundation Podcast -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/instagram/ig_post_july28.jpg" alt="Agatsu Foundation Podcast Edit">
-            <span class="redo-project-category-badge">Podcast Production</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Agatsu Foundation // Mental Health</span>
-            <h4 class="redo-project-name">Agatsu Podcast Series</h4>
-            <p class="redo-project-desc">End-to-end multi-cam video podcast production, seamless conversational editing, studio audio mastering, and viral short-form social cutdowns.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Podcast Edit</span>
-              <span class="redo-project-tag">Multi-Cam</span>
-              <span class="redo-project-tag">Reels Cutdowns</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 8: Pronto x Haqdarshak -->
-        <div class="redo-project-item">
-          <div class="redo-project-thumb">
-            <img src="assets/instagram/ig_post_june18_b.jpg" alt="Pronto x Haqdarshak Brand Workshop">
-            <span class="redo-project-category-badge">Brand Workshop</span>
-          </div>
-          <div class="redo-project-info">
-            <span class="redo-project-client">Pronto &times; Haqdarshak // Social Impact</span>
-            <h4 class="redo-project-name">Pronto Brand Workshop</h4>
-            <p class="redo-project-desc">On-ground workshop documentation, storytelling films, and social media creative suite connecting grassroots community leaders with financial inclusion.</p>
-            <div class="redo-project-tags">
-              <span class="redo-project-tag">Field Film</span>
-              <span class="redo-project-tag">Community Story</span>
-              <span class="redo-project-tag">Social Media</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 36px;">
-      <p style="font-family: var(--font-serif); font-style: italic; color: rgba(255, 255, 255, 0.7); font-size: 16px; margin: 0;">Every project is an opportunity to create something meaningful.</p>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 07: CLIENTS & COLLABORATIONS
-       ========================================================================== -->
-  <section class="redo-reviews-section" id="reviews">
-    <!-- 24-Logo Glass Grid -->
-    <div class="redo-clients-grid">
-      <div class="redo-client-cell">FLIPKART</div>
-      <div class="redo-client-cell">SCHBANG</div>
-      <div class="redo-client-cell">ISKCON</div>
-      <div class="redo-client-cell">THE MOMS CO.</div>
-      <div class="redo-client-cell">mCAFFEINE</div>
-      <div class="redo-client-cell">TRAYA</div>
-      <div class="redo-client-cell">ROCK PAPER RUM</div>
-      <div class="redo-client-cell">HIMEYA</div>
-      <div class="redo-client-cell">CONVERTIAS</div>
-      <div class="redo-client-cell">GREETER</div>
-      <div class="redo-client-cell">SUMA</div>
-      <div class="redo-client-cell">BRAINYACT</div>
-      <div class="redo-client-cell">WESMILE</div>
-      <div class="redo-client-cell">CLEARBRIDGE</div>
-      <div class="redo-client-cell">PRONTO</div>
-      <div class="redo-client-cell">KIBO SCIENCE</div>
-      <div class="redo-client-cell">SERVOS</div>
-      <div class="redo-client-cell">SLINGSHOT</div>
-      <div class="redo-client-cell">FINANCE SCHOOL</div>
-      <div class="redo-client-cell">AMPERSAND</div>
-      <div class="redo-client-cell">GOOD HABITS</div>
-      <div class="redo-client-cell">HIVER</div>
-      <div class="redo-client-cell">LIFESIGHT</div>
-      <div class="redo-client-cell">BORED GAME CO.</div>
-    </div>
-
-    <!-- Section Header -->
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ CLIENTS &amp; COLLABORATIONS ]</div>
-    <h2 class="redo-section-title">Good Work. <em>Great Collaborations</em>.</h2>
-    <p class="redo-section-subtitle">We work with brands, businesses, creators and organisations to build ideas that connect with audiences.</p>
-    <p style="text-align: center; color: rgba(255, 255, 255, 0.65); font-size: 14.5px; max-width: 680px; margin: 10px auto 0 auto; line-height: 1.6; font-style: italic;">From emerging businesses to established names, every collaboration brings a new story to tell.</p>
-
-    <!-- Fanned Testimonial Card -->
-    <div class="redo-testimonial-wrapper">
-      <div class="redo-testimonial-card">
-        <div class="redo-testimonial-avatar">
-          <img src="assets/ba/avatar-yoann.jpg" alt="Client Avatar" id="testi-avatar">
-        </div>
-        <div class="redo-testimonial-body">
-          <p class="redo-testimonial-quote" id="testi-quote">"The site looks flawless. We really appreciate the maturity and patience to see things through the rounds of iteration. Quality work, very responsive!"</p>
-          <div class="redo-testimonial-author">
-            <div>
-              <h4 class="redo-testimonial-name" id="testi-name">Siim Säinas</h4>
-              <p class="redo-testimonial-role" id="testi-role">Founder, SUMA</p>
-            </div>
-            <div class="redo-testimonial-brand" id="testi-brand">SUMA</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation Dots -->
-      <div class="redo-dots-nav" id="testi-dots"></div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 08: CONTACT SECTION (HAVE AN IDEA? LET'S MAKE IT HAPPEN)
-       ========================================================================== -->
-  <section class="redo-contact-section" id="contact">
-    <div class="redo-section-eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--redo-crimson-bright); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 8px;">[ CONTACT SECTION ]</div>
-    <h2 class="redo-section-title">Have an Idea? <em>Let's Make It Happen</em>.</h2>
-    
-    <div class="redo-contact-card">
-      <p class="redo-contact-sub">Looking to build your brand, create engaging content or take your digital presence to the next level?</p>
-      <div class="redo-contact-prompt">Let's talk about what we can create together.</div>
-      
-      <div class="redo-contact-actions">
-        <a href="#contact" class="btn-orange-pill open-redo-contact" style="padding: 16px 36px; font-size: 14px;">
-          <span>START A PROJECT</span>
-          <span class="btn-arrow-circle">↗</span>
-        </a>
-
-        <button class="redo-copy-email-btn" id="redo-contact-copy-email" aria-label="Copy Email (ssup@4eleven.in)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span>ssup@4eleven.in</span>
-        </button>
-      </div>
-
-      <div class="redo-contact-meta">
-        <div class="redo-contact-meta-item">
-          <span>Email:</span>
-          <a href="mailto:ssup@4eleven.in">ssup@4eleven.in</a>
-        </div>
-        <div class="redo-contact-meta-item">
-          <span>Website:</span>
-          <a href="https://www.4eleven.in" target="_blank" rel="noopener">www.4eleven.in</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 09: STUDIO FOOTER
-       ========================================================================== -->
-  <div class="redo-footer-frame-container" id="footer">
-    <footer class="redo-footer">
-      <div class="redo-footer-backdrop">
-        <img src="assets/redo/footer-statue.jpg" alt="Classical Sculpture Heritage Backdrop">
-      </div>
-      <div class="redo-footer-aura"></div>
-
-      <div class="redo-footer-content">
-        <span class="redo-footer-kicker">FOUR ELEVEN STUDIO</span>
-        <h2 class="redo-footer-headline">We create ideas, stories and digital experiences that <em>move brands forward</em>.</h2>
-        <p style="color: rgba(255, 255, 255, 0.75); font-size: 16px; margin: 12px 0 28px 0; font-family: var(--font-sans);">Creative Thinking. Strategic Execution.</p>
-        <a href="#contact" class="redo-footer-cta open-redo-contact">Start a Project</a>
-      </div>
-
-      <div class="redo-footer-bottom-bar">
-        <div>© 2026 Four Eleven Studio. All Rights Reserved.</div>
-
-        <!-- 1-Click Copy Email Widget -->
-        <div>
-          <button class="redo-copy-email-btn" id="redo-copy-email" aria-label="Copy Email (ssup@4eleven.in)">
-            <span class="redo-copied-toast" id="redo-copy-toast">✓ Copied to clipboard!</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <span>ssup@4eleven.in</span>
+          <button class="btn-secondary" id="copy-email-btn" type="button" aria-label="Copy email address">
+            <span>✉ ssup@4eleven.in</span>
+            <span style="opacity:0.4;">|</span>
+            <span style="font-size:10px;">Copy</span>
           </button>
         </div>
 
-        <div class="redo-footer-links">
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="redo-footer-link">Instagram</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="redo-footer-link">LinkedIn</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="redo-footer-link">YouTube</a>
+        <div class="founder-credit">
+          <span>Direction &amp; Curation by <strong>Rohan Matheshiya</strong></span>
+          <span>•</span>
+          <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">View Portfolio ↗</a>
         </div>
+      </div>
+
+    </main>
+
+    <!-- Bottom Footer -->
+    <footer>
+      <div class="footer-left">
+        <span>© 2026 Four Eleven Studio. All Rights Reserved.</span>
+      </div>
+      <div class="footer-center">
+        <span>Creative Thinking. Strategic Execution.</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
+        <a href="mailto:ssup@4eleven.in">Contact</a>
       </div>
     </footer>
+
   </div>
 
-  <!-- ==========================================================================
-       MODAL PROJECT INTAKE FORM (HAVE AN IDEA? LET'S MAKE IT HAPPEN)
-       ========================================================================== -->
-  <div class="redo-modal-overlay" id="redo-contact-modal">
-    <div class="redo-modal-card">
-      <button class="redo-modal-close" id="redo-modal-close" aria-label="Close Modal">✕</button>
-      <h3 class="redo-modal-title">Have an Idea? <em>Let's Make It Happen</em>.</h3>
-      <p class="redo-modal-sub">Looking to build your brand, create engaging content or take your digital presence to the next level? Let's talk about what we can create together.</p>
-
-      <form id="redo-intake-form">
-        <div class="redo-form-group">
-          <label class="redo-form-label" for="intake-name">Your Name</label>
-          <input type="text" id="intake-name" class="redo-form-input" placeholder="e.g. Rohan Sharma" required>
-        </div>
-        <div class="redo-form-group">
-          <label class="redo-form-label" for="intake-email">Work Email</label>
-          <input type="email" id="intake-email" class="redo-form-input" placeholder="rohan@company.com" required>
-        </div>
-        <div class="redo-form-group">
-          <label class="redo-form-label" for="intake-service">Service Required</label>
-          <select id="intake-service" class="redo-form-select">
-            <option value="social">Social Media Management</option>
-            <option value="content">Content Creation &amp; Production</option>
-            <option value="branding">Branding &amp; Creative Design</option>
-            <option value="video">Video Production</option>
-            <option value="marketing">Digital Marketing</option>
-            <option value="influencer">Influencer Marketing &amp; Collaborations</option>
-          </select>
-        </div>
-        <div class="redo-form-group">
-          <label class="redo-form-label" for="intake-msg">Project Summary</label>
-          <textarea id="intake-msg" rows="3" class="redo-form-textarea" placeholder="Tell us about your brand, goals, and what you're looking to achieve." required></textarea>
-        </div>
-        <button type="submit" class="redo-form-submit">Start a Project</button>
-      </form>
-    </div>
+  <!-- Toast for Email Copy -->
+  <div class="copy-toast" id="copy-toast">
+    <span class="copy-toast-dot"></span>
+    <span>Copied ssup@4eleven.in to clipboard!</span>
   </div>
 
-  <!-- ==========================================================================
-       SIDE-OUT MENU DRAWER (MOBILE & QUICK NAV)
-       ========================================================================== -->
-  <aside class="side-drawer" id="menu-drawer" aria-hidden="true" role="dialog" aria-label="Site Navigation">
-    <div class="drawer-header">
-      <a href="#hero" class="drawer-logo" aria-label="Four Eleven Studio Home">
-        <img src="assets/logo-411-mark.png" alt="Four Eleven Studio" style="height: 38px; width: auto;">
-      </a>
-      <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Close Menu">✕</button>
-    </div>
-    <nav class="drawer-nav-list">
-      <a href="#about" class="drawer-nav-item">
-        <span class="drawer-nav-num">01</span>
-        <span>About</span>
-      </a>
-      <a href="#services" class="drawer-nav-item">
-        <span class="drawer-nav-num">02</span>
-        <span>Services</span>
-      </a>
-      <a href="#approach" class="drawer-nav-item">
-        <span class="drawer-nav-num">03</span>
-        <span>Approach</span>
-      </a>
-      <a href="#why-us" class="drawer-nav-item">
-        <span class="drawer-nav-num">04</span>
-        <span>Why Us</span>
-      </a>
-      <a href="#work" class="drawer-nav-item">
-        <span class="drawer-nav-num">05</span>
-        <span>Work</span>
-      </a>
-      <a href="#contact" class="drawer-nav-item open-redo-contact">
-        <span class="drawer-nav-num">06</span>
-        <span>Contact</span>
-      </a>
-    </nav>
-    <div class="drawer-footer">
-      <div>
-        <div class="drawer-contact-title">Direct Inquiries</div>
-        <a href="mailto:ssup@4eleven.in" class="drawer-email">ssup@4eleven.in</a>
-      </div>
-      <div>
-        <a href="#contact" class="btn-orange-pill open-redo-contact" style="padding: 12px 24px; font-size: 13px;">
-          <span>Start A Project</span>
-          <span class="btn-arrow-circle">↗</span>
-        </a>
-      </div>
-    </div>
-  </aside>
-    <div class="drawer-footer">
-      <div>
-        <div class="drawer-contact-title">Direct Inquiries</div>
-        <a href="mailto:ssup@4eleven.in" class="drawer-email">ssup@4eleven.in</a>
-      </div>
-      <div>
-        <a href="#contact" class="btn-orange-pill open-redo-contact" style="padding: 12px 24px; font-size: 13px;">
-          <span>Start A Project</span>
-          <span class="btn-arrow-circle">↗</span>
-        </a>
-      </div>
-    </div>
-  </aside>
+  <!-- Interactive Scripts -->
+  <script>
+    // 1. Live IST Clock
+    const clockEl = document.getElementById('ist-clock');
+    function updateClock() {
+      if (!clockEl) return;
+      try {
+        const now = new Date();
+        const options = {
+          timeZone: 'Asia/Kolkata',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        };
+        clockEl.textContent = new Intl.DateTimeFormat('en-GB', options).format(now) + ' IST';
+      } catch (e) {
+        const now = new Date();
+        clockEl.textContent = now.toTimeString().split(' ')[0] + ' IST';
+      }
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
 
-  <!-- Scripts -->
-  <script src="js/gsap.min.js"></script>
-  <script src="js/ScrollTrigger.min.js"></script>
-  <script src="js/main.js?v=7.9"></script>
-  <script src="js/ba-investor-decks.js?v=7.9"></script>
-  <script src="js/redo-theme.js?v=7.9"></script>
+    // 2. Countdown Timer
+    // Targets 14 days from launch baseline or persistent target
+    const targetDate = new Date('2026-11-15T00:00:00+05:30').getTime();
+    const daysEl = document.getElementById('cnt-days');
+    const hoursEl = document.getElementById('cnt-hours');
+    const minsEl = document.getElementById('cnt-mins');
+    const secsEl = document.getElementById('cnt-secs');
+
+    function updateCountdown() {
+      const now = Date.now();
+      let diff = targetDate - now;
+      if (diff < 0) {
+        diff = Math.abs(diff % (14 * 86400000));
+      }
+      
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const m = Math.floor((diff / (1000 * 60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+
+      if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+      if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+      if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 3. Email Copy Interaction
+    const copyBtn = document.getElementById('copy-email-btn');
+    const copyToast = document.getElementById('copy-toast');
+    let toastTimeout;
+
+    if (copyBtn && copyToast) {
+      copyBtn.addEventListener('click', async () => {
+        const email = 'ssup@4eleven.in';
+        try {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            await navigator.clipboard.writeText(email);
+          } else {
+            const textarea = document.createElement('textarea');
+            textarea.value = email;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+          }
+          copyToast.classList.add('show');
+          clearTimeout(toastTimeout);
+          toastTimeout = setTimeout(() => {
+            copyToast.classList.remove('show');
+          }, 3200);
+        } catch (err) {
+          window.location.href = 'mailto:' + email;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
