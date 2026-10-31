@@ -552,57 +552,134 @@
       text-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
     }
 
-    /* Bottom Row: INTO [प्रभाव] IMPACT. */
+    /* Bottom Row: INTO [॥ प्रभाव ॥ // IMPACT //] */
     .title-row-2 {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
-      margin-top: 4px;
+      margin-top: 8px;
     }
 
     .txt-into {
       font-family: var(--font-display);
-      font-size: clamp(38px, 7.8vw, 92px);
+      font-size: clamp(34px, 6.8vw, 84px);
       font-weight: 700;
-      line-height: 0.95;
+      line-height: 1;
       letter-spacing: -0.04em;
       text-transform: uppercase;
       color: #ffffff;
     }
 
-    /* Playful Hindi Highlight Word */
-    .txt-hindi-impact {
-      font-family: var(--font-rozha);
-      font-size: clamp(38px, 8vw, 96px);
-      font-weight: 400;
-      line-height: 0.95;
-      color: var(--marigold);
-      text-shadow: 
-        0 0 20px rgba(251, 191, 36, 0.5),
-        2px 2px 0 rgba(220, 38, 38, 0.8);
+    /* Authentic Desi Retro Ticket Stamp Badge */
+    .desi-loop-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 73, 59, 0.22) 0%, rgba(20, 18, 22, 0.94) 100%);
+      border: 1.5px dashed rgba(251, 191, 36, 0.55);
+      padding: 6px 22px 8px 22px;
+      border-radius: 16px;
+      box-shadow: 
+        0 10px 35px rgba(0, 0, 0, 0.6),
+        0 0 35px rgba(251, 191, 36, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
       position: relative;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .desi-loop-badge {
+        padding: 8px 30px 10px 30px;
+        border-radius: 18px;
+      }
+    }
+
+    .desi-loop-badge:hover {
+      border-color: var(--marigold);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.7),
+        0 0 45px rgba(251, 191, 36, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .desi-corner {
+      position: absolute;
+      font-size: 8px;
+      color: var(--marigold);
+      opacity: 0.7;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .desi-corner.tl { top: 4px; left: 6px; }
+    .desi-corner.tr { top: 4px; right: 6px; }
+    .desi-corner.bl { bottom: 4px; left: 6px; }
+    .desi-corner.br { bottom: 4px; right: 6px; }
+
+    .desi-loop-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      perspective: 600px;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease, filter 0.32s ease;
+    }
+
+    .desi-loop-content.flip-out {
+      transform: rotateX(65deg) translateY(-6px);
+      opacity: 0;
+      filter: blur(4px);
+    }
+
+    .desi-loop-content.flip-in {
+      transform: rotateX(0deg) translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .desi-danda {
+      font-family: var(--font-rozha);
+      font-size: clamp(28px, 5.2vw, 62px);
+      color: var(--crimson);
+      opacity: 0.9;
+      line-height: 1;
+      text-shadow: 0 0 15px rgba(255, 73, 59, 0.4);
+    }
+
+    .desi-hindi-word {
+      font-family: var(--font-rozha);
+      font-size: clamp(36px, 6.6vw, 80px);
+      font-weight: 400;
+      color: var(--marigold);
+      line-height: 1.05;
+      text-shadow: 
+        0 0 25px rgba(251, 191, 36, 0.6),
+        2px 2px 0 #b91c1c;
       letter-spacing: 0.02em;
     }
 
-    /* English Gradient Word */
-    .txt-impact-grad {
-      font-family: var(--font-display);
-      font-size: clamp(38px, 7.8vw, 92px);
-      font-weight: 700;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+    .desi-en-sub {
+      font-family: var(--font-mono);
+      font-size: clamp(9px, 1.1vw, 11px);
+      font-weight: 600;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #ffffff 15%, #ffbe3b 55%, #ff493b 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 45px rgba(255, 73, 59, 0.4);
+      color: #ff9187;
+      margin-top: 3px;
+      opacity: 0.9;
+      transition: opacity 0.32s ease, transform 0.32s ease;
+    }
+
+    .desi-en-sub.flip-out {
+      opacity: 0;
+      transform: translateY(4px);
     }
 
     /* Poetic Hindi Tagline Pill */
     .poetic-hindi-banner {
-      margin-top: 18px;
+      margin-top: 20px;
       font-family: var(--font-yatra);
       font-size: clamp(14px, 1.4vw, 17px);
       color: var(--marigold);
@@ -628,100 +705,10 @@
     }
 
     /* ==========================================================================
-       RETRO INDIAN MATCHBOX TIMEPIECE (COUNTDOWN)
-       ========================================================================== */
-    .countdown-matchbox {
-      margin-top: 30px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--card-bg);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 16px 24px;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.6), 
-        0 0 30px rgba(255, 73, 59, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      position: relative;
-    }
-
-    @media (min-width: 640px) {
-      .countdown-matchbox {
-        gap: 22px;
-        padding: 22px 38px;
-        margin-top: 36px;
-      }
-    }
-
-    .countdown-matchbox::before,
-    .countdown-matchbox::after {
-      content: '✦';
-      position: absolute;
-      font-size: 8px;
-      color: var(--marigold);
-      opacity: 0.6;
-    }
-    .countdown-matchbox::before { top: 7px; left: 9px; }
-    .countdown-matchbox::after { bottom: 7px; right: 9px; }
-
-    .timer-col {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 44px;
-    }
-
-    @media (min-width: 640px) {
-      .timer-col {
-        min-width: 64px;
-      }
-    }
-
-    .timer-num {
-      font-family: var(--font-mono);
-      font-size: clamp(26px, 4.4vw, 44px);
-      font-weight: 600;
-      color: #ffffff;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-variant-numeric: tabular-nums;
-    }
-
-    .timer-en {
-      font-family: var(--font-mono);
-      font-size: 8.5px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: rgba(255, 255, 255, 0.45);
-      margin-top: 6px;
-    }
-
-    .timer-hi {
-      font-family: var(--font-yatra);
-      font-size: 10px;
-      color: var(--marigold);
-      margin-top: 1px;
-      letter-spacing: 0.05em;
-    }
-
-    .timer-sep {
-      font-family: var(--font-mono);
-      font-size: clamp(18px, 3vw, 32px);
-      color: var(--crimson);
-      opacity: 0.8;
-      margin-top: -14px;
-      font-weight: 300;
-    }
-
-    /* ==========================================================================
        BILINGUAL CORE SERVICES TICKER
        ========================================================================== */
     .services-strip {
-      margin-top: 26px;
+      margin-top: 34px;
       width: 100%;
       max-width: 860px;
       display: flex;
@@ -734,7 +721,7 @@
     @media (min-width: 768px) {
       .services-strip {
         gap: 10px;
-        margin-top: 32px;
+        margin-top: 40px;
       }
     }
 
@@ -1157,8 +1144,18 @@
         </div>
         <div class="title-row-2">
           <span class="txt-into">INTO</span>
-          <span class="txt-hindi-impact">प्रभाव</span>
-          <span class="txt-impact-grad">IMPACT.</span>
+          <div class="desi-loop-badge" id="desi-loop-badge" title="We Turn Ideas Into Impact">
+            <span class="desi-corner tl">✦</span>
+            <span class="desi-corner tr">✦</span>
+            <div class="desi-loop-content" id="desi-loop-content">
+              <span class="desi-danda">॥</span>
+              <span class="desi-hindi-word" id="loop-hindi-word">प्रभाव</span>
+              <span class="desi-danda">॥</span>
+            </div>
+            <span class="desi-en-sub" id="loop-en-word">// IMPACT //</span>
+            <span class="desi-corner bl">✦</span>
+            <span class="desi-corner br">✦</span>
+          </div>
         </div>
       </div>
 
@@ -1173,33 +1170,6 @@
         <strong>powerful storytelling</strong>, <strong>strategic thinking</strong>, and <strong>creative execution</strong>. 
         From content creation to brand communication, we make ideas work.
       </p>
-
-      <!-- Retro Indian Matchbox Countdown -->
-      <div class="countdown-matchbox" id="countdown-wrap" role="timer" aria-label="Launch Countdown">
-        <div class="timer-col">
-          <span class="timer-num" id="cnt-days">00</span>
-          <span class="timer-en">Days</span>
-          <span class="timer-hi">दिन</span>
-        </div>
-        <span class="timer-sep">:</span>
-        <div class="timer-col">
-          <span class="timer-num" id="cnt-hours">00</span>
-          <span class="timer-en">Hours</span>
-          <span class="timer-hi">घंटे</span>
-        </div>
-        <span class="timer-sep">:</span>
-        <div class="timer-col">
-          <span class="timer-num" id="cnt-mins">00</span>
-          <span class="timer-en">Mins</span>
-          <span class="timer-hi">मिनट</span>
-        </div>
-        <span class="timer-sep">:</span>
-        <div class="timer-col">
-          <span class="timer-num" id="cnt-secs">00</span>
-          <span class="timer-en">Secs</span>
-          <span class="timer-hi">सेकंड</span>
-        </div>
-      </div>
 
       <!-- Bilingual Core Capabilities Ticker -->
       <div class="services-strip">
@@ -1395,33 +1365,47 @@
     setInterval(updateClock, 1000);
 
     // =========================================================================
-    // 3. COUNTDOWN TIMER
+    // 3. DESI HINDI KINETIC WORD LOOP
     // =========================================================================
-    const targetDate = new Date('2026-11-15T00:00:00+05:30').getTime();
-    const daysEl = document.getElementById('cnt-days');
-    const hoursEl = document.getElementById('cnt-hours');
-    const minsEl = document.getElementById('cnt-mins');
-    const secsEl = document.getElementById('cnt-secs');
+    (function initDesiWordLoop() {
+      const contentEl = document.getElementById('desi-loop-content');
+      const hindiEl = document.getElementById('loop-hindi-word');
+      const enEl = document.getElementById('loop-en-word');
+      if (!contentEl || !hindiEl || !enEl) return;
 
-    function updateCountdown() {
-      const now = Date.now();
-      let diff = targetDate - now;
-      if (diff < 0) {
-        diff = Math.abs(diff % (14 * 86400000));
-      }
-      
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const m = Math.floor((diff / (1000 * 60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
+      const words = [
+        { hi: 'प्रभाव', en: '// IMPACT //' },
+        { hi: 'पहचान', en: '// IDENTITY //' },
+        { hi: 'क्रांति', en: '// REVOLUTION //' },
+        { hi: 'कहानी', en: '// STORIES //' },
+        { hi: 'जादू', en: '// MAGIC //' },
+        { hi: 'मिसाल', en: '// BENCHMARK //' },
+        { hi: 'परिणाम', en: '// RESULTS //' }
+      ];
 
-      if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
-      if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
-      if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
-      if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+      let currentIndex = 0;
+
+      setInterval(() => {
+        // Animate Out
+        contentEl.classList.add('flip-out');
+        enEl.classList.add('flip-out');
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+          hindiEl.textContent = words[currentIndex].hi;
+          enEl.textContent = words[currentIndex].en;
+
+          // Animate In
+          contentEl.classList.remove('flip-out');
+          contentEl.classList.add('flip-in');
+          enEl.classList.remove('flip-out');
+
+          setTimeout(() => {
+            contentEl.classList.remove('flip-in');
+          }, 350);
+        }, 320);
+      }, 2500);
+    })();
 
     // =========================================================================
     // 4. COPY EMAIL INTERACTION
