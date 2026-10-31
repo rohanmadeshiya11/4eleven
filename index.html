@@ -266,6 +266,30 @@
       width: 100%;
     }
 
+    @media (max-width: 639px) {
+      header {
+        gap: 8px;
+      }
+      .brand-group {
+        gap: 8px;
+      }
+      .brand-mark {
+        height: 24px;
+      }
+      .brand-en {
+        font-size: 11.5px;
+        letter-spacing: 0.12em;
+      }
+      .brand-hi {
+        font-size: 10px;
+      }
+      .ist-clock-pill {
+        font-size: 9.5px;
+        padding: 5px 8px;
+        gap: 5px;
+      }
+    }
+
     .brand-group {
       display: flex;
       align-items: center;
@@ -332,19 +356,34 @@
     .ist-clock-pill {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       font-family: var(--font-mono);
-      font-size: 10.5px;
-      letter-spacing: 0.08em;
+      font-size: 10px;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.7);
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
-      padding: 6px 13px;
+      padding: 5px 10px;
       border-radius: 9999px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       white-space: nowrap;
+    }
+
+    @media (max-width: 480px) {
+      .clock-city {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .ist-clock-pill {
+        gap: 7px;
+        font-size: 10.5px;
+        letter-spacing: 0.08em;
+        padding: 6px 13px;
+      }
     }
 
     .live-dot {
@@ -831,6 +870,40 @@
       transform: translateY(-2px);
     }
 
+    /* Secondary Portfolio Button */
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      padding: 12px 20px;
+      border-radius: 9999px;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    @media (min-width: 768px) {
+      .btn-secondary {
+        font-size: 12px;
+        padding: 13px 22px;
+      }
+    }
+
+    .btn-secondary:hover {
+      background: rgba(251, 191, 36, 0.15);
+      border-color: var(--marigold);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 20px rgba(251, 191, 36, 0.25);
+    }
+
     /* Founder Credit */
     .founder-note {
       margin-top: 6px;
@@ -860,34 +933,6 @@
     .founder-note a:hover {
       color: var(--marigold);
       border-bottom-color: var(--marigold);
-    }
-
-    /* Side Preview Banner */
-    .preview-route-pill {
-      margin-top: 10px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: rgba(255, 255, 255, 0.7);
-      background: rgba(245, 158, 11, 0.07);
-      border: 1px dashed rgba(245, 158, 11, 0.35);
-      padding: 7px 18px;
-      border-radius: 9999px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .preview-route-pill:hover {
-      background: rgba(245, 158, 11, 0.16);
-      border-color: var(--marigold);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .sparkle {
-      color: var(--marigold);
     }
 
     /* ==========================================================================
@@ -1082,12 +1127,12 @@
         <!-- IST Clock -->
         <div class="ist-clock-pill">
           <span class="live-dot"></span>
-          <span>Mumbai • <span id="ist-clock">--:--:-- IST</span></span>
+          <span><span class="clock-city">Mumbai • </span><span id="ist-clock">--:--:-- IST</span></span>
         </div>
 
-        <!-- Full Website Preview Pill (Desktop) -->
-        <a href="preview.html" class="preview-header-btn" title="Preview Full 10-Section Website">
-          <span>Preview Full Site</span>
+        <!-- View Portfolio Link (Desktop) -->
+        <a href="portfolio.html" class="preview-header-btn" title="View Selected Client Works & Portfolio">
+          <span>View Portfolio</span>
           <span>↗</span>
         </a>
       </div>
@@ -1193,8 +1238,12 @@
       <!-- Actions & Contacts -->
       <div class="actions-wrap">
         <div class="btn-row">
-          <a href="mailto:ssup@4eleven.in?subject=Project%20Inquiry%20%E2%80%94%20Four%20Eleven%20Studio" class="btn-primary">
-            Start a Project →
+          <a href="mailto:ssup@4eleven.in?subject=Let's%20Work%20Together%20%E2%80%94%20Four%20Eleven%20Studio" class="btn-primary">
+            Let's Work Together →
+          </a>
+          <a href="portfolio.html" class="btn-secondary">
+            <span>Explore Our Work</span>
+            <span style="color:var(--marigold);">↗</span>
           </a>
           <button class="btn-copy" id="copy-email-btn" type="button" aria-label="Copy email address">
             <span>✉ ssup@4eleven.in</span>
@@ -1207,15 +1256,8 @@
         <div class="founder-note">
           <span>Direction &amp; Curation by <strong>Rohan Matheshiya</strong></span>
           <span>•</span>
-          <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">View Portfolio ↗</a>
+          <a href="portfolio.html">View Portfolio ↗</a>
         </div>
-
-        <!-- Side Preview Link -->
-        <a href="preview.html" class="preview-route-pill">
-          <span class="sparkle">✦</span>
-          <span>Preview Full 10-Section Website Architecture</span>
-          <span>→</span>
-        </a>
       </div>
 
     </main>
@@ -1230,8 +1272,7 @@
       </div>
       <div class="footer-links">
         <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a href="https://rohanmatheshiya.myportfolio.com" target="_blank" rel="noopener noreferrer">Portfolio</a>
-        <a href="preview.html">Preview Site</a>
+        <a href="portfolio.html">Portfolio</a>
         <a href="mailto:ssup@4eleven.in">Contact</a>
       </div>
     </footer>
