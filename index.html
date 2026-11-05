@@ -2192,10 +2192,10 @@
     .proj-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 12, 0.94);
+      background: rgba(8, 9, 10, 0.94);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      z-index: 10001;
+      z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2215,15 +2215,19 @@
       width: min(920px, 100%);
       max-height: 92vh;
       overflow-y: auto;
-      background: var(--background);
+      background: #0d0f12;
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 36px 40px;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       scrollbar-width: thin;
       scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
+    }
+
+    html.light .proj-modal-box {
+      background: #ffffff;
     }
 
     .proj-modal-overlay.is-active .proj-modal-box {
@@ -3136,7 +3140,11 @@ We engineered clinical authority through psychological framing — addressing pa
           </a>
 
           <!-- Project Card 4: Dr. Pal Manickam -->
-          <a href="portfolio.html?project=dr-pal" class="proj-card" data-title="Dr. Pal YouTube Suite" data-client="Dr. Pal Manickam // 1M+ Community" data-desc="Podcast video production, viral short-form cutdowns, high-CTR YouTube thumbnail architecture, and consistent medical storytelling for one of India's most recognized physicians." data-img="assets/projects/dr-pal.jpg" data-tags="Podcast Production,High-CTR Art,YouTube Suite">
+          <a href="portfolio.html?project=dr-pal" class="proj-card" data-title="Gut Feeling Podcast &amp; YouTube Growth Engine" data-client="Dr. Pal Manickam // 1M+ Community &amp; Podcasts" data-desc="I had the opportunity to lead the visual branding for Dr. Pal's podcast series – a knowledge-driven content channel that exploded in popularity.
+
+Designed the complete visual identity for Dr. Pal's podcast across YouTube and Spotify. This included the official channel banner ('Gut Feeling with Dr. Pal'), high-CTR episode thumbnails, and custom Spotify audio creative tiles.
+
+The cohesive design and psychological visual architecture helped the channel gain 1M+ subscribers and over 50M views in just 4 months, driving massive organic engagement and national recognition." data-img="assets/projects/dr-pal-case-study-hd.jpg" data-tags="Podcast Branding,YouTube Architecture,High-CTR Thumbnails,Spotify Cover Art,1M+ Community,Viral Packaging">
             <div class="proj-card-media">
               <img src="assets/projects/dr-pal.jpg" alt="Dr. Pal Manickam YouTube Packaging" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -3148,14 +3156,38 @@ We engineered clinical authority through psychological framing — addressing pa
             <div class="proj-card-bottom">
               <div class="proj-card-info">
                 <span class="proj-client-sub">Dr. Pal Manickam // 1M+ Community</span>
-                <h3 class="proj-card-title">Dr. Pal YouTube Suite</h3>
-                <p class="proj-card-desc">Visual architecture and high-CTR thumbnail system driving millions of views on digestive health explainers across YouTube and Instagram.</p>
+                <h3 class="proj-card-title">Gut Feeling Podcast &amp; Packaging</h3>
+                <p class="proj-card-desc">Visual branding and high-CTR thumbnail system driving 1M+ subscribers and 50M+ views across YouTube and Spotify.</p>
               </div>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </a>
 
-          <!-- Project Card 5: mCaffeine Commercial Shoot -->
+          <!-- Project Card 5: Dr. Kumar Vishwas Live -->
+          <a href="portfolio.html?project=kumar-vishwas" class="proj-card" data-title="Kavi Sammelan Bangalore Live Visual Identity" data-client="Dr. Kumar Vishwas // Live Performance &amp; Cultural Tour" data-desc="Designed this vibrant poster and promotional identity for an upcoming Kavi Sammelan featuring the legendary poet Dr. Kumar Vishwas at Phoenix Marketcity Bangalore.
+
+I went with a retro-inspired look using bold colors, vintage textures, and expressive typography to reflect the poetic energy and cultural gravity of Indian storytelling.
+
+The visual system was deployed across large-scale physical and digital touchpoints: 360° illuminated Mall Promotional Banners at Phoenix Marketcity, the official BookMyShow event banner, and social media announcement campaigns — blending deep poetic heritage with modern live performance aesthetics." data-img="assets/projects/dr-kumar-vishwas-case-study-hd.jpg" data-tags="Live Performance,Event Poster,Dr. Kumar Vishwas,Mall Promotional Banner,BookMyShow Banner,Retro Typography">
+            <div class="proj-card-media">
+              <img src="assets/projects/dr-kumar-vishwas.jpg" alt="Dr. Kumar Vishwas Live Performance" class="proj-card-img" loading="lazy" style="object-position: center 15%;">
+              <div class="proj-card-scrim"></div>
+            </div>
+            <div class="proj-card-top">
+              <span class="proj-year-pill">2026</span>
+              <span class="proj-category-tag">Live Performance // Cultural Tour</span>
+            </div>
+            <div class="proj-card-bottom">
+              <div class="proj-card-info">
+                <span class="proj-client-sub">Dr. Kumar Vishwas // Cultural Tour</span>
+                <h3 class="proj-card-title">Kavi Sammelan Bangalore</h3>
+                <p class="proj-card-desc">Retro-inspired event poster, 360° illuminated mall promotional banners at Phoenix Marketcity, and BookMyShow launch suite.</p>
+              </div>
+              <div class="proj-arrow-circle">↗</div>
+            </div>
+          </a>
+
+          <!-- Project Card 6: mCaffeine Commercial Shoot -->
           <a href="portfolio.html?project=mcaffeine" class="proj-card" data-title="The Big Chill Sale &amp; D2C Suite" data-client="mCaffeine // D2C Personal Care" data-desc="High-energy commercial campaign graphics, social creative direction, and promotional design suite for mCaffeine — India's pioneer caffeinated personal care brand.
 
 Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 Free, Buy 3 @ ₹999) across coffee body lotions, hydrogel under-eye patches, and face scrubs, alongside the new launch of Airy Light Sunscreen Sprays (Sun Bath &amp; Sun Glaze mist), pairing rich product textures with vibrant editorial aesthetics." data-img="assets/projects/mcaffeine-case-study.jpg" data-tags="D2C Campaigns,The Big Chill Sale,Product Visuals,Sunscreen Launch,Commercial Design">
@@ -3177,26 +3209,37 @@ Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 F
             </div>
           </a>
 
-          <!-- Project Card 6: Rock Paper Rum -->
-          <a href="portfolio.html?project=rum" class="proj-card" data-title="Craft Rum Identity" data-client="Rock Paper Rum // Craft Spirits" data-desc="Creative direction, premium artisanal Indian rum branding, packaging aesthetics, and mood-driven cocktail commercial photography tailored for modern hospitality culture." data-img="assets/projects/rock-paper-rum.jpg" data-tags="Packaging Design,Craft Spirits,Commercial Photography">
+          <!-- Project Card 7: Rock Paper Rum -->
+          <a href="portfolio.html?project=rum" class="proj-card" data-title="Craft Rum Experiential Identity &amp; Event Suite" data-client="Rock Paper Rum // Craft Spirits" data-desc="Experiential brand identity, outdoor festival collateral, and social media creative suite for Rock Paper Rum (रॉक पेपर रम) — an artisanal Indian craft rum brand redefining urban cocktail and festival culture.
+
+Key Deliverables:
+• Bar Counter For Outdoor Event: High-impact branded bar setup ('ONE RUM, MANY FLAVOURS / PICK YOUR FLAVOUR!') featuring custom gestural hand typography and bold orange festival architecture.
+• Social Media Post Series: Multi-slide carousel dissecting 'Types of Indian Spiced Rum Fans' (The Spice Master, The Desi Nuskha Guy, The Bar Advice Friend) alongside topical viral sports cutdowns ('A RUM-BELIEVABLE VICTORY').
+• Poster For Event: Handcrafted easel exhibition collateral for 'VIVA CARNIVAL 1st to 4th March — Let's get Loud. Let's get Rum.'" data-img="assets/projects/rock-paper-rum-case-study-hd.jpg" data-tags="Craft Spirits,Event Bar Counter,Social Media Campaign,Viva Carnival,Experiential Design,Brand Identity">
+            <div class="proj-card-media">
+              <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Craft Spirits" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
             </div>
             <div class="proj-card-top">
               <span class="proj-year-pill">2026</span>
-              <span class="proj-category-tag">Craft Spirits // Branding &amp; Packaging</span>
+              <span class="proj-category-tag">Craft Spirits // Experiential &amp; Events</span>
             </div>
             <div class="proj-card-bottom">
               <div class="proj-card-info">
                 <span class="proj-client-sub">Rock Paper Rum // Craft Spirits</span>
-                <h3 class="proj-card-title">Spirits Packaging</h3>
-                <p class="proj-card-desc">Tactile label design, bottle photography, and lifestyle collateral for an artisanal Indian craft rum brand redefining urban cocktail culture.</p>
+                <h3 class="proj-card-title">Experiential Identity &amp; Events</h3>
+                <p class="proj-card-desc">Outdoor event bar counter architecture, Viva Carnival posters, and viral Indian spiced rum social carousels.</p>
               </div>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </a>
 
-          <!-- Project Card 7: Himeya Luxury Bedding -->
-          <a href="portfolio.html" class="proj-card">
+          <!-- Project Card 8: Himeya Luxury Bedding -->
+          <a href="portfolio.html?project=himeya" class="proj-card" data-title="Conscious Living Social Media &amp; Retail Visuals" data-client="Himēya // Sustainable Living &amp; Bedding" data-desc="Comprehensive digital visual campaign and on-premise retail presentation for Himēya — an international sustainable luxury home textiles and conscious lifestyle brand.
+
+Key Deliverables:
+• Social Media Post Suite: Editorial visual storytelling across organic kids bedding, summer pool towel collections, festive moments (Gudi Padwa), Women's Day editorial stories, and interactive daily lifestyle prompts ('Today's Task List: Laundry, Ironing, Folding...').
+• Retail Store Banner: Dual-sided vertical illuminated lightbox store banners ('Indulge in softness from bedtime to bath time'), showcasing the tactile elegance, thread-count perfection, and mindful craft of sustainable Indian textiles in premium physical stores." data-img="assets/projects/himeya-case-study-hd.jpg" data-tags="Sustainable Luxury,Retail Store Banners,Social Media Suite,Editorial Bedding,Art Direction,Conscious Living">
             <div class="proj-card-media">
               <img src="assets/projects/himeya.jpg" alt="Himeya Luxury Bedding Story" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -3207,9 +3250,9 @@ Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 F
             </div>
             <div class="proj-card-bottom">
               <div class="proj-card-info">
-                <span class="proj-client-sub">Himeya // Sustainable Living</span>
-                <h3 class="proj-card-title">Luxury Bedding Story</h3>
-                <p class="proj-card-desc">Cinematic brand film celebrating organic cotton, thread-count precision, and mindful living for global luxury home markets.</p>
+                <span class="proj-client-sub">Himēya // Sustainable Living</span>
+                <h3 class="proj-card-title">Conscious Living &amp; Retail Visuals</h3>
+                <p class="proj-card-desc">High-engagement social media campaigns and illuminated retail store lightbox banners celebrating tactile luxury bedding.</p>
               </div>
               <div class="proj-arrow-circle">↗</div>
             </div>
@@ -4542,7 +4585,7 @@ Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 F
       const projDesc = document.getElementById('modalDesc');
       const projTags = document.getElementById('modalTags');
       const modalInquireBtn = document.getElementById('modalInquireBtn');
-      const projCards = document.querySelectorAll('.proj-card');
+      const projCards = document.querySelectorAll('.proj-card:not(.proj-card-outro)');
 
       if (!projOverlay) return;
 
@@ -4574,11 +4617,13 @@ Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 F
         }
 
         projOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
         if (window.lenis) window.lenis.stop();
       }
 
       function closeProj() {
         projOverlay.classList.remove('is-active');
+        document.body.style.overflow = '';
         if (window.lenis) window.lenis.start();
       }
 

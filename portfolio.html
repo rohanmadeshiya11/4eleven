@@ -1188,9 +1188,9 @@
     .proj-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(10, 11, 12, 0.92);
+      background: rgba(8, 9, 10, 0.94);
       backdrop-filter: blur(20px);
-      z-index: 10001;
+      z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1210,15 +1210,19 @@
       width: min(920px, 100%);
       max-height: 92vh;
       overflow-y: auto;
-      background: var(--background);
+      background: #0d0f12;
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 36px 40px;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.85);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       scrollbar-width: thin;
       scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
+    }
+
+    html.light .proj-modal-box {
+      background: #ffffff;
     }
 
     .proj-modal-overlay.is-active .proj-modal-box {
@@ -2183,7 +2187,7 @@ This poster served as the primary creative across digital and venue promotions, 
         </article>
 
         <!-- Project 02: Faizan Bhat Live -->
-        <article class="proj-item-card" data-category="tour branding" data-title="Faizan Bhat Live" data-client="Faizan Bhat // BookMyShow" data-desc="Edgy typography and distressed crime-tape aesthetic poster campaign for national stand-up shows across Delhi, Gurgaon, Mohali and Jammu." data-img="assets/projects/faizan-bhat.jpg" data-tags="Stand-Up Comedy,Poster Campaign,BookMyShow">
+        <article class="proj-item-card" id="card-faizan-bhat" data-category="tour branding" data-title="Faizan Bhat Live" data-client="Faizan Bhat // BookMyShow" data-desc="Edgy typography and distressed crime-tape aesthetic poster campaign for national stand-up shows across Delhi, Gurgaon, Mohali and Jammu." data-img="assets/projects/faizan-bhat.jpg" data-tags="Stand-Up Comedy,Poster Campaign,BookMyShow">
           <div class="proj-item-media">
             <img src="assets/projects/faizan-bhat.jpg" alt="Faizan Bhat Live Stand-Up Tour" class="proj-item-img" loading="lazy" style="object-position: center 20%;">
             <div class="proj-item-scrim"></div>
@@ -2241,7 +2245,11 @@ We engineered clinical authority through psychological framing — addressing pa
         </article>
 
         <!-- Project 04: Dr. Pal Manickam -->
-        <article class="proj-item-card" data-category="creator branding" data-title="Podcast &amp; Digital Packaging" data-client="Dr. Pal // YouTube &amp; Podcasts" data-desc="Podcast video production, viral short-form cutdowns, high-CTR YouTube thumbnail architecture, and consistent medical storytelling for one of India's most recognized physicians." data-img="assets/projects/dr-pal.jpg" data-tags="Podcast Production,High-CTR Art,YouTube Suite">
+        <article class="proj-item-card" id="card-dr-pal" data-category="creator branding" data-title="Gut Feeling Podcast &amp; YouTube Growth Engine" data-client="Dr. Pal Manickam // 1M+ Community &amp; Podcasts" data-desc="I had the opportunity to lead the visual branding for Dr. Pal's podcast series – a knowledge-driven content channel that exploded in popularity.
+
+Designed the complete visual identity for Dr. Pal's podcast across YouTube and Spotify. This included the official channel banner ('Gut Feeling with Dr. Pal'), high-CTR episode thumbnails, and custom Spotify audio creative tiles.
+
+The cohesive design and psychological visual architecture helped the channel gain 1M+ subscribers and over 50M views in just 4 months, driving massive organic engagement and national recognition." data-img="assets/projects/dr-pal-case-study-hd.jpg" data-tags="Podcast Branding,YouTube Architecture,High-CTR Thumbnails,Spotify Cover Art,1M+ Community,Viral Packaging">
           <div class="proj-item-media">
             <img src="assets/projects/dr-pal.jpg" alt="Dr. Pal YouTube Suite" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2253,23 +2261,23 @@ We engineered clinical authority through psychological framing — addressing pa
           <div class="proj-item-body">
             <div>
               <span class="proj-client-sub">Dr. Pal // 1M+ Community</span>
-              <h2 class="proj-card-heading">Podcast &amp; Packaging</h2>
-              <p class="proj-card-text">Visual architecture and high-CTR thumbnail system driving millions of views on digestive health explainers across YouTube and Instagram.</p>
+              <h2 class="proj-card-heading">Gut Feeling Podcast &amp; Packaging</h2>
+              <p class="proj-card-text">Visual branding and high-CTR thumbnail system driving 1M+ subscribers and 50M+ views across YouTube and Spotify.</p>
               <div class="proj-tags-list">
-                <span class="proj-tag-pill">Podcast Production</span>
+                <span class="proj-tag-pill">Podcast Branding</span>
+                <span class="proj-tag-pill">YouTube Architecture</span>
                 <span class="proj-tag-pill">High-CTR Art</span>
-                <span class="proj-tag-pill">YouTube Suite</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Project Details</span>
+              <span class="proj-view-cta">View Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
         </article>
 
         <!-- Project 05: Top Creator Thumbnails -->
-        <article class="proj-item-card" data-category="creator branding" data-title="Viral Thumbnail Architecture" data-client="Top Creators // YouTube Ecosystem" data-desc="High-CTR thumbnail architecture, expressive facial lighting, dynamic color grading, and psychological visual hooks engineered for millions of clicks and organic creator discovery." data-img="assets/projects/youtube-thumbnails-hd.jpg" data-tags="Thumbnail Design,Psychological Hooks,Packaging">
+        <article class="proj-item-card" id="card-thumbnails" data-category="creator branding" data-title="Viral Thumbnail Architecture" data-client="Top Creators // YouTube Ecosystem" data-desc="High-CTR thumbnail architecture, expressive facial lighting, dynamic color grading, and psychological visual hooks engineered for millions of clicks and organic creator discovery." data-img="assets/projects/youtube-thumbnails-hd.jpg" data-tags="Thumbnail Design,Psychological Hooks,Packaging">
           <div class="proj-item-media">
             <img src="assets/projects/youtube-thumbnails-hd.jpg" alt="YouTube Viral Thumbnail Packaging" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2297,7 +2305,11 @@ We engineered clinical authority through psychological framing — addressing pa
         </article>
 
         <!-- Project 06: Dr. Kumar Vishwas -->
-        <article class="proj-item-card" data-category="tour branding" data-title="Kavi Sammelan Bangalore" data-client="Dr. Kumar Vishwas // Live Performance" data-desc="Retro sunburst event poster art and digital announcement campaign for legendary Hindi poet Dr. Kumar Vishwas's grand live performance at Phoenix Marketcity." data-img="assets/projects/dr-kumar-vishwas.jpg" data-tags="Event Poster,Dr. Kumar Vishwas,Heritage Art">
+        <article class="proj-item-card" id="card-kumar-vishwas" data-category="tour branding" data-title="Kavi Sammelan Bangalore Live Visual Identity" data-client="Dr. Kumar Vishwas // Live Performance &amp; Cultural Tour" data-desc="Designed this vibrant poster and promotional identity for an upcoming Kavi Sammelan featuring the legendary poet Dr. Kumar Vishwas at Phoenix Marketcity Bangalore.
+
+I went with a retro-inspired look using bold colors, vintage textures, and expressive typography to reflect the poetic energy and cultural gravity of Indian storytelling.
+
+The visual system was deployed across large-scale physical and digital touchpoints: 360° illuminated Mall Promotional Banners at Phoenix Marketcity, the official BookMyShow event banner, and social media announcement campaigns — blending deep poetic heritage with modern live performance aesthetics." data-img="assets/projects/dr-kumar-vishwas-case-study-hd.jpg" data-tags="Live Performance,Event Poster,Dr. Kumar Vishwas,Mall Promotional Banner,BookMyShow Banner,Retro Typography">
           <div class="proj-item-media">
             <img src="assets/projects/dr-kumar-vishwas.jpg" alt="Dr. Kumar Vishwas Live" class="proj-item-img" loading="lazy" style="object-position: center 15%;">
             <div class="proj-item-scrim"></div>
@@ -2310,15 +2322,15 @@ We engineered clinical authority through psychological framing — addressing pa
             <div>
               <span class="proj-client-sub">Dr. Kumar Vishwas // Live Performance</span>
               <h2 class="proj-card-heading">Kavi Sammelan Bangalore</h2>
-              <p class="proj-card-text">Retro sunburst event poster art and digital announcement campaign for legendary Hindi poet Dr. Kumar Vishwas's grand live performance.</p>
+              <p class="proj-card-text">Retro-inspired event poster, 360° illuminated mall promotional banners at Phoenix Marketcity, and BookMyShow launch suite.</p>
               <div class="proj-tags-list">
+                <span class="proj-tag-pill">Live Performance</span>
+                <span class="proj-tag-pill">Mall Banner</span>
                 <span class="proj-tag-pill">Event Poster</span>
-                <span class="proj-tag-pill">Dr. Kumar Vishwas</span>
-                <span class="proj-tag-pill">Heritage Art</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Project Details</span>
+              <span class="proj-view-cta">View Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
@@ -2355,35 +2367,39 @@ Executed multi-tier promotional creative for 'The Big Chill Sale' (Buy 1 Get 1 F
         </article>
 
         <!-- Project 08: Himeya Luxury -->
-        <article class="proj-item-card" data-category="video branding" data-title="Sustainable Luxury Films" data-client="Himeya // Sustainable Living" data-desc="Cinematic brand films and visual storytelling for conscious sustainable lifestyle, capturing the tactile beauty of organic cotton textiles and mindful living." data-img="assets/projects/himeya.jpg" data-tags="Brand Film,Sustainable Living,Luxury Visuals">
+        <article class="proj-item-card" id="card-himeya" data-category="video branding" data-title="Conscious Living Social Media &amp; Retail Visuals" data-client="Himēya // Sustainable Living &amp; Bedding" data-desc="Comprehensive digital visual campaign and on-premise retail presentation for Himēya — an international sustainable luxury home textiles and conscious lifestyle brand.
+
+Key Deliverables:
+• Social Media Post Suite: Editorial visual storytelling across organic kids bedding, summer pool towel collections, festive moments (Gudi Padwa), Women's Day editorial stories, and interactive daily lifestyle prompts ('Today's Task List: Laundry, Ironing, Folding...').
+• Retail Store Banner: Dual-sided vertical illuminated lightbox store banners ('Indulge in softness from bedtime to bath time'), showcasing the tactile elegance, thread-count perfection, and mindful craft of sustainable Indian textiles in premium physical stores." data-img="assets/projects/himeya-case-study-hd.jpg" data-tags="Sustainable Luxury,Retail Store Banners,Social Media Suite,Editorial Bedding,Art Direction,Conscious Living">
           <div class="proj-item-media">
             <img src="assets/projects/himeya.jpg" alt="Himeya Sustainable Living Story" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
-              <span class="proj-category-pill"><span class="tab-hi">सिनेमा</span> Storytelling</span>
+              <span class="proj-category-pill"><span class="tab-hi">लक्ज़री</span> Sustainable Living</span>
             </div>
           </div>
           <div class="proj-item-body">
             <div>
-              <span class="proj-client-sub">Himeya // Sustainable Living</span>
-              <h2 class="proj-card-heading">Luxury Bedding Story</h2>
-              <p class="proj-card-text">Cinematic brand film celebrating organic cotton, thread-count precision, and mindful living for global luxury home markets.</p>
+              <span class="proj-client-sub">Himēya // Sustainable Living</span>
+              <h2 class="proj-card-heading">Conscious Living &amp; Retail Visuals</h2>
+              <p class="proj-card-text">High-engagement social media campaigns and illuminated retail store lightbox banners celebrating tactile luxury bedding.</p>
               <div class="proj-tags-list">
-                <span class="proj-tag-pill">Brand Film</span>
-                <span class="proj-tag-pill">Sustainable Living</span>
-                <span class="proj-tag-pill">Luxury Visuals</span>
+                <span class="proj-tag-pill">Sustainable Luxury</span>
+                <span class="proj-tag-pill">Retail Banners</span>
+                <span class="proj-tag-pill">Social Media</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Project Details</span>
+              <span class="proj-view-cta">View Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
         </article>
 
         <!-- Project 09: Sushmita Mukherjee x Aakara -->
-        <article class="proj-item-card" data-category="branding" data-title="Sushmita Mukherjee" data-client="Aakara // Sushmita Mukherjee" data-desc="Editorial campaign, celebrity media presence, and brand collaboration celebrating authentic Indian heritage, artisanal textiles, and soulful portrait storytelling." data-img="assets/projects/sushmita-mukherjee.jpg" data-tags="Celebrity Media,Aakara,Editorial Shoot">
+        <article class="proj-item-card" id="card-sushmita" data-category="branding" data-title="Sushmita Mukherjee" data-client="Aakara // Sushmita Mukherjee" data-desc="Editorial campaign, celebrity media presence, and brand collaboration celebrating authentic Indian heritage, artisanal textiles, and soulful portrait storytelling." data-img="assets/projects/sushmita-mukherjee.jpg" data-tags="Celebrity Media,Aakara,Editorial Shoot">
           <div class="proj-item-media">
             <img src="assets/projects/sushmita-mukherjee.jpg" alt="Sushmita Mukherjee — Aakara Collaboration" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2441,7 +2457,7 @@ From heart health emergency awareness ('Heart Attack in 10 Sec?' and 'Survival K
         </article>
 
         <!-- Project 11: Agatsu Foundation -->
-        <article class="proj-item-card" data-category="video creator" data-title="Agatsu Podcast Series" data-client="Agatsu Foundation // Mental Health" data-desc="End-to-end multi-cam video podcast production, seamless conversational editing, studio audio mastering, and viral short-form social cutdowns addressing holistic mental wellness." data-img="assets/projects/agatsu-foundation.jpg" data-tags="Podcast Production,Mental Wellness,Multi-Cam">
+        <article class="proj-item-card" id="card-agatsu" data-category="video creator" data-title="Agatsu Podcast Series" data-client="Agatsu Foundation // Mental Health" data-desc="End-to-end multi-cam video podcast production, seamless conversational editing, studio audio mastering, and viral short-form social cutdowns addressing holistic mental wellness." data-img="assets/projects/agatsu-foundation.jpg" data-tags="Podcast Production,Mental Wellness,Multi-Cam">
           <div class="proj-item-media">
             <img src="assets/projects/agatsu-foundation.jpg" alt="Agatsu Foundation" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2469,35 +2485,40 @@ From heart health emergency awareness ('Heart Attack in 10 Sec?' and 'Survival K
         </article>
 
         <!-- Project 12: Rock Paper Rum -->
-        <article class="proj-item-card" data-category="branding" data-title="Craft Rum Identity" data-client="Rock Paper Rum // Craft Spirits" data-desc="Creative direction, premium artisanal Indian rum branding, packaging aesthetics, and mood-driven cocktail commercial photography tailored for modern hospitality culture." data-img="assets/projects/rock-paper-rum.jpg" data-tags="Packaging Design,Craft Spirits,Commercial Photography">
+        <article class="proj-item-card" id="card-rock-paper-rum" data-category="branding" data-title="Craft Rum Experiential Identity &amp; Event Suite" data-client="Rock Paper Rum // Craft Spirits" data-desc="Experiential brand identity, outdoor festival collateral, and social media creative suite for Rock Paper Rum (रॉक पेपर रम) — an artisanal Indian craft rum brand redefining urban cocktail and festival culture.
+
+Key Deliverables:
+• Bar Counter For Outdoor Event: High-impact branded bar setup ('ONE RUM, MANY FLAVOURS / PICK YOUR FLAVOUR!') featuring custom gestural hand typography and bold orange festival architecture.
+• Social Media Post Series: Multi-slide carousel dissecting 'Types of Indian Spiced Rum Fans' (The Spice Master, The Desi Nuskha Guy, The Bar Advice Friend) alongside topical viral sports cutdowns ('A RUM-BELIEVABLE VICTORY').
+• Poster For Event: Handcrafted easel exhibition collateral for 'VIVA CARNIVAL 1st to 4th March — Let's get Loud. Let's get Rum.'" data-img="assets/projects/rock-paper-rum-case-study-hd.jpg" data-tags="Craft Spirits,Event Bar Counter,Social Media Campaign,Viva Carnival,Experiential Design,Brand Identity">
           <div class="proj-item-media">
             <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Packaging" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
-              <span class="proj-category-pill"><span class="tab-hi">ब्रांडिंग</span> Packaging</span>
+              <span class="proj-category-pill"><span class="tab-hi">ब्रांडिंग</span> Craft Spirits</span>
             </div>
           </div>
           <div class="proj-item-body">
             <div>
               <span class="proj-client-sub">Rock Paper Rum // Craft Spirits</span>
-              <h2 class="proj-card-heading">Spirits Packaging</h2>
-              <p class="proj-card-text">Tactile label design, bottle photography, and lifestyle collateral for an artisanal Indian craft rum brand redefining urban cocktail culture.</p>
+              <h2 class="proj-card-heading">Experiential Identity &amp; Events</h2>
+              <p class="proj-card-text">Outdoor event bar counter architecture, Viva Carnival posters, and viral Indian spiced rum social carousels.</p>
               <div class="proj-tags-list">
-                <span class="proj-tag-pill">Packaging Design</span>
                 <span class="proj-tag-pill">Craft Spirits</span>
-                <span class="proj-tag-pill">Identity</span>
+                <span class="proj-tag-pill">Event Bar Counter</span>
+                <span class="proj-tag-pill">Social Suite</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Project Details</span>
+              <span class="proj-view-cta">View Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
         </article>
 
         <!-- Project 13: Pronto x Haqdarshak -->
-        <article class="proj-item-card" data-category="video branding" data-title="Field Brand Workshop" data-client="Pronto &times; Haqdarshak // Grassroots" data-desc="On-ground workshop documentation, storytelling films, and social media creative suite connecting grassroots community leaders with financial inclusion and social welfare." data-img="assets/projects/pronto.jpg" data-tags="Impact Storytelling,Documentary Film,Social Impact">
+        <article class="proj-item-card" id="card-pronto" data-category="video branding" data-title="Field Brand Workshop" data-client="Pronto &times; Haqdarshak // Grassroots" data-desc="On-ground workshop documentation, storytelling films, and social media creative suite connecting grassroots community leaders with financial inclusion and social welfare." data-img="assets/projects/pronto.jpg" data-tags="Impact Storytelling,Documentary Film,Social Impact">
           <div class="proj-item-media">
             <img src="assets/projects/pronto.jpg" alt="Pronto &times; Haqdarshak Field Story" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2518,14 +2539,14 @@ From heart health emergency awareness ('Heart Attack in 10 Sec?' and 'Survival K
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Project Details</span>
+              <span class="proj-view-cta">View Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
         </article>
 
         <!-- Project 14: Nashia Kondia -->
-        <article class="proj-item-card" data-category="creator branding" data-title="Fashion Portrait Story" data-client="Nashia Kondia // Fashion &amp; Lifestyle" data-desc="High-fashion visual narrative, creator branding shoot, and digital aesthetic direction connecting modern streetwear trends with editorial luxury aesthetics." data-img="assets/projects/nashia-kondia.jpg" data-tags="Fashion Photography,Creator Identity,Editorial Shoot">
+        <article class="proj-item-card" id="card-nashia" data-category="creator branding" data-title="Fashion Portrait Story" data-client="Nashia Kondia // Fashion &amp; Lifestyle" data-desc="High-fashion visual narrative, creator branding shoot, and digital aesthetic direction connecting modern streetwear trends with editorial luxury aesthetics." data-img="assets/projects/nashia-kondia.jpg" data-tags="Fashion Photography,Creator Identity,Editorial Shoot">
           <div class="proj-item-media">
             <img src="assets/projects/nashia-kondia.jpg" alt="Nashia Kondia Fashion Shoot" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -3033,12 +3054,14 @@ From heart health emergency awareness ('Heart Attack in 10 Sec?' and 'Survival K
         modalInquire.href = `mailto:ssup@4eleven.in?subject=Inquiry%20Regarding%20${encodeURIComponent(title)}`;
 
         modalOverlay.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
         if (lenis) lenis.stop();
       });
     });
 
     function closeModal() {
       modalOverlay.classList.remove('is-active');
+      document.body.style.overflow = '';
       if (lenis) lenis.start();
     }
 
@@ -3059,20 +3082,28 @@ From heart health emergency awareness ('Heart Attack in 10 Sec?' and 'Survival K
       const urlParams = new URLSearchParams(window.location.search);
       const reqParam = urlParams.get('project') || window.location.hash.replace('#', '');
       if (reqParam) {
-        const cleanReq = reqParam.toLowerCase();
+        const rawReq = reqParam.toLowerCase();
+        const cleanReq = rawReq.replace(/[^a-z0-9]/g, '');
         let matchCard = null;
         projectCards.forEach(card => {
           const t = (card.getAttribute('data-title') || '').toLowerCase();
           const c = (card.getAttribute('data-client') || '').toLowerCase();
           const id = (card.id || '').toLowerCase();
-          if (t.includes(cleanReq) || c.includes(cleanReq) || id.includes(cleanReq)) {
+          const normT = t.replace(/[^a-z0-9]/g, '');
+          const normC = c.replace(/[^a-z0-9]/g, '');
+          const normId = id.replace(/[^a-z0-9]/g, '').replace('card', '');
+          if (
+            t.includes(rawReq) || c.includes(rawReq) || id.includes(rawReq) ||
+            normT.includes(cleanReq) || normC.includes(cleanReq) || normId.includes(cleanReq) ||
+            cleanReq.includes(normId)
+          ) {
             matchCard = card;
           }
         });
         if (matchCard) {
           setTimeout(() => {
             matchCard.click();
-          }, 350);
+          }, 80);
         }
       }
     } catch (err) {
