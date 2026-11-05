@@ -495,6 +495,25 @@
       gap: 16px;
     }
 
+    @media (max-width: 768px) {
+      .mobile-menu-btn {
+        display: none;
+      }
+      .site-header {
+        padding: 14px 18px;
+      }
+      .liquid-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      .header-brand-title {
+        font-size: 17px;
+      }
+      .header-logo-img {
+        height: 24px;
+      }
+    }
+
     .mobile-menu-btn {
       display: flex;
       flex-direction: column;
@@ -2263,7 +2282,18 @@
           </div>
           <h2 class="projects-section-title">
             SELECTED <span class="serif-flair">Work&amp;</span><br>
-            <span class="gradient-word">IMPACT.</span>
+            <div class="desi-loop-badge" id="proj-loop-badge" title="Selected Work &amp; Impact" style="vertical-align: middle; margin-top: 8px;">
+              <span class="desi-corner tl">✦</span>
+              <span class="desi-corner tr">✦</span>
+              <div class="desi-loop-content" id="proj-loop-content">
+                <span class="desi-danda">॥</span>
+                <span class="desi-hindi-word" id="proj-hindi-word">जादू</span>
+                <span class="desi-danda">॥</span>
+              </div>
+              <span class="desi-en-sub" id="proj-en-word">// MAGIC //</span>
+              <span class="desi-corner bl">✦</span>
+              <span class="desi-corner br">✦</span>
+            </div>
           </h2>
         </div>
         <a href="portfolio.html" class="collab-learn-btn">
@@ -3002,16 +3032,21 @@
       const contentEl = document.getElementById('desi-loop-content');
       const hindiEl = document.getElementById('loop-hindi-word');
       const enEl = document.getElementById('loop-en-word');
+
+      const projContentEl = document.getElementById('proj-loop-content');
+      const projHindiEl = document.getElementById('proj-hindi-word');
+      const projEnEl = document.getElementById('proj-en-word');
+
       if (!contentEl || !hindiEl || !enEl) return;
 
       const words = [
         { hi: 'जादू', en: '// MAGIC //' },
         { hi: 'प्रभाव', en: '// IMPACT //' },
         { hi: 'पहचान', en: '// IDENTITY //' },
-        { hi: 'क्रांति', en: '// REVOLUTION //' },
+        { hi: 'कमाल', en: '// CRAFT //' },
         { hi: 'कहानी', en: '// STORIES //' },
-        { hi: 'मिसाल', en: '// BENCHMARK //' },
-        { hi: 'परिणाम', en: '// RESULTS //' }
+        { hi: 'क्रांति', en: '// REVOLUTION //' },
+        { hi: 'मिसाल', en: '// BENCHMARK //' }
       ];
 
       let currentIndex = 0;
@@ -3019,18 +3054,30 @@
       setInterval(() => {
         contentEl.classList.add('flip-out');
         enEl.classList.add('flip-out');
+        if (projContentEl) projContentEl.classList.add('flip-out');
+        if (projEnEl) projEnEl.classList.add('flip-out');
 
         setTimeout(() => {
           currentIndex = (currentIndex + 1) % words.length;
           hindiEl.textContent = words[currentIndex].hi;
           enEl.textContent = words[currentIndex].en;
 
+          if (projHindiEl) projHindiEl.textContent = words[currentIndex].hi;
+          if (projEnEl) projEnEl.textContent = words[currentIndex].en;
+
           contentEl.classList.remove('flip-out');
           contentEl.classList.add('flip-in');
           enEl.classList.remove('flip-out');
 
+          if (projContentEl) {
+            projContentEl.classList.remove('flip-out');
+            projContentEl.classList.add('flip-in');
+          }
+          if (projEnEl) projEnEl.classList.remove('flip-out');
+
           setTimeout(() => {
             contentEl.classList.remove('flip-in');
+            if (projContentEl) projContentEl.classList.remove('flip-in');
           }, 320);
         }, 320);
       }, 2600);
