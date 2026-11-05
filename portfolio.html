@@ -1208,15 +1208,17 @@
     .proj-modal-box {
       position: relative;
       width: min(920px, 100%);
-      max-height: 90vh;
+      max-height: 92vh;
       overflow-y: auto;
       background: var(--background);
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 32px;
+      padding: 36px 40px;
       box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
     }
 
     .proj-modal-overlay.is-active .proj-modal-box {
@@ -1248,13 +1250,9 @@
       transform: rotate(90deg);
     }
 
-    .proj-modal-img {
-      width: 100%;
-      max-height: 480px;
-      object-fit: cover;
-      border-radius: 16px;
+    .proj-modal-header {
       margin-bottom: 24px;
-      border: 1px solid var(--border);
+      padding-right: 48px;
     }
 
     .proj-modal-meta-row {
@@ -1263,7 +1261,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .proj-modal-client {
@@ -1272,6 +1270,7 @@
       color: var(--primary);
       letter-spacing: 0.08em;
       text-transform: uppercase;
+      font-weight: 600;
     }
 
     .proj-modal-title {
@@ -1280,14 +1279,38 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.1;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      color: var(--foreground);
     }
 
     .proj-modal-desc {
-      font-size: 16px;
-      line-height: 1.65;
+      font-size: 15.5px;
+      line-height: 1.7;
       color: var(--muted-foreground);
+      margin-bottom: 24px;
+      white-space: pre-line;
+    }
+
+    .proj-modal-img-container {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
       margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .proj-modal-img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     /* ==========================================================================
@@ -2128,7 +2151,11 @@
       <div class="portfolio-grid" id="portfolioGrid">
 
         <!-- Project 01: Amit Tandon Halwa Tour -->
-        <article class="proj-item-card" data-category="tour branding" data-title="Halwa World Tour" data-client="Amit Tandon // Stand-Up Comedy" data-desc="Key visual identity, international show posters, and high-impact digital promotional campaign for celebrated comedian Amit Tandon's worldwide tour across USA, UK, and Asia." data-img="assets/projects/halwa-tour.jpg" data-tags="Poster Art,Amit Tandon,Tour Visuals">
+        <article class="proj-item-card" id="card-amit-tandon" data-category="tour branding" data-title="Halwa World Tour" data-client="Amit Tandon // Stand-Up Comedy" data-desc="I designed the official poster for Amit Tandon's HALWA Tour — a global stand-up comedy tour spanning the UK, Europe, Australia, New Zealand, and Dubai.
+
+The creative direction blends bold retro typography, vibrant travel visuals, and a friendly, clean aesthetic that mirrors Amit's relatable humor. The design features iconic landmarks, flight paths, and a warm, textured background to reflect the show's international journey and cultural connections.
+
+This poster served as the primary creative across digital and venue promotions, setting the tone for the tour's branding — spanning outdoor street billboards, Bangalore special edition promotional totems, and digital screen takeovers at Phoenix Mall." data-img="assets/projects/halwa-tour-casestudy-hd.jpg" data-tags="Tour Poster,Outdoor Billboards,Bangalore Street Totems,Phoenix Mall Digital,Social Media Suite">
           <div class="proj-item-media">
             <img src="assets/projects/halwa-tour.jpg" alt="Amit Tandon Halwa World Tour Poster" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2528,14 +2555,23 @@
   <div class="proj-modal-overlay" id="projModalOverlay" role="dialog" aria-modal="true" aria-label="Project Preview">
     <div class="proj-modal-box">
       <button type="button" class="proj-modal-close" id="projModalClose" aria-label="Close Project Modal">✕</button>
-      <img src="" alt="Project Artwork" class="proj-modal-img" id="modalImg">
-      <div class="proj-modal-meta-row">
-        <span class="proj-modal-client" id="modalClient">Client Name</span>
-        <div id="modalTags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
-      </div>
-      <h3 class="proj-modal-title" id="modalTitle">Project Title</h3>
-      <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       
+      <!-- Project Header -->
+      <div class="proj-modal-header">
+        <div class="proj-modal-meta-row">
+          <span class="proj-modal-client" id="modalClient">Client Name</span>
+          <div id="modalTags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+        </div>
+        <h3 class="proj-modal-title" id="modalTitle">Project Title</h3>
+        <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
+      </div>
+
+      <!-- Project Artwork / Case Study Container -->
+      <div class="proj-modal-img-container">
+        <img src="" alt="Project Artwork" class="proj-modal-img" id="modalImg">
+      </div>
+      
+      <!-- Action Row -->
       <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; border-top: 1px solid var(--border); padding-top: 24px;">
         <button type="button" class="liquid-btn" id="modalInquireBtn" data-open-lead-modal>
           <span>Inquire About This Work</span>
@@ -3011,6 +3047,31 @@
         closeModal();
       }
     });
+
+    // Auto-open project modal if requested in URL query or hash
+    try {
+      const urlParams = new URLSearchParams(window.location.search);
+      const reqParam = urlParams.get('project') || window.location.hash.replace('#', '');
+      if (reqParam) {
+        const cleanReq = reqParam.toLowerCase();
+        let matchCard = null;
+        projectCards.forEach(card => {
+          const t = (card.getAttribute('data-title') || '').toLowerCase();
+          const c = (card.getAttribute('data-client') || '').toLowerCase();
+          const id = (card.id || '').toLowerCase();
+          if (t.includes(cleanReq) || c.includes(cleanReq) || id.includes(cleanReq)) {
+            matchCard = card;
+          }
+        });
+        if (matchCard) {
+          setTimeout(() => {
+            matchCard.click();
+          }, 350);
+        }
+      }
+    } catch (err) {
+      console.warn('Auto-open project error:', err);
+    }
 
     // ==========================================================================
     // 6. Mobile Menu Drawer

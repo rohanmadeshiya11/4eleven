@@ -2187,6 +2187,197 @@
     }
 
     /* ==========================================================================
+       Project Detail Lightbox Modal (Full Case Studies)
+       ========================================================================== */
+    .proj-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 11, 12, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 10001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .proj-modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .proj-modal-box {
+      position: relative;
+      width: min(920px, 100%);
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--background);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 40px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+      transform: scale(0.96) translateY(20px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
+    }
+
+    .proj-modal-overlay.is-active .proj-modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .proj-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      z-index: 10;
+    }
+
+    .proj-modal-close:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: rotate(90deg);
+    }
+
+    .proj-modal-header {
+      margin-bottom: 24px;
+      padding-right: 48px;
+    }
+
+    .proj-modal-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .proj-modal-client {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .proj-modal-title {
+      font-family: var(--font-clash);
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      color: var(--foreground);
+    }
+
+    .proj-modal-desc {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--muted-foreground);
+      margin-bottom: 24px;
+      white-space: pre-line;
+    }
+
+    .proj-modal-img-container {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 28px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .proj-modal-img {
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .proj-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      white-space: nowrap;
+    }
+
+    .portfolio-ext-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 9999px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .portfolio-ext-pill:hover {
+      background: var(--foreground);
+      color: var(--background);
+      border-color: var(--foreground);
+    }
+
+    @media (max-width: 640px) {
+      .proj-modal-box {
+        padding: 24px 18px;
+        border-radius: 20px;
+      }
+      .proj-modal-close {
+        top: 14px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+      .proj-modal-header {
+        padding-right: 36px;
+      }
+      .proj-modal-title {
+        font-size: 22px;
+      }
+      .proj-modal-desc {
+        font-size: 13.5px;
+      }
+      .proj-modal-img-container {
+        padding: 8px;
+      }
+    }
+
+    /* ==========================================================================
        Global Lead Capture Modal (ssup@4eleven.in)
        ========================================================================== */
     .lead-modal-overlay {
@@ -2879,7 +3070,11 @@
         <div class="projects-track" id="projectsTrack">
 
           <!-- Project Card 1: Amit Tandon Halwa Tour -->
-          <a href="portfolio.html" class="proj-card">
+          <a href="portfolio.html?project=amit-tandon" class="proj-card" data-title="Halwa World Tour" data-client="Amit Tandon // Stand-Up Comedy" data-desc="I designed the official poster for Amit Tandon's HALWA Tour — a global stand-up comedy tour spanning the UK, Europe, Australia, New Zealand, and Dubai.
+
+The creative direction blends bold retro typography, vibrant travel visuals, and a friendly, clean aesthetic that mirrors Amit's relatable humor. The design features iconic landmarks, flight paths, and a warm, textured background to reflect the show's international journey and cultural connections.
+
+This poster served as the primary creative across digital and venue promotions, setting the tone for the tour's branding — spanning outdoor street billboards, Bangalore special edition promotional totems, and digital screen takeovers at Phoenix Mall." data-img="assets/projects/halwa-tour-casestudy-hd.jpg" data-tags="Tour Poster,Outdoor Billboards,Bangalore Street Totems,Phoenix Mall Digital,Social Media Suite">
             <div class="proj-card-media">
               <img src="assets/projects/halwa-tour.jpg" alt="Amit Tandon Halwa Tour Poster" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -2899,7 +3094,7 @@
           </a>
 
           <!-- Project Card 2: Faizan Bhat Live -->
-          <a href="portfolio.html" class="proj-card">
+          <a href="portfolio.html?project=faizan-bhat" class="proj-card" data-title="Faizan Bhat Live" data-client="Faizan Bhat // BookMyShow" data-desc="Edgy typography and distressed crime-tape aesthetic poster campaign for national stand-up shows across Delhi, Gurgaon, Mohali, and Jammu." data-img="assets/projects/faizan-bhat.jpg" data-tags="Stand-Up Comedy,Poster Campaign,BookMyShow">
             <div class="proj-card-media">
               <img src="assets/projects/faizan-bhat.jpg" alt="Faizan Bhat Live Stand-Up Tour" class="proj-card-img" loading="lazy" style="object-position: center 20%;">
               <div class="proj-card-scrim"></div>
@@ -2919,7 +3114,7 @@
           </a>
 
           <!-- Project Card 3: Kibo Hair Science -->
-          <a href="portfolio.html" class="proj-card">
+          <a href="portfolio.html?project=kibo" class="proj-card" data-title="Hair Transplant Films" data-client="Kibo Hair Science // Healthcare" data-desc="High-trust medical aesthetic video production, patient transformation storytelling, and technical procedural explainers creating clinical authority in modern aesthetic surgery." data-img="assets/projects/kibo-hair-science-hd.jpg" data-tags="Medical Video,Procedure Films,Healthcare">
             <div class="proj-card-media">
               <img src="assets/projects/kibo-hair-science-hd.jpg" alt="Kibo Hair Science Medical Video Production" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -2939,7 +3134,7 @@
           </a>
 
           <!-- Project Card 4: Dr. Pal Manickam -->
-          <a href="portfolio.html" class="proj-card">
+          <a href="portfolio.html?project=dr-pal" class="proj-card" data-title="Dr. Pal YouTube Suite" data-client="Dr. Pal Manickam // 1M+ Community" data-desc="Podcast video production, viral short-form cutdowns, high-CTR YouTube thumbnail architecture, and consistent medical storytelling for one of India's most recognized physicians." data-img="assets/projects/dr-pal.jpg" data-tags="Podcast Production,High-CTR Art,YouTube Suite">
             <div class="proj-card-media">
               <img src="assets/projects/dr-pal.jpg" alt="Dr. Pal Manickam YouTube Packaging" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -2959,7 +3154,7 @@
           </a>
 
           <!-- Project Card 5: mCaffeine Commercial Shoot -->
-          <a href="portfolio.html" class="proj-card">
+          <a href="portfolio.html?project=mcaffeine" class="proj-card" data-title="Energy Commercial" data-client="mCaffeine // Coffee Skincare" data-desc="D2C caffeinated personal care video campaigns, brand commercial shoots, and high-energy social creative direction for India's pioneer caffeinated grooming brand." data-img="assets/projects/mcaffeine.jpg" data-tags="Brand Film,D2C Campaigns,Commercial Shoot">
             <div class="proj-card-media">
               <img src="assets/projects/mcaffeine.jpg" alt="mCaffeine D2C Brand Film" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
@@ -2979,9 +3174,7 @@
           </a>
 
           <!-- Project Card 6: Rock Paper Rum -->
-          <a href="portfolio.html" class="proj-card">
-            <div class="proj-card-media">
-              <img src="assets/projects/rock-paper-rum.jpg" alt="Rock Paper Rum Packaging" class="proj-card-img" loading="lazy">
+          <a href="portfolio.html?project=rum" class="proj-card" data-title="Craft Rum Identity" data-client="Rock Paper Rum // Craft Spirits" data-desc="Creative direction, premium artisanal Indian rum branding, packaging aesthetics, and mood-driven cocktail commercial photography tailored for modern hospitality culture." data-img="assets/projects/rock-paper-rum.jpg" data-tags="Packaging Design,Craft Spirits,Commercial Photography">
               <div class="proj-card-scrim"></div>
             </div>
             <div class="proj-card-top">
@@ -3501,6 +3694,44 @@
 
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       Project Detail Lightbox Modal (Full Case Studies)
+       ========================================================================== -->
+  <div class="proj-modal-overlay" id="projModalOverlay" role="dialog" aria-modal="true" aria-label="Project Case Study">
+    <div class="proj-modal-box">
+      <button type="button" class="proj-modal-close" id="projModalClose" aria-label="Close Project Modal">✕</button>
+      
+      <!-- Project Header -->
+      <div class="proj-modal-header">
+        <div class="proj-modal-meta-row">
+          <span class="proj-modal-client" id="modalClient">Amit Tandon // Stand-Up Comedy</span>
+          <div id="modalTags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+        </div>
+        <h3 class="proj-modal-title" id="modalTitle">Halwa World Tour</h3>
+        <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
+      </div>
+
+      <!-- Project Artwork / Case Study Container -->
+      <div class="proj-modal-img-container">
+        <img src="" alt="Project Case Study" class="proj-modal-img" id="modalImg">
+      </div>
+      
+      <!-- Action Row -->
+      <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center; border-top: 1px solid var(--border); padding-top: 24px;">
+        <button type="button" class="liquid-btn" id="modalInquireBtn" data-open-lead-modal>
+          <span>Inquire About This Work</span>
+          <span class="btn-arrow">→</span>
+          <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path>
+          </svg>
+        </button>
+        <a href="portfolio.html" class="portfolio-ext-pill">
+          <span>Explore All 14 Projects ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- ==========================================================================
        Lead Capture Modal (Direct to ssup@4eleven.in)
@@ -4293,6 +4524,90 @@
       // Expose globally for inline onclick triggers
       window.openLeadModal = openModal;
       window.closeLeadModal = closeModal;
+    })();
+
+    // ==========================================================================
+    // 13. Project Detail Lightbox Modal Controller (Case Studies)
+    // ==========================================================================
+    (function initProjModal() {
+      const projOverlay = document.getElementById('projModalOverlay');
+      const projClose = document.getElementById('projModalClose');
+      const projImg = document.getElementById('modalImg');
+      const projClient = document.getElementById('modalClient');
+      const projTitle = document.getElementById('modalTitle');
+      const projDesc = document.getElementById('modalDesc');
+      const projTags = document.getElementById('modalTags');
+      const modalInquireBtn = document.getElementById('modalInquireBtn');
+      const projCards = document.querySelectorAll('.proj-card');
+
+      if (!projOverlay) return;
+
+      function openProj(card) {
+        const title = card.getAttribute('data-title') || card.querySelector('.proj-card-title')?.textContent || 'Project';
+        const client = card.getAttribute('data-client') || card.querySelector('.proj-client-sub')?.textContent || 'Client';
+        const desc = card.getAttribute('data-desc') || card.querySelector('.proj-card-desc')?.textContent || '';
+        const img = card.getAttribute('data-img') || card.querySelector('.proj-card-img')?.getAttribute('src') || '';
+        const tags = (card.getAttribute('data-tags') || 'Key Visuals,Studio Work').split(',');
+
+        if (projTitle) projTitle.textContent = title;
+        if (projClient) projClient.textContent = client;
+        if (projDesc) projDesc.textContent = desc;
+        if (projImg) {
+          projImg.src = img;
+          projImg.alt = title;
+        }
+
+        if (projTags) {
+          projTags.innerHTML = '';
+          tags.forEach(t => {
+            if (t.trim()) {
+              const span = document.createElement('span');
+              span.className = 'proj-tag-pill';
+              span.textContent = t.trim();
+              projTags.appendChild(span);
+            }
+          });
+        }
+
+        projOverlay.classList.add('is-active');
+        if (window.lenis) window.lenis.stop();
+      }
+
+      function closeProj() {
+        projOverlay.classList.remove('is-active');
+        if (window.lenis) window.lenis.start();
+      }
+
+      if (projClose) projClose.addEventListener('click', closeProj);
+      projOverlay.addEventListener('click', (e) => {
+        if (e.target === projOverlay) closeProj();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && projOverlay.classList.contains('is-active')) {
+          closeProj();
+        }
+      });
+
+      // Special handling for modalInquireBtn
+      if (modalInquireBtn) {
+        modalInquireBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const curTitle = projTitle ? projTitle.textContent : '';
+          const curClient = projClient ? projClient.textContent : '';
+          closeProj();
+          if (window.openLeadModal) {
+            window.openLeadModal('Brand Films', `Hi Four Eleven team, I would like to inquire about collaborating on a project similar to "${curTitle}" (${curClient}).`);
+          }
+        });
+      }
+
+      projCards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          e.preventDefault();
+          openProj(card);
+        });
+      });
     })();
   </script>
 </body>
