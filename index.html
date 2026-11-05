@@ -2315,11 +2315,61 @@
 
     .proj-modal-img {
       width: 100%;
-      max-width: 720px;
+      max-width: 840px;
       height: auto;
       display: block;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .proj-modal-video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .proj-modal-video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .proj-video-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      z-index: 2;
+      background: rgba(12, 13, 14, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      pointer-events: none;
+    }
+
+    .proj-video-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+      display: inline-block;
     }
 
     .proj-tag-pill {
@@ -3118,12 +3168,13 @@ This poster served as the primary creative across digital and venue promotions, 
           </a>
 
           <!-- Project Card 3: Kibo Hair Science -->
-          <a href="portfolio.html?project=kibo" class="proj-card" data-title="Hair Transplant YouTube Suite" data-client="Kibo Hair Transplant // Clinical Aesthetics" data-desc="Complete YouTube packaging architecture, medical procedural explainers, and high-CTR thumbnail system for Kibo Hair Transplant (@kibohairtransplant).
+          <a href="portfolio.html?project=kibo" class="proj-card" data-title="Hair Transplant YouTube Suite &amp; Video Production" data-client="Kibo Clinics // Hair &amp; Skin Science Experts" data-desc="Complete YouTube packaging architecture, medical procedural explainers, and high-CTR video production for Kibo Hair &amp; Skin Clinic (@kibohairandskinclinic).
 
-We engineered clinical authority through psychological framing — addressing patient fears, debunking hair transplant scams, and clarifying complex medical choices like FUE vs. DHI techniques with clear visual proof, expert doctor presence, and patient transformation proof points that drove high organic click-through and consultation bookings." data-img="assets/projects/kibo-case-study.jpg" data-tags="YouTube Architecture,High-CTR Thumbnails,Medical Explainers,FUE vs DHI,Clinical Branding">
+We engineered clinical authority through psychological framing — addressing patient fears, debunking hair transplant scams, and clarifying complex medical choices like FUE vs. DHI techniques with clear visual proof, expert doctor presence, and patient transformation proof points that drove high organic click-through and consultation bookings." data-img="assets/projects/kibo-case-study.jpg" data-tags="YouTube Architecture,High-CTR Thumbnails,Medical Explainers,FUE vs DHI,Clinical Branding,Featured Video" data-video="https://www.youtube-nocookie.com/embed/ctYeCjD0T1s?rel=0&amp;modestbranding=1" data-video-url="https://www.youtube.com/watch?v=ctYeCjD0T1s">
             <div class="proj-card-media">
               <img src="assets/projects/kibo-hair-science-hd.jpg" alt="Kibo Hair Science Medical Video Production" class="proj-card-img" loading="lazy">
               <div class="proj-card-scrim"></div>
+              <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch Featured Video</span>
             </div>
             <div class="proj-card-top">
               <span class="proj-year-pill">2026</span>
@@ -3131,9 +3182,9 @@ We engineered clinical authority through psychological framing — addressing pa
             </div>
             <div class="proj-card-bottom">
               <div class="proj-card-info">
-                <span class="proj-client-sub">Kibo Hair Transplant // Clinical Aesthetics</span>
-                <h3 class="proj-card-title">Hair Transplant YouTube Suite</h3>
-                <p class="proj-card-desc">High-CTR YouTube packaging architecture, medical procedural explainers, and FUE vs DHI patient decision journeys.</p>
+                <span class="proj-client-sub">Kibo Clinics // Hair &amp; Skin Science Experts</span>
+                <h3 class="proj-card-title">Hair Transplant YouTube Suite &amp; Video Production</h3>
+                <p class="proj-card-desc">Flagship video explainer production, high-CTR YouTube packaging architecture, and FUE vs DHI patient decision journeys.</p>
               </div>
               <div class="proj-arrow-circle">↗</div>
             </div>
@@ -3759,8 +3810,13 @@ Key Deliverables:
         <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       </div>
 
+      <!-- Embedded Video Container (when project has data-video) -->
+      <div class="proj-modal-video-wrap" id="modalVideoWrap" style="display: none;">
+        <iframe id="modalVideoIframe" src="" title="Featured Project Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
       <!-- Project Artwork / Case Study Container -->
-      <div class="proj-modal-img-container">
+      <div class="proj-modal-img-container" id="modalImgContainer">
         <img src="" alt="Project Case Study" class="proj-modal-img" id="modalImg">
       </div>
       
@@ -3773,6 +3829,9 @@ Key Deliverables:
             <path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path>
           </svg>
         </button>
+        <a href="" target="_blank" rel="noopener noreferrer" class="portfolio-ext-pill" id="modalVideoBtn" style="display: none;">
+          <span>Watch on YouTube ↗</span>
+        </a>
         <a href="portfolio.html" class="portfolio-ext-pill">
           <span>Explore All 14 Projects ↗</span>
         </a>
@@ -4580,6 +4639,10 @@ Key Deliverables:
       const projOverlay = document.getElementById('projModalOverlay');
       const projClose = document.getElementById('projModalClose');
       const projImg = document.getElementById('modalImg');
+      const projImgContainer = document.getElementById('modalImgContainer');
+      const projVideoWrap = document.getElementById('modalVideoWrap');
+      const projVideoIframe = document.getElementById('modalVideoIframe');
+      const projVideoBtn = document.getElementById('modalVideoBtn');
       const projClient = document.getElementById('modalClient');
       const projTitle = document.getElementById('modalTitle');
       const projDesc = document.getElementById('modalDesc');
@@ -4594,14 +4657,35 @@ Key Deliverables:
         const client = card.getAttribute('data-client') || card.querySelector('.proj-client-sub')?.textContent || 'Client';
         const desc = card.getAttribute('data-desc') || card.querySelector('.proj-card-desc')?.textContent || '';
         const img = card.getAttribute('data-img') || card.querySelector('.proj-card-img')?.getAttribute('src') || '';
+        const video = card.getAttribute('data-video');
+        const videoUrl = card.getAttribute('data-video-url');
         const tags = (card.getAttribute('data-tags') || 'Key Visuals,Studio Work').split(',');
 
         if (projTitle) projTitle.textContent = title;
         if (projClient) projClient.textContent = client;
         if (projDesc) projDesc.textContent = desc;
-        if (projImg) {
-          projImg.src = img;
-          projImg.alt = title;
+
+        if (img) {
+          if (projImg) {
+            projImg.src = img;
+            projImg.alt = title;
+          }
+          if (projImgContainer) projImgContainer.style.display = 'flex';
+        } else if (projImgContainer) {
+          projImgContainer.style.display = 'none';
+        }
+
+        if (video) {
+          if (projVideoWrap) projVideoWrap.style.display = 'block';
+          if (projVideoIframe) projVideoIframe.src = video;
+          if (projVideoBtn) {
+            projVideoBtn.href = videoUrl || video;
+            projVideoBtn.style.display = 'inline-flex';
+          }
+        } else {
+          if (projVideoWrap) projVideoWrap.style.display = 'none';
+          if (projVideoIframe) projVideoIframe.src = '';
+          if (projVideoBtn) projVideoBtn.style.display = 'none';
         }
 
         if (projTags) {
@@ -4624,6 +4708,7 @@ Key Deliverables:
       function closeProj() {
         projOverlay.classList.remove('is-active');
         document.body.style.overflow = '';
+        if (projVideoIframe) projVideoIframe.src = '';
         if (window.lenis) window.lenis.start();
       }
 
@@ -4657,6 +4742,37 @@ Key Deliverables:
           openProj(card);
         });
       });
+
+      // Auto-open project modal if requested in URL query or hash
+      try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const reqParam = urlParams.get('project') || window.location.hash.replace('#', '');
+        if (reqParam) {
+          const rawReq = reqParam.toLowerCase();
+          const cleanReq = rawReq.replace(/[^a-z0-9]/g, '');
+          let matchCard = null;
+          projCards.forEach(card => {
+            const t = (card.getAttribute('data-title') || '').toLowerCase();
+            const c = (card.getAttribute('data-client') || '').toLowerCase();
+            const href = (card.getAttribute('href') || '').toLowerCase();
+            const normT = t.replace(/[^a-z0-9]/g, '');
+            const normC = c.replace(/[^a-z0-9]/g, '');
+            if (
+              t.includes(rawReq) || c.includes(rawReq) || href.includes(rawReq) ||
+              normT.includes(cleanReq) || normC.includes(cleanReq)
+            ) {
+              matchCard = card;
+            }
+          });
+          if (matchCard) {
+            setTimeout(() => {
+              openProj(matchCard);
+            }, 300);
+          }
+        }
+      } catch (err) {
+        console.warn('Auto project open error:', err);
+      }
     })();
   </script>
 </body>

@@ -1310,11 +1310,61 @@
 
     .proj-modal-img {
       width: 100%;
-      max-width: 720px;
+      max-width: 840px;
       height: auto;
       display: block;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .proj-modal-video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .proj-modal-video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .proj-video-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      z-index: 2;
+      background: rgba(12, 13, 14, 0.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 100px;
+      padding: 5px 12px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+      pointer-events: none;
+    }
+
+    .proj-video-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px var(--primary);
+      display: inline-block;
     }
 
     /* ==========================================================================
@@ -2215,9 +2265,9 @@ This poster served as the primary creative across digital and venue promotions, 
         </article>
 
         <!-- Project 03: Kibo Hair Science -->
-        <article class="proj-item-card" id="card-kibo" data-category="video branding creator" data-title="Hair Transplant YouTube Suite" data-client="Kibo Hair Transplant // Clinical Aesthetics" data-desc="Complete YouTube packaging architecture, medical procedural explainers, and high-CTR thumbnail system for Kibo Hair Transplant (@kibohairtransplant).
+        <article class="proj-item-card" id="card-kibo" data-category="video branding creator" data-title="Hair Transplant YouTube Suite &amp; Video Production" data-client="Kibo Clinics // Hair &amp; Skin Science Experts" data-desc="Complete YouTube packaging architecture, medical procedural explainers, and high-CTR video production for Kibo Hair &amp; Skin Clinic (@kibohairandskinclinic).
 
-We engineered clinical authority through psychological framing — addressing patient fears, debunking hair transplant scams, and clarifying complex medical choices like FUE vs. DHI techniques with clear visual proof, expert doctor presence, and patient transformation proof points that drove high organic click-through and consultation bookings." data-img="assets/projects/kibo-case-study.jpg" data-tags="YouTube Architecture,High-CTR Thumbnails,Medical Explainers,FUE vs DHI,Clinical Branding">
+We engineered clinical authority through psychological framing — addressing patient fears, debunking hair transplant scams, and clarifying complex medical choices like FUE vs. DHI techniques with clear visual proof, expert doctor presence, and patient transformation proof points that drove high organic click-through and consultation bookings." data-img="assets/projects/kibo-case-study.jpg" data-tags="YouTube Architecture,High-CTR Thumbnails,Medical Explainers,FUE vs DHI,Clinical Branding,Featured Video" data-video="https://www.youtube-nocookie.com/embed/ctYeCjD0T1s?rel=0&amp;modestbranding=1" data-video-url="https://www.youtube.com/watch?v=ctYeCjD0T1s">
           <div class="proj-item-media">
             <img src="assets/projects/kibo-hair-science-hd.jpg" alt="Kibo Hair Science Clinical Video" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2225,20 +2275,21 @@ We engineered clinical authority through psychological framing — addressing pa
               <span class="proj-year-pill">2026</span>
               <span class="proj-category-pill"><span class="tab-hi">यूट्यूब</span> YouTube Suite</span>
             </div>
+            <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch Featured Video</span>
           </div>
           <div class="proj-item-body">
             <div>
-              <span class="proj-client-sub">Kibo Hair Transplant // Clinical Aesthetics</span>
-              <h2 class="proj-card-heading">Hair Transplant YouTube Suite</h2>
-              <p class="proj-card-text">High-CTR YouTube packaging architecture, medical procedural explainers, and FUE vs DHI patient decision journeys.</p>
+              <span class="proj-client-sub">Kibo Clinics // Hair &amp; Skin Science Experts</span>
+              <h2 class="proj-card-heading">Hair Transplant YouTube Suite &amp; Video Production</h2>
+              <p class="proj-card-text">Flagship video explainer production, high-CTR YouTube packaging architecture, and FUE vs DHI patient decision journeys.</p>
               <div class="proj-tags-list">
+                <span class="proj-tag-pill">Featured Video</span>
                 <span class="proj-tag-pill">YouTube Architecture</span>
-                <span class="proj-tag-pill">High-CTR Thumbnails</span>
                 <span class="proj-tag-pill">FUE vs DHI</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Case Study</span>
+              <span class="proj-view-cta">View Case Study &amp; Video</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
@@ -2593,8 +2644,13 @@ Key Deliverables:
         <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       </div>
 
+      <!-- Embedded Video Container (when project has data-video) -->
+      <div class="proj-modal-video-wrap" id="modalVideoWrap" style="display: none;">
+        <iframe id="modalVideoIframe" src="" title="Featured Project Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
       <!-- Project Artwork / Case Study Container -->
-      <div class="proj-modal-img-container">
+      <div class="proj-modal-img-container" id="modalImgContainer">
         <img src="" alt="Project Artwork" class="proj-modal-img" id="modalImg">
       </div>
       
@@ -2607,6 +2663,9 @@ Key Deliverables:
             <path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path>
           </svg>
         </button>
+        <a href="" target="_blank" rel="noopener noreferrer" class="portfolio-ext-pill" id="modalVideoBtn" style="display: none;">
+          <span>Watch on YouTube ↗</span>
+        </a>
         <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="portfolio-ext-pill">
           <span>See Live on Instagram ↗</span>
         </a>
@@ -3021,6 +3080,10 @@ Key Deliverables:
     const modalOverlay = document.getElementById('projModalOverlay');
     const modalClose = document.getElementById('projModalClose');
     const modalImg = document.getElementById('modalImg');
+    const modalImgContainer = document.getElementById('modalImgContainer');
+    const modalVideoWrap = document.getElementById('modalVideoWrap');
+    const modalVideoIframe = document.getElementById('modalVideoIframe');
+    const modalVideoBtn = document.getElementById('modalVideoBtn');
     const modalClient = document.getElementById('modalClient');
     const modalTitle = document.getElementById('modalTitle');
     const modalDesc = document.getElementById('modalDesc');
@@ -3033,13 +3096,34 @@ Key Deliverables:
         const client = card.getAttribute('data-client');
         const desc = card.getAttribute('data-desc');
         const img = card.getAttribute('data-img');
+        const video = card.getAttribute('data-video');
+        const videoUrl = card.getAttribute('data-video-url');
         const tags = (card.getAttribute('data-tags') || '').split(',');
 
         modalTitle.textContent = title;
         modalClient.textContent = client;
         modalDesc.textContent = desc;
-        modalImg.src = img;
-        modalImg.alt = title;
+
+        if (img) {
+          modalImg.src = img;
+          modalImg.alt = title;
+          if (modalImgContainer) modalImgContainer.style.display = 'flex';
+        } else if (modalImgContainer) {
+          modalImgContainer.style.display = 'none';
+        }
+
+        if (video) {
+          if (modalVideoWrap) modalVideoWrap.style.display = 'block';
+          if (modalVideoIframe) modalVideoIframe.src = video;
+          if (modalVideoBtn) {
+            modalVideoBtn.href = videoUrl || video;
+            modalVideoBtn.style.display = 'inline-flex';
+          }
+        } else {
+          if (modalVideoWrap) modalVideoWrap.style.display = 'none';
+          if (modalVideoIframe) modalVideoIframe.src = '';
+          if (modalVideoBtn) modalVideoBtn.style.display = 'none';
+        }
 
         modalTags.innerHTML = '';
         tags.forEach((tag) => {
@@ -3062,6 +3146,7 @@ Key Deliverables:
     function closeModal() {
       modalOverlay.classList.remove('is-active');
       document.body.style.overflow = '';
+      if (modalVideoIframe) modalVideoIframe.src = '';
       if (lenis) lenis.start();
     }
 
