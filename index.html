@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>FOUR ELEVEN STUDIO | Creative &amp; Digital Media Agency | We Turn Ideas Into Impact</title>
   <meta name="description" content="Four Eleven Studio is a creative and digital media studio specialising in social media management, content production, video production, branding, and digital marketing.">
-  <meta name="keywords" content="Four Eleven Studio, Creative Studio, Video Production, Branding, Social Media Management, Content Creation, Mumbai, Rohan Matheshiya">
+  <meta name="keywords" content="Four Eleven Studio, Creative Studio, Video Production, Branding, Social Media Management, Content Creation, Cinematography, Mumbai, Rohan Matheshiya, Krutik Thakur, Rubal Jain">
   <meta name="author" content="Four Eleven Studio">
   
   <!-- Open Graph / Meta -->
@@ -1808,6 +1808,162 @@
       color: var(--primary);
     }
 
+    /* Core Team Grid Architecture */
+    .team-section-wrap {
+      margin-top: 64px;
+      padding-top: 64px;
+      border-top: 1px solid var(--border);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 640px) and (max-width: 1023px) {
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+      }
+    }
+
+    .team-card {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px 30px;
+      background: var(--card-bg);
+      backdrop-filter: blur(var(--card-blur));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-hover);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 40px var(--accent-glow);
+    }
+
+    .team-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .team-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary);
+      display: block;
+      margin-top: 12px;
+    }
+
+    .team-num {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--muted-foreground);
+      opacity: 0.6;
+    }
+
+    .team-avatar-badge {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(255, 73, 59, 0.18), rgba(255, 255, 255, 0.03));
+      border: 1px solid rgba(255, 73, 59, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+      box-shadow: 0 0 24px rgba(255, 73, 59, 0.2);
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 8px 0 6px;
+      line-height: 1.15;
+    }
+
+    .team-role {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .team-bio {
+      color: var(--muted-foreground);
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .team-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .team-tag-pill {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--pill-bg);
+      color: rgba(244, 244, 246, 0.8);
+    }
+
+    .team-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 4px;
+    }
+
+    .team-pill-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      border: 1px solid var(--border);
+      background: var(--pill-bg);
+      color: var(--foreground);
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .team-pill-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
     /* ==========================================================================
        Footer (DZINR Signature Architecture)
        ========================================================================== */
@@ -2651,44 +2807,128 @@
       </div>
     </section>
 
-    <!-- About Us & Founder Spotlight Section -->
+    <!-- About Us & Core Team Section -->
     <section class="about-section" id="about">
       <div class="about-card-wrap">
         
         <div class="about-content-left">
-          <span class="about-tag">ABOUT FOUR ELEVEN STUDIO</span>
+          <div class="portfolio-kicker" style="margin-bottom: 14px;">
+            <span class="live-dot"></span>
+            <span class="kicker-hindi">॥ हमारी कहानी ॥</span>
+            <span class="kicker-sep">•</span>
+            <span>ABOUT FOUR ELEVEN STUDIO</span>
+          </div>
           <h2 class="about-heading">Creativity Meets Strategy.</h2>
           <p class="about-p">
-            At Four Eleven Studio, we believe every brand has a story worth telling. We are a creative studio bringing together strategy, design, content and digital media to help businesses stand out in an ever-evolving digital world.
+            At Four Eleven Studio, we believe every brand has a story worth telling. We are a creative and digital media studio bringing together strategy, design, content, and high-retention production to help businesses stand out in an ever-evolving digital world.
           </p>
           <p class="about-p">
-            Whether it's building a brand identity, creating engaging content, producing compelling videos or managing digital platforms, we focus on creating work that connects with people and delivers value.
+            Whether it's building an authentic brand identity, crafting viral creator formats, producing cinematic commercial films, or executing full-funnel digital media campaigns, we create work that connects deeply with audiences and delivers measurable impact.
           </p>
-          <p class="about-p" style="font-weight: 600; color: var(--foreground);">
+          <p class="about-p" style="font-weight: 600; color: var(--foreground); margin-bottom: 0;">
             We don't just create content. We create meaningful brand experiences.
           </p>
         </div>
 
-        <div class="founder-card">
-          <span class="about-tag">LEADERSHIP &amp; CREATION</span>
-          <h3 class="founder-name">Rohan Matheshiya</h3>
-          <span class="founder-role">Founder &amp; Creative Director — Four Eleven Studio</span>
+        <div class="founder-card" style="justify-content: center;">
+          <span class="about-tag">STUDIO VISION &amp; IMPACT</span>
+          <h3 class="founder-name" style="font-size: 22px;">Turning Ideas Into Cultural Impact</h3>
           <p class="founder-bio">
-            A creative professional passionate about visual storytelling, filmmaking, digital media and brand communication. Rohan brings together creativity, technology and strategy to transform ideas into compelling visual experiences.
+            From household brand tours and healthcare leaders to viral creator ecosystems and artisanal luxury labels, we build seamless creative pipelines combining visual artistry, audience insight, and performance execution.
           </p>
           <div class="founder-contact-links">
-            <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="founder-pill-link">
-              Instagram @4eleven.in ↗
-            </a>
-            <a href="mailto:ssup@4eleven.in?subject=Direct%20Inquiry%20%E2%80%94%20Rohan" class="founder-pill-link">
-              Direct: ssup@4eleven.in ✉
-            </a>
             <a href="portfolio.html" class="founder-pill-link">
-              View Curated Portfolio ↗
+              Explore Selected Work ↗
+            </a>
+            <a href="mailto:ssup@4eleven.in?subject=Studio%20Collaboration" class="founder-pill-link">
+              Connect With Studio ✉
             </a>
           </div>
         </div>
 
+      </div>
+
+      <!-- Core Team Section -->
+      <div class="team-section-wrap">
+        <div class="portfolio-kicker">
+          <span class="live-dot"></span>
+          <span class="kicker-hindi">॥ हमारा दल ॥</span>
+          <span class="kicker-sep">•</span>
+          <span>LEADERSHIP &amp; CORE TEAM</span>
+        </div>
+        <h2 class="about-heading">The Minds Behind <span class="serif-flair" style="font-family: var(--font-rozha); font-style: italic; font-weight: 400; color: var(--primary);">Four Eleven</span>.</h2>
+        <p class="about-p">A collective of filmmakers, brand strategists, and creator economy pioneers shaping cultural narratives and digital momentum.</p>
+
+        <div class="team-grid">
+          <!-- Team Member 01: Rohan Matheshiya -->
+          <div class="team-card">
+            <div>
+              <div class="team-card-top">
+                <div class="team-avatar-badge">RM</div>
+                <span class="team-num">01</span>
+              </div>
+              <span class="team-tag">LEADERSHIP &amp; DIRECTION</span>
+              <h3 class="team-name">Rohan Matheshiya</h3>
+              <span class="team-role">Founder &amp; Creative Director</span>
+              <p class="team-bio">Passionate about visual storytelling, filmmaking, digital media, and brand communication. Rohan brings together creativity, technology, and strategy to transform ideas into compelling visual experiences.</p>
+              <div class="team-tags">
+                <span class="team-tag-pill">Creative Direction</span>
+                <span class="team-tag-pill">Brand Strategy</span>
+                <span class="team-tag-pill">Film Production</span>
+              </div>
+            </div>
+            <div class="team-links">
+              <a href="https://www.instagram.com/4eleven.in/" target="_blank" rel="noopener noreferrer" class="team-pill-link">Instagram @4eleven.in ↗</a>
+              <a href="mailto:ssup@4eleven.in?subject=Direct%20Inquiry%20%E2%80%94%20Rohan" class="team-pill-link">Direct: ssup@4eleven.in ✉</a>
+            </div>
+          </div>
+
+          <!-- Team Member 02: Krutik Thakur -->
+          <div class="team-card">
+            <div>
+              <div class="team-card-top">
+                <div class="team-avatar-badge">KT</div>
+                <span class="team-num">02</span>
+              </div>
+              <span class="team-tag">CINEMATOGRAPHY &amp; CONTENT</span>
+              <h3 class="team-name">Krutik Thakur</h3>
+              <span class="team-role">Cinematographer &amp; Influencer</span>
+              <p class="team-bio">Acclaimed visual artist, cinematographer, and digital creator known for innovative perspective storytelling and viral visual craft. Krutik brings cinematic camera expertise, creative lighting, and high-engagement visual momentum to studio productions.</p>
+              <div class="team-tags">
+                <span class="team-tag-pill">Cinematography</span>
+                <span class="team-tag-pill">Visual Storytelling</span>
+                <span class="team-tag-pill">Viral Content</span>
+              </div>
+            </div>
+            <div class="team-links">
+              <a href="mailto:ssup@4eleven.in?subject=Cinematography%20Inquiry%20%E2%80%94%20Krutik%20Thakur" class="team-pill-link">Connect with Krutik ✉</a>
+              <a href="portfolio.html" class="team-pill-link">View Works ↗</a>
+            </div>
+          </div>
+
+          <!-- Team Member 03: Rubal Jain -->
+          <div class="team-card">
+            <div>
+              <div class="team-card-top">
+                <div class="team-avatar-badge">RJ</div>
+                <span class="team-num">03</span>
+              </div>
+              <span class="team-tag">GROWTH &amp; SOCIAL ECOSYSTEMS</span>
+              <h3 class="team-name">Rubal Jain</h3>
+              <span class="team-role">Social Media Expert &amp; Influencer</span>
+              <p class="team-bio">Digital growth specialist, social media expert, and creator ecosystem leader. Rubal architects high-retention social campaigns, algorithmic distribution frameworks, and strategic influencer partnerships that scale modern brand presence.</p>
+              <div class="team-tags">
+                <span class="team-tag-pill">Social Media Strategy</span>
+                <span class="team-tag-pill">Influencer Marketing</span>
+                <span class="team-tag-pill">Growth Funnels</span>
+              </div>
+            </div>
+            <div class="team-links">
+              <a href="mailto:ssup@4eleven.in?subject=Social%20Media%20Inquiry%20%E2%80%94%20Rubal%20Jain" class="team-pill-link">Connect with Rubal ✉</a>
+              <a href="portfolio.html" class="team-pill-link">View Works ↗</a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2937,7 +3177,7 @@
     requestAnimationFrame(renderCursor);
 
     // Magnetic / Hover reactions
-    const hoverTargets = document.querySelectorAll('a, button, .service-card, .collab-item, .proj-card');
+    const hoverTargets = document.querySelectorAll('a, button, .service-card, .collab-item, .proj-card, .team-card');
     hoverTargets.forEach((target) => {
       target.addEventListener('mouseenter', () => {
         follower.classList.add('is-hover');
