@@ -18,10 +18,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230e0e0e'/><text x='50' y='68' font-size='50' font-weight='900' fill='%23ff493b' font-family='sans-serif' text-anchor='middle'>4·11</text></svg>">
 
-  <!-- Google Fonts -->
+  <!-- Google & Fontshare Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@300,500,600,700,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&family=Syne:wght@700;800&family=Yatra+One&display=swap" rel="stylesheet">
 
   <!-- GSAP & Lenis Smooth Scroll -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -34,9 +35,15 @@
        ========================================================================== */
     :root {
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-display: 'Plus Jakarta Sans', var(--font-sans);
+      --font-display: 'Clash Display', 'Plus Jakarta Sans', var(--font-sans);
       --font-heading: 'Syne', var(--font-sans);
       --font-mono: 'JetBrains Mono', monospace;
+      --font-rozha: 'Rozha One', Georgia, serif;
+      --font-yatra: 'Yatra One', cursive;
+
+      /* Colors & Gradients */
+      --marigold: #fbbf24;
+      --crimson: #ff493b;
 
       /* Dark Theme (Default) */
       --background: #0c0d0e;
@@ -200,18 +207,6 @@
       background-color: rgba(var(--primary-rgb), 0.9);
       border-color: var(--primary);
       backdrop-filter: blur(4px);
-    }
-
-    .cursor-follower.is-video {
-      width: 140px;
-      height: 46px;
-      border-radius: 9999px;
-      background: var(--foreground);
-      color: var(--background);
-      border-color: var(--foreground);
-      font-weight: 600;
-      gap: 6px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     }
 
     /* ==========================================================================
@@ -541,115 +536,363 @@
     }
 
     /* ==========================================================================
-       Hero Section
+       Mandala Watermark Atmosphere
+       ========================================================================== */
+    .mandala-wrap {
+      position: fixed;
+      top: 36%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(88vw, 880px);
+      height: min(88vw, 880px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.08;
+      transition: opacity 0.4s ease;
+    }
+
+    html.light .mandala-wrap {
+      opacity: 0.045;
+    }
+
+    .mandala-svg {
+      width: 100%;
+      height: 100%;
+      color: #ff5748;
+      animation: rotateMandala 200s linear infinite;
+      transform-origin: center center;
+    }
+
+    @keyframes rotateMandala {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ==========================================================================
+       Hero Section (Clean, Spacious Editorial Composition)
        ========================================================================== */
     .hero-section {
       position: relative;
-      min-height: 100vh;
-      padding-top: 130px;
-      padding-bottom: 60px;
+      min-height: 85vh;
+      padding-top: 110px;
+      padding-bottom: 50px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       overflow: hidden;
+      z-index: 1;
     }
 
     @media (min-width: 1024px) {
       .hero-section {
-        padding-top: 150px;
-        padding-bottom: 80px;
+        min-height: 88vh;
+        padding-top: 130px;
+        padding-bottom: 70px;
       }
     }
 
     .hero-container {
-      max-width: 1680px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
       width: 100%;
       display: flex;
       flex-direction: column;
-      gap: 36px;
-    }
-
-    @media (min-width: 1024px) {
-      .hero-container {
-        padding: 0 48px;
-        gap: 48px;
-      }
-    }
-
-    /* Giant Stylized Brand Title */
-    .hero-monument-wrap {
-      width: 100%;
+      align-items: center;
       position: relative;
+      z-index: 2;
     }
 
-    .hero-monument-svg {
-      width: 100%;
-      height: auto;
-      max-height: 24vw;
-      overflow: visible;
-    }
-
-    .monument-path {
-      fill: none;
-      stroke: var(--foreground);
-      stroke-width: 2.2;
-      stroke-dasharray: 2000;
-      stroke-dashoffset: 0;
-      opacity: 0.9;
-      transition: stroke 0.4s ease;
-    }
-
-    .hero-meta-row {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: space-between;
-      font-size: 14px;
-      color: var(--muted-foreground);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 28px;
-    }
-
-    @media (min-width: 768px) {
-      .hero-meta-row {
-        flex-direction: row;
-        align-items: flex-end;
-        font-size: 16px;
-      }
-    }
-
-    .hero-tag-pill {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary);
+    /* Kicker Capsule (Hindi x English) */
+    .kicker-capsule {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 73, 59, 0.08);
+      border: 1px solid rgba(255, 73, 59, 0.28);
+      font-family: var(--font-mono);
+      font-size: clamp(9px, 2.3vw, 11px);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #ff9187;
+      margin-bottom: 20px;
+      box-shadow: 0 0 24px rgba(255, 73, 59, 0.12);
+      max-width: 92vw;
     }
 
-    .hero-statement-lead {
-      max-width: 580px;
+    .kicker-capsule .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff493b;
+      box-shadow: 0 0 10px #ff493b;
+      animation: pulseDot 2s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+
+    .kicker-capsule .kicker-hi {
+      font-family: var(--font-yatra);
+      color: var(--marigold);
+      font-size: clamp(10.5px, 2.8vw, 12.5px);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .kicker-capsule .kicker-sep {
+      opacity: 0.4;
+    }
+
+    .kicker-capsule .kicker-en {
+      white-space: nowrap;
+    }
+
+    /* Playful Typographic Headline Composition */
+    .hero-title-composition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Top Row: WE TURN [Ideas] */
+    .title-row-1 {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .txt-we-turn {
       font-family: var(--font-display);
-      font-size: clamp(16px, 1.8vw, 22px);
-      font-weight: 500;
-      line-height: 1.35;
+      font-size: clamp(30px, 7vw, 96px);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
       color: var(--foreground);
-      letter-spacing: -0.02em;
+    }
+
+    .txt-ideas-serif {
+      font-family: var(--font-rozha);
+      font-size: clamp(34px, 7.8vw, 104px);
+      font-weight: 400;
+      color: var(--foreground);
+      line-height: 0.95;
+      font-style: italic;
+      text-shadow: 0 0 35px rgba(255, 255, 255, 0.35);
+    }
+
+    /* Bottom Row: INTO [ ॥ जादू ॥ // MAGIC // ] */
+    .title-row-2 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .txt-into {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 6.2vw, 88px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      color: var(--foreground);
+    }
+
+    /* Authentic Desi Retro Ticket Stamp Badge */
+    .desi-loop-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 73, 59, 0.22) 0%, rgba(20, 18, 22, 0.94) 100%);
+      border: 1.5px dashed rgba(251, 191, 36, 0.55);
+      padding: 5px 18px 7px 18px;
+      border-radius: 14px;
+      box-shadow: 
+        0 10px 35px rgba(0, 0, 0, 0.6),
+        0 0 35px rgba(251, 191, 36, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    @media (min-width: 640px) {
+      .desi-loop-badge {
+        padding: 8px 32px 10px 32px;
+        border-radius: 18px;
+      }
+    }
+
+    .desi-loop-badge:hover {
+      border-color: var(--marigold);
+      box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.7),
+        0 0 45px rgba(251, 191, 36, 0.45);
+      transform: translateY(-2px);
+    }
+
+    html.light .desi-loop-badge {
+      background: radial-gradient(ellipse at 50% 50%, rgba(255, 73, 59, 0.12) 0%, rgba(248, 248, 250, 0.95) 100%);
+      border-color: rgba(217, 119, 6, 0.6);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .desi-corner {
+      position: absolute;
+      font-size: 8px;
+      color: var(--marigold);
+      opacity: 0.75;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .desi-corner.tl { top: 4px; left: 6px; }
+    .desi-corner.tr { top: 4px; right: 6px; }
+    .desi-corner.bl { bottom: 4px; left: 6px; }
+    .desi-corner.br { bottom: 4px; right: 6px; }
+
+    .desi-loop-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      perspective: 600px;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.32s ease, filter 0.32s ease;
+    }
+
+    .desi-loop-content.flip-out {
+      transform: rotateX(65deg) translateY(-6px);
+      opacity: 0;
+      filter: blur(4px);
+    }
+
+    .desi-loop-content.flip-in {
+      transform: rotateX(0deg) translateY(0);
+      opacity: 1;
+      filter: blur(0);
+    }
+
+    .desi-danda {
+      font-family: var(--font-rozha);
+      font-size: clamp(28px, 5.2vw, 62px);
+      color: var(--crimson);
+      opacity: 0.92;
+      line-height: 1;
+      text-shadow: 0 0 15px rgba(255, 73, 59, 0.4);
+    }
+
+    .desi-hindi-word {
+      font-family: var(--font-rozha);
+      font-size: clamp(36px, 6.6vw, 82px);
+      font-weight: 400;
+      color: var(--marigold);
+      line-height: 1.05;
+      text-shadow: 
+        0 0 25px rgba(251, 191, 36, 0.6),
+        2px 2px 0 #b91c1c;
+      letter-spacing: 0.02em;
+    }
+
+    html.light .desi-hindi-word {
+      color: #b45309;
+      text-shadow: 0 0 20px rgba(245, 158, 11, 0.4), 1px 1px 0 #991b1b;
+    }
+
+    .desi-en-sub {
+      font-family: var(--font-mono);
+      font-size: clamp(9px, 1.1vw, 11px);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #ff9187;
+      margin-top: 3px;
+      opacity: 0.9;
+      transition: opacity 0.32s ease, transform 0.32s ease;
+    }
+
+    .desi-en-sub.flip-out {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+
+    /* Poetic Hindi Sub-motto */
+    .poetic-hindi-banner {
+      margin-top: 22px;
+      font-family: var(--font-yatra);
+      font-size: clamp(15px, 1.5vw, 19px);
+      color: var(--marigold);
+      letter-spacing: 0.08em;
+      opacity: 0.92;
+    }
+
+    html.light .poetic-hindi-banner {
+      color: #b45309;
+    }
+
+    /* Lead Statement */
+    .hero-desc {
+      font-size: clamp(15px, 1.35vw, 18.5px);
+      line-height: 1.65;
+      color: var(--muted-foreground);
+      max-width: 680px;
+      margin: 18px auto 0 auto;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      padding: 0 12px;
+    }
+
+    .hero-desc strong {
+      color: var(--foreground);
+      font-weight: 600;
+    }
+
+    /* Hero CTA Row */
+    .hero-actions-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      width: 100%;
+    }
+
+    @media (max-width: 640px) {
+      .hero-actions-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .hero-actions-row .liquid-btn,
+      .hero-actions-row .collab-learn-btn {
+        width: 100%;
+        max-width: 320px;
+        justify-content: center;
+        text-align: center;
+      }
     }
 
     .hero-scroll-indicator {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      opacity: 0.5;
+      color: var(--muted-foreground);
+      opacity: 0.6;
+      margin-top: 36px;
     }
 
     .hero-scroll-indicator svg {
@@ -659,176 +902,6 @@
     @keyframes bounceDown {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(6px); }
-    }
-
-    /* ==========================================================================
-       Interactive Showreel Video Card (Pinned Scrub)
-       ========================================================================== */
-    .showreel-section-wrap {
-      position: relative;
-      width: 100%;
-      max-width: 1680px;
-      margin: 0 auto;
-      padding: 0 24px;
-      margin-top: 20px;
-    }
-
-    @media (min-width: 1024px) {
-      .showreel-section-wrap {
-        padding: 0 48px;
-      }
-    }
-
-    .showreel-card-container {
-      position: relative;
-      width: 100%;
-      height: clamp(340px, 58vh, 720px);
-      border-radius: 28px;
-      overflow: hidden;
-      background: #111;
-      border: 1px solid var(--border);
-      cursor: pointer;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-      transform-origin: bottom left;
-      will-change: transform;
-    }
-
-    .showreel-video-element {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(1.02);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .showreel-card-container:hover .showreel-video-element {
-      transform: scale(1.06);
-    }
-
-    .showreel-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
-      pointer-events: none;
-    }
-
-    .showreel-badge {
-      position: absolute;
-      top: 24px;
-      left: 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(8px);
-      padding: 6px 14px;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.05em;
-      color: #ffffff;
-    }
-
-    .showreel-badge .badge-rec {
-      width: 8px;
-      height: 8px;
-      background: var(--primary);
-      border-radius: 50%;
-      animation: pulseRecord 1.5s infinite;
-    }
-
-    @keyframes pulseRecord {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
-    }
-
-    .showreel-center-play {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: rgba(255, 255, 255, 0.95);
-      color: #0c0d0e;
-      padding: 16px 32px;
-      border-radius: 9999px;
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: -0.01em;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
-    }
-
-    .showreel-card-container:hover .showreel-center-play {
-      transform: translate(-50%, -50%) scale(1.08);
-      background: var(--primary);
-      color: #ffffff;
-    }
-
-    /* Video Fullscreen Modal */
-    .video-modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.92);
-      backdrop-filter: blur(20px);
-      z-index: 10002;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .video-modal.is-active {
-      display: flex;
-    }
-
-    .video-modal-inner {
-      position: relative;
-      width: 100%;
-      max-width: 1280px;
-      max-height: 85vh;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
-    }
-
-    .video-modal-inner video {
-      width: 100%;
-      height: 100%;
-      max-height: 80vh;
-      object-fit: contain;
-      background: #000;
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 20px;
-      cursor: pointer;
-      z-index: 10;
-      transition: background 0.25s ease, transform 0.25s ease;
-    }
-
-    .modal-close-btn:hover {
-      background: var(--primary);
-      transform: rotate(90deg);
     }
 
     /* ==========================================================================
@@ -930,20 +1003,67 @@
       }
     }
 
-    .projects-section-title {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 5vw, 72px);
-      font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
+    .portfolio-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 16px;
+      border-radius: 9999px;
+      background: rgba(239, 68, 68, 0.08);
+      border: 1px solid rgba(239, 68, 68, 0.28);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: #ff9187;
+      margin-bottom: 12px;
     }
 
-    .projects-counter-pill {
-      font-family: var(--font-mono);
+    .portfolio-kicker .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ff493b;
+      box-shadow: 0 0 8px #ff493b;
+    }
+
+    .portfolio-kicker .kicker-hindi {
+      font-family: var(--font-yatra);
+      color: var(--marigold);
       font-size: 12px;
       letter-spacing: 0.06em;
-      color: var(--primary);
+    }
+
+    html.light .portfolio-kicker .kicker-hindi {
+      color: #b45309;
+    }
+
+    .projects-section-title {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 5.6vw, 76px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--foreground);
+      margin: 0;
+    }
+
+    .projects-section-title .serif-flair {
+      font-family: var(--font-rozha);
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      color: var(--foreground);
+      text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+    }
+
+    .projects-section-title .gradient-word {
+      background: linear-gradient(135deg, #ffffff 15%, #ffbe3b 55%, #ff493b 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      text-shadow: 0 0 40px rgba(255, 73, 59, 0.35);
     }
 
     .projects-scroll-container {
@@ -1840,6 +1960,64 @@
 </head>
 <body>
 
+  <!-- Subtle Grain & Traditional Rotating Mandala Watermark -->
+  <div class="mandala-wrap" aria-hidden="true">
+    <svg class="mandala-svg" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <g id="mandala-petal">
+          <path d="M 400,60 C 375,130 365,190 400,230 C 435,190 425,130 400,60 Z" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M 400,95 C 385,140 380,180 400,205 C 420,180 415,140 400,95 Z" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+          <circle cx="400" cy="50" r="3.5" fill="currentColor"/>
+        </g>
+        <g id="mandala-arch">
+          <path d="M 368,250 C 378,214 422,214 432,250" stroke="currentColor" stroke-width="1.3"/>
+          <circle cx="400" cy="224" r="2.5" fill="currentColor"/>
+          <line x1="400" y1="248" x2="400" y2="280" stroke="currentColor" stroke-width="0.9"/>
+        </g>
+        <g id="mandala-inner">
+          <path d="M 400,285 C 388,320 388,340 400,355 C 412,340 412,320 400,285 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="400" cy="320" r="1.8" fill="currentColor"/>
+        </g>
+      </defs>
+      <circle cx="400" cy="400" r="375" stroke="currentColor" stroke-width="1.2" stroke-dasharray="8 6"/>
+      <circle cx="400" cy="400" r="360" stroke="currentColor" stroke-width="0.8"/>
+      <circle cx="400" cy="400" r="340" stroke="currentColor" stroke-width="1.4"/>
+      <circle cx="400" cy="400" r="330" stroke="currentColor" stroke-width="0.8" stroke-dasharray="2 4"/>
+      <use href="#mandala-petal" transform="rotate(0 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(22.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(45 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(67.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(90 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(112.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(135 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(157.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(180 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(202.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(225 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(247.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(270 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(292.5 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(315 400 400)"/>
+      <use href="#mandala-petal" transform="rotate(337.5 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(0 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(45 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(90 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(135 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(180 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(225 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(270 400 400)"/>
+      <use href="#mandala-arch" transform="rotate(315 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(0 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(45 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(90 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(135 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(180 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(225 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(270 400 400)"/>
+      <use href="#mandala-inner" transform="rotate(315 400 400)"/>
+    </svg>
+  </div>
+
   <!-- Custom Magnetic Cursor -->
   <div class="custom-cursor" id="customCursor"></div>
   <div class="cursor-follower" id="cursorFollower"></div>
@@ -1937,56 +2115,74 @@
 
   <main id="mainContent">
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Editorial Typographic Composition) -->
     <section class="hero-section" id="hero">
       <div class="hero-container">
         
-        <!-- Giant Typographic Brand Letterforms -->
-        <div class="hero-monument-wrap">
-          <svg class="hero-monument-svg" viewBox="0 0 1400 240" fill="none">
-            <!-- Typographic Architectural Lettering for FOUR ELEVEN -->
-            <text x="0" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="168" letter-spacing="-0.04em" class="monument-path">4·ELEVEN</text>
-            <text x="960" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="74" letter-spacing="-0.02em" fill="var(--primary)" opacity="0.95">STUDIO</text>
+        <!-- Kicker Capsule -->
+        <div class="kicker-capsule">
+          <span class="live-dot"></span>
+          <span class="kicker-hi">॥ विचार से प्रभाव तक ॥</span>
+          <span class="kicker-sep">•</span>
+          <span class="kicker-en">STRATEGY &amp; DESIGN</span>
+        </div>
+
+        <!-- Playful Typographic Headline Composition -->
+        <div class="hero-title-composition">
+          <div class="title-row-1">
+            <span class="txt-we-turn">WE TURN</span>
+            <span class="txt-ideas-serif">Ideas</span>
+          </div>
+          <div class="title-row-2">
+            <span class="txt-into">INTO</span>
+            <div class="desi-loop-badge" id="desi-loop-badge" title="We Turn Ideas Into Impact">
+              <span class="desi-corner tl">✦</span>
+              <span class="desi-corner tr">✦</span>
+              <div class="desi-loop-content" id="desi-loop-content">
+                <span class="desi-danda">॥</span>
+                <span class="desi-hindi-word" id="loop-hindi-word">जादू</span>
+                <span class="desi-danda">॥</span>
+              </div>
+              <span class="desi-en-sub" id="loop-en-word">// MAGIC //</span>
+              <span class="desi-corner bl">✦</span>
+              <span class="desi-corner br">✦</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Poetic Hindi Sub-motto -->
+        <div class="poetic-hindi-banner">
+          <span>कहानियाँ • रचना • डिजिटल अनुभव</span>
+        </div>
+
+        <!-- Studio Lead Description -->
+        <p class="hero-desc">
+          We are a creative and digital media studio helping brands build meaningful connections through 
+          <strong>powerful storytelling</strong>, <strong>strategic thinking</strong>, and <strong>creative execution</strong>. 
+          From content creation to brand communication, we make ideas work.
+        </p>
+
+        <!-- Hero Actions (Liquid Buttons) -->
+        <div class="hero-actions-row">
+          <a href="#contact" class="liquid-btn">
+            <span>Let's Work Together</span>
+            <span class="btn-arrow">→</span>
+            <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path></svg>
+          </a>
+          <a href="#projects" class="collab-learn-btn">
+            <span>Explore Selected Work</span>
+            <span>↓</span>
+          </a>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="hero-scroll-indicator">
+          <span>Scroll To Explore</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 5v14M19 12l-7 7-7-7"/>
           </svg>
         </div>
 
-        <!-- Meta Sub-row -->
-        <div class="hero-meta-row">
-          <div>
-            <span class="hero-tag-pill">● Strategy, Design, Performance</span>
-            <p class="hero-statement-lead" style="margin-top: 8px;">
-              We are a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution.
-            </p>
-          </div>
-          <div class="hero-scroll-indicator">
-            <span>Scroll To Explore</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Hero Video Showreel Card (Shrinks & Scrubs on Scroll) -->
-      <div class="showreel-section-wrap">
-        <div class="showreel-card-container" id="showreelCard">
-          <video class="showreel-video-element" id="heroReelVideo" autoplay loop muted playsinline poster="assets/projects/halwa-tour.jpg">
-            <source src="https://media.dzinr.in/video/new.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-          <div class="showreel-overlay"></div>
-          <div class="showreel-badge">
-            <span class="badge-rec"></span>
-            <span>SHOWREEL 2026 // 4·11 ARCHIVES</span>
-          </div>
-          <div class="showreel-center-play">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="6 3 20 12 6 21 6 3"></polygon>
-            </svg>
-            <span>Play Showreel</span>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -2023,8 +2219,16 @@
     <section class="projects-pin-wrap" id="projects">
       <div class="projects-track-header">
         <div>
-          <span class="projects-counter-pill">॥ चुनिंदा काम ॥ • FEATURED ARCHIVES</span>
-          <h2 class="projects-section-title">Selected Work</h2>
+          <div class="portfolio-kicker">
+            <span class="live-dot"></span>
+            <span class="kicker-hindi">॥ चुनिंदा काम ॥</span>
+            <span class="kicker-sep">•</span>
+            <span>SELECTED WORK &amp; ARCHIVES</span>
+          </div>
+          <h2 class="projects-section-title">
+            SELECTED <span class="serif-flair">Work&amp;</span><br>
+            <span class="gradient-word">IMPACT.</span>
+          </h2>
         </div>
         <a href="portfolio.html" class="collab-learn-btn">
           <span>View All 14 Projects ↗</span>
@@ -2454,17 +2658,6 @@
 
   </main>
 
-  <!-- Fullscreen Video Popover Modal -->
-  <div class="video-modal" id="videoModal">
-    <div class="video-modal-inner">
-      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Showreel">✕</button>
-      <video id="modalVideoPlayer" controls playsinline preload="auto">
-        <source src="https://media.dzinr.in/video/new.mp4" type="video/mp4">
-        Your browser does not support HTML5 video.
-      </video>
-    </div>
-  </div>
-
   <!-- Footer (DZINR Architecture) -->
   <footer class="site-footer" id="contact">
     <div class="footer-inner">
@@ -2608,6 +2801,13 @@
       });
 
       gsap.ticker.lagSmoothing(0);
+
+      if (window.location.hash) {
+        setTimeout(() => {
+          if (lenis) lenis.scrollTo(window.location.hash, { immediate: true });
+          else document.querySelector(window.location.hash)?.scrollIntoView();
+        }, 150);
+      }
     } catch (err) {
       console.warn('Lenis could not be initialized, falling back to native scroll:', err);
     }
@@ -2652,19 +2852,6 @@
       });
     });
 
-    // Special Video Card Cursor
-    const showreelCard = document.getElementById('showreelCard');
-    if (showreelCard) {
-      showreelCard.addEventListener('mouseenter', () => {
-        follower.classList.add('is-video');
-        follower.innerHTML = '<span>▶ Play Reel</span>';
-      });
-      showreelCard.addEventListener('mouseleave', () => {
-        follower.classList.remove('is-video');
-        follower.innerHTML = '';
-      });
-    }
-
     // ==========================================================================
     // 3. Preloader Animation & Counter
     // ==========================================================================
@@ -2672,8 +2859,14 @@
     const preloaderCounter = document.getElementById('preloaderCounter');
     const maskRect = document.getElementById('preloaderMaskRect');
 
+    const isNoLoader = new URLSearchParams(window.location.search).get('noloader') === '1';
+    if (isNoLoader && preloader) {
+      preloader.style.display = 'none';
+      setTimeout(initHeroAnimations, 100);
+    }
+
     let countObj = { val: 0 };
-    const counterTween = gsap.to(countObj, {
+    const counterTween = !isNoLoader && gsap.to(countObj, {
       val: 100,
       duration: 1.8,
       ease: 'power2.inOut',
@@ -2701,70 +2894,70 @@
     // 4. Hero Section Animations
     // ==========================================================================
     function initHeroAnimations() {
-      gsap.from('.monument-path', {
-        strokeDashoffset: 1500,
-        duration: 1.8,
-        ease: 'power3.out'
-      });
-
-      gsap.from('.hero-statement-lead, .hero-tag-pill, .hero-scroll-indicator', {
-        y: 30,
+      gsap.from('.kicker-capsule', {
+        y: 15,
         opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: 'power3.out'
+        duration: 0.6,
+        ease: 'power2.out'
       });
 
-      // Showreel Scroll Scrub: Scale down and pin into view as user scrolls
-      if (showreelCard && window.innerWidth >= 1024) {
-        gsap.to(showreelCard, {
-          scrollTrigger: {
-            trigger: '.hero-section',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1.2,
-          },
-          scale: 0.72,
-          y: '8vh',
-          borderRadius: '36px',
-          ease: 'power2.out'
-        });
-      }
+      gsap.from('.hero-title-composition .title-row-1, .hero-title-composition .title-row-2', {
+        y: 25,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power2.out'
+      });
+
+      gsap.from('.poetic-hindi-banner, .hero-desc, .hero-actions-row, .hero-scroll-indicator', {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.08,
+        ease: 'power2.out'
+      });
     }
 
     // ==========================================================================
-    // 5. Video Showreel Modal Player
+    // 5. Kinetic Desi Hindi Word Loop (Cyclic 3D Card Flip)
     // ==========================================================================
-    const videoModal = document.getElementById('videoModal');
-    const modalCloseBtn = document.getElementById('modalCloseBtn');
-    const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+    (function initDesiWordLoop() {
+      const contentEl = document.getElementById('desi-loop-content');
+      const hindiEl = document.getElementById('loop-hindi-word');
+      const enEl = document.getElementById('loop-en-word');
+      if (!contentEl || !hindiEl || !enEl) return;
 
-    if (showreelCard) {
-      showreelCard.addEventListener('click', () => {
-        videoModal.classList.add('is-active');
-        modalVideoPlayer.currentTime = 0;
-        modalVideoPlayer.play();
-        if (lenis) lenis.stop();
-      });
-    }
+      const words = [
+        { hi: 'जादू', en: '// MAGIC //' },
+        { hi: 'प्रभाव', en: '// IMPACT //' },
+        { hi: 'पहचान', en: '// IDENTITY //' },
+        { hi: 'क्रांति', en: '// REVOLUTION //' },
+        { hi: 'कहानी', en: '// STORIES //' },
+        { hi: 'मिसाल', en: '// BENCHMARK //' },
+        { hi: 'परिणाम', en: '// RESULTS //' }
+      ];
 
-    function closeModal() {
-      videoModal.classList.remove('is-active');
-      modalVideoPlayer.pause();
-      if (lenis) lenis.start();
-    }
+      let currentIndex = 0;
 
-    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-    if (videoModal) {
-      videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) closeModal();
-      });
-    }
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && videoModal.classList.contains('is-active')) {
-        closeModal();
-      }
-    });
+      setInterval(() => {
+        contentEl.classList.add('flip-out');
+        enEl.classList.add('flip-out');
+
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % words.length;
+          hindiEl.textContent = words[currentIndex].hi;
+          enEl.textContent = words[currentIndex].en;
+
+          contentEl.classList.remove('flip-out');
+          contentEl.classList.add('flip-in');
+          enEl.classList.remove('flip-out');
+
+          setTimeout(() => {
+            contentEl.classList.remove('flip-in');
+          }, 320);
+        }, 320);
+      }, 2600);
+    })();
 
     // ==========================================================================
     // 6. Horizontal Scroll Pinned Gallery (GSAP ScrollTrigger)
