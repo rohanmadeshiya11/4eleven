@@ -13,10 +13,11 @@
   <meta property="og:url" content="https://4eleven.in/">
   <meta property="og:title" content="FOUR ELEVEN STUDIO | We Turn Ideas Into Impact">
   <meta property="og:description" content="We are a creative and digital media studio helping brands build meaningful connections through powerful storytelling, strategic thinking and creative execution.">
-  <meta property="og:image" content="assets/projects/halwa-tour.jpg">
+  <meta property="og:image" content="https://4eleven.in/assets/logo-411.png">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230e0e0e'/><text x='50' y='68' font-size='50' font-weight='900' fill='%23ff493b' font-family='sans-serif' text-anchor='middle'>4·11</text></svg>">
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" href="assets/logo-411-mark.png">
+  <link rel="apple-touch-icon" href="assets/logo-411.png">
 
   <!-- Google & Fontshare Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -388,16 +389,48 @@
     .header-brand-mark {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--foreground);
+    }
+
+    .header-logo-img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 10px rgba(255, 73, 59, 0.35));
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+      .header-logo-img {
+        height: 32px;
+      }
+    }
+
+    .header-brand-mark:hover .header-logo-img {
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 14px rgba(255, 73, 59, 0.6));
+    }
+
+    .header-brand-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 20px;
+      font-size: 19px;
       letter-spacing: -0.04em;
       color: var(--foreground);
+      line-height: 1;
     }
 
     .header-brand-mark .brand-dot {
       color: var(--primary);
+    }
+
+    html.light .header-logo-img,
+    html.light .footer-logo-img,
+    html.light .manifesto-logo-img,
+    html.light .kicker-logo-img {
+      filter: invert(1);
     }
 
     .header-brand-sub {
@@ -2026,17 +2059,17 @@
   <div class="preloader" id="preloader">
     <div class="preloader-center">
       <div class="preloader-logo-wrap">
-        <svg class="preloader-svg" viewBox="0 0 120 120" fill="none">
+        <svg class="preloader-svg" viewBox="0 0 140 100" fill="none">
           <defs>
             <clipPath id="preloaderClip">
-              <rect id="preloaderMaskRect" class="preloader-mask-rect" x="0" y="0" width="120" height="120" />
+              <rect id="preloaderMaskRect" class="preloader-mask-rect" x="0" y="0" width="140" height="100" />
             </clipPath>
           </defs>
-          <!-- Outline Background -->
-          <text x="60" y="78" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="34" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none">4·11</text>
-          <!-- Filled Masked -->
+          <!-- Faint Base Logo -->
+          <image href="assets/logo-411-mark.png" x="10" y="10" width="120" height="80" preserveAspectRatio="xMidYMid meet" opacity="0.2" />
+          <!-- Filled Glowing Logo -->
           <g clip-path="url(#preloaderClip)">
-            <text x="60" y="78" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="34" fill="#ff493b">4·11</text>
+            <image href="assets/logo-411-mark.png" x="10" y="10" width="120" height="80" preserveAspectRatio="xMidYMid meet" filter="drop-shadow(0 0 16px #ff493b)" />
           </g>
         </svg>
       </div>
@@ -2056,7 +2089,8 @@
     <div class="header-inner">
       <div class="header-logo-group">
         <a href="/" class="header-brand-mark" aria-label="Four Eleven Studio Home">
-          <span>FOUR ELEVEN</span><span class="brand-dot">·</span>
+          <img src="assets/logo-411-mark.png" alt="Four Eleven Studio Logo" class="header-logo-img">
+          <span class="header-brand-title">FOUR ELEVEN<span class="brand-dot">·</span></span>
         </a>
         <span class="header-brand-sub">Creative &amp; Digital Media</span>
       </div>
@@ -2189,7 +2223,7 @@
     <!-- Manifesto / Narrative Statement Section -->
     <section class="manifesto-section" id="manifesto">
       <div class="manifesto-kicker">
-        <span>[ 4·11 ]</span>
+        <img src="assets/logo-411-mark.png" alt="4-11 Logo" class="manifesto-logo-img" style="height: 18px; width: auto; vertical-align: middle; filter: drop-shadow(0 0 8px rgba(255, 73, 59, 0.4));">
         <span class="kicker-hindi">॥ विचार से प्रभाव तक ॥</span>
         <span class="kicker-sep">•</span>
         <span>WE TURN IDEAS INTO IMPACT</span>
@@ -2674,11 +2708,16 @@
 
       <div class="footer-top-row">
         <div class="footer-headline-block">
-          <div class="portfolio-kicker" style="margin-bottom: 8px;">
-            <span class="live-dot"></span>
-            <span class="kicker-hindi">॥ बात करें ॥</span>
-            <span class="kicker-sep">•</span>
-            <span>HAVE AN IDEA? LET'S MAKE IT HAPPEN</span>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 8px;">
+            <a href="/" aria-label="Four Eleven Studio">
+              <img src="assets/logo-411-mark.png" alt="Four Eleven Studio Logo" class="footer-logo-img" style="height: 38px; width: auto; filter: drop-shadow(0 0 12px rgba(255, 73, 59, 0.4));">
+            </a>
+            <div class="portfolio-kicker" style="margin: 0;">
+              <span class="live-dot"></span>
+              <span class="kicker-hindi">॥ बात करें ॥</span>
+              <span class="kicker-sep">•</span>
+              <span>HAVE AN IDEA? LET'S MAKE IT HAPPEN</span>
+            </div>
           </div>
           <h2 class="footer-headline">
             Have an Idea? <br>
@@ -2752,7 +2791,10 @@
       </div>
 
       <div class="footer-bottom-bar">
-        <div>© 2026 Four Eleven Studio. All Rights Reserved. Mumbai, IN.</div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/logo-411-mark.png" alt="Four Eleven" class="footer-logo-img" style="height: 18px; width: auto; opacity: 0.85;">
+          <span>© 2026 Four Eleven Studio. All Rights Reserved. Mumbai, IN.</span>
+        </div>
         <div style="color: var(--primary);">Creative Thinking. Strategic Execution.</div>
         <div>
           Designed &amp; Developed for Impact.
