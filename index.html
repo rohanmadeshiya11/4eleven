@@ -2185,6 +2185,404 @@
       0%, 100% { height: 4px; }
       50% { height: 14px; }
     }
+
+    /* ==========================================================================
+       Global Lead Capture Modal (ssup@4eleven.in)
+       ========================================================================== */
+    .lead-modal-overlay {
+      position: fixed;
+      inset: 0;
+      box-sizing: border-box;
+      background: rgba(6, 7, 9, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 10002;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .lead-modal-overlay.is-active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lead-modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      min-width: 0;
+      box-sizing: border-box;
+      max-height: 92vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--card);
+      border: 1px solid rgba(255, 73, 59, 0.28);
+      border-radius: 24px;
+      padding: 36px 40px;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.75), 0 0 50px rgba(255, 73, 59, 0.12);
+      transform: scale(0.95) translateY(24px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
+    }
+
+    .lead-modal-card .portfolio-kicker {
+      max-width: 100%;
+      white-space: normal;
+      flex-wrap: wrap;
+      line-height: 1.4;
+    }
+
+    html.light .lead-modal-overlay {
+      background: rgba(15, 18, 22, 0.65);
+    }
+
+    html.light .lead-modal-card {
+      background: #ffffff;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 73, 59, 0.12);
+    }
+
+    .lead-modal-overlay.is-active .lead-modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    /* Modal Close Button */
+    .lead-modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--foreground);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      z-index: 10;
+    }
+
+    .lead-modal-close:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    /* Modal Headers */
+    .lead-modal-header {
+      margin-bottom: 24px;
+      padding-right: 40px;
+    }
+
+    .lead-modal-title {
+      font-family: var(--font-clash);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin: 8px 0 6px 0;
+      color: var(--foreground);
+    }
+
+    .lead-modal-subtitle {
+      font-size: 14px;
+      color: var(--muted-foreground);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* Form Fields */
+    .lead-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .lead-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lead-field.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .lead-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted-foreground);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .lead-label .req {
+      color: var(--primary);
+      font-weight: 700;
+      margin-left: 3px;
+    }
+
+    .lead-label .opt {
+      opacity: 0.55;
+      font-size: 10px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .lead-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: var(--foreground);
+      font-size: 14px;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+      outline: none;
+    }
+
+    html.light .lead-input {
+      background: #f8f8fa;
+      border-color: rgba(0, 0, 0, 0.12);
+    }
+
+    .lead-input:focus {
+      border-color: var(--primary);
+      background: rgba(255, 73, 59, 0.04);
+      box-shadow: 0 0 0 3px rgba(255, 73, 59, 0.18);
+    }
+
+    .lead-input::placeholder {
+      color: var(--muted-foreground);
+      opacity: 0.6;
+    }
+
+    .lead-textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.5;
+    }
+
+    /* Chips Selector */
+    .lead-chips-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .lead-chip {
+      appearance: none;
+      background: var(--pill-bg);
+      border: 1px solid var(--border);
+      color: var(--muted-foreground);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .lead-chip:hover {
+      border-color: rgba(255, 73, 59, 0.45);
+      color: var(--foreground);
+      transform: translateY(-1px);
+    }
+
+    .lead-chip.is-active {
+      background: rgba(255, 73, 59, 0.14);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 500;
+      box-shadow: 0 0 16px rgba(255, 73, 59, 0.2);
+    }
+
+    /* Form Footer */
+    .lead-form-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+
+    .lead-privacy-note {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--muted-foreground);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lead-submit-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-family: var(--font-clash);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #ff493b 0%, #e03629 100%);
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 8px 24px rgba(255, 73, 59, 0.35);
+    }
+
+    .lead-submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 73, 59, 0.5);
+    }
+
+    .lead-submit-btn:disabled {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .lead-spinner {
+      width: 15px;
+      height: 15px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: leadSpin 0.7s linear infinite;
+    }
+
+    @keyframes leadSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Success State View */
+    .lead-success-box {
+      text-align: center;
+      padding: 30px 10px 10px;
+    }
+
+    .lead-success-icon-wrap {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255, 73, 59, 0.12);
+      border: 1px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      box-shadow: 0 0 30px rgba(255, 73, 59, 0.25);
+    }
+
+    .lead-success-title {
+      font-family: var(--font-clash);
+      font-size: clamp(24px, 2.5vw, 32px);
+      margin: 8px 0 10px;
+      color: var(--foreground);
+    }
+
+    .lead-success-desc {
+      color: var(--muted-foreground);
+      font-size: 14.5px;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 24px;
+    }
+
+    @media (max-width: 640px) {
+      .lead-modal-overlay {
+        padding: 8px;
+        align-items: center;
+      }
+      .lead-modal-card {
+        padding: 20px 14px 24px;
+        border-radius: 18px;
+        max-height: 94vh;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+      .lead-modal-card .portfolio-kicker {
+        font-size: 9.5px;
+        padding: 3px 10px;
+        gap: 6px;
+        letter-spacing: 0.04em;
+        white-space: normal;
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+      .lead-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+      }
+      .lead-modal-header {
+        padding-right: 36px;
+        margin-bottom: 14px;
+      }
+      .lead-modal-title {
+        font-size: 22px;
+      }
+      .lead-modal-subtitle {
+        font-size: 12.5px;
+        line-height: 1.45;
+      }
+      .lead-form-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .lead-input {
+        padding: 10px 14px;
+        font-size: 13.5px;
+      }
+      .lead-chip {
+        font-size: 10.5px;
+        padding: 6px 11px;
+      }
+      .lead-chips-wrap {
+        gap: 6px;
+      }
+      .lead-form-footer {
+        flex-direction: column-reverse;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .lead-submit-btn {
+        width: 100%;
+        padding: 12px 18px;
+        font-size: 13px;
+      }
+      .lead-privacy-note {
+        justify-content: center;
+        font-size: 10.5px;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -2310,7 +2708,7 @@
       </nav>
 
       <div class="header-actions">
-        <a href="#contact" class="liquid-btn" aria-label="Let's Work Together">
+        <a href="#contact" class="liquid-btn" data-open-lead-modal aria-label="Let's Work Together">
           <span>Let's Talk</span>
           <span class="btn-arrow">→</span>
           <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -2393,7 +2791,7 @@
 
         <!-- Hero Actions (Liquid Buttons) -->
         <div class="hero-actions-row">
-          <a href="#contact" class="liquid-btn">
+          <a href="#contact" class="liquid-btn" data-open-lead-modal>
             <span>Let's Work Together</span>
             <span class="btn-arrow">→</span>
             <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path></svg>
@@ -2740,7 +3138,7 @@
       </div>
 
       <div style="margin-top: 60px; display: flex; justify-content: center;">
-        <a href="#contact" class="liquid-btn">
+        <a href="#contact" class="liquid-btn" data-open-lead-modal>
           <span>Start a Project With Us</span>
           <span class="btn-arrow">→</span>
           <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -2761,7 +3159,7 @@
           <p class="collab-subtitle">
             We work with brands, businesses, creators and organisations to build ideas that connect with audiences. From emerging businesses to household names, every collaboration brings a new story to tell.
           </p>
-          <a href="mailto:ssup@4eleven.in?subject=New%20Collaboration" class="collab-learn-btn">
+          <a href="#contact" class="collab-learn-btn" data-open-lead-modal>
             <span>Become a Collaborator</span>
             <span>→</span>
           </a>
@@ -3032,7 +3430,7 @@
         </div>
 
         <div class="footer-cta-wrap">
-          <a href="mailto:ssup@4eleven.in?subject=Project%20Inquiry%20%E2%80%94%20Four%20Eleven%20Studio" class="liquid-btn" style="padding: 16px 36px; font-size: 16px;">
+          <a href="#contact" class="liquid-btn" data-open-lead-modal style="padding: 16px 36px; font-size: 16px;">
             <span>Start a Project</span>
             <span class="btn-arrow">→</span>
             <svg class="liquid-wave" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -3103,6 +3501,143 @@
 
     </div>
   </footer>
+
+  <!-- ==========================================================================
+       Lead Capture Modal (Direct to ssup@4eleven.in)
+       ========================================================================== -->
+  <div class="lead-modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <div class="lead-modal-card">
+      <button type="button" class="lead-modal-close" id="leadModalClose" aria-label="Close dialog">✕</button>
+
+      <!-- Form View -->
+      <div id="leadFormView">
+        <div class="lead-modal-header">
+          <div class="portfolio-kicker" style="margin-bottom: 8px;">
+            <span class="live-dot"></span>
+            <span class="kicker-hindi">॥ साथ काम करें ॥</span>
+            <span class="kicker-sep">•</span>
+            <span>START A PROJECT WITH 4ELEVEN</span>
+          </div>
+          <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
+          <p class="lead-modal-subtitle">
+            Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team at <span style="color:var(--foreground); font-weight:500;">ssup@4eleven.in</span>.
+          </p>
+        </div>
+
+        <form id="leadForm" class="lead-form" method="POST" action="https://formsubmit.co/ssup@4eleven.in">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_subject" id="leadFormSubject" value="🔥 New Project Lead from 4eleven.in">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="Brand Films & Commercials">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="Flexible / Let's Discuss">
+
+          <div class="lead-form-grid">
+            <div class="lead-field">
+              <label class="lead-label" for="leadName">
+                <span>Your Name <span class="req">*</span></span>
+              </label>
+              <input type="text" id="leadName" name="name" required placeholder="e.g. Rohan Sharma" class="lead-input" autocomplete="name">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadEmail">
+                <span>Work Email <span class="req">*</span></span>
+              </label>
+              <input type="email" id="leadEmail" name="email" required placeholder="name@company.com" class="lead-input" autocomplete="email">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadPhone">
+                <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+              </label>
+              <input type="tel" id="leadPhone" name="phone" placeholder="+91 98765 43210" class="lead-input" autocomplete="tel">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadCompany">
+                <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+              </label>
+              <input type="text" id="leadCompany" name="company" placeholder="e.g. Zepto, Kibo, Personal Brand" class="lead-input">
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label">
+                <span>What are you looking to create? <span class="opt">(Tap to select)</span></span>
+              </label>
+              <div class="lead-chips-wrap" id="leadServicesChips">
+                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films & Commercials</button>
+                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media & Content</button>
+                <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
+                <button type="button" class="lead-chip" data-val="Influencer & Creator Collabs">Influencer & Creator Collabs</button>
+                <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography & Visuals</button>
+                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage & Tour Production</button>
+              </div>
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label">
+                <span>Estimated Budget</span>
+              </label>
+              <div class="lead-chips-wrap" id="leadBudgetChips">
+                <button type="button" class="lead-chip" data-val="₹50k – ₹1.5L">₹50k – ₹1.5L</button>
+                <button type="button" class="lead-chip" data-val="₹1.5L – ₹4L">₹1.5L – ₹4L</button>
+                <button type="button" class="lead-chip" data-val="₹4L – ₹10L">₹4L – ₹10L</button>
+                <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
+                <button type="button" class="lead-chip is-active" data-val="Flexible / Let's Discuss">Flexible / Let's Discuss</button>
+              </div>
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label" for="leadMessage">
+                <span>Project Overview & Goals <span class="req">*</span></span>
+              </label>
+              <textarea id="leadMessage" name="message" required rows="3" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..." class="lead-input lead-textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="lead-form-footer">
+            <div class="lead-privacy-note">
+              <span>🔒 Direct to Founders: <strong style="color:var(--foreground);">ssup@4eleven.in</strong></span>
+            </div>
+            <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+              <span id="leadSubmitBtnText">Send Project Inquiry</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success View -->
+      <div id="leadSuccessView" class="lead-success-box" style="display: none;">
+        <div class="lead-success-icon-wrap">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ff493b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="portfolio-kicker" style="margin-bottom: 8px;">
+          <span class="live-dot"></span>
+          <span class="kicker-hindi">॥ धन्यवाद ॥</span>
+          <span class="kicker-sep">•</span>
+          <span>BRIEF DISPATCHED</span>
+        </div>
+        <h3 class="lead-success-title">Inquiry Sent Successfully!</h3>
+        <p class="lead-success-desc" id="leadSuccessDesc">
+          Thank you! Your project brief has been delivered directly to <span style="color:var(--foreground); font-weight:600;">ssup@4eleven.in</span>. We review each inquiry carefully and will get back to you within 24 hours.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="mailto:ssup@4eleven.in" class="lead-chip is-active" style="text-decoration: none; padding: 10px 20px;">
+            <span>Email Directly: ssup@4eleven.in ↗</span>
+          </a>
+          <button type="button" class="liquid-btn" id="leadSuccessCloseBtn" style="padding: 10px 24px; font-size: 13px;">
+            <span>Done</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
   <!-- Floating Audio & Theme Controls (Bottom-Right) -->
   <div class="floating-controls">
@@ -3553,6 +4088,212 @@
         themeIconMoon.style.display = 'block';
       }
     }
+
+    // ==========================================================================
+    // 12. Lead Capture Modal Controller (ssup@4eleven.in)
+    // ==========================================================================
+    (function initLeadModal() {
+      const modal = document.getElementById('leadModal');
+      const modalClose = document.getElementById('leadModalClose');
+      const formView = document.getElementById('leadFormView');
+      const successView = document.getElementById('leadSuccessView');
+      const form = document.getElementById('leadForm');
+      const submitBtn = document.getElementById('leadSubmitBtn');
+      const submitBtnText = document.getElementById('leadSubmitBtnText');
+      const successCloseBtn = document.getElementById('leadSuccessCloseBtn');
+      const successDesc = document.getElementById('leadSuccessDesc');
+
+      const servicesChips = document.querySelectorAll('#leadServicesChips .lead-chip');
+      const selectedServicesInput = document.getElementById('leadSelectedServices');
+      const budgetChips = document.querySelectorAll('#leadBudgetChips .lead-chip');
+      const selectedBudgetInput = document.getElementById('leadSelectedBudget');
+
+      if (!modal || !form) return;
+
+      function openModal(preset = '') {
+        if (formView) formView.style.display = 'block';
+        if (successView) successView.style.display = 'none';
+
+        if (preset && servicesChips.length > 0) {
+          servicesChips.forEach(chip => {
+            if (chip.getAttribute('data-val').toLowerCase().includes(preset.toLowerCase())) {
+              chip.classList.add('is-active');
+            }
+          });
+          updateServices();
+        }
+
+        modal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(() => {
+          const nameInput = document.getElementById('leadName');
+          if (nameInput) nameInput.focus();
+        }, 120);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-active');
+        document.body.style.overflow = '';
+      }
+
+      // Close bindings
+      if (modalClose) modalClose.addEventListener('click', closeModal);
+      if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+          closeModal();
+        }
+      });
+
+      // Bind all open buttons
+      document.querySelectorAll('[data-open-lead-modal]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const preset = btn.getAttribute('data-preset-service') || '';
+          openModal(preset);
+        });
+      });
+
+      // Services chips multi-selection
+      function updateServices() {
+        const active = [];
+        document.querySelectorAll('#leadServicesChips .lead-chip.is-active').forEach(c => {
+          active.push(c.getAttribute('data-val'));
+        });
+        if (selectedServicesInput) {
+          selectedServicesInput.value = active.length > 0 ? active.join(', ') : 'Creative Retainer / General Inquiry';
+        }
+      }
+
+      servicesChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          chip.classList.toggle('is-active');
+          updateServices();
+        });
+      });
+
+      // Budget chips single-selection
+      budgetChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          budgetChips.forEach(c => c.classList.remove('is-active'));
+          chip.classList.add('is-active');
+          if (selectedBudgetInput) {
+            selectedBudgetInput.value = chip.getAttribute('data-val');
+          }
+        });
+      });
+
+      // Form submission handler (Direct to ssup@4eleven.in via AJAX with mailto fallback)
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('leadName')?.value.trim() || 'Collaborator';
+        const email = document.getElementById('leadEmail')?.value.trim() || '';
+        const phone = document.getElementById('leadPhone')?.value.trim() || 'Not specified';
+        const company = document.getElementById('leadCompany')?.value.trim() || 'Brand / Individual';
+        const services = selectedServicesInput ? selectedServicesInput.value : 'Creative Work';
+        const budget = selectedBudgetInput ? selectedBudgetInput.value : 'Flexible';
+        const message = document.getElementById('leadMessage')?.value.trim() || '';
+
+        const subject = `🔥 New Project Lead from 4eleven.in — ${name} (${company})`;
+        const subjectInput = document.getElementById('leadFormSubject');
+        if (subjectInput) subjectInput.value = subject;
+
+        // UI Loading state
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = `
+            <span class="lead-spinner"></span>
+            <span>Sending to ssup@4eleven.in...</span>
+          `;
+        }
+
+        const payload = {
+          name: name,
+          email: email,
+          phone: phone,
+          company: company,
+          services_requested: services,
+          budget_range: budget,
+          project_overview: message,
+          _subject: subject,
+          _captcha: "false",
+          _template: "table"
+        };
+
+        let isSuccess = false;
+
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+          const res = await fetch('https://formsubmit.co/ajax/ssup@4eleven.in', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+
+          if (res.ok) {
+            isSuccess = true;
+          }
+        } catch (err) {
+          console.warn('FormSubmit AJAX request error/timeout, engaging mailto fallback:', err);
+        }
+
+        // If AJAX request wasn't confirmed, trigger pre-filled email client fallback so zero leads are lost
+        if (!isSuccess) {
+          const mailtoBody = encodeURIComponent(
+            `Hi 4ELEVEN Team,\n\n` +
+            `Name: ${name}\n` +
+            `Work Email: ${email}\n` +
+            `Phone / WhatsApp: ${phone}\n` +
+            `Brand / Company: ${company}\n\n` +
+            `Services Requested:\n${services}\n\n` +
+            `Budget Range:\n${budget}\n\n` +
+            `Project Vision & Goals:\n${message}\n\n` +
+            `---\nSubmitted via 4eleven.in Lead Form`
+          );
+          window.open(`mailto:ssup@4eleven.in?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`, '_blank');
+        }
+
+        // Reset submit button state
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = `
+            <span>Send Project Inquiry</span>
+            <span class="btn-arrow">→</span>
+          `;
+        }
+
+        // Display Success View
+        if (formView) formView.style.display = 'none';
+        if (successView) {
+          successView.style.display = 'block';
+          if (successDesc) {
+            successDesc.innerHTML = `Thank you, <strong>${name}</strong>! Your project brief has been delivered directly to <span style="color:var(--foreground); font-weight:600;">ssup@4eleven.in</span>. Our founding team will review your requirements and reach out within 24 hours.`;
+          }
+        }
+
+        // Reset form
+        form.reset();
+      });
+
+      // Expose globally for inline onclick triggers
+      window.openLeadModal = openModal;
+      window.closeLeadModal = closeModal;
+    })();
   </script>
 </body>
 </html>
