@@ -1188,16 +1188,15 @@
     .proj-modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(8, 9, 10, 0.94);
-      backdrop-filter: blur(20px);
-      z-index: 99999;
+      background: #07080a;
+      z-index: 999999;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .proj-modal-overlay.is-active {
@@ -1314,7 +1313,10 @@
       height: auto;
       display: block;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+      image-rendering: auto;
+      -webkit-backface-visibility: hidden;
+      transform: translateZ(0);
     }
 
     .proj-modal-video-wrap {
