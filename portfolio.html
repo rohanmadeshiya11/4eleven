@@ -1331,11 +1331,15 @@
       position: relative;
     }
 
-    .proj-modal-video-wrap iframe {
+    .proj-modal-video-wrap iframe,
+    .proj-modal-video-wrap video {
       width: 100%;
       height: 100%;
       border: none;
       display: block;
+      object-fit: contain;
+      background: #000;
+      outline: none;
     }
 
     .proj-video-badge {
@@ -2571,28 +2575,33 @@ Key Deliverables:
         </article>
 
         <!-- Project 13: Pronto x Haqdarshak -->
-        <article class="proj-item-card" id="card-pronto" data-category="video branding" data-title="Field Brand Workshop" data-client="Pronto &times; Haqdarshak // Grassroots" data-desc="On-ground workshop documentation, storytelling films, and social media creative suite connecting grassroots community leaders with financial inclusion and social welfare." data-img="assets/projects/pronto.jpg" data-tags="Impact Storytelling,Documentary Film,Social Impact">
+        <article class="proj-item-card" id="card-pronto" data-category="video branding creator" data-title="Field Brand Workshop &amp; Impact Film" data-client="Pronto &times; Haqdarshak // Grassroots Impact" data-desc="Recent Work | Pronto &times; Haqdarshak Brand Workshop
+
+On-ground workshop documentation, team alignment storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission.
+
+We filmed the live workshop sessions, authentic domestic worker interactions, and core leadership vision — delivering cinematic social video content and grassroots storytelling that drives brand trust and community impact." data-img="assets/projects/pronto-workshop-live.jpg" data-video="assets/videos/pronto-brand-workshop.mp4" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-video-poster="assets/projects/pronto-title-card.jpg" data-tags="Brand Workshop,Documentary Film,Social Impact,Recent Work,Grassroots Storytelling,Featured Video">
           <div class="proj-item-media">
-            <img src="assets/projects/pronto.jpg" alt="Pronto &times; Haqdarshak Field Story" class="proj-item-img" loading="lazy">
+            <img src="assets/projects/pronto-title-card.jpg" alt="Pronto &times; Haqdarshak Brand Workshop Video" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
               <span class="proj-category-pill"><span class="tab-hi">इम्पैक्ट</span> Documentary</span>
             </div>
+            <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch Featured Video</span>
           </div>
           <div class="proj-item-body">
             <div>
-              <span class="proj-client-sub">Pronto &times; Haqdarshak // Grassroots</span>
-              <h2 class="proj-card-heading">Field Brand Workshop</h2>
-              <p class="proj-card-text">On-ground workshop documentation and storytelling films connecting grassroots community leaders with financial inclusion.</p>
+              <span class="proj-client-sub">Pronto &times; Haqdarshak // Grassroots Impact</span>
+              <h2 class="proj-card-heading">Field Brand Workshop &amp; Impact Film</h2>
+              <p class="proj-card-text">On-ground workshop documentation, storytelling films, and cinematic social campaign suite connecting domestic professionals with welfare benefits.</p>
               <div class="proj-tags-list">
-                <span class="proj-tag-pill">Impact Storytelling</span>
-                <span class="proj-tag-pill">Documentary</span>
+                <span class="proj-tag-pill">Featured Video</span>
+                <span class="proj-tag-pill">Brand Workshop</span>
                 <span class="proj-tag-pill">Social Impact</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">View Case Study</span>
+              <span class="proj-view-cta">Watch Video &amp; Case Study</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
@@ -2648,7 +2657,11 @@ Key Deliverables:
 
       <!-- Embedded Video Container (when project has data-video) -->
       <div class="proj-modal-video-wrap" id="modalVideoWrap" style="display: none;">
-        <iframe id="modalVideoIframe" src="" title="Featured Project Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe id="modalVideoIframe" src="" title="Featured Project Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: none;"></iframe>
+        <video id="modalVideoPlayer" controls playsinline preload="metadata" poster="" style="width: 100%; height: 100%; object-fit: contain; background: #000; border-radius: 12px; display: none;">
+          <source id="modalVideoSource" src="" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       <!-- Project Artwork / Case Study Container -->
@@ -3100,11 +3113,12 @@ Key Deliverables:
         const img = card.getAttribute('data-img');
         const video = card.getAttribute('data-video');
         const videoUrl = card.getAttribute('data-video-url');
+        const videoPoster = card.getAttribute('data-video-poster');
         const tags = (card.getAttribute('data-tags') || '').split(',');
 
         modalTitle.textContent = title;
         modalClient.textContent = client;
-        modalDesc.textContent = desc;
+        modalDesc.innerHTML = desc.replace(/\n/g, '<br>');
 
         if (img) {
           modalImg.src = img;
@@ -3114,16 +3128,57 @@ Key Deliverables:
           modalImgContainer.style.display = 'none';
         }
 
+        const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+        const modalVideoSource = document.getElementById('modalVideoSource');
+
         if (video) {
           if (modalVideoWrap) modalVideoWrap.style.display = 'block';
-          if (modalVideoIframe) modalVideoIframe.src = video;
+
+          if (video.endsWith('.mp4') || video.includes('.mp4')) {
+            // HTML5 native video player
+            if (modalVideoIframe) {
+              modalVideoIframe.style.display = 'none';
+              modalVideoIframe.src = '';
+            }
+            if (modalVideoPlayer && modalVideoSource) {
+              modalVideoPlayer.style.display = 'block';
+              modalVideoPlayer.poster = videoPoster || '';
+              modalVideoSource.src = video;
+              modalVideoPlayer.load();
+            }
+          } else {
+            // Iframe embed (e.g. YouTube)
+            if (modalVideoPlayer) {
+              modalVideoPlayer.style.display = 'none';
+              modalVideoPlayer.pause();
+              if (modalVideoSource) modalVideoSource.src = '';
+            }
+            if (modalVideoIframe) {
+              modalVideoIframe.style.display = 'block';
+              modalVideoIframe.src = video;
+            }
+          }
+
           if (modalVideoBtn) {
             modalVideoBtn.href = videoUrl || video;
+            if (videoUrl && videoUrl.includes('instagram.com')) {
+              modalVideoBtn.innerHTML = '<span>Watch on Instagram ↗</span>';
+            } else {
+              modalVideoBtn.innerHTML = '<span>Watch on YouTube ↗</span>';
+            }
             modalVideoBtn.style.display = 'inline-flex';
           }
         } else {
           if (modalVideoWrap) modalVideoWrap.style.display = 'none';
-          if (modalVideoIframe) modalVideoIframe.src = '';
+          if (modalVideoIframe) {
+            modalVideoIframe.style.display = 'none';
+            modalVideoIframe.src = '';
+          }
+          if (modalVideoPlayer) {
+            modalVideoPlayer.style.display = 'none';
+            modalVideoPlayer.pause();
+            if (modalVideoSource) modalVideoSource.src = '';
+          }
           if (modalVideoBtn) modalVideoBtn.style.display = 'none';
         }
 
@@ -3148,7 +3203,18 @@ Key Deliverables:
     function closeModal() {
       modalOverlay.classList.remove('is-active');
       document.body.style.overflow = '';
-      if (modalVideoIframe) modalVideoIframe.src = '';
+      if (modalVideoIframe) {
+        modalVideoIframe.src = '';
+        modalVideoIframe.style.display = 'none';
+      }
+      const modalVideoPlayer = document.getElementById('modalVideoPlayer');
+      const modalVideoSource = document.getElementById('modalVideoSource');
+      if (modalVideoPlayer) {
+        modalVideoPlayer.pause();
+        modalVideoPlayer.currentTime = 0;
+        if (modalVideoSource) modalVideoSource.src = '';
+        modalVideoPlayer.style.display = 'none';
+      }
       if (lenis) lenis.start();
     }
 
