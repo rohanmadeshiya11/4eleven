@@ -89,3 +89,7 @@ credentials.json
 MEDIA /
 *.mov
 
+
+# Temporary scratch files
+scratch/
+
