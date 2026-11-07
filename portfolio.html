@@ -1331,6 +1331,14 @@
       position: relative;
     }
 
+    .proj-modal-video-wrap.is-vertical {
+      aspect-ratio: 9 / 16;
+      max-width: 440px;
+      max-height: 72vh;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     .proj-modal-video-wrap iframe,
     .proj-modal-video-wrap video {
       width: 100%;
@@ -2574,34 +2582,34 @@ Key Deliverables:
           </div>
         </article>
 
-        <!-- Project 13: Pronto x Haqdarshak -->
-        <article class="proj-item-card" id="card-pronto" data-category="video branding creator" data-title="Field Brand Workshop &amp; Impact Film" data-client="Pronto &times; Haqdarshak // Grassroots Impact" data-desc="Recent Work | Pronto &times; Haqdarshak Brand Workshop
+        <!-- Project 13: Pronto Pro-Utsav Documentary Film -->
+        <article class="proj-item-card" id="card-pronto" data-category="video branding creator" data-title="Pro-Utsav: Namrata Shinde // Documentary Film" data-client="Pronto // Quick Household Services" data-desc="Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto.
 
-On-ground workshop documentation, team alignment storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission.
+A cinematic brand documentary film celebrating Pronto professionals for the Pro-Utsav campaign, following the inspiring story of Namrata Shinde — from daily struggles to financial independence, dignity, and family empowerment through Pronto.
 
-We filmed the live workshop sessions, authentic domestic worker interactions, and core leadership vision — delivering cinematic social video content and grassroots storytelling that drives brand trust and community impact." data-img="assets/projects/pronto-workshop-live.jpg" data-video="assets/videos/pronto-brand-workshop.mp4" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-video-poster="assets/projects/pronto-title-card.jpg" data-tags="Brand Workshop,Documentary Film,Social Impact,Recent Work,Grassroots Storytelling,Featured Video">
+We led the complete creative pipeline: narrative scripting, on-ground cinematography capturing intimate domestic moments and candid family reflections, and documentary editing with tailored color grading and sound design." data-img="assets/projects/pronto-pro-utsav-poster.jpg" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="assets/projects/pronto-pro-utsav-poster.jpg" data-video-aspect="vertical" data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Produced by 4eleven,Full-Service Production,Featured Video">
           <div class="proj-item-media">
-            <img src="assets/projects/pronto-title-card.jpg" alt="Pronto &times; Haqdarshak Brand Workshop Video" class="proj-item-img" loading="lazy">
+            <img src="assets/projects/pronto-pro-utsav-thumb.jpg" alt="Pronto Pro-Utsav Namrata Shinde Documentary Film" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
-              <span class="proj-category-pill"><span class="tab-hi">इम्पैक्ट</span> Documentary</span>
+              <span class="proj-category-pill"><span class="tab-hi">डॉक्यूमेंट्री</span> Brand Film</span>
             </div>
             <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch Featured Video</span>
           </div>
           <div class="proj-item-body">
             <div>
-              <span class="proj-client-sub">Pronto &times; Haqdarshak // Grassroots Impact</span>
-              <h2 class="proj-card-heading">Field Brand Workshop &amp; Impact Film</h2>
-              <p class="proj-card-text">On-ground workshop documentation, storytelling films, and cinematic social campaign suite connecting domestic professionals with welfare benefits.</p>
+              <span class="proj-client-sub">Pronto // Quick Household Services</span>
+              <h2 class="proj-card-heading">Pro-Utsav: Namrata Shinde // Brand Documentary</h2>
+              <p class="proj-card-text">Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto. A cinematic documentary celebrating dignity and empowerment.</p>
               <div class="proj-tags-list">
-                <span class="proj-tag-pill">Featured Video</span>
-                <span class="proj-tag-pill">Brand Workshop</span>
-                <span class="proj-tag-pill">Social Impact</span>
+                <span class="proj-tag-pill">Produced by 4eleven</span>
+                <span class="proj-tag-pill">Script &amp; Cinematography</span>
+                <span class="proj-tag-pill">Documentary Film</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">Watch Video &amp; Case Study</span>
+              <span class="proj-view-cta">Watch Film &amp; Story</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
@@ -3114,6 +3122,7 @@ We filmed the live workshop sessions, authentic domestic worker interactions, an
         const video = card.getAttribute('data-video');
         const videoUrl = card.getAttribute('data-video-url');
         const videoPoster = card.getAttribute('data-video-poster');
+        const videoAspect = card.getAttribute('data-video-aspect');
         const tags = (card.getAttribute('data-tags') || '').split(',');
 
         modalTitle.textContent = title;
@@ -3132,7 +3141,14 @@ We filmed the live workshop sessions, authentic domestic worker interactions, an
         const modalVideoSource = document.getElementById('modalVideoSource');
 
         if (video) {
-          if (modalVideoWrap) modalVideoWrap.style.display = 'block';
+          if (modalVideoWrap) {
+            modalVideoWrap.style.display = 'block';
+            if (videoAspect === 'vertical') {
+              modalVideoWrap.classList.add('is-vertical');
+            } else {
+              modalVideoWrap.classList.remove('is-vertical');
+            }
+          }
 
           if (video.endsWith('.mp4') || video.includes('.mp4')) {
             // HTML5 native video player
@@ -3160,16 +3176,23 @@ We filmed the live workshop sessions, authentic domestic worker interactions, an
           }
 
           if (modalVideoBtn) {
-            modalVideoBtn.href = videoUrl || video;
-            if (videoUrl && videoUrl.includes('instagram.com')) {
-              modalVideoBtn.innerHTML = '<span>Watch on Instagram ↗</span>';
+            if (videoUrl) {
+              modalVideoBtn.href = videoUrl;
+              if (videoUrl.includes('instagram.com')) {
+                modalVideoBtn.innerHTML = '<span>Watch on Instagram ↗</span>';
+              } else {
+                modalVideoBtn.innerHTML = '<span>Watch on YouTube ↗</span>';
+              }
+              modalVideoBtn.style.display = 'inline-flex';
             } else {
-              modalVideoBtn.innerHTML = '<span>Watch on YouTube ↗</span>';
+              modalVideoBtn.style.display = 'none';
             }
-            modalVideoBtn.style.display = 'inline-flex';
           }
         } else {
-          if (modalVideoWrap) modalVideoWrap.style.display = 'none';
+          if (modalVideoWrap) {
+            modalVideoWrap.style.display = 'none';
+            modalVideoWrap.classList.remove('is-vertical');
+          }
           if (modalVideoIframe) {
             modalVideoIframe.style.display = 'none';
             modalVideoIframe.src = '';
@@ -3203,6 +3226,9 @@ We filmed the live workshop sessions, authentic domestic worker interactions, an
     function closeModal() {
       modalOverlay.classList.remove('is-active');
       document.body.style.overflow = '';
+      if (modalVideoWrap) {
+        modalVideoWrap.classList.remove('is-vertical');
+      }
       if (modalVideoIframe) {
         modalVideoIframe.src = '';
         modalVideoIframe.style.display = 'none';
