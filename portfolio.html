@@ -1319,6 +1319,60 @@
       transform: translateZ(0);
     }
 
+    .proj-modal-video-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .proj-video-tab-btn {
+      flex: 1 1 200px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: inherit;
+    }
+
+    .proj-video-tab-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .proj-video-tab-btn.is-active {
+      background: rgba(255, 73, 59, 0.15);
+      border-color: rgba(255, 73, 59, 0.4);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(255, 73, 59, 0.2);
+    }
+
+    .proj-video-tab-btn .tab-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .proj-video-tab-btn.is-active .tab-dot {
+      background: #ff493b;
+      box-shadow: 0 0 8px #ff493b;
+    }
+
     .proj-modal-video-wrap {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -2582,34 +2636,36 @@ Key Deliverables:
           </div>
         </article>
 
-        <!-- Project 13: Pronto Pro-Utsav Documentary Film -->
-        <article class="proj-item-card" id="card-pronto" data-category="video branding creator" data-title="Pro-Utsav: Namrata Shinde // Documentary Film" data-client="Pronto // Quick Household Services" data-desc="Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto.
+        <!-- Project 13: Pronto Pro-Utsav Documentary & Brand Workshop Films -->
+        <article class="proj-item-card" id="card-pronto" data-category="video branding creator" data-title="Pro-Utsav Documentary &amp; Impact Films" data-client="Pronto // Quick Household Services" data-desc="End-to-End Video Production by Four Eleven Studio for Pronto.
 
-A cinematic brand documentary film celebrating Pronto professionals for the Pro-Utsav campaign, following the inspiring story of Namrata Shinde — from daily struggles to financial independence, dignity, and family empowerment through Pronto.
+• Film 1: Pro-Utsav Documentary — Namrata Shinde (Full Film)
+Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto. A cinematic brand documentary film celebrating Pronto professionals for the Pro-Utsav campaign, following the inspiring story of Namrata Shinde — from daily struggles to financial independence, dignity, and family empowerment through Pronto. We led the complete creative pipeline: narrative scripting, on-ground cinematography capturing intimate domestic moments and candid family reflections, and documentary editing with tailored color grading and sound design.
 
-We led the complete creative pipeline: narrative scripting, on-ground cinematography capturing intimate domestic moments and candid family reflections, and documentary editing with tailored color grading and sound design." data-img="assets/projects/pronto-pro-utsav-poster.jpg" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="assets/projects/pronto-pro-utsav-poster.jpg" data-video-aspect="vertical" data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Produced by 4eleven,Full-Service Production,Featured Video">
+• Film 2: Pronto &times; Haqdarshak Brand Workshop Reel
+On-ground workshop documentation, grassroots impact storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission." data-img="assets/projects/pronto-pro-utsav-poster.jpg" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="assets/projects/pronto-pro-utsav-poster.jpg" data-video-aspect="vertical" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-videos='[{"label":"🎬 Pro-Utsav Documentary (Full Film)","src":"assets/videos/pronto-pro-utsav.mp4","poster":"assets/projects/pronto-pro-utsav-poster.jpg","aspect":"vertical","badge":"Produced by 4eleven","btnText":"","btnUrl":""},{"label":"📱 Brand Workshop (Instagram Reel)","src":"assets/videos/pronto-brand-workshop.mp4","poster":"assets/projects/pronto-title-card.jpg","aspect":"horizontal","badge":"Pronto × Haqdarshak","btnText":"Watch Reel on Instagram ↗","btnUrl":"https://www.instagram.com/reel/DZu_iA5v_LN/"}]' data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Brand Workshop,Produced by 4eleven,Instagram Reel,Featured Video">
           <div class="proj-item-media">
             <img src="assets/projects/pronto-pro-utsav-thumb.jpg" alt="Pronto Pro-Utsav Namrata Shinde Documentary Film" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
-              <span class="proj-category-pill"><span class="tab-hi">डॉक्यूमेंट्री</span> Brand Film</span>
+              <span class="proj-category-pill"><span class="tab-hi">2 फिल्में</span> 2 Films</span>
             </div>
-            <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch Featured Video</span>
+            <span class="proj-video-badge"><span class="proj-video-badge-dot"></span>▶ Watch 2 Featured Films</span>
           </div>
           <div class="proj-item-body">
             <div>
               <span class="proj-client-sub">Pronto // Quick Household Services</span>
-              <h2 class="proj-card-heading">Pro-Utsav: Namrata Shinde // Brand Documentary</h2>
-              <p class="proj-card-text">Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto. A cinematic documentary celebrating dignity and empowerment.</p>
+              <h2 class="proj-card-heading">Pro-Utsav Documentary &amp; Impact Films</h2>
+              <p class="proj-card-text">Scripted, shot, edited, and produced end-to-end by Four Eleven Studio. Features the Pro-Utsav documentary and the Haqdarshak impact campaign reel.</p>
               <div class="proj-tags-list">
                 <span class="proj-tag-pill">Produced by 4eleven</span>
-                <span class="proj-tag-pill">Script &amp; Cinematography</span>
                 <span class="proj-tag-pill">Documentary Film</span>
+                <span class="proj-tag-pill">Instagram Reel</span>
               </div>
             </div>
             <div class="proj-bottom-row">
-              <span class="proj-view-cta">Watch Film &amp; Story</span>
+              <span class="proj-view-cta">Watch Films &amp; Story</span>
               <div class="proj-arrow-circle">↗</div>
             </div>
           </div>
@@ -2662,6 +2718,9 @@ We led the complete creative pipeline: narrative scripting, on-ground cinematogr
         <h3 class="proj-modal-title" id="modalTitle">Project Title</h3>
         <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       </div>
+
+      <!-- Video Playlist / Tabs (for multi-film projects) -->
+      <div class="proj-modal-video-tabs" id="modalVideoTabs" style="display: none;"></div>
 
       <!-- Embedded Video Container (when project has data-video) -->
       <div class="proj-modal-video-wrap" id="modalVideoWrap" style="display: none;">
@@ -3137,20 +3196,32 @@ We led the complete creative pipeline: narrative scripting, on-ground cinematogr
           modalImgContainer.style.display = 'none';
         }
 
+        const modalVideoTabs = document.getElementById('modalVideoTabs');
         const modalVideoPlayer = document.getElementById('modalVideoPlayer');
         const modalVideoSource = document.getElementById('modalVideoSource');
+        const videosDataRaw = card.getAttribute('data-videos');
 
-        if (video) {
+        let playlist = null;
+        if (videosDataRaw) {
+          try {
+            playlist = JSON.parse(videosDataRaw);
+          } catch(e) {
+            playlist = null;
+          }
+        }
+
+        function switchVideo(item, autoPlay = false) {
+          if (!item) return;
           if (modalVideoWrap) {
             modalVideoWrap.style.display = 'block';
-            if (videoAspect === 'vertical') {
+            if (item.aspect === 'vertical') {
               modalVideoWrap.classList.add('is-vertical');
             } else {
               modalVideoWrap.classList.remove('is-vertical');
             }
           }
 
-          if (video.endsWith('.mp4') || video.includes('.mp4')) {
+          if (item.src && (item.src.endsWith('.mp4') || item.src.includes('.mp4'))) {
             // HTML5 native video player
             if (modalVideoIframe) {
               modalVideoIframe.style.display = 'none';
@@ -3158,9 +3229,12 @@ We led the complete creative pipeline: narrative scripting, on-ground cinematogr
             }
             if (modalVideoPlayer && modalVideoSource) {
               modalVideoPlayer.style.display = 'block';
-              modalVideoPlayer.poster = videoPoster || '';
-              modalVideoSource.src = video;
+              modalVideoPlayer.poster = item.poster || '';
+              modalVideoSource.src = item.src;
               modalVideoPlayer.load();
+              if (autoPlay) {
+                modalVideoPlayer.play().catch(() => {});
+              }
             }
           } else {
             // Iframe embed (e.g. YouTube)
@@ -3171,24 +3245,56 @@ We led the complete creative pipeline: narrative scripting, on-ground cinematogr
             }
             if (modalVideoIframe) {
               modalVideoIframe.style.display = 'block';
-              modalVideoIframe.src = video;
+              modalVideoIframe.src = item.src;
             }
           }
 
           if (modalVideoBtn) {
-            if (videoUrl) {
-              modalVideoBtn.href = videoUrl;
-              if (videoUrl.includes('instagram.com')) {
-                modalVideoBtn.innerHTML = '<span>Watch on Instagram ↗</span>';
-              } else {
-                modalVideoBtn.innerHTML = '<span>Watch on YouTube ↗</span>';
-              }
+            const targetUrl = item.btnUrl || item.url || '';
+            if (targetUrl) {
+              modalVideoBtn.href = targetUrl;
+              modalVideoBtn.innerHTML = `<span>${item.btnText || (targetUrl.includes('instagram.com') ? 'Watch on Instagram ↗' : 'Watch on YouTube ↗')}</span>`;
               modalVideoBtn.style.display = 'inline-flex';
             } else {
               modalVideoBtn.style.display = 'none';
             }
           }
+        }
+
+        if (playlist && Array.isArray(playlist) && playlist.length > 1) {
+          if (modalVideoTabs) {
+            modalVideoTabs.innerHTML = '';
+            modalVideoTabs.style.display = 'flex';
+            playlist.forEach((pItem, idx) => {
+              const btn = document.createElement('button');
+              btn.type = 'button';
+              btn.className = `proj-video-tab-btn ${idx === 0 ? 'is-active' : ''}`;
+              btn.innerHTML = `<span class="tab-dot"></span><span>${pItem.label}</span>`;
+              btn.addEventListener('click', () => {
+                modalVideoTabs.querySelectorAll('.proj-video-tab-btn').forEach(b => b.classList.remove('is-active'));
+                btn.classList.add('is-active');
+                switchVideo(pItem, true);
+              });
+              modalVideoTabs.appendChild(btn);
+            });
+          }
+          switchVideo(playlist[0], false);
+        } else if (video) {
+          if (modalVideoTabs) {
+            modalVideoTabs.style.display = 'none';
+            modalVideoTabs.innerHTML = '';
+          }
+          switchVideo({
+            src: video,
+            poster: videoPoster || '',
+            aspect: videoAspect,
+            url: videoUrl
+          }, false);
         } else {
+          if (modalVideoTabs) {
+            modalVideoTabs.style.display = 'none';
+            modalVideoTabs.innerHTML = '';
+          }
           if (modalVideoWrap) {
             modalVideoWrap.style.display = 'none';
             modalVideoWrap.classList.remove('is-vertical');
@@ -3226,6 +3332,10 @@ We led the complete creative pipeline: narrative scripting, on-ground cinematogr
     function closeModal() {
       modalOverlay.classList.remove('is-active');
       document.body.style.overflow = '';
+      if (modalVideoTabs) {
+        modalVideoTabs.innerHTML = '';
+        modalVideoTabs.style.display = 'none';
+      }
       if (modalVideoWrap) {
         modalVideoWrap.classList.remove('is-vertical');
       }
