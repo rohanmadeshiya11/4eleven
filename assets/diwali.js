@@ -14,16 +14,14 @@
   // Active through tomorrow end-of-day (Nov 9, 2026 IST)
   const DIWALI_EXPIRY = new Date('2026-11-10T00:00:00+05:30');
   if (new Date() > DIWALI_EXPIRY) {
-    const hideCapsule = () => {
-      const heroCapsule = document.getElementById('diwaliFestiveCapsule');
-      if (heroCapsule) heroCapsule.style.display = 'none';
+    const hideElements = () => {
       const lamp = document.getElementById('diwaliFloatingLamp');
       if (lamp) lamp.style.display = 'none';
     };
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', hideCapsule);
+      document.addEventListener('DOMContentLoaded', hideElements);
     } else {
-      hideCapsule();
+      hideElements();
     }
     return; // Automatically disable after tomorrow
   }
@@ -508,19 +506,13 @@
     window.addEventListener('pointerdown', handlePointer, { passive: true });
   }
 
-  // Floating Diya celebratory widget (bottom-left)
+  // Floating Diya celebratory widget (bottom-left, clean circular icon with NO text)
   function setupFloatingLamp() {
     const lamp = document.createElement('div');
     lamp.className = 'diwali-floating-lamp';
     lamp.id = 'diwaliFloatingLamp';
-    lamp.title = 'Celebrate Diwali with Four Eleven Studio! ✨ Click for rocket fireworks';
-    lamp.innerHTML = `
-      <div class="diwali-lamp-bowl">🪔</div>
-      <div class="diwali-lamp-label">
-        <span class="diwali-lamp-title">Happy Diwali! ✨</span>
-        <span class="diwali-lamp-hint">Tap for rockets</span>
-      </div>
-    `;
+    lamp.setAttribute('aria-label', 'Diwali Celebrations');
+    lamp.innerHTML = `<span class="diwali-lamp-bowl">🪔</span>`;
 
     lamp.addEventListener('click', (e) => {
       e.stopPropagation();

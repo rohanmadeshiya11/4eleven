@@ -92,20 +92,21 @@
   100% { transform: scale(1.05, 1.1) rotate(-1deg); filter: drop-shadow(0 0 10px #ff6b00); }
 }
 
-/* Floating Interactive Diya in Bottom Corner */
+/* Floating Interactive Diya in Bottom Corner (Clean Circular Icon, No Text) */
 .diwali-floating-lamp {
   position: fixed;
   bottom: 24px;
   left: 24px;
   z-index: 9998;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px 8px 12px;
+  justify-content: center;
   background: rgba(18, 19, 23, 0.88);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 183, 3, 0.45);
-  border-radius: 999px;
+  border-radius: 50%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 24px rgba(255, 183, 3, 0.3);
   cursor: pointer;
   user-select: none;
@@ -113,7 +114,7 @@
 }
 
 .diwali-floating-lamp:hover {
-  transform: translateY(-3px) scale(1.04);
+  transform: translateY(-3px) scale(1.08);
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 183, 3, 0.6);
   border-color: rgba(255, 215, 0, 0.8);
 }
@@ -125,53 +126,15 @@
   filter: drop-shadow(0 0 10px #ffb703);
 }
 
-.diwali-lamp-label {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-
-.diwali-lamp-title {
-  font-family: var(--font-display, sans-serif);
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffd700;
-  letter-spacing: -0.01em;
-}
-
-.diwali-lamp-hint {
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.65);
-  letter-spacing: 0.02em;
-}
-
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .diwali-festive-capsule {
-    font-size: 11px;
-    padding: 5px 12px;
-    gap: 6px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .diwali-sub {
-    font-size: 9.5px;
-    padding: 2px 7px;
-  }
   .diwali-floating-lamp {
     bottom: 20px;
     left: 16px;
-    padding: 6px 12px 6px 8px;
-    gap: 7px;
+    width: 40px;
+    height: 40px;
   }
   .diwali-lamp-bowl {
-    font-size: 18px;
-  }
-  .diwali-lamp-title {
-    font-size: 11.5px;
-  }
-  .diwali-lamp-hint {
-    display: none;
+    font-size: 19px;
   }
 }
