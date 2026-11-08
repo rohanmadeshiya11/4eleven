@@ -2643,9 +2643,11 @@ Key Deliverables:
 Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto. A cinematic brand documentary film celebrating Pronto professionals for the Pro-Utsav campaign, following the inspiring story of Namrata Shinde — from daily struggles to financial independence, dignity, and family empowerment through Pronto. We led the complete creative pipeline: narrative scripting, on-ground cinematography capturing intimate domestic moments and candid family reflections, and documentary editing with tailored color grading and sound design.
 
 • Film 2: Pronto &times; Haqdarshak Brand Workshop Reel
-On-ground workshop documentation, grassroots impact storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission." data-img="assets/projects/pronto-pro-utsav-poster.jpg" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="assets/projects/pronto-pro-utsav-poster.jpg" data-video-aspect="vertical" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-videos='[{"label":"🎬 Pro-Utsav Documentary (Full Film)","src":"assets/videos/pronto-pro-utsav.mp4","poster":"assets/projects/pronto-pro-utsav-poster.jpg","aspect":"vertical","badge":"Produced by 4eleven","btnText":"","btnUrl":""},{"label":"📱 Brand Workshop (Instagram Reel)","src":"assets/videos/pronto-brand-workshop.mp4","poster":"assets/projects/pronto-title-card.jpg","aspect":"horizontal","badge":"Pronto × Haqdarshak","btnText":"Watch Reel on Instagram ↗","btnUrl":"https://www.instagram.com/reel/DZu_iA5v_LN/"}]' data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Brand Workshop,Produced by 4eleven,Instagram Reel,Featured Video">
+On-ground workshop documentation, grassroots impact storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission." data-img="" data-no-img="true" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="" data-video-aspect="vertical" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-videos='[{"label":"🎬 Pro-Utsav Documentary (Full Film)","src":"assets/videos/pronto-pro-utsav.mp4","poster":"","aspect":"vertical","badge":"Produced by 4eleven","btnText":"","btnUrl":""},{"label":"📱 Brand Workshop (Instagram Reel)","src":"assets/videos/pronto-brand-workshop.mp4","poster":"","aspect":"horizontal","badge":"Pronto × Haqdarshak","btnText":"Watch Reel on Instagram ↗","btnUrl":"https://www.instagram.com/reel/DZu_iA5v_LN/"}]' data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Brand Workshop,Produced by 4eleven,Instagram Reel,Featured Video">
           <div class="proj-item-media">
-            <img src="assets/projects/pronto-pro-utsav-thumb.jpg" alt="Pronto Pro-Utsav Namrata Shinde Documentary Film" class="proj-item-img" loading="lazy">
+            <video class="proj-item-img" autoplay muted loop playsinline preload="auto" style="object-fit: cover; width: 100%; height: 100%;">
+              <source src="assets/videos/pronto-pro-utsav.mp4" type="video/mp4">
+            </video>
             <div class="proj-item-scrim"></div>
             <div class="proj-item-top">
               <span class="proj-year-pill">2026</span>
@@ -3188,12 +3190,14 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
         modalClient.textContent = client;
         modalDesc.innerHTML = desc.replace(/\n/g, '<br>');
 
-        if (img) {
+        const hasNoImg = card.getAttribute('data-no-img') === 'true';
+        if (img && !hasNoImg) {
           modalImg.src = img;
           modalImg.alt = title;
           if (modalImgContainer) modalImgContainer.style.display = 'flex';
         } else if (modalImgContainer) {
           modalImgContainer.style.display = 'none';
+          modalImg.src = '';
         }
 
         const modalVideoTabs = document.getElementById('modalVideoTabs');
