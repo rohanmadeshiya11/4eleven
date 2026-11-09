@@ -4243,36 +4243,36 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="services_requested" id="leadSelectedServices" value="Brand Films & Commercials">
-          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="Flexible / Let's Discuss">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="">
 
           <div class="lead-form-grid">
             <div class="lead-field">
               <label class="lead-label" for="leadName">
                 <span>Your Name <span class="req">*</span></span>
               </label>
-              <input type="text" id="leadName" name="name" required placeholder="e.g. Rohan Sharma" class="lead-input" autocomplete="name">
+              <input type="text" id="leadName" name="name" required class="lead-input" autocomplete="name">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadEmail">
                 <span>Work Email <span class="req">*</span></span>
               </label>
-              <input type="email" id="leadEmail" name="email" required placeholder="name@company.com" class="lead-input" autocomplete="email">
+              <input type="email" id="leadEmail" name="email" required class="lead-input" autocomplete="email">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadPhone">
                 <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
               </label>
-              <input type="tel" id="leadPhone" name="phone" placeholder="+91 98765 43210" class="lead-input" autocomplete="tel">
+              <input type="tel" id="leadPhone" name="phone" class="lead-input" autocomplete="tel">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadCompany">
                 <span>Brand / Organisation <span class="opt">(Optional)</span></span>
               </label>
-              <input type="text" id="leadCompany" name="company" placeholder="e.g. Zepto, Personal Brand" class="lead-input">
+              <input type="text" id="leadCompany" name="company" class="lead-input">
             </div>
 
             <div class="lead-field full-width">
@@ -4281,7 +4281,7 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
                 <span class="opt">Select all that apply</span>
               </label>
               <div class="lead-services-grid" id="leadServicesChips">
-                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
                 <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
                 <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
                 <button type="button" class="lead-chip" data-val="Influencer & Creator Collabs">Creator &amp; Collabs</button>
@@ -4299,7 +4299,7 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
                 <button type="button" class="lead-chip" data-val="₹1.5L – ₹4L">₹1.5L – 4L</button>
                 <button type="button" class="lead-chip" data-val="₹4L – ₹10L">₹4L – 10L</button>
                 <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
-                <button type="button" class="lead-chip is-active" data-val="Flexible / Let's Discuss">Flexible</button>
+                <button type="button" class="lead-chip" data-val="Flexible / Let's Discuss">Flexible</button>
               </div>
             </div>
 
@@ -4307,7 +4307,7 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
               <label class="lead-label" for="leadMessage">
                 <span>Project Overview &amp; Goals <span class="req">*</span></span>
               </label>
-              <textarea id="leadMessage" name="message" required rows="3" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..." class="lead-input lead-textarea"></textarea>
+              <textarea id="leadMessage" name="message" required rows="3" class="lead-input lead-textarea"></textarea>
             </div>
           </div>
 
@@ -4903,13 +4903,16 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
         });
       });
 
-      // Budget chips single-selection
+      // Budget chips single-selection (with toggle)
       budgetChips.forEach(chip => {
         chip.addEventListener('click', () => {
+          const wasActive = chip.classList.contains('is-active');
           budgetChips.forEach(c => c.classList.remove('is-active'));
-          chip.classList.add('is-active');
-          if (selectedBudgetInput) {
-            selectedBudgetInput.value = chip.getAttribute('data-val');
+          if (!wasActive) {
+            chip.classList.add('is-active');
+            if (selectedBudgetInput) selectedBudgetInput.value = chip.getAttribute('data-val');
+          } else {
+            if (selectedBudgetInput) selectedBudgetInput.value = '';
           }
         });
       });
