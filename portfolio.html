@@ -1286,12 +1286,104 @@
       color: var(--foreground);
     }
 
+    .proj-modal-desc-wrap {
+      margin-top: 8px;
+      margin-bottom: 24px;
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .proj-modal-desc-kicker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
     .proj-modal-desc {
-      font-size: 15.5px;
+      font-size: 14.5px;
       line-height: 1.7;
       color: var(--muted-foreground);
-      margin-bottom: 24px;
       white-space: pre-line;
+    }
+
+    @media (max-width: 768px) {
+      .proj-modal-overlay {
+        padding: 8px 6px;
+        align-items: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .proj-modal-box {
+        width: 100%;
+        max-width: 100%;
+        max-height: none;
+        margin: 8px auto 24px;
+        padding: 20px 14px 24px;
+        border-radius: 18px;
+        box-sizing: border-box;
+        transform: none !important;
+      }
+
+      .proj-modal-close {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+      }
+
+      .proj-modal-header {
+        padding-right: 36px;
+        margin-bottom: 14px;
+      }
+
+      .proj-modal-title {
+        font-size: 22px;
+        line-height: 1.15;
+        margin-bottom: 8px;
+      }
+
+      .proj-modal-meta-row {
+        margin-bottom: 8px;
+        gap: 8px;
+      }
+
+      .proj-modal-client {
+        font-size: 11px;
+      }
+
+      .proj-modal-img-container {
+        padding: 8px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+      }
+
+      .proj-modal-video-wrap {
+        margin-bottom: 16px;
+        border-radius: 12px;
+      }
+
+      .proj-modal-video-wrap.is-vertical {
+        max-height: 60vh;
+      }
+
+      .proj-modal-desc-wrap {
+        padding: 12px 14px;
+        margin-bottom: 18px;
+        border-radius: 12px;
+      }
+
+      .proj-modal-desc {
+        font-size: 13.5px;
+        line-height: 1.6;
+      }
     }
 
     .proj-modal-img-container {
@@ -2582,7 +2674,7 @@ Edited by Rohan for Four Eleven Studio.
 
 Featured Episode: 'The Curious Case of… when only you hear the music ft. Rishi with Ira Khan'
 
-We crafted an intimate, authentic conversational flow — balancing sensitive dialogue around mental wellness with seamless multi-angle camera switching, precise narrative pacing, and clear vocal mastering that keeps listeners and viewers deeply connected throughout the episode." data-img="" data-no-img="true" data-video="https://www.youtube-nocookie.com/embed/ciXc3N9IoV0?rel=0&amp;modestbranding=1" data-video-url="https://www.youtube.com/watch?v=ciXc3N9IoV0" data-video-poster="assets/projects/agatsu-podcast-hd.jpg" data-tags="Edited by Rohan,Podcast Editing,Multi-Cam Video,Mental Health,Ira Khan,Sound Mastering,Featured Video">
+We crafted an intimate, authentic conversational flow — balancing sensitive dialogue around mental wellness with seamless multi-angle camera switching, precise narrative pacing, and clear vocal mastering that keeps listeners and viewers deeply connected throughout the episode." data-img="assets/projects/agatsu-podcast-hd.jpg" data-video="https://www.youtube-nocookie.com/embed/ciXc3N9IoV0?rel=0&amp;modestbranding=1" data-video-url="https://www.youtube.com/watch?v=ciXc3N9IoV0" data-video-poster="assets/projects/agatsu-podcast-hd.jpg" data-tags="Edited by Rohan,Podcast Editing,Multi-Cam Video,Mental Health,Ira Khan,Sound Mastering,Featured Video">
           <div class="proj-item-media">
             <img src="assets/projects/agatsu-podcast-hd.jpg" alt="Agatsu Foundation Podcast ft. Ira Khan - Edited by Rohan" class="proj-item-img" loading="lazy">
             <div class="proj-item-scrim"></div>
@@ -2650,9 +2742,9 @@ Key Deliverables:
 Scripted, shot, edited, and produced end-to-end by Four Eleven Studio for Pronto. A cinematic brand documentary film celebrating Pronto professionals for the Pro-Utsav campaign, following the inspiring story of Namrata Shinde — from daily struggles to financial independence, dignity, and family empowerment through Pronto. We led the complete creative pipeline: narrative scripting, on-ground cinematography capturing intimate domestic moments and candid family reflections, and documentary editing with tailored color grading and sound design.
 
 • Film 2: Pronto &times; Haqdarshak Brand Workshop Reel
-On-ground workshop documentation, grassroots impact storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission." data-img="" data-no-img="true" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="" data-video-aspect="vertical" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-videos='[{"label":"🎬 Pro-Utsav Documentary (Full Film)","src":"assets/videos/pronto-pro-utsav.mp4","poster":"","aspect":"vertical","badge":"Produced by 4eleven","btnText":"","btnUrl":""},{"label":"📱 Brand Workshop (Instagram Reel)","src":"assets/videos/pronto-brand-workshop.mp4","poster":"","aspect":"horizontal","badge":"Pronto × Haqdarshak","btnText":"Watch Reel on Instagram ↗","btnUrl":"https://www.instagram.com/reel/DZu_iA5v_LN/"}]' data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Brand Workshop,Produced by 4eleven,Instagram Reel,Featured Video">
+On-ground workshop documentation, grassroots impact storytelling, and social media creative suite capturing the strategic partnership between Pronto's rapid home-services platform and Haqdarshak's welfare empowerment mission." data-img="" data-no-img="true" data-video="assets/videos/pronto-pro-utsav.mp4" data-video-poster="assets/projects/pronto-pro-utsav-thumb.jpg" data-video-aspect="vertical" data-video-url="https://www.instagram.com/reel/DZu_iA5v_LN/" data-videos='[{"label":"🎬 Pro-Utsav Documentary (Full Film)","src":"assets/videos/pronto-pro-utsav.mp4","poster":"assets/projects/pronto-pro-utsav-thumb.jpg","aspect":"vertical","badge":"Produced by 4eleven","btnText":"","btnUrl":""},{"label":"📱 Brand Workshop (Instagram Reel)","src":"assets/videos/pronto-brand-workshop.mp4","poster":"assets/projects/pronto-workshop-live.jpg","aspect":"horizontal","badge":"Pronto × Haqdarshak","btnText":"Watch Reel on Instagram ↗","btnUrl":"https://www.instagram.com/reel/DZu_iA5v_LN/"}]' data-tags="Script to Screen,Cinematography,Documentary Film,Brand Storytelling,Brand Workshop,Produced by 4eleven,Instagram Reel,Featured Video">
           <div class="proj-item-media">
-            <video class="proj-item-img" autoplay muted loop playsinline preload="auto" style="object-fit: cover; width: 100%; height: 100%;">
+            <video class="proj-item-img" autoplay muted loop playsinline preload="auto" poster="assets/projects/pronto-pro-utsav-thumb.jpg" style="object-fit: cover; width: 100%; height: 100%;">
               <source src="assets/videos/pronto-pro-utsav.mp4" type="video/mp4">
             </video>
             <div class="proj-item-scrim"></div>
@@ -2725,7 +2817,6 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
           <div id="modalTags" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
         </div>
         <h3 class="proj-modal-title" id="modalTitle">Project Title</h3>
-        <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       </div>
 
       <!-- Video Playlist / Tabs (for multi-film projects) -->
@@ -2740,9 +2831,15 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
         </video>
       </div>
 
-      <!-- Project Artwork / Case Study Container -->
+      <!-- Project Artwork / Case Study Container (THE WORK!) -->
       <div class="proj-modal-img-container" id="modalImgContainer">
-        <img src="" alt="Project Artwork" class="proj-modal-img" id="modalImg">
+        <img src="" alt="Project Artwork" class="proj-modal-img" id="modalImg" loading="eager">
+      </div>
+
+      <!-- Project Narrative & Creative Strategy (Cleanly below the work) -->
+      <div class="proj-modal-desc-wrap">
+        <div class="proj-modal-desc-kicker">Case Study &amp; Creative Strategy</div>
+        <p class="proj-modal-desc" id="modalDesc">Detailed project description will appear here.</p>
       </div>
       
       <!-- Action Row -->
@@ -3333,6 +3430,10 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
         });
 
         modalInquire.href = `mailto:ssup@4eleven.in?subject=Inquiry%20Regarding%20${encodeURIComponent(title)}`;
+
+        const modalBox = modalOverlay.querySelector('.proj-modal-box');
+        if (modalBox) modalBox.scrollTop = 0;
+        modalOverlay.scrollTop = 0;
 
         modalOverlay.classList.add('is-active');
         document.body.style.overflow = 'hidden';
