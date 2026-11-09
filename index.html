@@ -53,15 +53,15 @@
       --primary-hover: #ff6557;
       --primary-rgb: 255, 73, 59;
       --muted: #1c1d1f;
-      --muted-foreground: #8a8d93;
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.2);
-      --card-bg: rgba(255, 255, 255, 0.025);
-      --card-blur: 16px;
+      --muted-foreground: #a6a9b2;
+      --border: rgba(255, 255, 255, 0.12);
+      --border-hover: rgba(255, 255, 255, 0.25);
+      --card-bg: #131418;
+      --card-blur: 0px;
       --accent-glow: rgba(255, 73, 59, 0.25);
-      --pill-bg: rgba(255, 255, 255, 0.05);
+      --pill-bg: #18191e;
       --track-bg: #141517;
-      --header-bg: rgba(12, 13, 14, 0.75);
+      --header-bg: #0c0d0e;
     }
 
     html.light {
@@ -71,15 +71,15 @@
       --primary-hover: #e03527;
       --primary-rgb: 255, 73, 59;
       --muted: #e8e8ea;
-      --muted-foreground: #666970;
-      --border: rgba(0, 0, 0, 0.09);
-      --border-hover: rgba(0, 0, 0, 0.22);
-      --card-bg: rgba(0, 0, 0, 0.02);
-      --card-blur: 16px;
+      --muted-foreground: #474a52;
+      --border: rgba(0, 0, 0, 0.12);
+      --border-hover: rgba(0, 0, 0, 0.25);
+      --card-bg: #ffffff;
+      --card-blur: 0px;
       --accent-glow: rgba(255, 73, 59, 0.15);
-      --pill-bg: rgba(0, 0, 0, 0.04);
+      --pill-bg: #f0f0f2;
       --track-bg: #ececed;
-      --header-bg: rgba(248, 248, 249, 0.85);
+      --header-bg: #ffffff;
     }
 
     /* Reset & Base */
@@ -94,7 +94,7 @@
       background-color: var(--background);
       color: var(--foreground);
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1.6;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -107,6 +107,9 @@
       min-height: 100vh;
       background-color: var(--background);
       color: var(--foreground);
+      font-size: 16px;
+      font-weight: 450;
+      line-height: 1.65;
       position: relative;
     }
 
@@ -416,7 +419,7 @@
     .header-brand-title {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: 19px;
+      font-size: 21px;
       letter-spacing: -0.04em;
       color: var(--foreground);
       line-height: 1;
@@ -435,10 +438,11 @@
 
     .header-brand-sub {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      opacity: 0.45;
+      opacity: 0.75;
       display: none;
     }
 
@@ -453,8 +457,9 @@
       align-items: center;
       gap: 48px;
       font-family: var(--font-display);
-      font-size: 13.5px;
+      font-size: 15.5px;
       letter-spacing: -0.01em;
+      font-weight: 600;
     }
 
     @media (min-width: 1024px) {
@@ -471,15 +476,17 @@
 
     .nav-col-title {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 12px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      opacity: 0.4;
+      opacity: 0.7;
     }
 
     .nav-link {
       color: var(--foreground);
-      opacity: 0.75;
+      opacity: 0.88;
+      font-weight: 600;
       transition: opacity 0.25s ease, color 0.25s ease;
       position: relative;
     }
@@ -503,11 +510,12 @@
         padding: 14px 18px;
       }
       .liquid-btn {
-        padding: 8px 16px;
-        font-size: 13px;
+        padding: 9px 18px;
+        font-size: 14px;
+        font-weight: 600;
       }
       .header-brand-title {
-        font-size: 17px;
+        font-size: 18.5px;
       }
       .header-logo-img {
         height: 30px;
@@ -588,23 +596,10 @@
     }
 
     /* ==========================================================================
-       Mandala Watermark Atmosphere
+       Mandala Watermark Atmosphere (Hidden to keep background crisp and uncluttered)
        ========================================================================== */
     .mandala-wrap {
-      position: fixed;
-      top: 36%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: min(88vw, 880px);
-      height: min(88vw, 880px);
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.08;
-      transition: opacity 0.4s ease;
-    }
-
-    html.light .mandala-wrap {
-      opacity: 0.045;
+      display: none !important;
     }
 
     .mandala-svg {
@@ -661,13 +656,14 @@
     .kicker-capsule {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      padding: 5px 14px;
+      gap: 8px;
+      padding: 7px 18px;
       border-radius: 9999px;
       background: rgba(255, 73, 59, 0.08);
-      border: 1px solid rgba(255, 73, 59, 0.28);
+      border: 1px solid rgba(255, 73, 59, 0.35);
       font-family: var(--font-mono);
-      font-size: clamp(9px, 2.3vw, 11px);
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #ff9187;
@@ -677,8 +673,8 @@
     }
 
     .kicker-capsule .live-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #ff493b;
       box-shadow: 0 0 10px #ff493b;
@@ -689,7 +685,8 @@
     .kicker-capsule .kicker-hi {
       font-family: var(--font-yatra);
       color: var(--marigold);
-      font-size: clamp(10.5px, 2.8vw, 12.5px);
+      font-size: 14.5px;
+      font-weight: 600;
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
@@ -863,13 +860,13 @@
 
     .desi-en-sub {
       font-family: var(--font-mono);
-      font-size: clamp(9px, 1.1vw, 11px);
-      font-weight: 600;
+      font-size: 12px;
+      font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: #ff9187;
       margin-top: 3px;
-      opacity: 0.9;
+      opacity: 0.95;
       transition: opacity 0.32s ease, transform 0.32s ease;
     }
 
@@ -882,10 +879,10 @@
     .poetic-hindi-banner {
       margin-top: 22px;
       font-family: var(--font-yatra);
-      font-size: clamp(15px, 1.5vw, 19px);
+      font-size: clamp(16px, 1.8vw, 21px);
       color: var(--marigold);
       letter-spacing: 0.08em;
-      opacity: 0.92;
+      opacity: 0.95;
     }
 
     html.light .poetic-hindi-banner {
@@ -894,19 +891,23 @@
 
     /* Lead Statement */
     .hero-desc {
-      font-size: clamp(15px, 1.35vw, 18.5px);
-      line-height: 1.65;
-      color: var(--muted-foreground);
-      max-width: 680px;
+      font-size: clamp(16px, 1.4vw, 19.5px);
+      line-height: 1.7;
+      color: #cfd2da;
+      max-width: 720px;
       margin: 18px auto 0 auto;
       letter-spacing: -0.01em;
-      font-weight: 400;
+      font-weight: 450;
       padding: 0 12px;
+    }
+
+    html.light .hero-desc {
+      color: #3b3e45;
     }
 
     .hero-desc strong {
       color: var(--foreground);
-      font-weight: 600;
+      font-weight: 700;
     }
 
     /* Hero CTA Row */
@@ -939,11 +940,12 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted-foreground);
-      opacity: 0.6;
+      opacity: 0.85;
       margin-top: 36px;
     }
 
@@ -977,7 +979,8 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--primary);
@@ -1009,8 +1012,14 @@
       gap: 32px;
       border-top: 1px solid var(--border);
       padding-top: 40px;
-      font-size: 15px;
-      color: var(--muted-foreground);
+      font-size: 16.5px;
+      font-weight: 450;
+      line-height: 1.65;
+      color: #b6b9c2;
+    }
+
+    html.light .manifesto-cols {
+      color: #4b4e57;
     }
 
     @media (min-width: 768px) {
@@ -1022,8 +1031,8 @@
 
     .manifesto-col-title {
       font-family: var(--font-display);
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 19px;
+      font-weight: 700;
       color: var(--foreground);
       margin-bottom: 8px;
     }
@@ -1059,12 +1068,13 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 16px;
+      padding: 7px 18px;
       border-radius: 9999px;
       background: rgba(239, 68, 68, 0.08);
-      border: 1px solid rgba(239, 68, 68, 0.28);
+      border: 1px solid rgba(239, 68, 68, 0.32);
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #ff9187;
@@ -1072,8 +1082,8 @@
     }
 
     .portfolio-kicker .live-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #ff493b;
       box-shadow: 0 0 8px #ff493b;
@@ -1082,7 +1092,8 @@
     .portfolio-kicker .kicker-hindi {
       font-family: var(--font-yatra);
       color: var(--marigold);
-      font-size: 12px;
+      font-size: 15px;
+      font-weight: 600;
       letter-spacing: 0.06em;
     }
 
@@ -1216,22 +1227,26 @@
       justify-content: space-between;
       align-items: center;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
     .proj-year-pill {
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 4px 10px;
+      background: rgba(12, 13, 16, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 5px 12px;
       border-radius: 9999px;
       color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 600;
     }
 
     .proj-category-tag {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .proj-card-bottom {
@@ -1252,7 +1267,8 @@
 
     .proj-client-sub {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13.5px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--primary);
@@ -1269,10 +1285,11 @@
     }
 
     .proj-card-desc {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.7);
-      max-width: 440px;
-      line-height: 1.4;
+      font-size: 15.5px;
+      font-weight: 450;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 460px;
+      line-height: 1.5;
       display: none;
     }
 
@@ -1369,10 +1386,12 @@
 
     .services-summary-pill {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14.5px;
+      font-weight: 500;
       letter-spacing: 0.05em;
       color: var(--muted-foreground);
-      max-width: 480px;
+      max-width: 520px;
+      line-height: 1.5;
     }
 
     .services-grid {
@@ -1396,8 +1415,6 @@
     .service-card {
       position: relative;
       background: var(--card-bg);
-      backdrop-filter: blur(var(--card-blur));
-      -webkit-backdrop-filter: blur(var(--card-blur));
       border: 1px solid var(--border);
       border-radius: 28px;
       padding: 36px 32px;
@@ -1412,7 +1429,11 @@
     .service-card:hover {
       border-color: var(--border-hover);
       transform: translateY(-6px);
-      background: rgba(255, 255, 255, 0.04);
+      background: #191b22;
+    }
+
+    html.light .service-card:hover {
+      background: #f4f4f7;
     }
 
     .service-card-glow {
@@ -1451,9 +1472,10 @@
       top: 36px;
       right: 32px;
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 15px;
+      font-weight: 700;
       letter-spacing: 0.06em;
-      opacity: 0.35;
+      opacity: 0.6;
     }
 
     .service-card-content {
@@ -1464,16 +1486,21 @@
 
     .service-card-title {
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       letter-spacing: -0.025em;
       line-height: 1.15;
     }
 
     .service-card-desc {
-      font-size: 14px;
-      line-height: 1.5;
-      color: var(--muted-foreground);
+      font-size: 16px;
+      font-weight: 450;
+      line-height: 1.6;
+      color: #b0b3bc;
+    }
+
+    html.light .service-card-desc {
+      color: #555861;
     }
 
     /* ==========================================================================
@@ -1530,11 +1557,16 @@
     }
 
     .collab-subtitle {
-      color: var(--muted-foreground);
-      font-size: 16px;
-      max-width: 480px;
-      line-height: 1.5;
+      color: #b0b3bc;
+      font-size: 16.5px;
+      font-weight: 450;
+      max-width: 520px;
+      line-height: 1.6;
       margin-bottom: 40px;
+    }
+
+    html.light .collab-subtitle {
+      color: #555861;
     }
 
     .collab-learn-btn {
@@ -1542,7 +1574,7 @@
       align-items: center;
       gap: 10px;
       font-family: var(--font-display);
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 600;
       color: var(--primary);
       text-decoration: none;
@@ -1598,12 +1630,12 @@
       bottom: 12px;
       left: 12px;
       right: 12px;
-      background: rgba(0, 0, 0, 0.7);
-      backdrop-filter: blur(6px);
+      background: rgba(0, 0, 0, 0.82);
       padding: 6px 10px;
       border-radius: 8px;
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 12px;
+      font-weight: 600;
       color: #ffffff;
       letter-spacing: 0.04em;
     }
@@ -1633,7 +1665,7 @@
 
     .collab-item-name {
       font-family: var(--font-display);
-      font-size: clamp(22px, 3.2vw, 42px);
+      font-size: clamp(24px, 3.2vw, 44px);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.1;
@@ -1641,7 +1673,8 @@
 
     .collab-item-meta {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
       letter-spacing: 0.05em;
       color: var(--muted-foreground);
       text-transform: uppercase;
@@ -1708,7 +1741,6 @@
 
     .about-card-wrap {
       background: var(--card-bg);
-      backdrop-filter: blur(var(--card-blur));
       border: 1px solid var(--border);
       border-radius: 32px;
       padding: 48px 32px;
@@ -1734,7 +1766,8 @@
 
     .about-tag {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13.5px;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--primary);
@@ -1749,19 +1782,28 @@
     }
 
     .about-p {
-      color: var(--muted-foreground);
-      font-size: 16px;
-      line-height: 1.6;
+      color: #cfd2da;
+      font-size: 17px;
+      font-weight: 450;
+      line-height: 1.68;
+    }
+
+    html.light .about-p {
+      color: #3b3e45;
     }
 
     .founder-card {
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 36px 32px;
-      background: rgba(255, 255, 255, 0.02);
+      background: #18191f;
       display: flex;
       flex-direction: column;
       gap: 16px;
+    }
+
+    html.light .founder-card {
+      background: #f7f7f9;
     }
 
     .founder-name {
@@ -1773,16 +1815,22 @@
 
     .founder-role {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: 700;
       letter-spacing: 0.06em;
       color: var(--primary);
       text-transform: uppercase;
     }
 
     .founder-bio {
-      color: var(--muted-foreground);
-      font-size: 14.5px;
-      line-height: 1.6;
+      color: #b8bac2;
+      font-size: 16px;
+      font-weight: 450;
+      line-height: 1.65;
+    }
+
+    html.light .founder-bio {
+      color: #555861;
     }
 
     .founder-contact-links {
@@ -1794,8 +1842,9 @@
 
     .founder-pill-link {
       font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
       border-radius: 9999px;
       border: 1px solid var(--border);
       background: var(--pill-bg);
@@ -1839,7 +1888,6 @@
       border-radius: 24px;
       padding: 36px 30px;
       background: var(--card-bg);
-      backdrop-filter: blur(var(--card-blur));
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -1863,7 +1911,8 @@
 
     .team-tag {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13.5px;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--primary);
@@ -1873,9 +1922,10 @@
 
     .team-num {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--muted-foreground);
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
     .team-avatar-badge {
@@ -1914,11 +1964,10 @@
     .team-card:hover .team-avatar-img {
       transform: scale(1.08);
     }
-    }
 
     .team-name {
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       letter-spacing: -0.02em;
       margin: 8px 0 6px;
@@ -1927,7 +1976,8 @@
 
     .team-role {
       font-family: var(--font-mono);
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: 700;
       letter-spacing: 0.05em;
       color: var(--primary);
       text-transform: uppercase;
@@ -1936,10 +1986,15 @@
     }
 
     .team-bio {
-      color: var(--muted-foreground);
-      font-size: 14px;
-      line-height: 1.6;
+      color: #b8bac2;
+      font-size: 15.5px;
+      font-weight: 450;
+      line-height: 1.65;
       margin: 0;
+    }
+
+    html.light .team-bio {
+      color: #555861;
     }
 
     .team-tags {
@@ -1951,12 +2006,13 @@
 
     .team-tag-pill {
       font-family: var(--font-mono);
-      font-size: 10.5px;
-      padding: 4px 10px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 5px 12px;
       border-radius: 9999px;
       border: 1px solid var(--border);
       background: var(--pill-bg);
-      color: rgba(244, 244, 246, 0.8);
+      color: rgba(244, 244, 246, 0.9);
     }
 
     .team-links {
@@ -1970,8 +2026,9 @@
 
     .team-pill-link {
       font-family: var(--font-mono);
-      font-size: 11px;
-      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 16px;
       border-radius: 9999px;
       border: 1px solid var(--border);
       background: var(--pill-bg);
@@ -2041,7 +2098,8 @@
 
     .footer-email-tag {
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 15px;
+      font-weight: 500;
       color: var(--muted-foreground);
     }
 
@@ -2079,8 +2137,9 @@
 
     .footer-col-title {
       font-family: var(--font-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--muted-foreground);
       margin-bottom: 16px;
@@ -2092,12 +2151,13 @@
       flex-direction: column;
       gap: 10px;
       font-family: var(--font-display);
-      font-size: 14.5px;
+      font-size: 16px;
+      font-weight: 500;
     }
 
     .footer-link-item a {
       color: var(--foreground);
-      opacity: 0.7;
+      opacity: 0.85;
       transition: all 0.25s ease;
       display: inline-block;
     }
@@ -2116,7 +2176,8 @@
       border-top: 1px solid var(--border);
       padding-top: 32px;
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 13.5px;
+      font-weight: 500;
       color: var(--muted-foreground);
     }
 
@@ -2273,15 +2334,15 @@
 
     .proj-modal-client {
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 14.5px;
       color: var(--primary);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .proj-modal-title {
-      font-family: var(--font-clash);
+      font-family: var(--font-display);
       font-size: clamp(26px, 3.5vw, 40px);
       font-weight: 700;
       letter-spacing: -0.03em;
@@ -2293,27 +2354,37 @@
     .proj-modal-desc-wrap {
       margin-top: 8px;
       margin-bottom: 24px;
-      padding: 16px 20px;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
+      padding: 18px 22px;
+      background: #18191e;
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
+    }
+
+    html.light .proj-modal-desc-wrap {
+      background: #f7f7f9;
+      border-color: rgba(0, 0, 0, 0.1);
     }
 
     .proj-modal-desc-kicker {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--primary);
       margin-bottom: 8px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .proj-modal-desc {
-      font-size: 14.5px;
+      font-size: 16.5px;
+      font-weight: 450;
       line-height: 1.7;
-      color: var(--muted-foreground);
+      color: #d8dbe2;
       white-space: pre-line;
+    }
+
+    html.light .proj-modal-desc {
+      color: #3b3e45;
     }
 
     .proj-modal-img-container {
@@ -2431,19 +2502,18 @@
       bottom: 14px;
       left: 14px;
       z-index: 2;
-      background: rgba(12, 13, 14, 0.82);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(12, 13, 14, 0.88);
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 100px;
-      padding: 5px 12px;
+      padding: 6px 14px;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 12.5px;
+      font-weight: 600;
       letter-spacing: 0.04em;
       color: #fff;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
       pointer-events: none;
     }
@@ -2459,9 +2529,10 @@
 
     .proj-tag-pill {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 13px;
+      font-weight: 600;
       letter-spacing: 0.05em;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border-radius: 9999px;
       background: var(--pill-bg);
       border: 1px solid var(--border);
@@ -2473,13 +2544,14 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 22px;
+      padding: 10px 20px;
       border-radius: 9999px;
       background: var(--pill-bg);
       border: 1px solid var(--border);
       color: var(--foreground);
       font-family: var(--font-mono);
-      font-size: 13px;
+      font-size: 13.5px;
+      font-weight: 600;
       text-decoration: none;
       transition: all 0.2s ease;
     }
@@ -2523,7 +2595,7 @@
       }
 
       .proj-modal-title {
-        font-size: 22px;
+        font-size: 23px;
         line-height: 1.15;
         margin-bottom: 8px;
       }
@@ -2534,7 +2606,8 @@
       }
 
       .proj-modal-client {
-        font-size: 11px;
+        font-size: 13px;
+        font-weight: 700;
       }
 
       .proj-modal-img-container {
@@ -2553,14 +2626,14 @@
       }
 
       .proj-modal-desc-wrap {
-        padding: 12px 14px;
+        padding: 14px 16px;
         margin-bottom: 18px;
         border-radius: 12px;
       }
 
       .proj-modal-desc {
-        font-size: 13.5px;
-        line-height: 1.6;
+        font-size: 15px;
+        line-height: 1.65;
       }
     }
 
@@ -2669,7 +2742,7 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 12.5px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--primary);
@@ -2686,9 +2759,9 @@
     }
 
     .lead-modal-title {
-      font-family: var(--font-clash);
-      font-size: clamp(26px, 3vw, 34px);
-      font-weight: 600;
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 700;
       letter-spacing: -0.02em;
       margin: 0 0 6px 0;
       color: var(--foreground);
@@ -2696,10 +2769,15 @@
     }
 
     .lead-modal-subtitle {
-      font-size: 13.5px;
-      color: var(--muted-foreground);
-      line-height: 1.5;
+      font-size: 14.5px;
+      font-weight: 450;
+      color: #b6b9c2;
+      line-height: 1.55;
       margin: 0;
+    }
+
+    html.light .lead-modal-subtitle {
+      color: #555861;
     }
 
     /* Form Fields Grid */
@@ -2725,11 +2803,11 @@
       align-items: center;
       justify-content: space-between;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted-foreground);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .lead-label .req {
@@ -2739,8 +2817,8 @@
     }
 
     .lead-label .opt {
-      opacity: 0.55;
-      font-size: 9.5px;
+      opacity: 0.75;
+      font-size: 11px;
       text-transform: none;
       letter-spacing: normal;
     }
@@ -2749,11 +2827,12 @@
       width: 100%;
       box-sizing: border-box;
       background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 10px;
       padding: 11px 14px;
       color: var(--foreground);
-      font-size: 13.5px;
+      font-size: 14.5px;
+      font-weight: 500;
       font-family: inherit;
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
@@ -2761,7 +2840,7 @@
 
     html.light .lead-input {
       background: #f8f9fb;
-      border-color: rgba(0, 0, 0, 0.1);
+      border-color: rgba(0, 0, 0, 0.12);
       color: #0c0d0e;
     }
 
@@ -2778,7 +2857,7 @@
 
     .lead-input::placeholder {
       color: var(--muted-foreground);
-      opacity: 0.55;
+      opacity: 0.7;
     }
 
     .lead-textarea {
@@ -2801,7 +2880,7 @@
       border-radius: 9px;
       padding: 10px 8px;
       font-family: var(--font-sans);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
       color: #b3b6bd;
       text-align: center;
@@ -2864,8 +2943,9 @@
       border-radius: 8px;
       padding: 9px 4px;
       font-family: var(--font-mono);
-      font-size: 11px;
-      color: #8a8d93;
+      font-size: 12px;
+      font-weight: 600;
+      color: #b0b3bc;
       text-align: center;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -2920,7 +3000,8 @@
 
     .lead-privacy-note {
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 12.5px;
+      font-weight: 500;
       color: var(--muted-foreground);
       display: flex;
       align-items: center;
@@ -2935,9 +3016,9 @@
       gap: 8px;
       padding: 12px 28px;
       border-radius: 999px;
-      font-family: var(--font-clash);
+      font-family: var(--font-display);
       font-weight: 600;
-      font-size: 14px;
+      font-size: 15px;
       letter-spacing: 0.02em;
       background: linear-gradient(135deg, #ff493b 0%, #e03629 100%);
       color: #ffffff;
@@ -3031,10 +3112,12 @@
         margin-bottom: 16px;
       }
       .lead-modal-title {
-        font-size: 24px;
+        font-size: 25px;
+        font-weight: 700;
       }
       .lead-modal-subtitle {
-        font-size: 12.5px;
+        font-size: 14px;
+        font-weight: 450;
       }
       .lead-form-grid {
         grid-template-columns: 1fr;
@@ -3046,17 +3129,19 @@
         gap: 6px;
       }
       .lead-services-grid .lead-chip {
-        font-size: 11px;
-        padding: 9px 6px;
-        min-height: 38px;
+        font-size: 12.5px;
+        font-weight: 500;
+        padding: 10px 8px;
+        min-height: 42px;
       }
       .lead-budget-bar {
         grid-template-columns: repeat(2, 1fr);
         gap: 6px;
       }
       .lead-budget-bar .lead-chip {
-        font-size: 10.5px;
-        padding: 8px 4px;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 9px 6px;
         white-space: normal;
       }
       .lead-budget-bar .lead-chip:nth-child(5) {
@@ -3069,12 +3154,14 @@
       }
       .lead-submit-btn {
         width: 100%;
-        padding: 13px 20px;
-        font-size: 14px;
+        padding: 14px 22px;
+        font-size: 15.5px;
+        font-weight: 600;
       }
       .lead-privacy-note {
         justify-content: center;
-        font-size: 10.5px;
+        font-size: 12px;
+        font-weight: 500;
         text-align: center;
       }
     }
@@ -3945,24 +4032,24 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px;">
           <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--primary); letter-spacing: 0.1em;">01 — DISCOVER</span>
-            <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; margin: 8px 0;">Understand</h3>
-            <p style="color: var(--muted-foreground); font-size: 14px; line-height: 1.5;">We understand your brand, audience, goals and vision to establish clear creative direction.</p>
+            <span style="font-family: var(--font-mono); font-size: 13.5px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em;">01 — DISCOVER</span>
+            <h3 style="font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 8px 0;">Understand</h3>
+            <p style="color: #b0b3bc; font-size: 15.5px; font-weight: 450; line-height: 1.6;">We understand your brand, audience, goals and vision to establish clear creative direction.</p>
           </div>
           <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--primary); letter-spacing: 0.1em;">02 — STRATEGISE</span>
-            <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; margin: 8px 0;">Develop</h3>
-            <p style="color: var(--muted-foreground); font-size: 14px; line-height: 1.5;">We develop creative ideas, content frameworks and a clear strategy aligned with your objectives.</p>
+            <span style="font-family: var(--font-mono); font-size: 13.5px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em;">02 — STRATEGISE</span>
+            <h3 style="font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 8px 0;">Develop</h3>
+            <p style="color: #b0b3bc; font-size: 15.5px; font-weight: 450; line-height: 1.6;">We develop creative ideas, content frameworks and a clear strategy aligned with your objectives.</p>
           </div>
           <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--primary); letter-spacing: 0.1em;">03 — CREATE</span>
-            <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; margin: 8px 0;">Produce</h3>
-            <p style="color: var(--muted-foreground); font-size: 14px; line-height: 1.5;">Our team brings concepts to life through meticulous design, cinematic video, copy and high-grade production.</p>
+            <span style="font-family: var(--font-mono); font-size: 13.5px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em;">03 — CREATE</span>
+            <h3 style="font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 8px 0;">Produce</h3>
+            <p style="color: #b0b3bc; font-size: 15.5px; font-weight: 450; line-height: 1.6;">Our team brings concepts to life through meticulous design, cinematic video, copy and high-grade production.</p>
           </div>
           <div style="border-left: 2px solid var(--primary); padding-left: 20px;">
-            <span style="font-family: var(--font-mono); font-size: 12px; color: var(--primary); letter-spacing: 0.1em;">04 — DELIVER</span>
-            <h3 style="font-family: var(--font-display); font-size: 20px; font-weight: 700; margin: 8px 0;">Execute</h3>
-            <p style="color: var(--muted-foreground); font-size: 14px; line-height: 1.5;">We execute, publish, distribute and evaluate the work to create real and lasting impact.</p>
+            <span style="font-family: var(--font-mono); font-size: 13.5px; font-weight: 700; color: var(--primary); letter-spacing: 0.1em;">04 — DELIVER</span>
+            <h3 style="font-family: var(--font-display); font-size: 21px; font-weight: 700; margin: 8px 0;">Execute</h3>
+            <p style="color: #b0b3bc; font-size: 15.5px; font-weight: 450; line-height: 1.6;">We execute, publish, distribute and evaluate the work to create real and lasting impact.</p>
           </div>
         </div>
       </div>
@@ -4007,7 +4094,7 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
               <path d="M0,30 Q50,-5 100,30 L100,100 L0,100 Z"></path>
             </svg>
           </a>
-          <span style="font-family: var(--font-mono); font-size: 12px; opacity: 0.5;">
+          <span style="font-family: var(--font-mono); font-size: 13.5px; opacity: 0.75; font-weight: 500;">
             Typical response within 24 hours.
           </span>
         </div>
