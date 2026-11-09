@@ -2565,20 +2565,22 @@
     }
 
     /* ==========================================================================
-       Global Lead Capture Modal (ssup@4eleven.in)
+       Global Lead Capture Modal (Direct to ssup@4eleven.in) - High-End Studio
        ========================================================================== */
     .lead-modal-overlay {
       position: fixed;
       inset: 0;
+      width: 100vw;
+      height: 100vh;
       box-sizing: border-box;
       background: rgba(6, 7, 9, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      z-index: 10002;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 10003;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 24px;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -2592,28 +2594,21 @@
     .lead-modal-card {
       position: relative;
       width: 100%;
-      max-width: 720px;
+      max-width: 680px;
       min-width: 0;
       box-sizing: border-box;
       max-height: 92vh;
       overflow-y: auto;
       overflow-x: hidden;
-      background: var(--card);
-      border: 1px solid rgba(255, 73, 59, 0.28);
-      border-radius: 24px;
-      padding: 36px 40px;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.75), 0 0 50px rgba(255, 73, 59, 0.12);
-      transform: scale(0.95) translateY(24px);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #101114;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 34px 38px 36px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      transform: scale(0.96) translateY(20px);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       scrollbar-width: thin;
       scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
-    }
-
-    .lead-modal-card .portfolio-kicker {
-      max-width: 100%;
-      white-space: normal;
-      flex-wrap: wrap;
-      line-height: 1.4;
     }
 
     html.light .lead-modal-overlay {
@@ -2622,7 +2617,8 @@
 
     html.light .lead-modal-card {
       background: #ffffff;
-      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2), 0 0 40px rgba(255, 73, 59, 0.12);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.18);
     }
 
     .lead-modal-overlay.is-active .lead-modal-card {
@@ -2632,21 +2628,27 @@
     /* Modal Close Button */
     .lead-modal-close {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 38px;
-      height: 38px;
+      top: 22px;
+      right: 22px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: var(--pill-bg);
-      border: 1px solid var(--border);
-      color: var(--foreground);
-      font-size: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted-foreground);
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
       z-index: 10;
+    }
+
+    html.light .lead-modal-close {
+      background: #f0f1f4;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #4b5563;
     }
 
     .lead-modal-close:hover {
@@ -2658,37 +2660,60 @@
 
     /* Modal Headers */
     .lead-modal-header {
-      margin-bottom: 24px;
+      margin-bottom: 22px;
       padding-right: 40px;
+    }
+
+    .lead-modal-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .lead-modal-kicker .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 8px rgba(255, 73, 59, 0.6);
     }
 
     .lead-modal-title {
       font-family: var(--font-clash);
-      font-size: clamp(26px, 3vw, 36px);
+      font-size: clamp(26px, 3vw, 34px);
       font-weight: 600;
       letter-spacing: -0.02em;
-      margin: 8px 0 6px 0;
+      margin: 0 0 6px 0;
       color: var(--foreground);
+      line-height: 1.15;
     }
 
     .lead-modal-subtitle {
-      font-size: 14px;
+      font-size: 13.5px;
       color: var(--muted-foreground);
-      line-height: 1.55;
+      line-height: 1.5;
       margin: 0;
     }
 
-    /* Form Fields */
+    /* Form Fields Grid */
     .lead-form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
     .lead-field {
       display: flex;
       flex-direction: column;
+      gap: 6px;
     }
 
     .lead-field.full-width {
@@ -2700,96 +2725,182 @@
       align-items: center;
       justify-content: space-between;
       font-family: var(--font-mono);
-      font-size: 11px;
+      font-size: 10.5px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted-foreground);
-      margin-bottom: 8px;
       font-weight: 500;
     }
 
     .lead-label .req {
       color: var(--primary);
-      font-weight: 700;
-      margin-left: 3px;
+      font-weight: 600;
+      margin-left: 2px;
     }
 
     .lead-label .opt {
       opacity: 0.55;
-      font-size: 10px;
+      font-size: 9.5px;
       text-transform: none;
       letter-spacing: normal;
     }
 
     .lead-input {
       width: 100%;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 16px;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 10px;
+      padding: 11px 14px;
       color: var(--foreground);
-      font-size: 14px;
+      font-size: 13.5px;
       font-family: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
     }
 
     html.light .lead-input {
-      background: #f8f8fa;
-      border-color: rgba(0, 0, 0, 0.12);
+      background: #f8f9fb;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #0c0d0e;
     }
 
     .lead-input:focus {
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+    }
+
+    html.light .lead-input:focus {
       border-color: var(--primary);
-      background: rgba(255, 73, 59, 0.04);
-      box-shadow: 0 0 0 3px rgba(255, 73, 59, 0.18);
+      box-shadow: 0 0 0 3px rgba(255, 73, 59, 0.15);
     }
 
     .lead-input::placeholder {
       color: var(--muted-foreground);
-      opacity: 0.6;
+      opacity: 0.55;
     }
 
     .lead-textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 80px;
       line-height: 1.5;
     }
 
-    /* Chips Selector */
-    .lead-chips-wrap {
-      display: flex;
-      flex-wrap: wrap;
+    /* Balanced 3x2 Services Grid */
+    .lead-services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      margin-top: 2px;
     }
 
-    .lead-chip {
+    .lead-services-grid .lead-chip {
       appearance: none;
-      background: var(--pill-bg);
-      border: 1px solid var(--border);
-      color: var(--muted-foreground);
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      padding: 8px 14px;
-      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 9px;
+      padding: 10px 8px;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      color: #b3b6bd;
+      text-align: center;
       cursor: pointer;
       transition: all 0.2s ease;
       user-select: none;
+      box-sizing: border-box;
+      width: 100%;
+      white-space: normal;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
     }
 
-    .lead-chip:hover {
-      border-color: rgba(255, 73, 59, 0.45);
-      color: var(--foreground);
-      transform: translateY(-1px);
+    html.light .lead-services-grid .lead-chip {
+      background: #f4f5f8;
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #4b5563;
     }
 
-    .lead-chip.is-active {
-      background: rgba(255, 73, 59, 0.14);
+    .lead-services-grid .lead-chip:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    html.light .lead-services-grid .lead-chip:hover {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #0c0d0e;
+      background: #eef0f4;
+    }
+
+    .lead-services-grid .lead-chip.is-active {
+      background: rgba(255, 73, 59, 0.12);
+      border-color: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 0 14px rgba(255, 73, 59, 0.2);
+      font-weight: 600;
+    }
+
+    html.light .lead-services-grid .lead-chip.is-active {
+      background: rgba(255, 73, 59, 0.1);
       border-color: var(--primary);
       color: var(--primary);
-      font-weight: 500;
-      box-shadow: 0 0 16px rgba(255, 73, 59, 0.2);
+    }
+
+    /* 5-Column Balanced Budget Segment Bar */
+    .lead-budget-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+    }
+
+    .lead-budget-bar .lead-chip {
+      appearance: none;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
+      padding: 9px 4px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #8a8d93;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+      box-sizing: border-box;
+      width: 100%;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 36px;
+    }
+
+    html.light .lead-budget-bar .lead-chip {
+      background: #f4f5f8;
+      border-color: rgba(0, 0, 0, 0.08);
+      color: #4b5563;
+    }
+
+    .lead-budget-bar .lead-chip:hover {
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+    }
+
+    html.light .lead-budget-bar .lead-chip:hover {
+      border-color: rgba(0, 0, 0, 0.2);
+      color: #0c0d0e;
+    }
+
+    .lead-budget-bar .lead-chip.is-active {
+      background: rgba(255, 73, 59, 0.12);
+      border-color: var(--primary);
+      color: var(--primary);
+      font-weight: 600;
+      box-shadow: 0 0 12px rgba(255, 73, 59, 0.18);
     }
 
     /* Form Footer */
@@ -2797,15 +2908,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 16px;
       padding-top: 16px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       flex-wrap: wrap;
+    }
+
+    html.light .lead-form-footer {
+      border-top-color: rgba(0, 0, 0, 0.08);
     }
 
     .lead-privacy-note {
       font-family: var(--font-mono);
-      font-size: 11.5px;
+      font-size: 11px;
       color: var(--muted-foreground);
       display: flex;
       align-items: center;
@@ -2817,24 +2932,24 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 32px;
+      gap: 8px;
+      padding: 12px 28px;
       border-radius: 999px;
       font-family: var(--font-clash);
       font-weight: 600;
       font-size: 14px;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       background: linear-gradient(135deg, #ff493b 0%, #e03629 100%);
       color: #ffffff;
       border: none;
       cursor: pointer;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-      box-shadow: 0 8px 24px rgba(255, 73, 59, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 18px rgba(255, 73, 59, 0.35);
     }
 
     .lead-submit-btn:hover:not(:disabled) {
       transform: translateY(-2px);
-      box-shadow: 0 12px 32px rgba(255, 73, 59, 0.5);
+      box-shadow: 0 8px 24px rgba(255, 73, 59, 0.5);
     }
 
     .lead-submit-btn:disabled {
@@ -2883,7 +2998,7 @@
 
     .lead-success-desc {
       color: var(--muted-foreground);
-      font-size: 14.5px;
+      font-size: 14px;
       line-height: 1.6;
       max-width: 520px;
       margin: 0 auto 24px;
@@ -2891,69 +3006,71 @@
 
     @media (max-width: 640px) {
       .lead-modal-overlay {
-        padding: 8px;
-        align-items: center;
+        padding: 8px 6px;
+        align-items: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
       }
       .lead-modal-card {
-        padding: 20px 14px 24px;
+        padding: 22px 16px 26px;
         border-radius: 18px;
-        max-height: 94vh;
+        max-height: none;
+        margin: 12px auto;
         width: 100%;
-        max-width: 100%;
         box-sizing: border-box;
       }
-      .lead-modal-card .portfolio-kicker {
-        font-size: 9.5px;
-        padding: 3px 10px;
-        gap: 6px;
-        letter-spacing: 0.04em;
-        white-space: normal;
-        flex-wrap: wrap;
-        max-width: 100%;
-      }
       .lead-modal-close {
-        top: 12px;
-        right: 12px;
-        width: 30px;
-        height: 30px;
+        top: 14px;
+        right: 14px;
+        width: 32px;
+        height: 32px;
         font-size: 13px;
       }
       .lead-modal-header {
-        padding-right: 36px;
-        margin-bottom: 14px;
+        padding-right: 32px;
+        margin-bottom: 16px;
       }
       .lead-modal-title {
-        font-size: 22px;
+        font-size: 24px;
       }
       .lead-modal-subtitle {
         font-size: 12.5px;
-        line-height: 1.45;
       }
       .lead-form-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
         margin-bottom: 14px;
       }
-      .lead-input {
-        padding: 10px 14px;
-        font-size: 13.5px;
-      }
-      .lead-chip {
-        font-size: 10.5px;
-        padding: 6px 11px;
-      }
-      .lead-chips-wrap {
+      .lead-services-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 6px;
+      }
+      .lead-services-grid .lead-chip {
+        font-size: 11px;
+        padding: 9px 6px;
+        min-height: 38px;
+      }
+      .lead-budget-bar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+      }
+      .lead-budget-bar .lead-chip {
+        font-size: 10.5px;
+        padding: 8px 4px;
+        white-space: normal;
+      }
+      .lead-budget-bar .lead-chip:nth-child(5) {
+        grid-column: span 2;
       }
       .lead-form-footer {
         flex-direction: column-reverse;
         align-items: stretch;
-        gap: 10px;
+        gap: 12px;
       }
       .lead-submit-btn {
         width: 100%;
-        padding: 12px 18px;
-        font-size: 13px;
+        padding: 13px 20px;
+        font-size: 14px;
       }
       .lead-privacy-note {
         justify-content: center;
@@ -4023,15 +4140,13 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
       <!-- Form View -->
       <div id="leadFormView">
         <div class="lead-modal-header">
-          <div class="portfolio-kicker" style="margin-bottom: 8px;">
-            <span class="live-dot"></span>
-            <span class="kicker-hindi">॥ साथ काम करें ॥</span>
-            <span class="kicker-sep">•</span>
-            <span>START A PROJECT WITH 4ELEVEN</span>
+          <div class="lead-modal-kicker">
+            <span class="dot"></span>
+            <span>Start a Project // Four Eleven</span>
           </div>
           <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
           <p class="lead-modal-subtitle">
-            Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team at <span style="color:var(--foreground); font-weight:500;">ssup@4eleven.in</span>.
+            Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team.
           </p>
         </div>
 
@@ -4070,20 +4185,21 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
               <label class="lead-label" for="leadCompany">
                 <span>Brand / Organisation <span class="opt">(Optional)</span></span>
               </label>
-              <input type="text" id="leadCompany" name="company" placeholder="e.g. Zepto, Kibo, Personal Brand" class="lead-input">
+              <input type="text" id="leadCompany" name="company" placeholder="e.g. Zepto, Personal Brand" class="lead-input">
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>What are you looking to create? <span class="opt">(Tap to select)</span></span>
+                <span>What are you looking to create?</span>
+                <span class="opt">Select all that apply</span>
               </label>
-              <div class="lead-chips-wrap" id="leadServicesChips">
-                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films & Commercials</button>
-                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media & Content</button>
+              <div class="lead-services-grid" id="leadServicesChips">
+                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
                 <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
-                <button type="button" class="lead-chip" data-val="Influencer & Creator Collabs">Influencer & Creator Collabs</button>
-                <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography & Visuals</button>
-                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage & Tour Production</button>
+                <button type="button" class="lead-chip" data-val="Influencer & Creator Collabs">Creator &amp; Collabs</button>
+                <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography &amp; Visuals</button>
+                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage &amp; Tour Production</button>
               </div>
             </div>
 
@@ -4091,18 +4207,18 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
               <label class="lead-label">
                 <span>Estimated Budget</span>
               </label>
-              <div class="lead-chips-wrap" id="leadBudgetChips">
-                <button type="button" class="lead-chip" data-val="₹50k – ₹1.5L">₹50k – ₹1.5L</button>
-                <button type="button" class="lead-chip" data-val="₹1.5L – ₹4L">₹1.5L – ₹4L</button>
-                <button type="button" class="lead-chip" data-val="₹4L – ₹10L">₹4L – ₹10L</button>
+              <div class="lead-budget-bar" id="leadBudgetChips">
+                <button type="button" class="lead-chip" data-val="₹50k – ₹1.5L">₹50k – 1.5L</button>
+                <button type="button" class="lead-chip" data-val="₹1.5L – ₹4L">₹1.5L – 4L</button>
+                <button type="button" class="lead-chip" data-val="₹4L – ₹10L">₹4L – 10L</button>
                 <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
-                <button type="button" class="lead-chip is-active" data-val="Flexible / Let's Discuss">Flexible / Let's Discuss</button>
+                <button type="button" class="lead-chip is-active" data-val="Flexible / Let's Discuss">Flexible</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label" for="leadMessage">
-                <span>Project Overview & Goals <span class="req">*</span></span>
+                <span>Project Overview &amp; Goals <span class="req">*</span></span>
               </label>
               <textarea id="leadMessage" name="message" required rows="3" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..." class="lead-input lead-textarea"></textarea>
             </div>
