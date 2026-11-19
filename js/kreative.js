@@ -92,8 +92,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      window.closeLeadModal();
-      if (window.closeVideoModal) window.closeVideoModal();
+      if (window.closeLeadModal) window.closeLeadModal();
+      if (window.closeProjectModal) window.closeProjectModal();
+      else if (window.closeVideoModal) window.closeVideoModal();
     }
   });
 
@@ -187,47 +188,124 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Video Lightbox Modal
-  const videoModal = document.getElementById('projModalOverlay');
-  const videoPlayer = document.getElementById('projModalVideo') || document.querySelector('.proj-modal-video');
-  const videoTitle = document.getElementById('projModalTitle');
-  const videoClose = document.getElementById('projModalClose') || document.querySelector('.proj-modal-close-btn, .proj-modal-close');
+  // 4. Project Detail & Video Lightbox Modal (Shared across all pages)
+  const projModal = document.getElementById('projModalOverlay');
+  const projModalClose = document.getElementById('projModalClose') || document.querySelector('.proj-modal-close-btn, .proj-modal-close');
+  const projVideo = document.getElementById('projModalVideo') || document.getElementById('modalVideo') || document.querySelector('.proj-modal-video');
+  const projImg = document.getElementById('projModalImg') || document.getElementById('modalImg');
+  const projTitle = document.getElementById('projModalTitle') || document.getElementById('modalTitle');
+  const projClient = document.getElementById('projModalClient') || document.getElementById('modalClient');
+  const projDesc = document.getElementById('projModalDesc') || document.getElementById('modalDesc');
+  const projTags = document.getElementById('projModalTags') || document.getElementById('modalTags');
+  const projExtLink = document.getElementById('projModalExternalLink') || document.getElementById('modalExternalLink');
+  const projInquireBtn = document.getElementById('projModalInquireBtn') || document.getElementById('modalInquireBtn');
 
-  window.openVideoModal = function(videoSrc, title) {
-    if (!videoModal || !videoPlayer) return;
-    videoPlayer.src = videoSrc;
-    if (videoTitle) videoTitle.innerText = title || 'Four Eleven Studio Project';
-    videoModal.classList.add('is-active');
+  window.openProjectModal = function(card) {
+    if (!projModal) return;
+    const title = card.getAttribute('data-title') || card.dataset.projectTitle || card.querySelector('h3, .proj-card-title, .project-card-title')?.innerText || 'Featured Work';
+    const client = card.getAttribute('data-client') || 'Four Eleven Studio';
+    const desc = card.getAttribute('data-desc') || card.querySelector('p')?.innerText || '';
+    const videoSrc = card.getAttribute('data-video') || card.dataset.videoSrc || '';
+    const imgSrc = card.getAttribute('data-img') || card.getAttribute('data-video-poster') || card.querySelector('img')?.getAttribute('src') || '';
+    const tags = (card.getAttribute('data-tags') || '').split(',').map(s => s.trim()).filter(Boolean);
+    const extUrl = card.getAttribute('data-video-url') || '';
+
+    if (projTitle) projTitle.innerText = title;
+    if (projClient) projClient.innerText = client;
+    if (projDesc) projDesc.innerText = desc;
+
+    if (projTags) {
+      projTags.innerHTML = '';
+      tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'proj-pill-badge';
+        span.textContent = tag;
+        projTags.appendChild(span);
+      });
+    }
+
+    if (projExtLink) {
+      if (extUrl) {
+        projExtLink.href = extUrl;
+        projExtLink.style.display = 'inline-flex';
+      } else {
+        projExtLink.style.display = 'none';
+      }
+    }
+
+    if (videoSrc && projVideo) {
+      projVideo.src = videoSrc;
+      projVideo.style.display = 'block';
+      if (projImg) projImg.style.display = 'none';
+      projVideo.play().catch(e => console.log('Autoplay deferred:', e));
+    } else if (imgSrc && projImg) {
+      if (projVideo) {
+        try { projVideo.pause(); projVideo.removeAttribute('src'); } catch(e){}
+        projVideo.style.display = 'none';
+      }
+      projImg.src = imgSrc;
+      projImg.alt = title;
+      projImg.style.display = 'block';
+    }
+
+    projModal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
-    videoPlayer.play().catch(e => console.log('Autoplay deferred:', e));
   };
 
-  window.closeVideoModal = function() {
-    if (videoModal && videoPlayer) {
-      videoPlayer.pause();
-      videoPlayer.removeAttribute('src');
-      videoPlayer.load();
-      videoModal.classList.remove('is-active');
+  window.closeProjectModal = function() {
+    if (projModal) {
+      if (projVideo) {
+        try {
+          projVideo.pause();
+          projVideo.removeAttribute('src');
+          projVideo.load();
+        } catch (e) {}
+        projVideo.style.display = 'none';
+      }
+      if (projImg) {
+        projImg.removeAttribute('src');
+        projImg.style.display = 'none';
+      }
+      projModal.classList.remove('is-active');
       document.body.style.overflow = '';
     }
   };
 
-  document.querySelectorAll('[data-video-src], [data-video], .kreative-project-card').forEach(card => {
+  window.openVideoModal = function(src, title) {
+    if (!projModal) return;
+    if (projTitle) projTitle.innerText = title || 'Four Eleven Studio Project';
+    if (projVideo) {
+      projVideo.src = src;
+      projVideo.style.display = 'block';
+      if (projImg) projImg.style.display = 'none';
+      projVideo.play().catch(e => console.log('Autoplay deferred:', e));
+    }
+    projModal.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeVideoModal = window.closeProjectModal;
+
+  document.querySelectorAll('.kreative-project-card, .project-card, .project-card-full, [data-video], [data-video-src]').forEach(card => {
+    card.style.cursor = 'pointer';
     card.addEventListener('click', (e) => {
-      if (e.target.closest('a:not(.play-pill)') && !e.target.closest('.play-pill')) return;
-      const src = card.dataset.videoSrc || card.getAttribute('data-video') || '';
-      const title = card.dataset.projectTitle || card.getAttribute('data-title') || card.querySelector('h3, .project-card-title, .proj-title')?.innerText || '';
-      if (src) {
-        e.preventDefault();
-        window.openVideoModal(src, title);
-      }
+      if (e.target.closest('a') && !e.target.closest('.play-pill, .proj-play-overlay')) return;
+      e.preventDefault();
+      window.openProjectModal(card);
     });
   });
 
-  if (videoClose) videoClose.addEventListener('click', window.closeVideoModal);
-  if (videoModal) {
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) window.closeVideoModal();
+  if (projModalClose) projModalClose.addEventListener('click', window.closeProjectModal);
+  if (projModal) {
+    projModal.addEventListener('click', (e) => {
+      if (e.target === projModal) window.closeProjectModal();
+    });
+  }
+
+  if (projInquireBtn) {
+    projInquireBtn.addEventListener('click', () => {
+      window.closeProjectModal();
+      if (window.openLeadModal) window.openLeadModal();
     });
   }
 

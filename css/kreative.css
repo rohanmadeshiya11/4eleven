@@ -293,16 +293,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(16px, 4vw, 42px);
-      max-width: 960px;
+      gap: clamp(8px, 1.8vw, 24px);
+      max-width: 1060px;
       margin: 0 auto;
-      padding: 20px 0;
+      padding: 24px 0 16px;
     }
 
     .hero-sticker-wrap {
       flex: 0 0 auto;
-      width: clamp(100px, 14vw, 150px);
-      height: clamp(100px, 14vw, 150px);
+      width: clamp(160px, 18vw, 240px);
+      height: clamp(160px, 18vw, 240px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1215,16 +1215,16 @@
     .lead-modal-card {
       position: relative;
       width: 100%;
-      max-width: 660px;
+      max-width: 650px;
       min-width: 0;
       box-sizing: border-box;
-      max-height: 92vh;
+      max-height: 94vh;
       overflow-y: auto;
       overflow-x: hidden;
       background: #111215;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 22px;
-      padding: 34px 38px 36px;
+      border-radius: 20px;
+      padding: clamp(20px, 2.8vh, 28px) clamp(22px, 3.2vw, 34px);
       box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1238,25 +1238,26 @@
 
     .lead-modal-close {
       position: absolute;
-      top: 22px;
-      right: 22px;
-      width: 32px;
-      height: 32px;
+      top: 18px;
+      right: 18px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.5);
-      font-size: 13px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      z-index: 10;
+      z-index: 1000;
+      pointer-events: auto;
     }
 
     .lead-modal-close:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       color: #ffffff;
       transform: rotate(90deg);
     }
@@ -1271,7 +1272,7 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #ff493b;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .lead-modal-kicker .kicker-dot {
@@ -1282,34 +1283,34 @@
 
     .lead-modal-title {
       font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: clamp(28px, 3.2vw, 36px);
+      font-size: clamp(24px, 2.8vw, 32px);
       font-weight: 700;
       letter-spacing: -0.025em;
       color: #ffffff;
       line-height: 1.15;
-      margin: 0 0 8px 0;
+      margin: 0 0 6px 0;
     }
 
     .lead-modal-subtitle {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 400;
       color: #9ca3af;
-      line-height: 1.5;
-      margin: 0 0 24px 0;
+      line-height: 1.45;
+      margin: 0 0 16px 0;
     }
 
     .lead-form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
     .lead-field {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
     }
 
     .lead-field.full-width {
@@ -1321,7 +1322,7 @@
       align-items: center;
       justify-content: space-between;
       font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-      font-size: 11.5px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #8b8f98;
@@ -1348,10 +1349,10 @@
       box-sizing: border-box;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 12px 14px;
+      border-radius: 9px;
+      padding: 10px 13px;
       color: #ffffff;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 500;
       font-family: inherit;
       outline: none;
@@ -1360,7 +1361,7 @@
 
     .lead-input::placeholder {
       color: rgba(255, 255, 255, 0.28);
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 400;
     }
 
@@ -1371,8 +1372,8 @@
 
     .lead-textarea {
       resize: vertical;
-      min-height: 80px;
-      line-height: 1.5;
+      min-height: 65px;
+      line-height: 1.45;
     }
 
     /* 3x2 Services Grid */
@@ -1386,10 +1387,10 @@
       appearance: none;
       background: rgba(255, 255, 255, 0.025);
       border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 9px;
-      padding: 10px 8px;
+      border-radius: 8px;
+      padding: 8px 6px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 500;
       color: #b0b3ba;
       text-align: center;
@@ -1403,7 +1404,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
+      min-height: 38px;
     }
 
     .lead-chip:hover {
@@ -1433,8 +1434,8 @@
       appearance: none;
       background: rgba(255, 255, 255, 0.025);
       border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 8px;
-      padding: 9px 4px;
+      border-radius: 7px;
+      padding: 8px 4px;
       font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
       font-size: 11.5px;
       font-weight: 600;
@@ -1442,7 +1443,7 @@
       text-align: center;
       cursor: pointer;
       transition: all 0.18s ease;
-      min-height: 38px;
+      min-height: 34px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1492,9 +1493,9 @@
       color: #ffffff;
       border: none;
       border-radius: 9999px;
-      padding: 12px 24px;
+      padding: 11px 22px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       cursor: pointer;
       display: inline-flex;
@@ -1671,12 +1672,12 @@
         padding-top: 130px;
       }
       .hero-stickers-row {
-        gap: clamp(8px, 2.5vw, 14px);
-        padding: 10px 0;
+        gap: clamp(4px, 1.5vw, 10px);
+        padding: 12px 0;
       }
       .hero-sticker-wrap {
-        width: clamp(62px, 18vw, 84px);
-        height: clamp(62px, 18vw, 84px);
+        width: clamp(72px, 21vw, 105px);
+        height: clamp(72px, 21vw, 105px);
       }
       .projects-grid {
         grid-template-columns: 1fr;
