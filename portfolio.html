@@ -1576,16 +1576,16 @@
     .lead-modal-card {
       position: relative;
       width: 100%;
-      max-width: 680px;
+      max-width: 650px;
       min-width: 0;
       box-sizing: border-box;
-      max-height: 92vh;
+      max-height: 94vh;
       overflow-y: auto;
       overflow-x: hidden;
       background: #101114;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 22px;
-      padding: 34px 38px 36px;
+      border-radius: 20px;
+      padding: clamp(20px, 2.8vh, 28px) clamp(22px, 3.2vw, 34px);
       box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.03);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1610,8 +1610,8 @@
     /* Modal Close Button */
     .lead-modal-close {
       position: absolute;
-      top: 22px;
-      right: 22px;
+      top: 18px;
+      right: 18px;
       width: 36px;
       height: 36px;
       border-radius: 50%;
@@ -1624,7 +1624,8 @@
       justify-content: center;
       cursor: pointer;
       transition: all 0.2s ease;
-      z-index: 10;
+      z-index: 1000;
+      pointer-events: auto;
     }
 
     html.light .lead-modal-close {
@@ -3129,8 +3130,8 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
       <div id="leadFormView">
         <div class="lead-modal-header">
           <div class="lead-modal-kicker">
-            <span class="dot"></span>
-            <span>Start a Project // Four Eleven</span>
+            <span class="dot">•</span>
+            <span>START A PROJECT // FOUR ELEVEN</span>
           </div>
           <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
           <p class="lead-modal-subtitle">
@@ -3144,45 +3145,45 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="services_requested" id="leadSelectedServices" value="">
-          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="Brand Films & Commercials">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="Flexible">
 
           <div class="lead-form-grid">
             <div class="lead-field">
               <label class="lead-label" for="leadName">
-                <span>Your Name <span class="req">*</span></span>
+                <span>YOUR NAME <span class="req">*</span></span>
               </label>
-              <input type="text" id="leadName" name="name" required class="lead-input" autocomplete="name">
+              <input type="text" id="leadName" name="name" required class="lead-input" placeholder="e.g. Rohan Sharma" autocomplete="name">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadEmail">
-                <span>Work Email <span class="req">*</span></span>
+                <span>WORK EMAIL <span class="req">*</span></span>
               </label>
-              <input type="email" id="leadEmail" name="email" required class="lead-input" autocomplete="email">
+              <input type="email" id="leadEmail" name="email" required class="lead-input" placeholder="name@company.com" autocomplete="email">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadPhone">
-                <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+                <span>PHONE / WHATSAPP <span class="opt">(Optional)</span></span>
               </label>
-              <input type="tel" id="leadPhone" name="phone" class="lead-input" autocomplete="tel">
+              <input type="tel" id="leadPhone" name="phone" class="lead-input" placeholder="+91 98765 43210" autocomplete="tel">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadCompany">
-                <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+                <span>BRAND / ORGANISATION <span class="opt">(Optional)</span></span>
               </label>
-              <input type="text" id="leadCompany" name="company" class="lead-input">
+              <input type="text" id="leadCompany" name="company" class="lead-input" placeholder="e.g. Zepto, Personal Brand">
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>What are you looking to create?</span>
+                <span>WHAT ARE YOU LOOKING TO CREATE?</span>
                 <span class="opt">Select all that apply</span>
               </label>
               <div class="lead-services-grid" id="leadServicesChips">
-                <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
                 <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
                 <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
                 <button type="button" class="lead-chip" data-val="Influencer & Creator Collabs">Creator &amp; Collabs</button>
@@ -3193,22 +3194,22 @@ On-ground workshop documentation, grassroots impact storytelling, and social med
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>Estimated Budget</span>
+                <span>ESTIMATED BUDGET</span>
               </label>
               <div class="lead-budget-bar" id="leadBudgetChips">
-                <button type="button" class="lead-chip" data-val="₹50k – ₹1.5L">₹50k – 1.5L</button>
-                <button type="button" class="lead-chip" data-val="₹1.5L – ₹4L">₹1.5L – 4L</button>
-                <button type="button" class="lead-chip" data-val="₹4L – ₹10L">₹4L – 10L</button>
+                <button type="button" class="lead-chip" data-val="₹50k - 1.5L">₹50k - 1.5L</button>
+                <button type="button" class="lead-chip" data-val="₹1.5L - 4L">₹1.5L - 4L</button>
+                <button type="button" class="lead-chip" data-val="₹4L - 10L">₹4L - 10L</button>
                 <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
-                <button type="button" class="lead-chip" data-val="Flexible / Let's Discuss">Flexible</button>
+                <button type="button" class="lead-chip is-active" data-val="Flexible">Flexible</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label" for="leadMessage">
-                <span>Project Overview &amp; Goals <span class="req">*</span></span>
+                <span>PROJECT OVERVIEW &amp; GOALS <span class="req">*</span></span>
               </label>
-              <textarea id="leadMessage" name="message" required rows="3" class="lead-input lead-textarea"></textarea>
+              <textarea id="leadMessage" name="message" required rows="3" class="lead-input lead-textarea" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..."></textarea>
             </div>
           </div>
 
