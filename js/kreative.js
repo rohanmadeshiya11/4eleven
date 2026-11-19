@@ -1,21 +1,32 @@
 /**
  * Kreative Interactive Engine - Four Eleven Studio
- * Shared navigation, accordion, lead modal, video lightbox, and animation physics
+ * Complete shared navigation, mobile drawer, accordion, lead modal, and video lightbox
  */
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Menu Drawer
-  const mobileBtn = document.getElementById('mobileMenuBtn');
-  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileBtn = document.getElementById('mobileMenuBtn') || document.querySelector('.kreative-mobile-toggle, .mobile-toggle');
+  const mobileDrawer = document.getElementById('mobileDrawer') || document.querySelector('.kreative-mobile-drawer, .mobile-drawer');
+
   if (mobileBtn && mobileDrawer) {
-    mobileBtn.addEventListener('click', () => {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileDrawer.classList.toggle('is-open');
       const isOpen = mobileDrawer.classList.contains('is-open');
       mobileBtn.setAttribute('aria-expanded', isOpen);
       mobileBtn.innerHTML = isOpen ? '✕' : '☰';
     });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (mobileDrawer.classList.contains('is-open') && !mobileDrawer.contains(e.target) && !mobileBtn.contains(e.target)) {
+        mobileDrawer.classList.remove('is-open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileBtn.innerHTML = '☰';
+      }
+    });
   }
 
-  // Close mobile drawer when clicking any link
+  // Close drawer on link click
   document.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       if (mobileDrawer) {
@@ -30,14 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 2. FAQ Accordion
   document.querySelectorAll('.faq-item').forEach(item => {
-    const trigger = item.querySelector('.faq-trigger');
+    const trigger = item.querySelector('.faq-question, .faq-trigger');
     if (trigger) {
       trigger.addEventListener('click', () => {
         const isOpen = item.classList.contains('is-open');
-        // Close siblings for clean accordion
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('is-open');
+          const t = i.querySelector('.faq-toggle-icon, .faq-icon');
+          if (t) t.textContent = '+';
+        });
         if (!isOpen) {
           item.classList.add('is-open');
+          const t = item.querySelector('.faq-toggle-icon, .faq-icon');
+          if (t) t.textContent = '✕';
         }
       });
     }
@@ -45,53 +61,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Lead Inquiry Modal
   const leadModal = document.getElementById('leadModal');
-  const leadTriggers = document.querySelectorAll('.open-lead-modal, [href="#leadModal"], .book-call-btn');
+  const leadTriggers = document.querySelectorAll('[data-open-lead-modal], .open-lead-modal, [href="#leadModal"], .cta-butter-btn, .book-call-btn');
   const leadClose = document.getElementById('leadModalClose');
 
-  function openLeadModal(e) {
+  window.openLeadModal = function(e) {
     if (e) e.preventDefault();
     if (leadModal) {
       leadModal.classList.add('is-active');
       document.body.style.overflow = 'hidden';
       const firstInput = leadModal.querySelector('input:not([type="hidden"])');
-      if (firstInput) setTimeout(() => firstInput.focus(), 100);
+      if (firstInput) setTimeout(() => firstInput.focus(), 120);
     }
-  }
+  };
 
-  function closeLeadModal() {
+  window.closeLeadModal = function() {
     if (leadModal) {
       leadModal.classList.remove('is-active');
       document.body.style.overflow = '';
     }
-  }
+  };
 
-  leadTriggers.forEach(btn => btn.addEventListener('click', openLeadModal));
-  if (leadClose) leadClose.addEventListener('click', closeLeadModal);
+  leadTriggers.forEach(btn => btn.addEventListener('click', window.openLeadModal));
+  if (leadClose) leadClose.addEventListener('click', window.closeLeadModal);
 
   if (leadModal) {
     leadModal.addEventListener('click', (e) => {
-      if (e.target === leadModal) closeLeadModal();
+      if (e.target === leadModal) window.closeLeadModal();
     });
   }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeLeadModal();
-      closeVideoModal();
+      window.closeLeadModal();
+      if (window.closeVideoModal) window.closeVideoModal();
     }
   });
 
   // Scope & Budget Chips
-  document.querySelectorAll('#leadServicesChips .lead-chip').forEach(chip => {
+  document.querySelectorAll('#leadServicesChips .lead-chip, #contactServicesChips .lead-chip').forEach(chip => {
     chip.addEventListener('click', () => {
       chip.classList.toggle('is-selected');
       updateLeadSelections();
     });
   });
 
-  document.querySelectorAll('#leadBudgetChips .lead-chip').forEach(chip => {
+  document.querySelectorAll('#leadBudgetChips .lead-chip, #contactBudgetChips .lead-chip').forEach(chip => {
     chip.addEventListener('click', () => {
-      document.querySelectorAll('#leadBudgetChips .lead-chip').forEach(c => c.classList.remove('is-selected'));
+      const parent = chip.closest('#leadBudgetChips, #contactBudgetChips');
+      if (parent) {
+        parent.querySelectorAll('.lead-chip').forEach(c => c.classList.remove('is-selected'));
+      }
       chip.classList.add('is-selected');
       updateLeadSelections();
     });
@@ -136,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             successView.style.display = 'block';
           } else {
             alert('Thank you! Your project inquiry has been sent directly to ssup@4eleven.in.');
-            closeLeadModal();
+            window.closeLeadModal();
           }
         } else {
           throw new Error('Server returned ' + resp.status);
@@ -153,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const body = 'Name: ' + name + '%0D%0AEmail: ' + email + '%0D%0APhone: ' + phone + '%0D%0ACompany: ' + company + '%0D%0AServices: ' + services + '%0D%0ABudget: ' + budget + '%0D%0A%0D%0AProject Brief:%0D%0A' + notes;
         window.location.href = 'mailto:ssup@4eleven.in?subject=New%20Project%20Inquiry%20from%20' + name + '&body=' + body;
-        closeLeadModal();
+        window.closeLeadModal();
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
@@ -165,20 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 4. Video Lightbox Modal
   const videoModal = document.getElementById('projModalOverlay');
-  const videoPlayer = document.getElementById('projModalVideo');
+  const videoPlayer = document.getElementById('projModalVideo') || document.querySelector('.proj-modal-video');
   const videoTitle = document.getElementById('projModalTitle');
-  const videoClose = document.getElementById('projModalClose');
+  const videoClose = document.getElementById('projModalClose') || document.querySelector('.proj-modal-close-btn, .proj-modal-close');
 
-  function openVideoModal(videoSrc, title) {
+  window.openVideoModal = function(videoSrc, title) {
     if (!videoModal || !videoPlayer) return;
     videoPlayer.src = videoSrc;
     if (videoTitle) videoTitle.innerText = title || 'Four Eleven Studio Project';
     videoModal.classList.add('is-active');
     document.body.style.overflow = 'hidden';
     videoPlayer.play().catch(e => console.log('Autoplay deferred:', e));
-  }
+  };
 
-  function closeVideoModal() {
+  window.closeVideoModal = function() {
     if (videoModal && videoPlayer) {
       videoPlayer.pause();
       videoPlayer.removeAttribute('src');
@@ -186,28 +205,30 @@ document.addEventListener('DOMContentLoaded', () => {
       videoModal.classList.remove('is-active');
       document.body.style.overflow = '';
     }
-  }
+  };
 
-  document.querySelectorAll('[data-video-src]').forEach(card => {
+  document.querySelectorAll('[data-video-src], [data-video], .kreative-project-card').forEach(card => {
     card.addEventListener('click', (e) => {
       if (e.target.closest('a:not(.play-pill)') && !e.target.closest('.play-pill')) return;
-      e.preventDefault();
-      const src = card.dataset.videoSrc;
-      const title = card.dataset.projectTitle || card.querySelector('h3, .project-card-title')?.innerText || '';
-      if (src) openVideoModal(src, title);
+      const src = card.dataset.videoSrc || card.getAttribute('data-video') || '';
+      const title = card.dataset.projectTitle || card.getAttribute('data-title') || card.querySelector('h3, .project-card-title, .proj-title')?.innerText || '';
+      if (src) {
+        e.preventDefault();
+        window.openVideoModal(src, title);
+      }
     });
   });
 
-  if (videoClose) videoClose.addEventListener('click', closeVideoModal);
+  if (videoClose) videoClose.addEventListener('click', window.closeVideoModal);
   if (videoModal) {
     videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) closeVideoModal();
+      if (e.target === videoModal) window.closeVideoModal();
     });
   }
 
   // 5. Projects Filter Tabs (for projects.html)
   const filterBtns = document.querySelectorAll('.projects-filter-bar .filter-btn');
-  const projectItems = document.querySelectorAll('.project-card-full, .project-card');
+  const projectItems = document.querySelectorAll('.project-card-full, .project-card, .kreative-project-card');
   if (filterBtns.length > 0 && projectItems.length > 0) {
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -219,8 +240,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (cat === 'all') {
             item.style.display = '';
             item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
           } else {
-            const itemCat = item.dataset.category || '';
+            const itemCat = item.dataset.category || item.getAttribute('data-tags') || '';
             if (itemCat.toLowerCase().includes(cat.toLowerCase())) {
               item.style.display = '';
               item.style.opacity = '1';
@@ -251,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 7. Subtle interactive mouse tilt on hero stickers
-  const heroStickers = document.querySelectorAll('.hero-sticker');
+  const heroStickers = document.querySelectorAll('.hero-sticker, .hero-sticker-wrap');
   if (heroStickers.length > 0 && window.innerWidth > 900) {
     document.addEventListener('mousemove', (e) => {
       const cx = window.innerWidth / 2;
@@ -260,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dy = (e.clientY - cy) / cy;
 
       heroStickers.forEach((st, idx) => {
-        const factor = (idx + 1) * 6;
+        const factor = (idx + 1) * 5;
         st.style.transform = 'translate(' + (dx * factor) + 'px, ' + (dy * factor) + 'px)';
       });
     });

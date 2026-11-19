@@ -17,56 +17,47 @@
 </head>
 <body>
 
-  <!-- =====================================================================
-       FLOATING PILL NAVIGATION
-       ===================================================================== -->
+    <!-- Floating Pill Navigation -->
   <header class="kreative-nav-wrap">
-    <div class="kreative-nav-bar">
-      <!-- Studio Logo -->
-      <a href="index.html" class="nav-logo" aria-label="Four Eleven Home">
-        <span class="nav-logo-mark">4·11</span>
-        <span class="nav-logo-name">Four Eleven</span>
+    <nav class="kreative-nav-bar" aria-label="Main Navigation">
+      <a href="index.html" class="kreative-nav-logo">
+        <img src="assets/logo-411-mark.png" alt="Four Eleven Mark" class="kreative-nav-logo-mark">
+        <span>Four Eleven</span>
       </a>
 
-      <!-- Desktop Links -->
-      <nav class="nav-links" aria-label="Primary Navigation">
-        <a href="index.html" class="nav-item">Home</a>
-        <a href="about.html" class="nav-item">About</a>
-        <a href="projects.html" class="nav-item">Projects</a>
-        <a href="services.html" class="nav-item">Services</a>
-        <a href="stories.html" class="nav-item">Stories</a>
-      </nav>
+      <ul class="kreative-nav-links">
+        <li><a href="index.html" class="kreative-nav-link ">Home</a></li>
+        <li><a href="about.html" class="kreative-nav-link ">About</a></li>
+        <li><a href="projects.html" class="kreative-nav-link ">Projects</a></li>
+        <li><a href="services.html" class="kreative-nav-link ">Services</a></li>
+        <li><a href="stories.html" class="kreative-nav-link ">Stories</a></li>
+      </ul>
 
-      <!-- Pill CTA Button -->
-      <a href="#leadModal" class="nav-cta-btn open-lead-modal active" aria-label="Start a project inquiry">
+      <button type="button" class="kreative-nav-cta" data-open-lead-modal>
         <span>Let's Talk</span>
-        <span class="btn-arrow">→</span>
-      </a>
+        <span>→</span>
+      </button>
 
-      <!-- Mobile Hamburger Button -->
-      <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+      <button type="button" class="kreative-mobile-toggle" id="mobileMenuBtn" aria-label="Toggle menu">
         ☰
       </button>
-    </div>
-
-    <!-- Mobile Slide-Down Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-      <nav class="mobile-nav-list" aria-label="Mobile Navigation">
-        <a href="index.html" class="mobile-nav-link">Home</a>
-        <a href="about.html" class="mobile-nav-link">About</a>
-        <a href="projects.html" class="mobile-nav-link">Projects</a>
-        <a href="services.html" class="mobile-nav-link">Services</a>
-        <a href="stories.html" class="mobile-nav-link">Stories</a>
-        <a href="contact.html" class="mobile-nav-link active">Contact</a>
-        <a href="#leadModal" class="mobile-drawer-cta open-lead-modal">Let's Talk →</a>
-      </nav>
-    </div>
+    </nav>
   </header>
 
+  <!-- Mobile Drawer -->
+  <div class="kreative-mobile-drawer" id="mobileDrawer">
+    <a href="index.html" class="mobile-nav-link ">Home</a>
+    <a href="about.html" class="mobile-nav-link ">About</a>
+    <a href="projects.html" class="mobile-nav-link ">Projects</a>
+    <a href="services.html" class="mobile-nav-link ">Services</a>
+    <a href="stories.html" class="mobile-nav-link ">Stories</a>
+    <a href="contact.html" class="mobile-nav-link active">Contact</a>
+    <button type="button" class="kreative-nav-cta" style="margin-top:12px; justify-content:center;" data-open-lead-modal>
+      <span>Start a Project</span>
+      <span>→</span>
+    </button>
+  </div>
 
-  <!-- =====================================================================
-       PAGE HERO
-       ===================================================================== -->
   <main>
     <section class="page-hero reveal">
       <div class="page-hero-kicker">CONTACT &amp; INQUIRIES</div>
@@ -249,43 +240,30 @@
       </div>
     </section>
 
-    <!-- =====================================================================
-         ICONIC CTA BANNER (KREATIVE SIGNATURE)
-         ===================================================================== -->
-    <section class="cta-banner-section reveal">
-      <div class="cta-banner-card">
-        <!-- Floating Paper Airplane Sticker -->
-        <div class="cta-sticker cta-airplane-wrap" aria-hidden="true">
-          <img src="assets/kreative/airplane.webp" alt="" class="cta-airplane-img">
-        </div>
+        <!-- Iconic CTA Banner -->
+    <section class="cta-banner-section" id="contact">
+      <div class="container">
+        <div class="cta-banner-container">
+          
+          <div class="cta-headline-marker">
+            GET READY TO BRING<br>YOUR IDEA!
+            <img src="assets/kreative/airplane.webp" alt="Paper Airplane" class="cta-airplane-img">
+          </div>
 
-        <!-- Banner Content -->
-        <div class="cta-banner-content">
-          <h2 class="cta-headline">GET READY TO BRING YOUR IDEA!</h2>
-          <p class="cta-subtext">Let's craft something bold, beautiful, and unapologetically memorable together.</p>
-
-          <!-- Butter Yellow CTA Button -->
-          <div class="cta-btn-wrapper">
-            <a href="#leadModal" class="book-call-btn open-lead-modal" aria-label="Book an Intro Call with Four Eleven">
+          <div class="cta-button-pill-wrap">
+            <button type="button" class="cta-butter-btn" data-open-lead-modal>
               <span>Book an Intro Call</span>
-              <span class="btn-arrow">→</span>
-            </a>
-            <!-- Tapping Hand Sticker -->
-            <div class="cta-cursor-hand" aria-hidden="true">
-              <img src="assets/kreative/cursor-hand.png" alt="" class="cursor-hand-img">
-            </div>
+              <span>→</span>
+            </button>
+            <img src="assets/kreative/cursor-hand.png" alt="Tap Here" class="cta-cursor-hand">
           </div>
-        </div>
 
-        <!-- Sticker-Bombed Rotary Phone with Stickers -->
-        <div class="cta-phone-wrapper" aria-hidden="true">
-          <img src="assets/kreative/phone-retro.png" alt="" class="phone-retro-img">
-          <div class="phone-sticker sticker-peace">
-            <img src="assets/kreative/peace-hand.png" alt="">
+          <div class="cta-retro-phone-wrap">
+            <img src="assets/kreative/starburst-purple.png" alt="Purple Starburst" class="cta-starburst-sticker">
+            <img src="assets/kreative/phone-retro.png" alt="Retro Sticker-Bombed Phone" class="cta-phone-img">
+            <img src="assets/kreative/peace-hand.png" alt="Peace Hand" class="cta-peace-sticker">
           </div>
-          <div class="phone-sticker sticker-starburst">
-            <img src="assets/kreative/starburst-purple.png" alt="">
-          </div>
+
         </div>
       </div>
     </section>
@@ -295,51 +273,62 @@
   <!-- =====================================================================
        STUDIO FOOTER
        ===================================================================== -->
-  <footer class="kreative-footer">
-    <div class="footer-container">
-      <div class="footer-top-row">
+    <footer class="kreative-footer">
+    <div class="container">
+      <div class="footer-top-grid">
         <div class="footer-brand-col">
-          <div class="footer-logo">
-            <span class="footer-logo-mark">4·11</span>
+          <div class="footer-logo-row">
+            <img src="assets/logo-411-mark.png" alt="4 Eleven Mark" class="footer-logo-mark">
             <span class="footer-logo-text">Four Eleven Studio</span>
           </div>
-          <p class="footer-tagline">
-            Independent creative studio specializing in brand cinema, live tour visuals, and digital culture.
+          <p class="footer-brand-desc">
+            A team of creative folks turning bold ideas into meaningful design. Based in Mumbai, India.
           </p>
         </div>
 
-        <div class="footer-nav-col">
-          <span class="footer-col-title">Overview</span>
-          <a href="index.html" class="footer-link">Home</a>
-          <a href="about.html" class="footer-link">About</a>
-          <a href="projects.html" class="footer-link">Projects</a>
-          <a href="services.html" class="footer-link">Services</a>
-          <a href="stories.html" class="footer-link">Stories</a>
+        <div>
+          <h4 class="footer-col-title">Overview</h4>
+          <ul class="footer-col-links">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="projects.html" class="footer-link">Selected Work</a></li>
+            <li><a href="services.html" class="footer-link">Services</a></li>
+            <li><a href="stories.html" class="footer-link">Stories &amp; Blog</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
         </div>
 
-        <div class="footer-nav-col">
-          <span class="footer-col-title">Company</span>
-          <a href="contact.html" class="footer-link">Contact</a>
-          <a href="portfolio.html" class="footer-link">Full Archive</a>
-          <a href="mailto:ssup@4eleven.in" class="footer-link">Careers</a>
-          <a href="#leadModal" class="footer-link open-lead-modal">Start a Project</a>
+        <div>
+          <h4 class="footer-col-title">Collaborations</h4>
+          <ul class="footer-col-links">
+            <li><a href="projects.html" class="footer-link">Dr. Kumar Vishwas</a></li>
+            <li><a href="projects.html" class="footer-link">Pronto Household</a></li>
+            <li><a href="projects.html" class="footer-link">Faizan Bhat Special</a></li>
+            <li><a href="projects.html" class="footer-link">Halwa UK Tour</a></li>
+            <li><a href="projects.html" class="footer-link">Agatsu Foundation</a></li>
+          </ul>
         </div>
 
-        <div class="footer-nav-col">
-          <span class="footer-col-title">Connect</span>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram ↗</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">LinkedIn ↗</a>
-          <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube ↗</a>
-          <a href="mailto:ssup@4eleven.in" class="footer-link">ssup@4eleven.in</a>
+        <div>
+          <h4 class="footer-col-title">Contact</h4>
+          <ul class="footer-col-links">
+            <li><a href="mailto:ssup@4eleven.in" class="footer-link">ssup@4eleven.in</a></li>
+            <li><span class="footer-link">Mumbai, Maharashtra</span></li>
+            <li><span class="footer-link">Direct to Founding Team</span></li>
+            <li><a href="contact.html" class="footer-link" data-open-lead-modal style="color:var(--accent-yellow); font-weight:600;">Start a Brief →</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer-bottom-row">
-        <p class="footer-copy">© 2026 Four Eleven Studio. Crafted with clarity and purpose.</p>
+      <div class="footer-bottom-bar">
         <div class="footer-social-pills">
-          <a href="https://x.com" target="_blank" rel="noopener" class="social-pill" aria-label="X Twitter">Twitter</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn">LinkedIn</a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill" aria-label="Instagram">Instagram</a>
+          <a href="https://instagram.com/4eleven.in" target="_blank" rel="noopener" class="footer-social-pill">Instagram ↗</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-social-pill">LinkedIn ↗</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-social-pill">YouTube ↗</a>
+          <a href="mailto:ssup@4eleven.in" class="footer-social-pill">Email Us</a>
+        </div>
+        <div>
+          © 2026 Four Eleven Studio. Crafted with clarity and purpose.
         </div>
       </div>
     </div>
