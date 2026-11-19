@@ -1191,14 +1191,15 @@
     }
 
     /* ==========================================================================
-       13. Lead Capture Modal (Pristine, No Placeholder Clutter)
+       13. Lead Capture Modal (Exact Image 2 Specification)
        ========================================================================== */
     .lead-modal-overlay {
       position: fixed;
       inset: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(4, 4, 5, 0.9);
+      box-sizing: border-box;
+      background: rgba(6, 7, 9, 0.88);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
       z-index: 10003;
@@ -1220,17 +1221,20 @@
       position: relative;
       width: 100%;
       max-width: 660px;
+      min-width: 0;
+      box-sizing: border-box;
       max-height: 92vh;
       overflow-y: auto;
-      background: #111113;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 24px;
-      padding: 36px 40px;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.04);
+      overflow-x: hidden;
+      background: #111215;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 34px 38px 36px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.85);
       transform: scale(0.96) translateY(20px);
       transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
       scrollbar-width: thin;
-      scrollbar-color: rgba(253, 230, 138, 0.3) transparent;
+      scrollbar-color: rgba(255, 73, 59, 0.4) transparent;
     }
 
     .lead-modal-overlay.is-active .lead-modal-card {
@@ -1241,56 +1245,70 @@
       position: absolute;
       top: 22px;
       right: 22px;
-      width: 36px;
-      height: 36px;
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--text-muted);
-      font-size: 15px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
       transition: all 0.2s ease;
       z-index: 10;
     }
 
     .lead-modal-close:hover {
-      background: #ffffff;
-      color: #0a0a0a;
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
       transform: rotate(90deg);
     }
 
     .lead-modal-kicker {
-      font-family: var(--font-marker);
-      font-size: 15px;
-      color: var(--accent-yellow);
-      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: #ff493b;
       margin-bottom: 8px;
+    }
+
+    .lead-modal-kicker .kicker-dot {
+      font-size: 14px;
+      line-height: 1;
+      color: #ff493b;
     }
 
     .lead-modal-title {
-      font-family: var(--font-sans);
-      font-size: clamp(26px, 3.2vw, 36px);
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: clamp(28px, 3.2vw, 36px);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
       color: #ffffff;
-      margin-bottom: 8px;
+      line-height: 1.15;
+      margin: 0 0 8px 0;
     }
 
     .lead-modal-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #9ca3af;
       line-height: 1.5;
-      margin-bottom: 24px;
+      margin: 0 0 24px 0;
     }
 
     .lead-form-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 14px;
+      margin-bottom: 18px;
     }
 
     .lead-field {
@@ -1304,49 +1322,65 @@
     }
 
     .lead-label {
-      font-size: 12.5px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
       display: flex;
+      align-items: center;
       justify-content: space-between;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8b8f98;
+      font-weight: 600;
     }
 
     .lead-label .req {
-      color: var(--accent-orange);
+      color: #ff493b;
+      font-weight: 700;
+      margin-left: 2px;
     }
 
     .lead-label .opt {
+      color: #6b7280;
+      font-size: 11px;
       text-transform: none;
-      opacity: 0.7;
+      letter-spacing: normal;
+      font-weight: 400;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     .lead-input {
       width: 100%;
-      background: #17181a;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 12px 16px;
+      box-sizing: border-box;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 12px 14px;
       color: #ffffff;
-      font-size: 15px;
+      font-size: 14px;
+      font-weight: 500;
       font-family: inherit;
       outline: none;
-      transition: all 0.2s ease;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .lead-input::placeholder {
+      color: rgba(255, 255, 255, 0.28);
+      font-size: 13.5px;
+      font-weight: 400;
     }
 
     .lead-input:focus {
-      border-color: var(--accent-yellow);
-      box-shadow: 0 0 0 3px rgba(253, 230, 138, 0.15);
-      background: #1c1d20;
+      border-color: rgba(255, 255, 255, 0.32);
+      background: rgba(255, 255, 255, 0.05);
     }
 
     .lead-textarea {
       resize: vertical;
-      min-height: 90px;
+      min-height: 80px;
       line-height: 1.5;
     }
 
+    /* 3x2 Services Grid */
     .lead-services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -1354,38 +1388,84 @@
     }
 
     .lead-chip {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 9px;
       padding: 10px 8px;
-      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12.5px;
       font-weight: 500;
-      color: var(--text-muted);
+      color: #b0b3ba;
       text-align: center;
-      transition: all 0.2s ease;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      user-select: none;
+      box-sizing: border-box;
+      width: 100%;
+      white-space: normal;
+      line-height: 1.25;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
     }
 
     .lead-chip:hover {
-      border-color: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.22);
       color: #ffffff;
+      background: rgba(255, 255, 255, 0.04);
     }
 
-    .lead-chip.is-active {
-      background: rgba(253, 230, 138, 0.15);
-      border-color: var(--accent-yellow);
-      color: var(--accent-yellow);
+    .lead-chip.is-active,
+    .lead-chip.is-selected {
+      background: rgba(255, 73, 59, 0.08);
+      border-color: #ff493b;
+      color: #ffffff;
       font-weight: 600;
     }
 
-    .lead-budget-bar {
+    /* 5-Column Single Row Budget Segment Bar */
+    .lead-budget-bar,
+    .lead-budget-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 6px;
     }
 
-    .lead-budget-bar .lead-chip {
+    .lead-budget-bar .lead-chip,
+    .lead-budget-grid .lead-chip {
+      appearance: none;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 8px;
       padding: 9px 4px;
-      font-size: 12px;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #b0b3ba;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lead-budget-bar .lead-chip:hover,
+    .lead-budget-grid .lead-chip:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
+    }
+
+    .lead-budget-bar .lead-chip.is-active,
+    .lead-budget-bar .lead-chip.is-selected,
+    .lead-budget-grid .lead-chip.is-active,
+    .lead-budget-grid .lead-chip.is-selected {
+      background: rgba(255, 73, 59, 0.08);
+      border-color: #ff493b;
+      color: #ff493b;
       font-weight: 600;
     }
 
@@ -1398,27 +1478,74 @@
     }
 
     .lead-privacy-note {
-      font-size: 13px;
-      color: var(--text-dim);
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12px;
+      color: #8b8f98;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lead-privacy-note strong,
+    .lead-privacy-note a {
+      color: #ffffff !important;
+      text-decoration: none;
     }
 
     .lead-submit-btn {
-      background: var(--accent-yellow);
-      color: var(--accent-yellow-text);
-      font-weight: 700;
-      font-size: 15px;
-      padding: 13px 28px;
-      border-radius: var(--radius-full);
+      background: linear-gradient(135deg, #ff493b 0%, #ea3628 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 9999px;
+      padding: 12px 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: all 0.25s ease;
+      box-shadow: 0 4px 18px rgba(255, 73, 59, 0.35);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      outline: none;
     }
 
     .lead-submit-btn:hover {
-      background: var(--accent-yellow-hover);
-      transform: scale(1.03);
-      box-shadow: 0 8px 24px rgba(253, 230, 138, 0.4);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(255, 73, 59, 0.5);
+    }
+
+    @media (max-width: 640px) {
+      .lead-modal-overlay {
+        padding: 12px 8px;
+        align-items: flex-start;
+      }
+      .lead-modal-card {
+        padding: 24px 18px 26px;
+        border-radius: 18px;
+        max-height: none;
+        margin: 12px auto;
+      }
+      .lead-form-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .lead-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .lead-budget-bar,
+      .lead-budget-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .lead-form-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+      }
+      .lead-submit-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
     /* ==========================================================================
@@ -2201,14 +2328,17 @@
   </footer>
 
   <!-- ==========================================================================
-       Lead Capture Modal (Pristine, No Placeholder Clutter)
+       Lead Capture Modal (Exact Image 2 Specification)
        ========================================================================== -->
   <div class="lead-modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
     <div class="lead-modal-card">
       <button type="button" class="lead-modal-close" id="leadModalClose" aria-label="Close modal">✕</button>
 
       <div id="leadFormView">
-        <div class="lead-modal-kicker">Start a Project // Four Eleven</div>
+        <div class="lead-modal-kicker">
+          <span class="kicker-dot">•</span>
+          <span>START A PROJECT // FOUR ELEVEN</span>
+        </div>
         <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
         <p class="lead-modal-subtitle">
           Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team.
@@ -2219,71 +2349,71 @@
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="services_requested" id="leadSelectedServices" value="">
-          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="Brand Films & Commercials">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="Flexible">
 
           <div class="lead-form-grid">
             <div class="lead-field">
               <label class="lead-label" for="leadName">
-                <span>Your Name <span class="req">*</span></span>
+                <span>YOUR NAME <span class="req">*</span></span>
               </label>
-              <input type="text" id="leadName" name="name" required class="lead-input" autocomplete="name">
+              <input type="text" id="leadName" name="name" required class="lead-input" placeholder="e.g. Rohan Sharma" autocomplete="name">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadEmail">
-                <span>Work Email <span class="req">*</span></span>
+                <span>WORK EMAIL <span class="req">*</span></span>
               </label>
-              <input type="email" id="leadEmail" name="email" required class="lead-input" autocomplete="email">
+              <input type="email" id="leadEmail" name="email" required class="lead-input" placeholder="name@company.com" autocomplete="email">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadPhone">
-                <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+                <span>PHONE / WHATSAPP <span class="opt">(Optional)</span></span>
               </label>
-              <input type="tel" id="leadPhone" name="phone" class="lead-input" autocomplete="tel">
+              <input type="tel" id="leadPhone" name="phone" class="lead-input" placeholder="+91 98765 43210" autocomplete="tel">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadCompany">
-                <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+                <span>BRAND / ORGANISATION <span class="opt">(Optional)</span></span>
               </label>
-              <input type="text" id="leadCompany" name="company" class="lead-input">
+              <input type="text" id="leadCompany" name="company" class="lead-input" placeholder="e.g. Zepto, Personal Brand">
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>What are you looking to create?</span>
+                <span>WHAT ARE YOU LOOKING TO CREATE?</span>
                 <span class="opt">Select all that apply</span>
               </label>
               <div class="lead-services-grid" id="leadServicesChips">
-                <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
-                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
-                <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
+                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip" data-val="Social Media & Content">Social Media &amp; Content</button>
+                <button type="button" class="lead-chip" data-val="Creative Direction">Creative Direction</button>
                 <button type="button" class="lead-chip" data-val="Creator & Collabs">Creator &amp; Collabs</button>
                 <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography &amp; Visuals</button>
-                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage &amp; Tour Production</button>
+                <button type="button" class="lead-chip" data-val="Stage & Tour Production">Stage &amp; Tour Production</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>Estimated Budget</span>
+                <span>ESTIMATED BUDGET</span>
               </label>
               <div class="lead-budget-bar" id="leadBudgetChips">
-                <button type="button" class="lead-chip" data-val="₹50k – 1.5L">₹50k – 1.5L</button>
-                <button type="button" class="lead-chip" data-val="₹1.5L – 4L">₹1.5L – 4L</button>
-                <button type="button" class="lead-chip" data-val="₹4L – 10L">₹4L – 10L</button>
+                <button type="button" class="lead-chip" data-val="₹50k - 1.5L">₹50k - 1.5L</button>
+                <button type="button" class="lead-chip" data-val="₹1.5L - 4L">₹1.5L - 4L</button>
+                <button type="button" class="lead-chip" data-val="₹4L - 10L">₹4L - 10L</button>
                 <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
-                <button type="button" class="lead-chip" data-val="Flexible / Let's Discuss">Flexible</button>
+                <button type="button" class="lead-chip is-active" data-val="Flexible">Flexible</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label" for="leadMessage">
-                <span>Project Overview &amp; Goals <span class="req">*</span></span>
+                <span>PROJECT OVERVIEW &amp; GOALS <span class="req">*</span></span>
               </label>
-              <textarea id="leadMessage" name="message" required rows="3" class="lead-input lead-textarea"></textarea>
+              <textarea id="leadMessage" name="message" required rows="3" class="lead-input lead-textarea" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..."></textarea>
             </div>
           </div>
 
@@ -2302,12 +2432,12 @@
       <!-- Success View -->
       <div id="leadSuccessView" style="display:none; text-align:center; padding: 40px 20px;">
         <div style="font-size: 48px; margin-bottom: 16px;">✨</div>
-        <h3 style="font-size: 28px; font-weight: 700; color: #ffffff; margin-bottom: 12px;">Inquiry Dispatched!</h3>
-        <p id="leadSuccessDesc" style="font-size: 16px; color: var(--text-muted); line-height: 1.6; max-width: 480px; margin: 0 auto 28px;">
-          Your project brief has been delivered directly to <strong>ssup@4eleven.in</strong>. Our founding team will review your requirements and reach out within 24 hours.
+        <h3 style="font-family:'Geist', sans-serif; font-size: 26px; font-weight: 700; color: #ffffff; margin-bottom: 10px;">Inquiry Received!</h3>
+        <p id="leadSuccessDesc" style="font-size: 15px; color: var(--text-muted); line-height: 1.6; max-width: 440px; margin: 0 auto 24px;">
+          Thank you for reaching out. Your brief has been delivered directly to our founders. We will review it and get back to you within 24 hours.
         </p>
-        <button type="button" class="kreative-nav-cta" id="leadSuccessCloseBtn" style="margin: 0 auto;">
-          Done
+        <button type="button" class="lead-submit-btn" id="leadSuccessCloseBtn" style="margin: 0 auto; display:inline-flex;">
+          Close Dialog
         </button>
       </div>
 

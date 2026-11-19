@@ -406,7 +406,10 @@
       <button type="button" class="lead-modal-close" id="leadModalClose" aria-label="Close modal">✕</button>
 
       <div id="leadFormView">
-        <div class="lead-modal-kicker">Start a Project // Four Eleven</div>
+        <div class="lead-modal-kicker">
+          <span class="kicker-dot">•</span>
+          <span>START A PROJECT // FOUR ELEVEN</span>
+        </div>
         <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
         <p class="lead-modal-subtitle">
           Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team.
@@ -417,79 +420,81 @@
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
           <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="services_requested" id="leadSelectedServices" value="">
-          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="Brand Films & Commercials">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="Flexible">
 
           <div class="lead-form-grid">
             <div class="lead-field">
               <label class="lead-label" for="leadName">
-                <span>Your Name <span class="req">*</span></span>
+                <span>YOUR NAME <span class="req">*</span></span>
               </label>
-              <input type="text" id="leadName" name="name" required class="lead-input" autocomplete="name">
+              <input type="text" id="leadName" name="name" required class="lead-input" placeholder="e.g. Rohan Sharma" autocomplete="name">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadEmail">
-                <span>Work Email <span class="req">*</span></span>
+                <span>WORK EMAIL <span class="req">*</span></span>
               </label>
-              <input type="email" id="leadEmail" name="email" required class="lead-input" autocomplete="email">
+              <input type="email" id="leadEmail" name="email" required class="lead-input" placeholder="name@company.com" autocomplete="email">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadPhone">
-                <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+                <span>PHONE / WHATSAPP <span class="opt">(Optional)</span></span>
               </label>
-              <input type="tel" id="leadPhone" name="phone" class="lead-input" autocomplete="tel">
+              <input type="tel" id="leadPhone" name="phone" class="lead-input" placeholder="+91 98765 43210" autocomplete="tel">
             </div>
 
             <div class="lead-field">
               <label class="lead-label" for="leadCompany">
-                <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+                <span>BRAND / ORGANISATION <span class="opt">(Optional)</span></span>
               </label>
-              <input type="text" id="leadCompany" name="company" class="lead-input">
+              <input type="text" id="leadCompany" name="company" class="lead-input" placeholder="e.g. Zepto, Personal Brand">
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>What are you looking to create?</span>
+                <span>WHAT ARE YOU LOOKING TO CREATE?</span>
                 <span class="opt">Select all that apply</span>
               </label>
               <div class="lead-services-grid" id="leadServicesChips">
-                <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
-                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
-                <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
+                <button type="button" class="lead-chip is-active" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip" data-val="Social Media & Content">Social Media &amp; Content</button>
+                <button type="button" class="lead-chip" data-val="Creative Direction">Creative Direction</button>
                 <button type="button" class="lead-chip" data-val="Creator & Collabs">Creator &amp; Collabs</button>
                 <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography &amp; Visuals</button>
-                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage &amp; Tour Production</button>
+                <button type="button" class="lead-chip" data-val="Stage & Tour Production">Stage &amp; Tour Production</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label">
-                <span>Estimated Budget</span>
+                <span>ESTIMATED BUDGET</span>
               </label>
-              <div class="lead-budget-grid" id="leadBudgetChips">
+              <div class="lead-budget-bar" id="leadBudgetChips">
                 <button type="button" class="lead-chip" data-val="₹50k - 1.5L">₹50k - 1.5L</button>
                 <button type="button" class="lead-chip" data-val="₹1.5L - 4L">₹1.5L - 4L</button>
                 <button type="button" class="lead-chip" data-val="₹4L - 10L">₹4L - 10L</button>
                 <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
-                <button type="button" class="lead-chip" data-val="Flexible">Flexible</button>
+                <button type="button" class="lead-chip is-active" data-val="Flexible">Flexible</button>
               </div>
             </div>
 
             <div class="lead-field full-width">
               <label class="lead-label" for="leadNotes">
-                <span>Project Overview &amp; Goals <span class="req">*</span></span>
+                <span>PROJECT OVERVIEW &amp; GOALS <span class="req">*</span></span>
               </label>
-              <textarea id="leadNotes" name="project_notes" rows="3" required class="lead-input" style="resize:vertical; min-height:85px;"></textarea>
+              <textarea id="leadNotes" name="project_notes" rows="3" required class="lead-input lead-textarea" placeholder="Tell us about the idea, desired deliverables, reference links, or target timeline..."></textarea>
             </div>
           </div>
 
           <div class="lead-form-footer">
-            <span class="lead-direct-contact">🔒 Direct to Founders: <a href="mailto:ssup@4eleven.in">ssup@4eleven.in</a></span>
-            <button type="submit" class="lead-submit-btn">
-              <span>Send Project Inquiry</span>
-              <span class="btn-arrow">→</span>
+            <div class="lead-privacy-note">
+              🔒 Direct to Founders: <strong style="color:#ffffff;">ssup@4eleven.in</strong>
+            </div>
+            <button type="submit" class="lead-submit-btn" id="leadSubmitBtn">
+              <span id="leadSubmitBtnText">Send Project Inquiry</span>
+              <span>→</span>
             </button>
           </div>
         </form>

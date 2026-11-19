@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Scope & Budget Chips
   document.querySelectorAll('#leadServicesChips .lead-chip, #contactServicesChips .lead-chip').forEach(chip => {
     chip.addEventListener('click', () => {
+      chip.classList.toggle('is-active');
       chip.classList.toggle('is-selected');
       updateLeadSelections();
     });
@@ -109,17 +110,21 @@ document.addEventListener('DOMContentLoaded', () => {
     chip.addEventListener('click', () => {
       const parent = chip.closest('#leadBudgetChips, #contactBudgetChips');
       if (parent) {
-        parent.querySelectorAll('.lead-chip').forEach(c => c.classList.remove('is-selected'));
+        parent.querySelectorAll('.lead-chip').forEach(c => {
+          c.classList.remove('is-active');
+          c.classList.remove('is-selected');
+        });
       }
+      chip.classList.add('is-active');
       chip.classList.add('is-selected');
       updateLeadSelections();
     });
   });
 
   function updateLeadSelections() {
-    const selectedServices = Array.from(document.querySelectorAll('#leadServicesChips .lead-chip.is-selected'))
+    const selectedServices = Array.from(document.querySelectorAll('#leadServicesChips .lead-chip.is-active, #leadServicesChips .lead-chip.is-selected'))
       .map(c => c.dataset.val || c.innerText.trim());
-    const selectedBudget = document.querySelector('#leadBudgetChips .lead-chip.is-selected')?.dataset.val || '';
+    const selectedBudget = document.querySelector('#leadBudgetChips .lead-chip.is-active, #leadBudgetChips .lead-chip.is-selected')?.dataset.val || '';
 
     const svcInput = document.getElementById('leadSelectedServices');
     const bgtInput = document.getElementById('leadSelectedBudget');
