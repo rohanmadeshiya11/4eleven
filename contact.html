@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Four Eleven Studio // Start a Project</title>
+  <meta name="description" content="Get in touch with Four Eleven Studio in Mumbai. Start a project inquiry for brand films, arena tour visuals, and digital content engines.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2309090b'/%3E%3Ctext x='50' y='65' font-size='48' font-weight='900' fill='%23ffe178' text-anchor='middle' font-family='sans-serif'%3E4%3C/text%3E%3C/svg%3E">
+
+  <!-- Google Fonts: Geist Sans, Instrument Serif, Lacquer Marker -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Lacquer&display=swap" rel="stylesheet">
+
+  <!-- Main Kreative Engine Stylesheet -->
+  <link rel="stylesheet" href="css/kreative.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       FLOATING PILL NAVIGATION
+       ===================================================================== -->
+  <header class="kreative-nav-wrap">
+    <div class="kreative-nav-bar">
+      <!-- Studio Logo -->
+      <a href="index.html" class="nav-logo" aria-label="Four Eleven Home">
+        <span class="nav-logo-mark">4·11</span>
+        <span class="nav-logo-name">Four Eleven</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="index.html" class="nav-item">Home</a>
+        <a href="about.html" class="nav-item">About</a>
+        <a href="projects.html" class="nav-item">Projects</a>
+        <a href="services.html" class="nav-item">Services</a>
+        <a href="stories.html" class="nav-item">Stories</a>
+      </nav>
+
+      <!-- Pill CTA Button -->
+      <a href="#leadModal" class="nav-cta-btn open-lead-modal active" aria-label="Start a project inquiry">
+        <span>Let's Talk</span>
+        <span class="btn-arrow">→</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+    </div>
+
+    <!-- Mobile Slide-Down Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <nav class="mobile-nav-list" aria-label="Mobile Navigation">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="projects.html" class="mobile-nav-link">Projects</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="stories.html" class="mobile-nav-link">Stories</a>
+        <a href="contact.html" class="mobile-nav-link active">Contact</a>
+        <a href="#leadModal" class="mobile-drawer-cta open-lead-modal">Let's Talk →</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- =====================================================================
+       PAGE HERO
+       ===================================================================== -->
+  <main>
+    <section class="page-hero reveal">
+      <div class="page-hero-kicker">CONTACT &amp; INQUIRIES</div>
+      <h1 class="page-hero-title">
+        Let’s confirm a deal <span class="serif-italic">to get impact.</span>
+      </h1>
+      <p class="page-hero-subtitle">
+        Tell us about your brand vision, production timeline, or campaign goals. Every brief goes directly to our founding team with no agency middlemen.
+      </p>
+    </section>
+
+    <!-- Split Contact & Form Section -->
+    <section class="statement-section reveal" style="padding-top: 0;">
+      <div class="statement-container">
+        <div class="contact-split-wrap">
+          <!-- Left Column: Studio Details & Illustration -->
+          <div class="contact-left-card">
+            <div class="contact-handshake-img">
+              <img src="assets/kreative/contact-handshake.png" alt="Four Eleven Partnership Handshake" loading="lazy">
+            </div>
+
+            <div class="contact-info-list">
+              <div class="contact-info-item">
+                <div class="contact-info-icon">✉️</div>
+                <div>
+                  <div class="contact-info-label">Direct Email</div>
+                  <div class="contact-info-val"><a href="mailto:ssup@4eleven.in">ssup@4eleven.in</a></div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">📱</div>
+                <div>
+                  <div class="contact-info-label">Phone / WhatsApp</div>
+                  <div class="contact-info-val"><a href="tel:+919876543210">+91 98765 43210</a></div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">📍</div>
+                <div>
+                  <div class="contact-info-label">Studio HQ</div>
+                  <div class="contact-info-val">Andheri West, Mumbai, MH, India</div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-info-icon">⏱</div>
+                <div>
+                  <div class="contact-info-label">Response Time</div>
+                  <div class="contact-info-val">Within 24 Hours Guaranteed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Direct Embedded Inquiry Form -->
+          <div class="lead-modal-card" style="box-shadow: 0 20px 40px rgba(0,0,0,0.4); max-width: 100%;">
+            <div class="lead-modal-kicker">Brief Submission // Direct to Founders</div>
+            <h2 class="lead-modal-title" style="font-size: clamp(24px, 3vw, 32px);">Send Your Project Brief</h2>
+            <p class="lead-modal-subtitle" style="margin-bottom: 24px;">
+              Fill in the parameters below and our directors will review your treatment feasibility today.
+            </p>
+
+            <form id="contactPageForm" method="POST" action="https://formsubmit.co/ssup@4eleven.in">
+              <input type="hidden" name="_subject" value="🔥 New Website Inquiry from contact.html">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="services_requested" id="contactPageServices" value="">
+              <input type="hidden" name="budget_range" id="contactPageBudget" value="">
+
+              <div class="lead-form-grid">
+                <div class="lead-field">
+                  <label class="lead-label" for="contactName">
+                    <span>Your Name <span class="req">*</span></span>
+                  </label>
+                  <input type="text" id="contactName" name="name" required class="lead-input" autocomplete="name">
+                </div>
+
+                <div class="lead-field">
+                  <label class="lead-label" for="contactEmail">
+                    <span>Work Email <span class="req">*</span></span>
+                  </label>
+                  <input type="email" id="contactEmail" name="email" required class="lead-input" autocomplete="email">
+                </div>
+
+                <div class="lead-field">
+                  <label class="lead-label" for="contactPhone">
+                    <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+                  </label>
+                  <input type="tel" id="contactPhone" name="phone" class="lead-input" autocomplete="tel">
+                </div>
+
+                <div class="lead-field">
+                  <label class="lead-label" for="contactCompany">
+                    <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+                  </label>
+                  <input type="text" id="contactCompany" name="company" class="lead-input">
+                </div>
+
+                <div class="lead-field full-width">
+                  <label class="lead-label">
+                    <span>What are you looking to create?</span>
+                    <span class="opt">Select all that apply</span>
+                  </label>
+                  <div class="lead-services-grid" id="contactServicesChips">
+                    <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                    <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
+                    <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
+                    <button type="button" class="lead-chip" data-val="Creator & Collabs">Creator &amp; Collabs</button>
+                    <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography &amp; Visuals</button>
+                    <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage &amp; Tour Production</button>
+                  </div>
+                </div>
+
+                <div class="lead-field full-width">
+                  <label class="lead-label">
+                    <span>Estimated Budget</span>
+                  </label>
+                  <div class="lead-budget-grid" id="contactBudgetChips">
+                    <button type="button" class="lead-chip" data-val="₹50k - 1.5L">₹50k - 1.5L</button>
+                    <button type="button" class="lead-chip" data-val="₹1.5L - 4L">₹1.5L - 4L</button>
+                    <button type="button" class="lead-chip" data-val="₹4L - 10L">₹4L - 10L</button>
+                    <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
+                    <button type="button" class="lead-chip" data-val="Flexible">Flexible</button>
+                  </div>
+                </div>
+
+                <div class="lead-field full-width">
+                  <label class="lead-label" for="contactNotes">
+                    <span>Project Overview &amp; Goals <span class="req">*</span></span>
+                  </label>
+                  <textarea id="contactNotes" name="project_notes" rows="3" required class="lead-input" style="resize:vertical; min-height:85px;"></textarea>
+                </div>
+              </div>
+
+              <div class="lead-form-footer">
+                <span class="lead-direct-contact">🔒 Direct to Founders: <a href="mailto:ssup@4eleven.in">ssup@4eleven.in</a></span>
+                <button type="submit" class="lead-submit-btn">
+                  <span>Send Project Inquiry</span>
+                  <span class="btn-arrow">→</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section reveal">
+      <div class="section-header">
+        <div class="kicker-tag">FAQ (?)</div>
+        <h2 class="section-title">
+          Inquiry &amp; contact <span class="serif-text">questions.</span>
+        </h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Can we schedule an in-person meeting in Mumbai?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. We love meeting founders and creative teams in person at our studio in Andheri West or over coffee in Bandra. Mention your location preference in your inquiry note!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-trigger" aria-expanded="false">
+            <span>Do you sign NDAs before receiving sensitive campaign briefs?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-content">
+            <p>Yes. We regularly execute strict mutual Non-Disclosure Agreements for unreleased products, stealth startups, and private arena tours before reviewing confidential assets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         ICONIC CTA BANNER (KREATIVE SIGNATURE)
+         ===================================================================== -->
+    <section class="cta-banner-section reveal">
+      <div class="cta-banner-card">
+        <!-- Floating Paper Airplane Sticker -->
+        <div class="cta-sticker cta-airplane-wrap" aria-hidden="true">
+          <img src="assets/kreative/airplane.webp" alt="" class="cta-airplane-img">
+        </div>
+
+        <!-- Banner Content -->
+        <div class="cta-banner-content">
+          <h2 class="cta-headline">GET READY TO BRING YOUR IDEA!</h2>
+          <p class="cta-subtext">Let's craft something bold, beautiful, and unapologetically memorable together.</p>
+
+          <!-- Butter Yellow CTA Button -->
+          <div class="cta-btn-wrapper">
+            <a href="#leadModal" class="book-call-btn open-lead-modal" aria-label="Book an Intro Call with Four Eleven">
+              <span>Book an Intro Call</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <!-- Tapping Hand Sticker -->
+            <div class="cta-cursor-hand" aria-hidden="true">
+              <img src="assets/kreative/cursor-hand.png" alt="" class="cursor-hand-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- Sticker-Bombed Rotary Phone with Stickers -->
+        <div class="cta-phone-wrapper" aria-hidden="true">
+          <img src="assets/kreative/phone-retro.png" alt="" class="phone-retro-img">
+          <div class="phone-sticker sticker-peace">
+            <img src="assets/kreative/peace-hand.png" alt="">
+          </div>
+          <div class="phone-sticker sticker-starburst">
+            <img src="assets/kreative/starburst-purple.png" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- =====================================================================
+       STUDIO FOOTER
+       ===================================================================== -->
+  <footer class="kreative-footer">
+    <div class="footer-container">
+      <div class="footer-top-row">
+        <div class="footer-brand-col">
+          <div class="footer-logo">
+            <span class="footer-logo-mark">4·11</span>
+            <span class="footer-logo-text">Four Eleven Studio</span>
+          </div>
+          <p class="footer-tagline">
+            Independent creative studio specializing in brand cinema, live tour visuals, and digital culture.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Overview</span>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="about.html" class="footer-link">About</a>
+          <a href="projects.html" class="footer-link">Projects</a>
+          <a href="services.html" class="footer-link">Services</a>
+          <a href="stories.html" class="footer-link">Stories</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Company</span>
+          <a href="contact.html" class="footer-link">Contact</a>
+          <a href="portfolio.html" class="footer-link">Full Archive</a>
+          <a href="mailto:ssup@4eleven.in" class="footer-link">Careers</a>
+          <a href="#leadModal" class="footer-link open-lead-modal">Start a Project</a>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-col-title">Connect</span>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">Instagram ↗</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">LinkedIn ↗</a>
+          <a href="https://youtube.com" target="_blank" rel="noopener" class="footer-link">YouTube ↗</a>
+          <a href="mailto:ssup@4eleven.in" class="footer-link">ssup@4eleven.in</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <p class="footer-copy">© 2026 Four Eleven Studio. Crafted with clarity and purpose.</p>
+        <div class="footer-social-pills">
+          <a href="https://x.com" target="_blank" rel="noopener" class="social-pill" aria-label="X Twitter">Twitter</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-pill" aria-label="LinkedIn">LinkedIn</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-pill" aria-label="Instagram">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- =====================================================================
+       LEAD INQUIRY MODAL (STANDALONE TRIGGER)
+       ===================================================================== -->
+  <div class="lead-modal-overlay" id="leadModal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+    <div class="lead-modal-card">
+      <button type="button" class="lead-modal-close" id="leadModalClose" aria-label="Close modal">✕</button>
+
+      <div id="leadFormView">
+        <div class="lead-modal-kicker">Start a Project // Four Eleven</div>
+        <h2 class="lead-modal-title" id="leadModalTitle">Let’s Work Together.</h2>
+        <p class="lead-modal-subtitle">
+          Tell us about your brand, project vision, or campaign goals. Every brief goes straight to our founding team.
+        </p>
+
+        <form id="leadForm" method="POST" action="https://formsubmit.co/ssup@4eleven.in">
+          <input type="hidden" name="_subject" id="leadFormSubject" value="🔥 New Project Lead from 4eleven.in">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="services_requested" id="leadSelectedServices" value="">
+          <input type="hidden" name="budget_range" id="leadSelectedBudget" value="">
+
+          <div class="lead-form-grid">
+            <div class="lead-field">
+              <label class="lead-label" for="leadName">
+                <span>Your Name <span class="req">*</span></span>
+              </label>
+              <input type="text" id="leadName" name="name" required class="lead-input" autocomplete="name">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadEmail">
+                <span>Work Email <span class="req">*</span></span>
+              </label>
+              <input type="email" id="leadEmail" name="email" required class="lead-input" autocomplete="email">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadPhone">
+                <span>Phone / WhatsApp <span class="opt">(Optional)</span></span>
+              </label>
+              <input type="tel" id="leadPhone" name="phone" class="lead-input" autocomplete="tel">
+            </div>
+
+            <div class="lead-field">
+              <label class="lead-label" for="leadCompany">
+                <span>Brand / Organisation <span class="opt">(Optional)</span></span>
+              </label>
+              <input type="text" id="leadCompany" name="company" class="lead-input">
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label">
+                <span>What are you looking to create?</span>
+                <span class="opt">Select all that apply</span>
+              </label>
+              <div class="lead-services-grid" id="leadServicesChips">
+                <button type="button" class="lead-chip" data-val="Brand Films & Commercials">Brand Films &amp; Commercials</button>
+                <button type="button" class="lead-chip" data-val="Social Media & Content Engine">Social Media &amp; Content</button>
+                <button type="button" class="lead-chip" data-val="Creative Direction & Strategy">Creative Direction</button>
+                <button type="button" class="lead-chip" data-val="Creator & Collabs">Creator &amp; Collabs</button>
+                <button type="button" class="lead-chip" data-val="Cinematography & Visuals">Cinematography &amp; Visuals</button>
+                <button type="button" class="lead-chip" data-val="Stage & Live Tour Production">Stage &amp; Tour Production</button>
+              </div>
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label">
+                <span>Estimated Budget</span>
+              </label>
+              <div class="lead-budget-grid" id="leadBudgetChips">
+                <button type="button" class="lead-chip" data-val="₹50k - 1.5L">₹50k - 1.5L</button>
+                <button type="button" class="lead-chip" data-val="₹1.5L - 4L">₹1.5L - 4L</button>
+                <button type="button" class="lead-chip" data-val="₹4L - 10L">₹4L - 10L</button>
+                <button type="button" class="lead-chip" data-val="₹10L+ / Retainer">₹10L+ / Retainer</button>
+                <button type="button" class="lead-chip" data-val="Flexible">Flexible</button>
+              </div>
+            </div>
+
+            <div class="lead-field full-width">
+              <label class="lead-label" for="leadNotes">
+                <span>Project Overview &amp; Goals <span class="req">*</span></span>
+              </label>
+              <textarea id="leadNotes" name="project_notes" rows="3" required class="lead-input" style="resize:vertical; min-height:85px;"></textarea>
+            </div>
+          </div>
+
+          <div class="lead-form-footer">
+            <span class="lead-direct-contact">🔒 Direct to Founders: <a href="mailto:ssup@4eleven.in">ssup@4eleven.in</a></span>
+            <button type="submit" class="lead-submit-btn">
+              <span>Send Project Inquiry</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Success Confirmation View -->
+      <div id="leadSuccessView" style="display:none; text-align:center; padding: 40px 20px;">
+        <div style="font-size: 54px; margin-bottom: 20px;">🎉</div>
+        <h3 style="font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px;">Inquiry Received!</h3>
+        <p style="color: var(--color-text-secondary); max-width: 440px; margin: 0 auto 30px; line-height: 1.6;">
+          Thank you for reaching out. Our founding team reviews every brief directly and will get back to you within 24 hours.
+        </p>
+        <button type="button" class="nav-cta-btn" onclick="document.getElementById('leadModal').classList.remove('is-active')" style="display:inline-flex;">
+          Back to Four Eleven
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Engine Script -->
+  <script src="js/kreative.js"></script>
+  <script>
+    // Hook up chips for embedded contact page form
+    document.querySelectorAll('#contactServicesChips .lead-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        chip.classList.toggle('is-selected');
+        const selected = Array.from(document.querySelectorAll('#contactServicesChips .lead-chip.is-selected'))
+          .map(c => c.dataset.val || c.innerText.trim());
+        document.getElementById('contactPageServices').value = selected.join(', ');
+      });
+    });
+
+    document.querySelectorAll('#contactBudgetChips .lead-chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        document.querySelectorAll('#contactBudgetChips .lead-chip').forEach(c => c.classList.remove('is-selected'));
+        chip.classList.add('is-selected');
+        document.getElementById('contactPageBudget').value = chip.dataset.val || '';
+      });
+    });
+  </script>
+</body>
+</html>
